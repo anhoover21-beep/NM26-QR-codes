@@ -207,16 +207,79 @@ body {
 const now = new Date();
 const currentHour = now.getHours();
 
+// ===== TRIP DATE RANGE =====
+const tripStart = new Date("2026-06-05");
+const tripEnd = new Date("2026-06-14");
+
+// ===== MISSION DATA =====
+const missions = {
+  "2026-06-05": {
+    title: "Day 1 — Arrival Recon",
+    content: [
+      "Camp setup and perimeter walk",
+      "Sunset observation",
+      "Early night orientation"
+    ]
+  },
+  "2026-06-06": {
+    title: "Day 2 — UV Desert Sweep",
+    content: [
+      "Scorpion scan along rock edges",
+      "Tarantula search near burrows",
+      "Spider eye-shine sweep",
+      "Mineral glow check"
+    ]
+  },
+  "2026-06-07": {
+    title: "Day 3 — Petroglyph Recon",
+    content: [
+      "Evening canyon walk",
+      "Star position check",
+      "Night photography session"
+    ]
+  }
+};
+
+// ===== ELEMENTS =====
 const lockedSection = document.getElementById("locked");
 const missionSection = document.getElementById("mission");
 
-if (currentHour >= 18) {
+// Format date as YYYY-MM-DD
+function formatDate(date) {
+  return date.toISOString().split("T")[0];
+}
+
+const todayString = formatDate(now);
+
+// ===== TIME + DATE LOGIC =====
+if (currentHour >= 18 && now >= tripStart && now <= tripEnd) {
+
+  if (missions[todayString]) {
+
+    const missionData = missions[todayString];
+    const missionCard = missionSection.querySelector(".mission-card");
+
+    let missionHTML = `<h1>${missionData.title}</h1>`;
+
+    missionData.content.forEach(item => {
+      missionHTML += `<p>• ${item}</p>`;
+    });
+
+    missionCard.innerHTML = missionHTML;
+
+  } else {
+    missionSection.querySelector(".mission-card").innerHTML =
+      "<h1>No Mission Scheduled Tonight</h1><p>Stand down.</p>";
+  }
+
   missionSection.style.display = "block";
+
 } else {
   lockedSection.style.display = "block";
   startCountdown();
 }
 
+// ===== COUNTDOWN =====
 function startCountdown() {
   const countdownElement = document.getElementById("countdown");
 
@@ -244,6 +307,3 @@ function startCountdown() {
   setInterval(updateCountdown, 1000);
 }
 </script>
-
-</body>
-</html>
