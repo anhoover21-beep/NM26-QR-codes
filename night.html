@@ -13,7 +13,6 @@ body {
   color: #222;
 }
 
-/* HEADER */
 .nm-header {
   background: #C8102E;
   color: white;
@@ -51,30 +50,13 @@ body {
   color: #F4C300;
 }
 
-.nm-nav a {
-  color: white;
-  text-decoration: none;
-  margin-left: 30px;
-  font-size: 18px;
-}
-
-.login-btn {
-  background: #F4C300;
-  color: white;
-  padding: 8px 16px;
-  border-radius: 6px;
-  margin-left: 30px;
-  font-weight: bold;
-}
-
 .nm-stripe {
   background: #F4C300;
   height: 8px;
 }
 
-/* CONTENT */
 .main-content {
-  max-width: 900px;
+  max-width: 800px;
   margin: 60px auto;
   padding: 20px;
   text-align: center;
@@ -96,13 +78,6 @@ body {
   margin-top: 20px;
   color: #C8102E;
 }
-
-@media (max-width: 768px) {
-  .nm-container {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-}
 </style>
 </head>
 
@@ -116,16 +91,7 @@ body {
       </div>
       <span class="nm-number">26</span>
     </div>
-
-    <nav class="nm-nav">
-      <a href="#">Home</a>
-      <a href="#">Planner</a>
-      <a href="#">Resources</a>
-      <a href="#">Guide</a>
-      <a href="#" class="login-btn">Login</a>
-    </nav>
   </div>
-
   <div class="nm-stripe"></div>
 </header>
 
@@ -147,26 +113,50 @@ body {
 
 // ===== TRIP SETTINGS =====
 const tripStart = new Date("2026-06-05");
-const tripEnd = new Date("2026-06-12");
+const tripEnd   = new Date("2026-06-12");
 
-// ===== MISSION DATA =====
+// ===== MISSIONS (PARAGRAPH MODE) =====
 const missions = {
 
-"2026-06-05": { title: "Day 1 — Tucumcari Neon Loop", content: ["Neon walk. Find 5 colors. Capture reflections."] },
+"2026-06-05": {
+  title: "Day 1 — Tucumcari Neon Loop",
+  content: `You’ve checked in at the legendary Blue Swallow Motel on Route 66. When the sun slips behind the mesas, the street wakes up in neon — reds, yellows, humming signs and reflections dancing on chrome. Walk the strip, find five different neon colors, capture a reflection photo, and let the Mother Road show you how it dreams after dark.`
+},
 
-"2026-06-06": { title: "Day 2 — Santa Fe Plaza Geocache Night", content: ["Find 3 caches. Bonus: street musician photo."] },
+"2026-06-06": {
+  title: "Day 2 — Santa Fe Plaza Geocache Night",
+  content: `Dinner first, then lantern light and hidden treasure. As twilight settles over the Plaza, fire up the geocache app and hunt for history tucked into benches, courtyards, and cathedral shadows. Log your finds, snap a photo with at least one cache, and let Santa Fe whisper a few secrets your way.`
+},
 
-"2026-06-07": { title: "Day 3 — Rio Grande Gorge & Taos Nights", content: ["Paper airplane challenge on the bridge."] },
+"2026-06-07": {
+  title: "Day 3 — Rio Grande Gorge & Taos Nights",
+  content: `As the canyon glows orange and the wind hums across the Rio Grande Gorge Bridge, unfold a blank page into something that flies. Launch your paper plane into the open sky and laugh at wherever it lands. The goal isn’t distance — it’s the moment you let it go.`
+},
 
-"2026-06-08": { title: "Day 4 — Meow Wolf: The Night We Got Lost", content: ["Explore hidden doors. Find the glowing tree."] },
+"2026-06-08": {
+  title: "Day 4 — Meow Wolf: The Night We Got Lost",
+  content: `Step inside the House of Eternal Return and trade logic for wonder. Open doors that shouldn’t exist, crawl through portals disguised as appliances, and follow the glow wherever it leads. Tonight isn’t about understanding — it’s about exploration.`
+},
 
-"2026-06-09": { title: "Day 5 — Socorro: Beneath Our Feet, Above Our Heads", content: ["Star scan. UV hunt. Count constellations."] },
+"2026-06-09": {
+  title: "Day 5 — Socorro: Beneath Our Feet, Above Our Heads",
+  content: `The desert grows quiet as the stars take their places. Find a pull-off beyond the city lights, let your eyes adjust, and watch the Milky Way appear like it was waiting for you. Scan the ground with UV, scan the sky with patience, and earn your place among the constellations.`
+},
 
-"2026-06-10": { title: "Day 6 — Roswell: The Night We Landed", content: ["Alien statue hunt. Neon reflections challenge."] },
+"2026-06-10": {
+  title: "Day 6 — Roswell: The Night We Landed",
+  content: `Under green-glow streetlights and neon saucers, Roswell invites you to lean into the absurd. Pose with aliens, hunt murals, and capture reflections that feel a little otherworldly. No one here questions strange lights in the sky — and neither should you.`
+},
 
-"2026-06-11": { title: "Day 7 — Fort Stockton: The In Between", content: ["Rest. Refuel. Reflect."] },
+"2026-06-11": {
+  title: "Day 7 — Fort Stockton: The In Between",
+  content: `Not every night needs spectacle. Tonight is for slowing down — sunset from the motel lot, warm food, quiet desert air. Reflect on one moment that still echoes from the road and let the pause become part of the story.`
+},
 
-"2026-06-12": { title: "Day 8 — San Antonio: The Last Great Hurrah", content: ["River Walk celebration. Toast to the road."] }
+"2026-06-12": {
+  title: "Day 8 — San Antonio: The Last Great Hurrah",
+  content: `Boots on brick and laughter on the River Walk. Tonight is a toast to every mile behind you. Wander under the lights, let one song mark the end of the journey, and capture the moment that proves you lived this road fully.`
+}
 
 };
 
@@ -195,11 +185,10 @@ else if (currentHour >= 18 && now >= tripStart && now <= tripEnd) {
 
   if (missions[todayString]) {
     const missionData = missions[todayString];
-    let html = `<h1>${missionData.title}</h1>`;
-    missionData.content.forEach(item => {
-      html += `<p>${item}</p>`;
-    });
-    missionCard.innerHTML = html;
+    missionCard.innerHTML = `
+      <h1>${missionData.title}</h1>
+      <p>${missionData.content}</p>
+    `;
   } else {
     missionCard.innerHTML = "<h1>No Mission Tonight</h1>";
   }
@@ -207,7 +196,7 @@ else if (currentHour >= 18 && now >= tripStart && now <= tripEnd) {
   missionSection.style.display = "block";
 }
 
-// LOCKED MODE
+// LOCKED
 else {
   lockedSection.style.display = "block";
   startCountdown();
