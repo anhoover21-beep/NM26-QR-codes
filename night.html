@@ -6,10 +6,6 @@
 <title>NM26 Night Mission</title>
 
 <style>
-/* =========================
-   GLOBAL
-========================= */
-
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
@@ -17,12 +13,9 @@ body {
   color: #222;
 }
 
-/* =========================
-   NM26 HEADER
-========================= */
-
+/* HEADER */
 .nm-header {
-  background: #C8102E; /* NM red */
+  background: #C8102E;
   color: white;
 }
 
@@ -55,7 +48,7 @@ body {
 .nm-number {
   font-size: 42px;
   font-weight: bold;
-  color: #F4C300; /* NM yellow */
+  color: #F4C300;
 }
 
 .nm-nav a {
@@ -63,11 +56,6 @@ body {
   text-decoration: none;
   margin-left: 30px;
   font-size: 18px;
-  font-weight: 500;
-}
-
-.nm-nav a:hover {
-  opacity: 0.8;
 }
 
 .login-btn {
@@ -82,25 +70,9 @@ body {
 .nm-stripe {
   background: #F4C300;
   height: 8px;
-  position: relative;
 }
 
-.vacation-tag {
-  position: absolute;
-  left: 20px;
-  top: -18px;
-  background: #C8102E;
-  color: #F4C300;
-  padding: 6px 14px;
-  border-radius: 20px;
-  font-size: 14px;
-  font-weight: bold;
-}
-
-/* =========================
-   CONTENT AREA
-========================= */
-
+/* CONTENT */
 .main-content {
   max-width: 900px;
   margin: 60px auto;
@@ -125,28 +97,10 @@ body {
   color: #C8102E;
 }
 
-/* =========================
-   RESPONSIVE
-========================= */
-
 @media (max-width: 768px) {
   .nm-container {
     flex-direction: column;
     align-items: flex-start;
-  }
-
-  .nm-nav {
-    margin-top: 15px;
-  }
-
-  .nm-nav a {
-    margin-left: 0;
-    margin-right: 15px;
-  }
-
-  .nm-text,
-  .nm-number {
-    font-size: 32px;
   }
 }
 </style>
@@ -156,7 +110,6 @@ body {
 
 <header class="nm-header">
   <div class="nm-container">
-
     <div class="nm-logo">
       <div class="nm-outline">
         <span class="nm-text">NM</span>
@@ -171,133 +124,110 @@ body {
       <a href="#">Guide</a>
       <a href="#" class="login-btn">Login</a>
     </nav>
-
   </div>
 
-  <div class="nm-stripe">
-    <span class="vacation-tag">Vacation 2026</span>
-  </div>
+  <div class="nm-stripe"></div>
 </header>
 
 <div class="main-content">
 
-  <!-- LOCKED SECTION -->
   <div id="locked" class="section">
     <h1>MISSION LOCKED</h1>
     <p>Scan after 6:00 PM.</p>
     <div class="countdown" id="countdown"></div>
   </div>
 
-  <!-- MISSION SECTION -->
   <div id="mission" class="section">
-    <div class="mission-card">
-      <h1>Night Mission</h1>
-      <p><strong>Objective:</strong> UV Desert Sweep</p>
-      <p>• Scorpion scan along rock edges</p>
-      <p>• Tarantula search near burrows</p>
-      <p>• Spider eye-shine sweep</p>
-      <p>• Mineral glow check</p>
-      <p>• Safety check before return</p>
-    </div>
+    <div class="mission-card"></div>
   </div>
 
 </div>
 
 <script>
-const now = new Date();
-const currentHour = now.getHours();
 
-// ===== TRIP DATE RANGE =====
+// ===== TRIP SETTINGS =====
 const tripStart = new Date("2026-06-05");
-const tripEnd = new Date("2026-06-14");
+const tripEnd = new Date("2026-06-12");
 
 // ===== MISSION DATA =====
 const missions = {
-  "2026-06-05": {
-    title: "Day 1 — Arrival Recon",
-    content: [
-      "Camp setup and perimeter walk",
-      "Sunset observation",
-      "Early night orientation"
-    ]
-  },
-  "2026-06-06": {
-    title: "Day 2 — UV Desert Sweep",
-    content: [
-      "Scorpion scan along rock edges",
-      "Tarantula search near burrows",
-      "Spider eye-shine sweep",
-      "Mineral glow check"
-    ]
-  },
-  "2026-06-07": {
-    title: "Day 3 — Petroglyph Recon",
-    content: [
-      "Evening canyon walk",
-      "Star position check",
-      "Night photography session"
-    ]
-  }
+
+"2026-06-05": { title: "Day 1 — Tucumcari Neon Loop", content: ["Neon walk. Find 5 colors. Capture reflections."] },
+
+"2026-06-06": { title: "Day 2 — Santa Fe Plaza Geocache Night", content: ["Find 3 caches. Bonus: street musician photo."] },
+
+"2026-06-07": { title: "Day 3 — Rio Grande Gorge & Taos Nights", content: ["Paper airplane challenge on the bridge."] },
+
+"2026-06-08": { title: "Day 4 — Meow Wolf: The Night We Got Lost", content: ["Explore hidden doors. Find the glowing tree."] },
+
+"2026-06-09": { title: "Day 5 — Socorro: Beneath Our Feet, Above Our Heads", content: ["Star scan. UV hunt. Count constellations."] },
+
+"2026-06-10": { title: "Day 6 — Roswell: The Night We Landed", content: ["Alien statue hunt. Neon reflections challenge."] },
+
+"2026-06-11": { title: "Day 7 — Fort Stockton: The In Between", content: ["Rest. Refuel. Reflect."] },
+
+"2026-06-12": { title: "Day 8 — San Antonio: The Last Great Hurrah", content: ["River Walk celebration. Toast to the road."] }
+
 };
 
-// ===== ELEMENTS =====
+// ===== LOGIC =====
+const now = new Date();
+const currentHour = now.getHours();
+const todayString = now.toISOString().split("T")[0];
+
 const lockedSection = document.getElementById("locked");
 const missionSection = document.getElementById("mission");
+const missionCard = document.querySelector(".mission-card");
 
-// Format date as YYYY-MM-DD
-function formatDate(date) {
-  return date.toISOString().split("T")[0];
+// POST TRIP
+if (now > tripEnd) {
+
+  missionSection.style.display = "block";
+  missionCard.innerHTML = `
+    <h1>Trip is over, Jackass. Stop Scanning.</h1>
+    <img src="assets/images/jackass.png" style="max-width:300px;margin-top:20px;">
+  `;
+
 }
 
-const todayString = formatDate(now);
-
-// ===== TIME + DATE LOGIC =====
-if (currentHour >= 18 && now >= tripStart && now <= tripEnd) {
+// ACTIVE TRIP
+else if (currentHour >= 18 && now >= tripStart && now <= tripEnd) {
 
   if (missions[todayString]) {
-
     const missionData = missions[todayString];
-    const missionCard = missionSection.querySelector(".mission-card");
-
-    let missionHTML = `<h1>${missionData.title}</h1>`;
-
+    let html = `<h1>${missionData.title}</h1>`;
     missionData.content.forEach(item => {
-      missionHTML += `<p>• ${item}</p>`;
+      html += `<p>${item}</p>`;
     });
-
-    missionCard.innerHTML = missionHTML;
-
+    missionCard.innerHTML = html;
   } else {
-    missionSection.querySelector(".mission-card").innerHTML =
-      "<h1>No Mission Scheduled Tonight</h1><p>Stand down.</p>";
+    missionCard.innerHTML = "<h1>No Mission Tonight</h1>";
   }
 
   missionSection.style.display = "block";
+}
 
-} else {
+// LOCKED MODE
+else {
   lockedSection.style.display = "block";
   startCountdown();
 }
 
-// ===== COUNTDOWN =====
+// COUNTDOWN
 function startCountdown() {
   const countdownElement = document.getElementById("countdown");
 
   function updateCountdown() {
     const now = new Date();
     const unlockTime = new Date();
-    unlockTime.setHours(18, 0, 0, 0);
+    unlockTime.setHours(18,0,0,0);
+    const diff = unlockTime - now;
 
-    const difference = unlockTime - now;
+    if (diff <= 0) { location.reload(); return; }
 
-    if (difference <= 0) {
-      location.reload();
-      return;
-    }
-
-    const hours = Math.floor(difference / (1000 * 60 * 60));
-    const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+    const hours = Math.floor(diff / (1000*60*60));
+    const minutes = Math.floor((diff % (1000*60*60))/(1000*60));
+    const seconds = Math.floor((diff % (1000*60))/1000);
 
     countdownElement.textContent =
       `Mission unlocks in ${hours}h ${minutes}m ${seconds}s`;
@@ -306,4 +236,8 @@ function startCountdown() {
   updateCountdown();
   setInterval(updateCountdown, 1000);
 }
+
 </script>
+
+</body>
+</html>
