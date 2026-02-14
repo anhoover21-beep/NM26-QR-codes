@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NM26 — Did You Know?</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f4f4f4;
+  color: #222;
+}
+
+/* ===== HEADER ===== */
+
+.nm-header {
+  background: #C8102E;
+  color: white;
+}
+
+.nm-header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nm-brand {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.nm-state {
+  width: 110px;
+  height: 110px;
+  background: url("assets/images/new-mexico.png") no-repeat center;
+  background-size: contain;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nm-text {
+  font-size: 40px;
+  font-weight: 900;
+  color: white;
+}
+
+.nm-number {
+  font-size: 72px;
+  font-weight: 900;
+  color: #F4C300;
+}
+
+.nm-stripe {
+  background: #F4C300;
+  padding: 8px 40px;
+  font-weight: 900;
+  color: #C8102E;
+  text-align: center;
+  letter-spacing: 2px;
+}
+
+/* ===== CONTENT LAYOUT ===== */
+
+.page-container {
+  max-width: 1000px;
+  margin: 70px auto 100px auto;
+  padding: 0 30px;
+}
+
+.content-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 50px;
+}
+
+.text-column {
+  flex: 1;
+}
+
+.text-column h1 {
+  font-size: 42px;
+  margin-bottom: 30px;
+  letter-spacing: 2px;
+}
+
+.text-column p {
+  font-size: 20px;
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
+
+.dusty-column {
+  width: 260px;
+  flex-shrink: 0;
+}
+
+.dusty-column img {
+  width: 100%;
+  height: auto;
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 900px) {
+
+  .content-row {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .dusty-column {
+    width: 200px;
+    margin-bottom: 30px;
+  }
+
+  .text-column {
+    text-align: center;
+  }
+
+  .text-column h1 {
+    font-size: 32px;
+  }
+
+  .text-column p {
+    font-size: 17px;
+  }
+
+  .nm-state {
+    width: 80px;
+    height: 80px;
+  }
+
+  .nm-text {
+    font-size: 26px;
+  }
+
+  .nm-number {
+    font-size: 42px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header class="nm-header">
+  <div class="nm-header-inner">
+    <div class="nm-brand">
+      <div class="nm-state">
+        <span class="nm-text">NM</span>
+      </div>
+      <span class="nm-number">26</span>
+    </div>
+  </div>
+  <div class="nm-stripe">
+    VACATION 2026
+  </div>
+</header>
+
+<main class="page-container">
+
+  <div class="content-row">
+
+    <div class="text-column">
+
+      <h1>DID YOU KNOW?</h1>
+
+      <!-- Replace paragraphs below -->
+
+      <p>
+        Santa Fe is the oldest capital city in the United States, founded in 1610.
+      </p>
+
+      <p>
+        The Rio Grande Gorge Bridge stands 650 feet above the river and is one of the highest bridges in the country.
+      </p>
+
+      <p>
+        New Mexico has more than 300 days of sunshine each year.
+      </p>
+
+    </div>
+
+    <div class="dusty-column">
+      <img src="assets/images/wise-traveler.png" alt="Dusty Sagebrush">
+    </div>
+
+  </div>
+
+</main>
+
+</body>
+</html>
