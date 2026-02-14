@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NM26 Mission Portal</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        background: #f4f4f4;
+        color: #222;
+    }
+
+    /* ===== HEADER ===== */
+
+    .nm-header {
+        background: #c5161d;
+        color: white;
+    }
+
+    .nm-header-inner {
+        max-width: 1300px;
+        margin: 0 auto;
+        padding: 30px 40px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .nm-brand {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .nm-state {
+        position: relative;
+        width: 110px;
+        height: 110px;
+        background: url("assets/images/new-mexico.png") no-repeat center;
+        background-size: contain;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .nm-text {
+        font-size: 40px;
+        font-weight: 900;
+        letter-spacing: 2px;
+        color: white;
+    }
+
+    .nm-year {
+        font-size: 72px;
+        font-weight: 900;
+        color: #ffd23f;
+    }
+
+    .nm-nav {
+        display: flex;
+        gap: 60px;
+    }
+
+    .nm-nav span {
+        color: white;
+        font-size: 26px;
+        letter-spacing: 2px;
+        font-weight: 600;
+    }
+
+    .nm-login span {
+        background: #ffd23f;
+        color: #c5161d;
+        padding: 12px 26px;
+        border-radius: 16px;
+        font-weight: 900;
+        font-size: 22px;
+    }
+
+    .nm-stripe {
+        background: #ffd23f;
+        padding: 10px 40px;
+        font-weight: 900;
+        color: #c5161d;
+        letter-spacing: 2px;
+    }
+
+    /* ===== CONTENT ===== */
+
+    .page-container {
+        max-width: 900px;
+        margin: 80px auto;
+        padding: 0 30px 100px 30px;
+    }
+
+    .page-container h1 {
+        font-size: 42px;
+        margin-bottom: 24px;
+    }
+
+    .page-container p {
+        font-size: 20px;
+        line-height: 1.7;
+        margin-bottom: 24px;
+    }
+
+    /* ===== RESPONSIVE ===== */
+
+    @media (max-width: 1024px) {
+
+        .nm-header-inner {
+            flex-direction: column;
+            gap: 20px;
+            text-align: center;
+        }
+
+        .nm-nav {
+            gap: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .nm-nav span {
+            font-size: 20px;
+        }
+
+        .nm-state {
+            width: 90px;
+            height: 90px;
+        }
+
+        .nm-text {
+            font-size: 30px;
+        }
+
+        .nm-year {
+            font-size: 54px;
+        }
+
+        .nm-login span {
+            font-size: 18px;
+            padding: 10px 20px;
+        }
+    }
+
+    @media (max-width: 600px) {
+
+        .nm-header-inner {
+            padding: 20px;
+        }
+
+        .nm-nav {
+            gap: 16px;
+        }
+
+        .nm-nav span {
+            font-size: 16px;
+        }
+
+        .nm-state {
+            width: 70px;
+            height: 70px;
+        }
+
+        .nm-text {
+            font-size: 22px;
+        }
+
+        .nm-year {
+            font-size: 40px;
+        }
+
+        .page-container {
+            margin: 50px auto;
+            padding: 0 20px 80px 20px;
+        }
+
+        .page-container h1 {
+            font-size: 28px;
+        }
+
+        .page-container p {
+            font-size: 17px;
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<header class="nm-header">
+    <div class="nm-header-inner">
+
+        <div class="nm-brand">
+            <div class="nm-state">
+                <span class="nm-text">NM</span>
+            </div>
+            <span class="nm-year">26</span>
+        </div>
+
+        <nav class="nm-nav">
+            <span>HOME</span>
+            <span>PLANNER</span>
+            <span>RESOURCES</span>
+            <span>GUIDE</span>
+        </nav>
+
+        <div class="nm-login">
+            <span>LOGIN</span>
+        </div>
+
+    </div>
+
+    <div class="nm-stripe">
+        VACATION 2026
+    </div>
+</header>
+
+<main class="page-container">
+
+<h1>📸 How to Photograph a Desert Sunset</h1>
+<h2>(A Guide to Catching Sky Fire Without Clanking It)</h2>
+
+<p>New Mexico sunsets are easy to watch… but tricky to capture. Here’s how to make your photos look like what your eyes actually saw — instead of “why is it all white?” or “why does the sun look like a nuclear flashbang?”</p>
+
+<br>
+
+<h2>1. Face AWAY From the Sun</h2>
+
+<p>Beginners aim the camera at the sun. Don’t. The colors happen in the opposite direction — purples, pinks, gold reflections on the clouds.</p>
+
+<p><strong>Point your camera:</strong></p>
+
+<p>
+east<br>
+northeast<br>
+or wherever the clouds are glowing
+</p>
+
+<p><strong>That’s where the magic is.</strong></p>
+
+<br>
+
+<h2>2. Tap to Focus on the Sky, Not the Ground</h2>
+
+<p>If you let your phone decide, it’ll expose for the dark desert and turn the sky into a white hole of sadness.</p>
+
+<p>Tap the <strong>BRIGHT AREA</strong> of the sky.</p>
+
+<p>Your phone instantly:</p>
+
+<p>
+darkens the shadows<br>
+deepens the color<br>
+pulls out the reds/oranges
+</p>
+
+<p><strong>This is the biggest cheat code.</strong></p>
+
+<br>
+
+<h2>3. Lower Exposure a Tiny Bit</h2>
+
+<p>After you tap the sky, slide the brightness down just one notch.</p>
+
+<p><strong>Result:</strong></p>
+
+<p>
+richer reds<br>
+darker silhouettes<br>
+crisp cloud detail<br>
+total “National Geographic but with beer” vibes
+</p>
+
+<br>
+
+<h2>4. Put Something in the Foreground</h2>
+
+<p>Sunset + object = instant masterpiece. Try:</p>
+
+<p>
+windmill<br>
+fencepost<br>
+wagon<br>
+cactus<br>
+road sign<br>
+the Pathfinder (Stormy!!)
+</p>
+
+<p>Silhouettes make desert sunsets look cinematic.</p>
+
+<br>
+
+<h2>5. Wait 10 Minutes After the Sun Actually Sets</h2>
+
+<p>The AFTERGLOW is the real show. That’s when New Mexico pulls out the neon pinks and purples.</p>
+
+<p>If you walk away too early, you’ll miss the best part.</p>
+
+<br>
+
+<h2>6. Hold the Phone Steady</h2>
+
+<p>As the sky gets darker, your camera needs stability.</p>
+
+<p><strong>Best method?</strong><br>
+Plant your elbows on the Pathfinder roof.<br>
+Or on Terri. She doesn’t mind.</p>
+
+<br>
+
+<h2>7. Take 10–15 Shots — One Will Be Gold</h2>
+
+<p>Sunsets change every 15 seconds. Take a few. Pick the best later.</p>
+
+<p>No shame in it. The pros do the same.</p>
+
+<p><strong>Result:</strong><br>
+You come home with photos that look EXACTLY like what you saw… and nobody will believe you didn’t use filters.</p>
+
+</main>
+
+
+</body>
+</html>
