@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NM26 Mission Portal</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        background: #f4f4f4;
+        color: #222;
+    }
+
+    /* ===== HEADER ===== */
+
+    .nm-header {
+        background: #c5161d;
+        color: white;
+    }
+
+    .nm-header-inner {
+        max-width: 1300px;
+        margin: 0 auto;
+        padding: 30px 40px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .nm-brand {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .nm-state {
+        position: relative;
+        width: 110px;
+        height: 110px;
+        background: url("assets/images/new-mexico.png") no-repeat center;
+        background-size: contain;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .nm-text {
+        font-size: 40px;
+        font-weight: 900;
+        letter-spacing: 2px;
+        color: white;
+    }
+
+    .nm-year {
+        font-size: 72px;
+        font-weight: 900;
+        color: #ffd23f;
+    }
+
+    .nm-nav {
+        display: flex;
+        gap: 60px;
+    }
+
+    .nm-nav span {
+        color: white;
+        font-size: 26px;
+        letter-spacing: 2px;
+        font-weight: 600;
+    }
+
+    .nm-login span {
+        background: #ffd23f;
+        color: #c5161d;
+        padding: 12px 26px;
+        border-radius: 16px;
+        font-weight: 900;
+        font-size: 22px;
+    }
+
+    .nm-stripe {
+        background: #ffd23f;
+        padding: 10px 40px;
+        font-weight: 900;
+        color: #c5161d;
+        letter-spacing: 2px;
+    }
+
+    /* ===== CONTENT ===== */
+
+    .page-container {
+        max-width: 900px;
+        margin: 80px auto;
+        padding: 0 30px 100px 30px;
+    }
+
+    .page-container h1 {
+        font-size: 42px;
+        margin-bottom: 24px;
+    }
+
+    .page-container p {
+        font-size: 20px;
+        line-height: 1.7;
+        margin-bottom: 24px;
+    }
+
+    /* ===== RESPONSIVE ===== */
+
+    @media (max-width: 1024px) {
+
+        .nm-header-inner {
+            flex-direction: column;
+            gap: 20px;
+            text-align: center;
+        }
+
+        .nm-nav {
+            gap: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .nm-nav span {
+            font-size: 20px;
+        }
+
+        .nm-state {
+            width: 90px;
+            height: 90px;
+        }
+
+        .nm-text {
+            font-size: 30px;
+        }
+
+        .nm-year {
+            font-size: 54px;
+        }
+
+        .nm-login span {
+            font-size: 18px;
+            padding: 10px 20px;
+        }
+    }
+
+    @media (max-width: 600px) {
+
+        .nm-header-inner {
+            padding: 20px;
+        }
+
+        .nm-nav {
+            gap: 16px;
+        }
+
+        .nm-nav span {
+            font-size: 16px;
+        }
+
+        .nm-state {
+            width: 70px;
+            height: 70px;
+        }
+
+        .nm-text {
+            font-size: 22px;
+        }
+
+        .nm-year {
+            font-size: 40px;
+        }
+
+        .page-container {
+            margin: 50px auto;
+            padding: 0 20px 80px 20px;
+        }
+
+        .page-container h1 {
+            font-size: 28px;
+        }
+
+        .page-container p {
+            font-size: 17px;
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<header class="nm-header">
+    <div class="nm-header-inner">
+
+        <div class="nm-brand">
+            <div class="nm-state">
+                <span class="nm-text">NM</span>
+            </div>
+            <span class="nm-year">26</span>
+        </div>
+
+        <nav class="nm-nav">
+            <span>HOME</span>
+            <span>PLANNER</span>
+            <span>RESOURCES</span>
+            <span>GUIDE</span>
+        </nav>
+
+        <div class="nm-login">
+            <span>LOGIN</span>
+        </div>
+
+    </div>
+
+    <div class="nm-stripe">
+        VACATION 2026
+    </div>
+</header>
+
+<main class="page-container">
+
+<h1>New Mexico: A State of History, Mystery & Miracles</h1>
+
+<p><strong>Nickname:</strong> The Land of Enchantment<br>
+<strong>Capital:</strong> <strong>:contentReference[oaicite:0]{index=0}</strong><br>
+<strong>Statehood:</strong> January 6, 1912 (47th state)<br>
+<strong>Population:</strong> ~2.1 million<br>
+<strong>Largest City:</strong> <strong>:contentReference[oaicite:1]{index=1}</strong><br>
+<strong>Governor:</strong> <strong>:contentReference[oaicite:2]{index=2}</strong><br>
+<strong>State Bird:</strong> Roadrunner<br>
+<strong>State Flower:</strong> Yucca<br>
+<strong>State Tree:</strong> Piñon Pine<br>
+<strong>State Motto:</strong> Crescit eundo — “It grows as it goes.”</p>
+
+<br>
+
+<h2>🧬 A Cultural Crossroads</h2>
+
+<p><strong>:contentReference[oaicite:3]{index=3}</strong> is one of the most deeply layered cultural regions in the United States:</p>
+
+<p>
+Ancient Puebloan civilizations<br>
+Spanish settlers in the 1590s<br>
+Mexican rule until 1848<br>
+Blended with American frontier culture
+</p>
+
+<p>It’s one of the few places on Earth where Native, Hispanic, and Anglo history all occupy the same streets, kitchens, art, and architecture.</p>
+
+<br>
+
+<h2>🏜️ Land of Fire & Shadow</h2>
+
+<p>
+Volcano fields.<br>
+Lava flows.<br>
+White sand dunes.<br>
+Red desert mesas.<br>
+Snow-capped peaks.
+</p>
+
+<p>New Mexico holds more geologic diversity per mile than almost anywhere in America. It feels alien — and sometimes it is.</p>
+
+<br>
+
+<h2>🔥 Red or Green?</h2>
+
+<p><strong>The official state question:</strong></p>
+<p><strong>Red or green chili?</strong></p>
+
+<p>
+Green = bright, citrusy heat.<br>
+Red = deep, smoky richness.
+</p>
+
+<p>Order “Christmas” if you want both.</p>
+
+<br>
+
+<h2>🧪 Birthplace of the Atomic Age</h2>
+
+<p><strong>:contentReference[oaicite:4]{index=4}</strong> was home to the <strong>:contentReference[oaicite:5]{index=5}</strong>. Its desert silence once guarded world-changing secrets — and cutting-edge science still hums there today.</p>
+
+<br>
+
+<h2>🛸 Roswell & Area 51</h2>
+
+<p>In 1947, something crashed near <strong>:contentReference[oaicite:6]{index=6}</strong>. Official story: weather balloon. Unofficial story: aliens.</p>
+
+<p>Nearby military lore often references <strong>:contentReference[oaicite:7]{index=7}</strong>, helping cement the Southwest’s reputation as ground zero for UFO culture.</p>
+
+<br>
+
+<h2>🏹 Indigenous Legacy</h2>
+
+<p>Tribal nations include:</p>
+
+<p>
+<strong>:contentReference[oaicite:8]{index=8}</strong><br>
+<strong>:contentReference[oaicite:9]{index=9}</strong><br>
+19 Pueblo communities
+</p>
+
+<p>Petroglyphs, kivas, cliff dwellings, and pottery traditions endure. You’re not just visiting a state — you’re walking through an ancient archive.</p>
+
+<br>
+
+<h2>🌗 Night Skies</h2>
+
+<p>Low light pollution means the Milky Way isn’t a myth. Astronomers travel from around the world to look up here. You’ll see stars you didn’t know existed.</p>
+
+<br>
+
+<h2>📚 Famous New Mexicans</h2>
+
+<p>
+<strong>:contentReference[oaicite:10]{index=10}</strong> — outlaw legend<br>
+<strong>:contentReference[oaicite:11]{index=11}</strong> — yes, the real bear<br>
+<strong>:contentReference[oaicite:12]{index=12}</strong> — grew up in Albuquerque<br>
+<strong>:contentReference[oaicite:13]{index=13}</strong> & <strong>:contentReference[oaicite:14]{index=14}</strong> — born here<br>
+<strong>:contentReference[oaicite:15]{index=15}</strong> — painter of New Mexico’s soul<br>
+<strong>:contentReference[oaicite:16]{index=16}</strong> — chronicler of Navajo Country
+</p>
+
+<p>Art, science, crime, and pop culture — this desert breeds stories.</p>
+
+<br>
+
+<h2>🎨 Art & Architecture</h2>
+
+<p>Santa Fe is one of the largest art markets in the world. Adobe architecture — thick walls, wooden vigas, quiet courtyards — looks ancient because parts of it truly are.</p>
+
+<p><strong>:contentReference[oaicite:17]{index=17}</strong> has drawn artists for generations, and <strong>:contentReference[oaicite:18]{index=18}</strong> launched an immersive art revolution right here.</p>
+
+<br>
+
+<h2>👂 Sound of Silence</h2>
+
+<p>Drive ten minutes outside town and you’ll hear:</p>
+
+<p>
+wind in sagebrush<br>
+coyotes at dusk<br>
+nothing else
+</p>
+
+<p>It’s the quiet that makes you think.</p>
+
+<br>
+
+<h2>⚙️ Route 66</h2>
+
+<p><strong>:contentReference[oaicite:19]{index=19}</strong> cuts through New Mexico in neon-lit nostalgia. Diners. Motor courts. Retro signs.</p>
+
+<p><strong>:contentReference[oaicite:20]{index=20}</strong> at night feels like time travel.</p>
+
+<br>
+
+<h2>🌶️ Food You Must Try</h2>
+
+<p>
+Green chile cheeseburgers<br>
+Carne adovada<br>
+Posole<br>
+Sopapillas with honey<br>
+Stacked enchiladas
+</p>
+
+<p>You’ll never taste “Tex-Mex” the same again.</p>
+
+<br>
+
+<h2>🏞️ The Spirit of the Land</h2>
+
+<p>New Mexico isn’t a place you simply visit. It’s a place you feel:</p>
+
+<p>
+in the dryness of the air,<br>
+in the smell of piñon smoke,<br>
+in the stretch of the horizon,<br>
+in twilight colors cameras can’t quite capture.
+</p>
+
+<p>No other state has this specific mood.</p>
+
+<br>
+
+<h2>🧿 Enchantment Is Real</h2>
+
+<p>Some places get under your skin. New Mexico gets under your soul.</p>
+
+<p><strong>By the end of this trip, you’ll understand why its license plates don’t lie:</strong></p>
+
+<p><strong>The Land of Enchantment.</strong></p>
+
+</main>
+
+
+</body>
+</html>
