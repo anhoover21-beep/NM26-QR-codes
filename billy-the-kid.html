@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NM26 Mission Portal</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        background: #f4f4f4;
+        color: #222;
+    }
+
+    /* ===== HEADER ===== */
+
+    .nm-header {
+        background: #c5161d;
+        color: white;
+    }
+
+    .nm-header-inner {
+        max-width: 1300px;
+        margin: 0 auto;
+        padding: 30px 40px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .nm-brand {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .nm-state {
+        position: relative;
+        width: 110px;
+        height: 110px;
+        background: url("assets/images/new-mexico.png") no-repeat center;
+        background-size: contain;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .nm-text {
+        font-size: 40px;
+        font-weight: 900;
+        letter-spacing: 2px;
+        color: white;
+    }
+
+    .nm-year {
+        font-size: 72px;
+        font-weight: 900;
+        color: #ffd23f;
+    }
+
+    .nm-nav {
+        display: flex;
+        gap: 60px;
+    }
+
+    .nm-nav span {
+        color: white;
+        font-size: 26px;
+        letter-spacing: 2px;
+        font-weight: 600;
+    }
+
+    .nm-login span {
+        background: #ffd23f;
+        color: #c5161d;
+        padding: 12px 26px;
+        border-radius: 16px;
+        font-weight: 900;
+        font-size: 22px;
+    }
+
+    .nm-stripe {
+        background: #ffd23f;
+        padding: 10px 40px;
+        font-weight: 900;
+        color: #c5161d;
+        letter-spacing: 2px;
+    }
+
+    /* ===== CONTENT ===== */
+
+    .page-container {
+        max-width: 900px;
+        margin: 80px auto;
+        padding: 0 30px 100px 30px;
+    }
+
+    .page-container h1 {
+        font-size: 42px;
+        margin-bottom: 24px;
+    }
+
+    .page-container p {
+        font-size: 20px;
+        line-height: 1.7;
+        margin-bottom: 24px;
+    }
+
+    /* ===== RESPONSIVE ===== */
+
+    @media (max-width: 1024px) {
+
+        .nm-header-inner {
+            flex-direction: column;
+            gap: 20px;
+            text-align: center;
+        }
+
+        .nm-nav {
+            gap: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .nm-nav span {
+            font-size: 20px;
+        }
+
+        .nm-state {
+            width: 90px;
+            height: 90px;
+        }
+
+        .nm-text {
+            font-size: 30px;
+        }
+
+        .nm-year {
+            font-size: 54px;
+        }
+
+        .nm-login span {
+            font-size: 18px;
+            padding: 10px 20px;
+        }
+    }
+
+    @media (max-width: 600px) {
+
+        .nm-header-inner {
+            padding: 20px;
+        }
+
+        .nm-nav {
+            gap: 16px;
+        }
+
+        .nm-nav span {
+            font-size: 16px;
+        }
+
+        .nm-state {
+            width: 70px;
+            height: 70px;
+        }
+
+        .nm-text {
+            font-size: 22px;
+        }
+
+        .nm-year {
+            font-size: 40px;
+        }
+
+        .page-container {
+            margin: 50px auto;
+            padding: 0 20px 80px 20px;
+        }
+
+        .page-container h1 {
+            font-size: 28px;
+        }
+
+        .page-container p {
+            font-size: 17px;
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<header class="nm-header">
+    <div class="nm-header-inner">
+
+        <div class="nm-brand">
+            <div class="nm-state">
+                <span class="nm-text">NM</span>
+            </div>
+            <span class="nm-year">26</span>
+        </div>
+
+        <nav class="nm-nav">
+            <span>HOME</span>
+            <span>PLANNER</span>
+            <span>RESOURCES</span>
+            <span>GUIDE</span>
+        </nav>
+
+        <div class="nm-login">
+            <span>LOGIN</span>
+        </div>
+
+    </div>
+
+    <div class="nm-stripe">
+        VACATION 2026
+    </div>
+</header>
+
+<main class="page-container">
+
+<h1>Billy the Kid: Legend in the Dust</h1>
+
+<p>Few names in the American West ignite the imagination like <strong>:contentReference[oaicite:0]{index=0}</strong>. Born as Henry McCarty—most likely in 1859—his early life was marked by poverty, loss, and the constant churn of frontier violence. Orphaned as a young teenager, he drifted into the rough <strong>:contentReference[oaicite:1]{index=1}</strong> at a time when laws were flexible, loyalties were fluid, and survival demanded both wit and nerve.</p>
+
+<p>Billy was drawn into the Lincoln County War, a bitter conflict between rival merchant factions vying for economic control. One side acted with the blessing of corrupt local officials; the other was backed by independent ranchers and new settlers. When English rancher <strong>:contentReference[oaicite:2]{index=2}</strong>, a mentor figure to Billy, was gunned down, the young man joined a group calling themselves The Regulators. What followed was a mix of legal deputization, vigilantism, assassination, and ambush—depending on who was telling the story.</p>
+
+<p>The legends often paint Billy as a ruthless gunslinger, but first-hand accounts describe something more complex. He was said to be polite, quick-witted, fluent in Spanish, and popular among the Hispanic community. He played guitar, danced well, and possessed a boyish charm that made him memorable. His gunfighting ability, while real, was inseparable from the myth that grew around him. Newspapers—hungry for sensational stories—fed the public an outlaw who was both villain and folk hero. Billy, barely in his twenties, became famous in a world without television.</p>
+
+<p>His most daring chapter came in April 1881, when he escaped from the Lincoln County Courthouse after being sentenced to hang. Killing two guards and slipping into the desert, he vanished into the mesas and brushlands of New Mexico. The escape electrified the nation. For a brief moment, he was a ghost riding the high desert, a young rebel outsmarting a growing system.</p>
+
+<p>Sheriff <strong>:contentReference[oaicite:3]{index=3}</strong> eventually tracked Billy to <strong>:contentReference[oaicite:4]{index=4}</strong>. On July 14, 1881, Garrett fired in the dark, and the Kid—just 21 years old—fell. His death cemented him as an American archetype: the tragic outlaw caught between old frontier freedom and emerging law. Over time, stories blurred. Was he a cold-blooded killer? A wronged boy fighting corruption? A product of circumstance? The truth lies somewhere in the dust between.</p>
+
+<p>What remains undeniable is this: Billy the Kid embodies the restless spirit of the Southwest. A place where the mountains keep secrets, the wind carries old stories, and history refuses to sit still. Travel through New Mexico and you’ll find traces of him everywhere—courthouse ruins, weathered markers, whispered arguments in museums, souvenirs bearing his silhouette. He’s not remembered because he lived long. He’s remembered because he lived loudly, briefly, and right in the middle of a changing world.</p>
+
+</main>
+
+</body>
+</html>
