@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NM26 Mission Portal</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        background: #f4f4f4;
+        color: #222;
+    }
+
+    /* ===== HEADER ===== */
+
+    .nm-header {
+        background: #c5161d;
+        color: white;
+    }
+
+    .nm-header-inner {
+        max-width: 1300px;
+        margin: 0 auto;
+        padding: 30px 40px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .nm-brand {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .nm-state {
+        position: relative;
+        width: 110px;
+        height: 110px;
+        background: url("assets/images/new-mexico.png") no-repeat center;
+        background-size: contain;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .nm-text {
+        font-size: 40px;
+        font-weight: 900;
+        letter-spacing: 2px;
+        color: white;
+    }
+
+    .nm-year {
+        font-size: 72px;
+        font-weight: 900;
+        color: #ffd23f;
+    }
+
+    .nm-nav {
+        display: flex;
+        gap: 60px;
+    }
+
+    .nm-nav span {
+        color: white;
+        font-size: 26px;
+        letter-spacing: 2px;
+        font-weight: 600;
+    }
+
+    .nm-login span {
+        background: #ffd23f;
+        color: #c5161d;
+        padding: 12px 26px;
+        border-radius: 16px;
+        font-weight: 900;
+        font-size: 22px;
+    }
+
+    .nm-stripe {
+        background: #ffd23f;
+        padding: 10px 40px;
+        font-weight: 900;
+        color: #c5161d;
+        letter-spacing: 2px;
+    }
+
+    /* ===== CONTENT ===== */
+
+    .page-container {
+        max-width: 900px;
+        margin: 80px auto;
+        padding: 0 30px 100px 30px;
+    }
+
+    .page-container h1 {
+        font-size: 42px;
+        margin-bottom: 24px;
+    }
+
+    .page-container p {
+        font-size: 20px;
+        line-height: 1.7;
+        margin-bottom: 24px;
+    }
+
+    /* ===== RESPONSIVE ===== */
+
+    @media (max-width: 1024px) {
+
+        .nm-header-inner {
+            flex-direction: column;
+            gap: 20px;
+            text-align: center;
+        }
+
+        .nm-nav {
+            gap: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .nm-nav span {
+            font-size: 20px;
+        }
+
+        .nm-state {
+            width: 90px;
+            height: 90px;
+        }
+
+        .nm-text {
+            font-size: 30px;
+        }
+
+        .nm-year {
+            font-size: 54px;
+        }
+
+        .nm-login span {
+            font-size: 18px;
+            padding: 10px 20px;
+        }
+    }
+
+    @media (max-width: 600px) {
+
+        .nm-header-inner {
+            padding: 20px;
+        }
+
+        .nm-nav {
+            gap: 16px;
+        }
+
+        .nm-nav span {
+            font-size: 16px;
+        }
+
+        .nm-state {
+            width: 70px;
+            height: 70px;
+        }
+
+        .nm-text {
+            font-size: 22px;
+        }
+
+        .nm-year {
+            font-size: 40px;
+        }
+
+        .page-container {
+            margin: 50px auto;
+            padding: 0 20px 80px 20px;
+        }
+
+        .page-container h1 {
+            font-size: 28px;
+        }
+
+        .page-container p {
+            font-size: 17px;
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<header class="nm-header">
+    <div class="nm-header-inner">
+
+        <div class="nm-brand">
+            <div class="nm-state">
+                <span class="nm-text">NM</span>
+            </div>
+            <span class="nm-year">26</span>
+        </div>
+
+        <nav class="nm-nav">
+            <span>HOME</span>
+            <span>PLANNER</span>
+            <span>RESOURCES</span>
+            <span>GUIDE</span>
+        </nav>
+
+        <div class="nm-login">
+            <span>LOGIN</span>
+        </div>
+
+    </div>
+
+    <div class="nm-stripe">
+        VACATION 2026
+    </div>
+</header>
+
+<main class="page-container">
+
+<h1>🌪️ DESERT WEATHER</h1>
+<h2>“Where the Sky Has Mood Swings and the Wind Can Fight You”</h2>
+<h3>(A Guide to the Atmosphere Losing Its Damn Mind)</h3>
+
+<p>The desert doesn’t do normal weather. It does dramatic, instant, and unapologetic. One minute you’re in calm sunshine; the next minute the sky looks like it’s announcing a boss fight.</p>
+
+<p>Welcome to weather in New Mexico — the land of sudden storms, fast winds, and temperature swings that feel personal.</p>
+
+<br>
+
+<h2>🌡️ 1. TEMPERATURE SWINGS LIKE A MOOD RING</h2>
+
+<p>The desert isn’t hot. It’s emotional.</p>
+
+<p>You can go from 95° to 55° in the same day without even climbing a hill. The dry air can’t hold heat, so when the sun drops, so does the temperature.</p>
+
+<p><strong>Translation:</strong><br>
+Bring layers.<br>
+You will need them.<br>
+Terri will definitely need them.</p>
+
+<br>
+
+<h2>💨 2. WIND THAT HAS ZERO RESPECT FOR YOU</h2>
+
+<p>Desert wind is not “a breeze.” It is a lifestyle choice the sky makes for you.</p>
+
+<p>It can:</p>
+
+<p>
+shove your hat off<br>
+rearrange your hair<br>
+slam your car door<br>
+sandblast your ankles<br>
+or blow 40 mph out of nowhere<br>
+(especially in wide valleys and passes)
+</p>
+
+<p>At White Sands? It can move sand across the road like snow.</p>
+<p>At Valles Caldera? It feels like the wind is trying to evacuate your soul.</p>
+
+<br>
+
+<h2>🌩️ 3. STORMS APPEAR OUT OF NOWHERE</h2>
+
+<p>You know how back home, you see a storm coming an hour away?</p>
+
+<p>Not here.</p>
+
+<p>In New Mexico:</p>
+
+<p>Storms materialize, dump everything they have, flash the sky like paparazzi, and leave like nothing happened.</p>
+
+<p>You’ll be in sunshine watching a storm dumping rain three towns away. That’s the desert for you — wide visibility, fast-moving systems.</p>
+
+<br>
+
+<h2>⚡ 4. LIGHTNING THAT TRAVELS MILES</h2>
+
+<p>Flat desert.<br>
+High altitude.<br>
+Dry air.<br>
+Big horizon.</p>
+
+<p><strong>Result:</strong><br>
+You’ll see lightning that looks like it hits the edge of the Earth.</p>
+
+<p>It can strike miles from the storm. This is why hikers and golfers get humbled quickly out here.</p>
+
+<p>If a storm is anywhere near your path — give it respect.</p>
+
+<br>
+
+<h2>💨 5. DUST DEVILS: MINI TORNADOES WITH ATTITUDE</h2>
+
+<p>These are tiny whirlwinds that spin trash, sand, grass, and small children (probably).</p>
+
+<p>They look dangerous, but they’re more dramatic than harmful.</p>
+
+<p>Still—don’t walk directly into one unless you want exfoliation.</p>
+
+<br>
+
+<h2>🌬️ 6. MIRAGES & HEAT SHIMMER</h2>
+
+<p>Warm air near the ground bends light upward, creating the classic “water on the road” illusion.</p>
+
+<p>It’s not water. It’s physics messing with you.</p>
+
+<p>Cars in the distance stretch, hover, or melt like Dali paintings. Mountains float. Roads look wet. This is normal desert magic.</p>
+
+<br>
+
+<h2>🌤️ 7. CLOUDS THAT LOOK PAINTED BY A DRAMA MAJOR</h2>
+
+<p>The desert sky doesn’t just have clouds — it has statement pieces.</p>
+
+<p>
+Lenticular clouds that look like UFOs.<br>
+Stacked clouds like pancakes.<br>
+Long brushstroke clouds that glow during sunset.
+</p>
+
+<p>New Mexico sunsets hit HARD because of the moisture, dust, elevation, and open horizon.</p>
+
+<p>You already have a whole page on that — but weather ties it all together.</p>
+
+<br>
+
+<h2>🌫️ 8. HAZE THAT ISN’T HUMIDITY</h2>
+
+<p>Down home, haze = humidity.<br>
+In the desert, haze = dust or wildfire smoke from hundreds of miles away.</p>
+
+<p>Dry air = ZERO humidity. So you see deep, crisp views — until dust moves through and gives the mountains a ghost-layer look.</p>
+
+<br>
+
+<h2>🌈 9. RAINBOWS THAT SHOULDN’T BE POSSIBLE</h2>
+
+<p>Desert air + isolated storms + low humidity = double and triple rainbows like you’ve never seen.</p>
+
+<p>The sky out here has nothing blocking it. Rainbows stretch from mountaintop to mountaintop in perfect arcs.</p>
+
+<p>If you get one… take the picture.</p>
+
+<br>
+
+<h2>🏜️ 10. WHY IT MATTERS FOR YOUR TRIP</h2>
+
+<p>You’ll experience:</p>
+
+<p>
+sudden wind<br>
+unexpected showers<br>
+temperature flips<br>
+mirages<br>
+heat shimmer<br>
+crystal-clear skies<br>
+lightning miles away<br>
+dramatic cloud formations
+</p>
+
+<p>The desert is unpredictable, unforgettable, and sometimes downright theatrical.</p>
+
+<p><strong>You’re about to see skies that look fake and storms that look CGI.</strong></p>
+
+</main>
+
+
+</body>
+</html>
