@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NM26 Mission Portal</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        background: #f4f4f4;
+        color: #222;
+    }
+
+    /* ===== HEADER ===== */
+
+    .nm-header {
+        background: #c5161d;
+        color: white;
+    }
+
+    .nm-header-inner {
+        max-width: 1300px;
+        margin: 0 auto;
+        padding: 30px 40px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .nm-brand {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .nm-state {
+        position: relative;
+        width: 110px;
+        height: 110px;
+        background: url("assets/images/new-mexico.png") no-repeat center;
+        background-size: contain;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .nm-text {
+        font-size: 40px;
+        font-weight: 900;
+        letter-spacing: 2px;
+        color: white;
+    }
+
+    .nm-year {
+        font-size: 72px;
+        font-weight: 900;
+        color: #ffd23f;
+    }
+
+    .nm-nav {
+        display: flex;
+        gap: 60px;
+    }
+
+    .nm-nav span {
+        color: white;
+        font-size: 26px;
+        letter-spacing: 2px;
+        font-weight: 600;
+    }
+
+    .nm-login span {
+        background: #ffd23f;
+        color: #c5161d;
+        padding: 12px 26px;
+        border-radius: 16px;
+        font-weight: 900;
+        font-size: 22px;
+    }
+
+    .nm-stripe {
+        background: #ffd23f;
+        padding: 10px 40px;
+        font-weight: 900;
+        color: #c5161d;
+        letter-spacing: 2px;
+    }
+
+    /* ===== CONTENT ===== */
+
+    .page-container {
+        max-width: 900px;
+        margin: 80px auto;
+        padding: 0 30px 100px 30px;
+    }
+
+    .page-container h1 {
+        font-size: 42px;
+        margin-bottom: 24px;
+    }
+
+    .page-container p {
+        font-size: 20px;
+        line-height: 1.7;
+        margin-bottom: 24px;
+    }
+
+    /* ===== RESPONSIVE ===== */
+
+    @media (max-width: 1024px) {
+
+        .nm-header-inner {
+            flex-direction: column;
+            gap: 20px;
+            text-align: center;
+        }
+
+        .nm-nav {
+            gap: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .nm-nav span {
+            font-size: 20px;
+        }
+
+        .nm-state {
+            width: 90px;
+            height: 90px;
+        }
+
+        .nm-text {
+            font-size: 30px;
+        }
+
+        .nm-year {
+            font-size: 54px;
+        }
+
+        .nm-login span {
+            font-size: 18px;
+            padding: 10px 20px;
+        }
+    }
+
+    @media (max-width: 600px) {
+
+        .nm-header-inner {
+            padding: 20px;
+        }
+
+        .nm-nav {
+            gap: 16px;
+        }
+
+        .nm-nav span {
+            font-size: 16px;
+        }
+
+        .nm-state {
+            width: 70px;
+            height: 70px;
+        }
+
+        .nm-text {
+            font-size: 22px;
+        }
+
+        .nm-year {
+            font-size: 40px;
+        }
+
+        .page-container {
+            margin: 50px auto;
+            padding: 0 20px 80px 20px;
+        }
+
+        .page-container h1 {
+            font-size: 28px;
+        }
+
+        .page-container p {
+            font-size: 17px;
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<header class="nm-header">
+    <div class="nm-header-inner">
+
+        <div class="nm-brand">
+            <div class="nm-state">
+                <span class="nm-text">NM</span>
+            </div>
+            <span class="nm-year">26</span>
+        </div>
+
+        <nav class="nm-nav">
+            <span>HOME</span>
+            <span>PLANNER</span>
+            <span>RESOURCES</span>
+            <span>GUIDE</span>
+        </nav>
+
+        <div class="nm-login">
+            <span>LOGIN</span>
+        </div>
+
+    </div>
+
+    <div class="nm-stripe">
+        VACATION 2026
+    </div>
+</header>
+
+<main class="page-container">
+
+<h1>⭐ Roadsides, Weirdness & Highway Oddities Index</h1>
+
+<!-- ================================================= -->
+<h2>🟦 TEXAS → I-40 → TUCUMCARI</h2>
+
+<ol>
+<li>
+<strong>Leaning Tower of Britten</strong><br>
+📍 Groom, TX<br>
+35.19816, -101.08190
+</li>
+
+<li>
+<strong>Route 66 Themed Rest Area (Eastbound)</strong><br>
+📍 I-40 near Jericho, TX<br>
+35.20085, -100.81583
+</li>
+
+<li>
+<strong>Restored 1929 Phillips 66 Station</strong><br>
+📍 219 Gray St, McLean, TX<br>
+35.23203, -100.59851
+</li>
+
+<li>
+<strong>Texas Route 66 Museum</strong><br>
+📍 100 Kingsley St, McLean, TX<br>
+35.23227, -100.59379
+</li>
+
+<li>
+<strong>Route 66 Midpoint Sign</strong><br>
+📍 Adrian, TX<br>
+35.27149, -102.66428
+</li>
+</ol>
+
+<!-- ================================================= -->
+<h2>🟥 NEW MEXICO — ROUTE 66 → TURQUOISE TRAIL</h2>
+
+<ol start="6">
+<li>
+<strong>Route 66 Musical Road</strong><br>
+📍 Tijeras, NM<br>
+35.07826, -106.37989
+</li>
+
+<li>
+<strong>Bottle House</strong><br>
+📍 Golden, NM<br>
+35.25694, -106.22917
+</li>
+
+<li>
+<strong>Connie’s Photo Park</strong><br>
+📍 Madrid, NM<br>
+35.40645, -106.15466
+</li>
+
+<li>
+<strong>UFO Cattle Crossing Sign</strong><br>
+📍 NM-14 near Madrid<br>
+35.41418, -106.15240
+</li>
+</ol>
+
+<!-- ================================================= -->
+<h2>🟩 SANTA FE REGION</h2>
+
+<ol start="10">
+<li><strong>Camel Rock</strong><br>35.77506, -105.97433</li>
+<li><strong>Brontosaurus Family</strong><br>35.68744, -105.94861</li>
+<li><strong>Burro Alley</strong><br>35.68898, -105.94139</li>
+<li><strong>Dynamite Bundle & Gold Sphere Sculpture</strong><br>35.66458, -105.96473</li>
+<li><strong>Big Dog Swing</strong><br>35.65480, -106.00244</li>
+<li><strong>Crashed Flying Saucer House</strong><br>35.67263, -106.01027</li>
+</ol>
+
+<!-- ================================================= -->
+<h2>🟪 TAOS REGION</h2>
+
+<ol start="16">
+<li>
+<strong>Dennis Hopper’s Grave</strong><br>
+Ranchos de Taos, NM<br>
+36.37763, -105.59452
+</li>
+
+<li>
+<strong>Large Metal Glasses Sculpture</strong><br>
+Taos, NM<br>
+36.38463, -105.57723
+</li>
+
+<li>
+<strong>Earthship Biotecture</strong><br>
+36.46269, -105.78372
+</li>
+
+<li>
+<strong>UFO Cattle Crossing Sign (Taos)</strong><br>
+36.35190, -105.61272
+</li>
+</ol>
+
+<!-- ================================================= -->
+<h2>🟫 SOCORRO REGION</h2>
+
+<ol start="20">
+<li><strong>Lonnie Zamora UFO Landing Site</strong><br>34.05011, -106.89380</li>
+<li><strong>“Jumbo” Trinity Test Fragment</strong><br>34.06447, -106.89878</li>
+<li><strong>Recycled Parts Flying Saucer</strong><br>34.06141, -106.89260</li>
+</ol>
+
+<!-- ================================================= -->
+<h2>🟨 WHITE SANDS / TULAROSA / ALAMOGORDO</h2>
+
+<ol start="23">
+<li><strong>Cars Characters</strong><br>33.07256, -106.01863</li>
+<li><strong>World’s Largest Pistachio</strong><br>33.00601, -106.02958</li>
+</ol>
+
+<!-- ================================================= -->
+<h2>🟥 ARTESIA</h2>
+
+<ol start="25">
+<li><strong>The Derrick Floor Monument</strong><br>32.84248, -104.40386</li>
+<li><strong>Old West Bronze Statues</strong><br>32.84241, -104.40559</li>
+</ol>
+
+<!-- ================================================= -->
+<h2>🟫 WEST TEXAS RETURN</h2>
+
+<ol start="27">
+<li><strong>World’s First Rodeo Sign</strong><br>31.39103, -103.49783</li>
+
+<li>
+<strong>Paisano Pete — Giant Roadrunner</strong><br>
+30.89273, -102.87903<br>
+<a href="https://maps.google.com/?q=30.89273,-102.87903" target="_blank">
+Open in Google Maps
+</a>
+</li>
+
+<li><strong>Metal U.S. Cavalry Cutouts</strong><br>30.88720, -102.88110</li>
+
+<li><strong>Squawteat Peak Viewpoint</strong><br>31.15740, -103.02440</li>
+</ol>
+
+<!-- ================================================= -->
+<h2>🟫 JUNCTION & INGRAM</h2>
+
+<ol start="31">
+<li><strong>Deer Horn Tree</strong><br>30.48908, -99.77156</li>
+
+<li>
+<strong>Stonehenge II & Easter Island Heads</strong><br>
+30.08265, -99.27342
+</li>
+</ol>
+
+</main>
+
+
+</body>
+</html>
