@@ -7,164 +7,223 @@
 
 <style>
 body {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  background: #f4f4f4;
-  color: #222;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f4f4;
+    color: #222;
 }
 
-/* ===== HEADER ===== */
+/* =========================
+   LOCKED NM26 HEADER
+   ========================= */
 
 .nm-header {
-  background: #C8102E;
-  color: white;
+    background: #c5161d;
+    color: white;
 }
 
-<header class="nm-header">
-  <div class="nm-header-inner">
-
-    <div class="nm-brand">
-      <div class="nm-state">
-        <span class="nm-text">NM</span>
-      </div>
-      <span class="nm-number">26</span>
-    </div>
-
-    <nav class="nm-nav">
-      <a href="#">HOME</a>
-      <a href="#">PLANNER</a>
-      <a href="#">RESOURCES</a>
-      <a href="#">GUIDE</a>
-    </nav>
-
-    <div class="nm-login">
-      <a href="#">LOGIN</a>
-    </div>
-
-  </div>
-
-  <div class="nm-stripe">
-    VACATION 2026
-  </div>
-</header>
-
-
+.nm-header-inner {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 28px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
 
 .nm-brand {
-  display: flex;
-  align-items: center;
-  gap: 20px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
 }
 
 .nm-state {
-  width: 110px;
-  height: 110px;
-  background: url("assets/images/new-mexico.png") no-repeat center;
-  background-size: contain;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    width: 110px;
+    height: 110px;
+    background: url("assets/images/new-mexico.png") no-repeat center;
+    background-size: contain;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .nm-text {
-  font-size: 40px;
-  font-weight: 900;
-  color: white;
+    font-size: 40px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    color: white;
 }
 
-.nm-number {
-  font-size: 72px;
-  font-weight: 900;
-  color: #F4C300;
+.nm-year {
+    font-size: 72px;
+    font-weight: 900;
+    color: #ffd23f;
+}
+
+.nm-nav {
+    display: flex;
+    gap: 60px;
+}
+
+.nm-nav a {
+    text-decoration: none;
+    color: white;
+    font-size: 26px;
+    letter-spacing: 2px;
+}
+
+.nm-nav a:hover {
+    opacity: 0.75;
+}
+
+.nm-login a {
+    background: #ffd23f;
+    color: #c5161d;
+    padding: 12px 26px;
+    border-radius: 16px;
+    font-weight: 900;
+    font-size: 22px;
+    text-decoration: none;
 }
 
 .nm-stripe {
-  background: #F4C300;
-  padding: 8px 40px;
-  font-weight: 900;
-  color: #C8102E;
-  text-align: center;
-  letter-spacing: 2px;
+    background: #ffd23f;
+    padding: 10px 40px;
+    font-weight: 900;
+    color: #c5161d;
+    letter-spacing: 2px;
 }
 
-/* ===== CONTENT LAYOUT ===== */
+/* =========================
+   DID YOU KNOW LAYOUT
+   ========================= */
 
 .page-container {
-  max-width: 1000px;
-  margin: 70px auto 100px auto;
-  padding: 0 30px;
+    max-width: 1000px;
+    margin: 80px auto 100px auto;
+    padding: 0 30px;
 }
 
 .content-row {
-  display: flex;
-  align-items: flex-start;
-  gap: 50px;
+    display: flex;
+    align-items: flex-start;
+    gap: 50px;
 }
 
 .text-column {
-  flex: 1;
+    flex: 1;
 }
 
 .text-column h1 {
-  font-size: 42px;
-  margin-bottom: 30px;
-  letter-spacing: 2px;
+    font-size: 42px;
+    margin-bottom: 30px;
+    letter-spacing: 2px;
 }
 
 .text-column p {
-  font-size: 20px;
-  line-height: 1.7;
-  margin-bottom: 24px;
+    font-size: 20px;
+    line-height: 1.7;
+    margin-bottom: 24px;
 }
 
 .dusty-column {
-  width: 260px;
-  flex-shrink: 0;
+    width: 260px;
+    flex-shrink: 0;
 }
 
 .dusty-column img {
-  width: 100%;
-  height: auto;
+    width: 100%;
+    height: auto;
 }
 
-/* ===== RESPONSIVE ===== */
+/* =========================
+   RESPONSIVE
+   ========================= */
+
+@media (max-width: 1024px) {
+
+    .nm-header-inner {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+
+    .nm-nav {
+        gap: 30px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .nm-nav a {
+        font-size: 20px;
+    }
+
+    .nm-state {
+        width: 90px;
+        height: 90px;
+    }
+
+    .nm-text {
+        font-size: 30px;
+    }
+
+    .nm-year {
+        font-size: 54px;
+    }
+
+    .nm-login a {
+        font-size: 18px;
+        padding: 10px 20px;
+    }
+}
 
 @media (max-width: 900px) {
 
-  .content-row {
-    flex-direction: column;
-    align-items: center;
-  }
+    .content-row {
+        flex-direction: column;
+        align-items: center;
+    }
 
-  .dusty-column {
-    width: 200px;
-    margin-bottom: 30px;
-  }
+    .dusty-column {
+        width: 200px;
+        margin-bottom: 30px;
+    }
 
-  .text-column {
-    text-align: center;
-  }
+    .text-column {
+        text-align: center;
+    }
 
-  .text-column h1 {
-    font-size: 32px;
-  }
+    .text-column h1 {
+        font-size: 32px;
+    }
 
-  .text-column p {
-    font-size: 17px;
-  }
+    .text-column p {
+        font-size: 17px;
+    }
+}
 
-  .nm-state {
-    width: 80px;
-    height: 80px;
-  }
+@media (max-width: 600px) {
 
-  .nm-text {
-    font-size: 26px;
-  }
+    .nm-nav {
+        gap: 16px;
+    }
 
-  .nm-number {
-    font-size: 42px;
-  }
+    .nm-nav a {
+        font-size: 16px;
+    }
+
+    .nm-state {
+        width: 70px;
+        height: 70px;
+    }
+
+    .nm-text {
+        font-size: 22px;
+    }
+
+    .nm-year {
+        font-size: 40px;
+    }
 }
 </style>
 </head>
@@ -172,64 +231,58 @@ body {
 <body>
 
 <header class="nm-header">
-  <div class="nm-header-inner">
+    <div class="nm-header-inner">
 
-    <div class="nm-brand">
-      <div class="nm-state">
-        <span class="nm-text">NM</span>
-      </div>
-      <span class="nm-number">26</span>
+        <div class="nm-brand">
+            <div class="nm-state">
+                <span class="nm-text">NM</span>
+            </div>
+            <span class="nm-year">26</span>
+        </div>
+
+        <nav class="nm-nav">
+            <a href="#">HOME</a>
+            <a href="#">PLANNER</a>
+            <a href="#">RESOURCES</a>
+            <a href="#">GUIDE</a>
+        </nav>
+
+        <div class="nm-login">
+            <a href="#">LOGIN</a>
+        </div>
+
     </div>
 
-    <nav class="nm-nav">
-      <a href="#">HOME</a>
-      <a href="#">PLANNER</a>
-      <a href="#">RESOURCES</a>
-      <a href="#">GUIDE</a>
-    </nav>
-
-    <div class="nm-login">
-      <a href="#">LOGIN</a>
+    <div class="nm-stripe">
+        VACATION 2026
     </div>
-
-  </div>
-
-  <div class="nm-stripe">
-    VACATION 2026
-  </div>
 </header>
-
-
 
 <main class="page-container">
 
-  <div class="content-row">
+    <div class="content-row">
 
-    <div class="text-column">
+        <div class="text-column">
+            <h1>DID YOU KNOW?</h1>
 
-      <h1>DID YOU KNOW?</h1>
+            <p>
+                Santa Fe is the oldest capital city in the United States, founded in 1610.
+            </p>
 
-      <!-- Replace paragraphs below -->
+            <p>
+                The Rio Grande Gorge Bridge stands 650 feet above the river and is one of the highest bridges in the country.
+            </p>
 
-      <p>
-        Santa Fe is the oldest capital city in the United States, founded in 1610.
-      </p>
+            <p>
+                New Mexico has more than 300 days of sunshine each year.
+            </p>
+        </div>
 
-      <p>
-        The Rio Grande Gorge Bridge stands 650 feet above the river and is one of the highest bridges in the country.
-      </p>
-
-      <p>
-        New Mexico has more than 300 days of sunshine each year.
-      </p>
+        <div class="dusty-column">
+            <img src="assets/images/wise-traveler.png" alt="Dusty Sagebrush">
+        </div>
 
     </div>
-
-    <div class="dusty-column">
-      <img src="assets/images/wise-old-traveler.png" alt="Dusty Sagebrush">
-    </div>
-
-  </div>
 
 </main>
 
