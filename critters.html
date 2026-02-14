@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NM26 Mission Portal</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        background: #f4f4f4;
+        color: #222;
+    }
+
+    /* ===== HEADER ===== */
+
+    .nm-header {
+        background: #c5161d;
+        color: white;
+    }
+
+    .nm-header-inner {
+        max-width: 1300px;
+        margin: 0 auto;
+        padding: 30px 40px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .nm-brand {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .nm-state {
+        position: relative;
+        width: 110px;
+        height: 110px;
+        background: url("assets/images/new-mexico.png") no-repeat center;
+        background-size: contain;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .nm-text {
+        font-size: 40px;
+        font-weight: 900;
+        letter-spacing: 2px;
+        color: white;
+    }
+
+    .nm-year {
+        font-size: 72px;
+        font-weight: 900;
+        color: #ffd23f;
+    }
+
+    .nm-nav {
+        display: flex;
+        gap: 60px;
+    }
+
+    .nm-nav span {
+        color: white;
+        font-size: 26px;
+        letter-spacing: 2px;
+        font-weight: 600;
+    }
+
+    .nm-login span {
+        background: #ffd23f;
+        color: #c5161d;
+        padding: 12px 26px;
+        border-radius: 16px;
+        font-weight: 900;
+        font-size: 22px;
+    }
+
+    .nm-stripe {
+        background: #ffd23f;
+        padding: 10px 40px;
+        font-weight: 900;
+        color: #c5161d;
+        letter-spacing: 2px;
+    }
+
+    /* ===== CONTENT ===== */
+
+    .page-container {
+        max-width: 900px;
+        margin: 80px auto;
+        padding: 0 30px 100px 30px;
+    }
+
+    .page-container h1 {
+        font-size: 42px;
+        margin-bottom: 24px;
+    }
+
+    .page-container p {
+        font-size: 20px;
+        line-height: 1.7;
+        margin-bottom: 24px;
+    }
+
+    /* ===== RESPONSIVE ===== */
+
+    @media (max-width: 1024px) {
+
+        .nm-header-inner {
+            flex-direction: column;
+            gap: 20px;
+            text-align: center;
+        }
+
+        .nm-nav {
+            gap: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .nm-nav span {
+            font-size: 20px;
+        }
+
+        .nm-state {
+            width: 90px;
+            height: 90px;
+        }
+
+        .nm-text {
+            font-size: 30px;
+        }
+
+        .nm-year {
+            font-size: 54px;
+        }
+
+        .nm-login span {
+            font-size: 18px;
+            padding: 10px 20px;
+        }
+    }
+
+    @media (max-width: 600px) {
+
+        .nm-header-inner {
+            padding: 20px;
+        }
+
+        .nm-nav {
+            gap: 16px;
+        }
+
+        .nm-nav span {
+            font-size: 16px;
+        }
+
+        .nm-state {
+            width: 70px;
+            height: 70px;
+        }
+
+        .nm-text {
+            font-size: 22px;
+        }
+
+        .nm-year {
+            font-size: 40px;
+        }
+
+        .page-container {
+            margin: 50px auto;
+            padding: 0 20px 80px 20px;
+        }
+
+        .page-container h1 {
+            font-size: 28px;
+        }
+
+        .page-container p {
+            font-size: 17px;
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<header class="nm-header">
+    <div class="nm-header-inner">
+
+        <div class="nm-brand">
+            <div class="nm-state">
+                <span class="nm-text">NM</span>
+            </div>
+            <span class="nm-year">26</span>
+        </div>
+
+        <nav class="nm-nav">
+            <span>HOME</span>
+            <span>PLANNER</span>
+            <span>RESOURCES</span>
+            <span>GUIDE</span>
+        </nav>
+
+        <div class="nm-login">
+            <span>LOGIN</span>
+        </div>
+
+    </div>
+
+    <div class="nm-stripe">
+        VACATION 2026
+    </div>
+</header>
+
+<main class="page-container">
+
+<h1>“Toto… I Don’t Think We’re in Louisiana Anymore”</h1>
+
+<p>Welcome to <strong>:contentReference[oaicite:0]{index=0}</strong> — where the creatures look like they escaped from a video game, a comic book, and an accidental science fair experiment. Louisiana has gators, cotton mouths, and mosquitoes the size of small children, but it did NOT prepare you for this:</p>
+
+<br>
+
+<h2>🦂 SCORPION</h2>
+<p><strong>“Sand crawfish.”</strong><br>
+Glow under UV like neon aliens.<br>
+Small. Armored. Irritated at all times.</p>
+<p><strong>Where:</strong> Everywhere dry, warm, or inconvenient.<br>
+<strong>Tip:</strong> Shake your shoes. Every. Single. Time.</p>
+
+<h2>🕷 TARANTULA</h2>
+<p><strong>“An 8-legged Ewok.”</strong><br>
+Huge, hairy, and surprisingly polite.<br>
+Walks like it’s late for book club but doesn’t want trouble.</p>
+<p><strong>Where:</strong> Southern NM, especially at night.<br>
+<strong>Tip:</strong> Let the fuzzy dorks live their life.</p>
+
+<h2>🐗 JAVELINA</h2>
+<p><strong>“A pig with PTSD, a gang, and the confidence of a drunk LSU fan.”</strong><br>
+Travels in squads. Makes piglet honks. Smells like hot Fritos. Zero sense of personal space.</p>
+<p><strong>Where:</strong> <strong>:contentReference[oaicite:1]{index=1}</strong> southward, <strong>:contentReference[oaicite:2]{index=2}</strong>, <strong>:contentReference[oaicite:3]{index=3}</strong>, desert edges.<br>
+<strong>Tip:</strong> Don’t offer snacks. They’ll take the whole bag and your dignity.</p>
+
+<h2>🐍 RATTLESNAKE</h2>
+<p><strong>“Desert doorbell.”</strong><br>
+Shake-shake-shake = “Hello, please don’t step here.”</p>
+<p>They’re polite. Respectful. Just don’t surprise them.</p>
+<p><strong>Where:</strong> Pretty much everywhere except high mountain zones.<br>
+<strong>Tip:</strong> If you hear maracas in the bushes, don’t go looking for the Mariachi band.</p>
+
+<h2>🦎 HORNED LIZARD</h2>
+<p><strong>“Dragon nugget.”</strong><br>
+Round. Spiky. Drama queens.</p>
+<p><strong>Where:</strong> Open desert & grasslands.<br>
+<strong>Tip:</strong> Observe, don’t scoop.</p>
+
+<h2>🦂 VINEGAROON</h2>
+<p><strong>“Nightmare fuel.”</strong><br>
+Looks terrifying. Acts shy.<br>
+Sprays vinegar mist when upset.</p>
+<p><strong>Where:</strong> Roswell & Carlsbad region.<br>
+<strong>Tip:</strong> Avoid the mystery vinegar.</p>
+
+<h2>🦡 BADGER</h2>
+<p><strong>“Satan’s guard dog.”</strong><br>
+Wide. Low. Bulldozer energy.</p>
+<p><strong>Where:</strong> Plains, burrows, and surprise encounters.<br>
+<strong>Tip:</strong> Give it space. Give it distance. Give it the whole desert.</p>
+
+<h2>🦨 DESERT SKUNK</h2>
+<p><strong>“A stink bomb with racing stripes.”</strong><br>
+Cute from the front. Catastrophic from the back.</p>
+
+<h2>🐇 JACKRABBIT</h2>
+<p><strong>“A rabbit on stilts and Red Bull.”</strong><br>
+Turbo mode. Cartoon speed.</p>
+
+<h2>🦎 GILA MONSTER</h2>
+<p><strong>“Poison gilagator.”</strong><br>
+Bright, chunky, rare.</p>
+<p><strong>Tip:</strong> Protected species. Admire from afar.</p>
+
+<h2>🦅 GOLDEN EAGLE</h2>
+<p><strong>“Boss hawk.”</strong><br>
+Huge wings. Top-tier presence.</p>
+
+<h2>🐛 GIANT DESERT CENTIPEDE</h2>
+<p><strong>“A Subway sandwich with legs.”</strong><br>
+Fast. Colorful. Champion of the Nope Olympics.</p>
+
+<h2>🦊 KIT FOX</h2>
+<p><strong>“Cosplay cat.”</strong><br>
+Tiny desert ninja with satellite-dish ears.</p>
+
+<h2>🐏 BIGHORN SHEEP</h2>
+<p><strong>“Bam ram.”</strong><br>
+Cliff-climbing gravity deniers.</p>
+<p><strong>Where:</strong> <strong>:contentReference[oaicite:4]{index=4}</strong> area, <strong>:contentReference[oaicite:5]{index=5}</strong>, <strong>:contentReference[oaicite:6]{index=6}</strong>.</p>
+
+<h2>🦌 ELK</h2>
+<p><strong>“Muscle deer.”</strong><br>
+Massive, majestic, calendar-ready.</p>
+<p><strong>Where:</strong> <strong>:contentReference[oaicite:7]{index=7}</strong>, <strong>:contentReference[oaicite:8]{index=8}</strong>.</p>
+
+<h2>🐻 BLACK BEAR</h2>
+<p><strong>“Danger rug.”</strong><br>
+Usually shy. Always hungry.</p>
+<p><strong>Where:</strong> <strong>:contentReference[oaicite:9]{index=9}</strong> & Jemez areas (rare).</p>
+
+<h2>🦌 MULE DEER</h2>
+<p><strong>“Big ear deer.”</strong><br>
+Big jumps. Big confusion energy.</p>
+
+<h2>🐈 BOBCAT</h2>
+<p><strong>“Leveled-up housecat.”</strong><br>
+Fluffy. Fierce. Private.</p>
+
+<h2>🦅 RAVEN</h2>
+<p><strong>“Brain chicken.”</strong><br>
+Huge, loud, genius-level smart.</p>
+
+<h2>🐃 ORYX</h2>
+<p><strong>“Desert unicorn.”</strong><br>
+African antelope roaming the desert.</p>
+<p><strong>Where:</strong> Southern NM deserts near <strong>:contentReference[oaicite:10]{index=10}</strong>.</p>
+
+<h2>🐃 PRONGHORN</h2>
+<p><strong>“Turbo deer.”</strong><br>
+Ridiculously fast and acting like it knows it.</p>
+
+<h2>🐀 KANGAROO RAT</h2>
+<p><strong>“Bounce mouse.”</strong><br>
+Tiny acrobat that launches without warning.</p>
+
+<h2>🐺 COYOTE</h2>
+<p><strong>“A fox, a dog, and a prankster.”</strong><br>
+Smart, sneaky, musical at night.</p>
+
+<h2>🐺 MEXICAN GRAY WOLF</h2>
+<p><strong>“A husky husky.”</strong><br>
+Rare, majestic, and shy.</p>
+<p><strong>Where:</strong> Mostly <strong>:contentReference[oaicite:11]{index=11}</strong> region.</p>
+
+<h2>🐦 ROADRUNNER</h2>
+<p><strong>“Turbo chicken.”</strong><br>
+Fast. Fearless. Always late for something.</p>
+
+<h2>🐾 PRAIRIE DOG</h2>
+<p><strong>“Whack-a-Mole.”</strong><br>
+Alarm-chirping drama colonies.</p>
+<p><strong>Where:</strong> Grasslands north of <strong>:contentReference[oaicite:12]{index=12}</strong> & near Valles Caldera.</p>
+
+<br>
+
+<h2>⭐ HOOVER FAMILY DESERT RULES</h2>
+
+<p>
+✔ If it rattles → back up.<br>
+✔ If it glows → don’t touch.<br>
+✔ If it grunts → let it grunt alone.<br>
+✔ If it sprays → you’re too close.
+</p>
+
+</main>
+
+
+</body>
+</html>
