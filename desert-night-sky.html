@@ -1,86 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NM26 Mission Portal</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        background: #f4f4f4;
+        color: #222;
+    }
+
+    /* ===== HEADER ===== */
+
+    .nm-header {
+        background: #c5161d;
+        color: white;
+    }
+
+    .nm-header-inner {
+        max-width: 1300px;
+        margin: 0 auto;
+        padding: 30px 40px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .nm-brand {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .nm-state {
+        position: relative;
+        width: 110px;
+        height: 110px;
+        background: url("assets/images/new-mexico.png") no-repeat center;
+        background-size: contain;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .nm-text {
+        font-size: 40px;
+        font-weight: 900;
+        letter-spacing: 2px;
+        color: white;
+    }
+
+    .nm-year {
+        font-size: 72px;
+        font-weight: 900;
+        color: #ffd23f;
+    }
+
+    .nm-nav {
+        display: flex;
+        gap: 60px;
+    }
+
+    .nm-nav span {
+        color: white;
+        font-size: 26px;
+        letter-spacing: 2px;
+        font-weight: 600;
+    }
+
+    .nm-login span {
+        background: #ffd23f;
+        color: #c5161d;
+        padding: 12px 26px;
+        border-radius: 16px;
+        font-weight: 900;
+        font-size: 22px;
+    }
+
+    .nm-stripe {
+        background: #ffd23f;
+        padding: 10px 40px;
+        font-weight: 900;
+        color: #c5161d;
+        letter-spacing: 2px;
+    }
+
+    /* ===== CONTENT ===== */
+
+    .page-container {
+        max-width: 900px;
+        margin: 80px auto;
+        padding: 0 30px 100px 30px;
+    }
+
+    .page-container h1 {
+        font-size: 42px;
+        margin-bottom: 24px;
+    }
+
+    .page-container p {
+        font-size: 20px;
+        line-height: 1.7;
+        margin-bottom: 24px;
+    }
+
+    /* ===== RESPONSIVE ===== */
+
+    @media (max-width: 1024px) {
+
+        .nm-header-inner {
+            flex-direction: column;
+            gap: 20px;
+            text-align: center;
+        }
+
+        .nm-nav {
+            gap: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .nm-nav span {
+            font-size: 20px;
+        }
+
+        .nm-state {
+            width: 90px;
+            height: 90px;
+        }
+
+        .nm-text {
+            font-size: 30px;
+        }
+
+        .nm-year {
+            font-size: 54px;
+        }
+
+        .nm-login span {
+            font-size: 18px;
+            padding: 10px 20px;
+        }
+    }
+
+    @media (max-width: 600px) {
+
+        .nm-header-inner {
+            padding: 20px;
+        }
+
+        .nm-nav {
+            gap: 16px;
+        }
+
+        .nm-nav span {
+            font-size: 16px;
+        }
+
+        .nm-state {
+            width: 70px;
+            height: 70px;
+        }
+
+        .nm-text {
+            font-size: 22px;
+        }
+
+        .nm-year {
+            font-size: 40px;
+        }
+
+        .page-container {
+            margin: 50px auto;
+            padding: 0 20px 80px 20px;
+        }
+
+        .page-container h1 {
+            font-size: 28px;
+        }
+
+        .page-container p {
+            font-size: 17px;
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<header class="nm-header">
+    <div class="nm-header-inner">
+
+        <div class="nm-brand">
+            <div class="nm-state">
+                <span class="nm-text">NM</span>
+            </div>
+            <span class="nm-year">26</span>
+        </div>
+
+        <nav class="nm-nav">
+            <span>HOME</span>
+            <span>PLANNER</span>
+            <span>RESOURCES</span>
+            <span>GUIDE</span>
+        </nav>
+
+        <div class="nm-login">
+            <span>LOGIN</span>
+        </div>
+
+    </div>
+
+    <div class="nm-stripe">
+        VACATION 2026
+    </div>
+</header>
+
 <main class="page-container">
 
-<h1>🌌 Night Sky Photography Tips</h1>
-<h2>(Dark desert skies + waning crescent moon = perfect conditions)</h2>
+<h1>🌌 Why the Desert Night Sky Looks Fake Too</h1>
+<h2>(A Guide to Cosmic Nonsense)</h2>
 
-<p><strong>1. Stabilize Your Phone</strong><br>
-Use a small tripod or prop against a rock, backpack, cooler, or camper roof.<br>
-The phone must remain still.<br>
-Movement = streaks and blur.</p>
+<p>If New Mexico sunsets look like the sky OD’d on crayons, the night sky looks like someone turned off the atmosphere and installed a 4K screensaver.</p>
 
-<p><strong>2. Turn Off Flash</strong><br>
-You’re capturing ancient light.<br>
-Flash ruins it instantly.</p>
+<p><strong>Here’s why it feels so unreal:</strong></p>
 
-<p><strong>3. Enable Night Mode / Long Exposure</strong><br>
-Most phones now support:<br>
-Night Mode<br>
-Star Mode<br>
-Long Exposure</p>
+<p><strong>1. There’s No Humidity to Muffle the Stars</strong><br>
+Louisiana is basically a giant humidifier.<br>
+Moisture scatters and softens starlight.<br><br>
+New Mexico?<br>
+Dry. Sharp. Clear.<br>
+Stars look like LEDs taped to black velvet.</p>
 
-<p><strong>4. Let the phone work for you.</strong><br>
-Tap to Focus (on a star).<br>
-Tap the brightest star and hold to lock focus.</p>
+<p><strong>2. High Elevation = Closer to the Stars</strong><br>
+Santa Fe, Taos, Valles Caldera…<br>
+All high-elevation.<br><br>
+Less air between you and the sky = brighter stars and deeper blacks.</p>
 
-<p><strong>5. Lower Exposure</strong><br>
-Slide exposure down slightly. Reduces blown-out sky haze.</p>
+<p><strong>3. No Trees Blocking the Horizon</strong><br>
+At home, trees eat half the sky.<br>
+In the desert, you get full dome coverage — 180° of pure space.</p>
 
-<p><strong>6. Do NOT Zoom</strong><br>
-Zoom adds noise. Move your body instead.</p>
+<p><strong>4. Zero Light Pollution in Most Places</strong><br>
+Socorro. White Sands. Valles Caldera.<br>
+These places are DARK.<br><br>
+Like “your phone screen will blind you” dark.<br><br>
+The Milky Way looks like someone spilled glitter across the universe.</p>
 
-<p><strong>7. Breathe Control</strong><br>
-When you tap the shutter:<br>
-Hold your breath<br>
-Don’t shift your weight<br>
-Don’t touch the tripod</p>
+<p><strong>5. Air So Clean the Stars Don’t Twinkle as Much</strong><br>
+Sounds weird but true.<br>
+Twinkling isn’t magic — it’s turbulence.<br><br>
+Calm desert air = stars that shine clean and steady.</p>
 
-<p><strong>8. Include Foreground</strong><br>
-Add:<br>
-A silhouette cactus<br>
-Car roof<br>
-Person standing still<br>
-Rock or ridge line<br><br>
-Foreground anchors the photo.</p>
+<p><strong>6. The Milky Way Pops Like a Cloud of Smoke</strong><br>
+In June, in the southwest sky after midnight, the Milky Way stands out like a glowing river.<br><br>
+You’ll think it’s a cloud at first… until it doesn’t move.</p>
 
-<p><strong>9. Aim Southeast After 10:00 PM</strong><br>
-June skies reveal the Milky Way core in the southeast. This is the best direction for galaxy shots.</p>
+<p><strong>7. Moonlight Behaves Differently in the Desert</strong><br>
+In humid states, moonlight gets swallowed.<br>
+In New Mexico, it reflects off dust, sand, rock, and mountains.<br><br>
+A half-moon can light the ground bright enough to walk without a flashlight.<br><br>
+It feels… fake. Like the desert is self-lit.</p>
 
-<p><strong>10. Shoot Satellite Trails</strong><br>
-Long exposure will catch:<br>
-Straight lines = satellites<br>
-Quick, tapered lines = meteors<br><br>
-You’ll capture at least one.</p>
-
-<p><strong>11. Try Silhouette Portraits</strong><br>
-Place a lantern behind the subject.<br>
-Aim phone at the stars.<br>
-Hold still 6–10 seconds.<br>
-You get a glowing outline + star field.</p>
-
-<p><strong>12. Manual Settings (If Available)</strong><br>
-Shutter: 6–20 sec<br>
-ISO: 400–1600<br>
-Focus: ∞ (Infinity)<br>
-White Balance: 4000–4500K</p>
-
-<p><strong>13. RAW Format (Bonus)</strong><br>
-If your phone allows RAW: Use it.<br>
-You can brighten shadows without adding noise.</p>
+<p><strong>8. Your Brain Isn’t Used to THIS Much Universe</strong><br>
+Back home, the sky is a ceiling.<br>
+In New Mexico, the sky is a planetarium dome with the brightness turned all the way up.<br><br>
+It overwhelms your sense of scale in a way your brain isn’t prepared for.</p>
 
 <br>
 
-<h2>Composition Tips</h2>
+<h2>🌠 The Short Version:</h2>
 
 <p>
-Horizon on bottom third<br>
-Center the Milky Way “river”<br>
-Scorpius + Sagittarius look GREAT in frame
+In New Mexico:<br><br>
+
+Sunsets look painted.<br>
+Clouds look staged.<br>
+The night sky looks fake.<br>
+Stars look closer than they should.<br>
+The Milky Way looks like smoke.<br>
+The whole world looks like CGI.
 </p>
 
-<br>
-
-<h2>Pro Tip</h2>
-
-<p><strong>Your camera sees stars your eyes can’t.</strong></p>
-
 </main>
+
+
+</body>
+</html>
