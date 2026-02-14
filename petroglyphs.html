@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NM26 — Did You Know?</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f4f4;
+    color: #222;
+}
+
+/* =========================
+   LOCKED NM26 HEADER
+   ========================= */
+
+.nm-header {
+    background: #c5161d;
+    color: white;
+}
+
+.nm-header-inner {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 28px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nm-brand {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.nm-state {
+    width: 110px;
+    height: 110px;
+    background: url("assets/images/new-mexico.png") no-repeat center;
+    background-size: contain;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nm-text {
+    font-size: 40px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    color: white;
+}
+
+.nm-year {
+    font-size: 72px;
+    font-weight: 900;
+    color: #ffd23f;
+}
+
+.nm-nav {
+    display: flex;
+    gap: 60px;
+}
+
+.nm-nav span {
+    color: white;
+    font-size: 26px;
+    letter-spacing: 2px;
+    font-weight: 600;
+}
+
+.nm-login span {
+    background: #ffd23f;
+    color: #c5161d;
+    padding: 12px 26px;
+    border-radius: 16px;
+    font-weight: 900;
+    font-size: 22px;
+}
+
+.nm-stripe {
+    background: #ffd23f;
+    padding: 10px 40px;
+    font-weight: 900;
+    color: #c5161d;
+    letter-spacing: 2px;
+}
+
+/* =========================
+   DID YOU KNOW LAYOUT
+   ========================= */
+
+.page-container {
+    max-width: 1000px;
+    margin: 80px auto 100px auto;
+    padding: 0 30px;
+}
+
+.content-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 50px;
+}
+
+.text-column {
+    flex: 1;
+}
+
+.text-column h1 {
+    font-size: 42px;
+    margin-bottom: 30px;
+    letter-spacing: 2px;
+}
+
+.text-column p {
+    font-size: 20px;
+    line-height: 1.7;
+    margin-bottom: 24px;
+}
+
+.dusty-column {
+    width: 260px;
+    flex-shrink: 0;
+}
+
+.dusty-column img {
+    width: 100%;
+    height: auto;
+}
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+
+@media (max-width: 1024px) {
+
+    .nm-header-inner {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+
+    .nm-nav {
+        gap: 30px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .nm-nav span {
+        font-size: 20px;
+    }
+
+    .nm-state {
+        width: 90px;
+        height: 90px;
+    }
+
+    .nm-text {
+        font-size: 30px;
+    }
+
+    .nm-year {
+        font-size: 54px;
+    }
+
+    .nm-login span {
+        font-size: 18px;
+        padding: 10px 20px;
+    }
+}
+
+@media (max-width: 900px) {
+
+    .content-row {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .dusty-column {
+        width: 200px;
+        margin-bottom: 30px;
+    }
+
+    .text-column {
+        text-align: center;
+    }
+
+    .text-column h1 {
+        font-size: 32px;
+    }
+
+    .text-column p {
+        font-size: 17px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .nm-nav {
+        gap: 16px;
+    }
+
+    .nm-nav span {
+        font-size: 16px;
+    }
+
+    .nm-state {
+        width: 70px;
+        height: 70px;
+    }
+
+    .nm-text {
+        font-size: 22px;
+    }
+
+    .nm-year {
+        font-size: 40px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header class="nm-header">
+    <div class="nm-header-inner">
+
+        <div class="nm-brand">
+            <div class="nm-state">
+                <span class="nm-text">NM</span>
+            </div>
+            <span class="nm-year">26</span>
+        </div>
+
+        <nav class="nm-nav">
+            <span>HOME</span>
+            <span>PLANNER</span>
+            <span>RESOURCES</span>
+            <span>GUIDE</span>
+        </nav>
+
+        <div class="nm-login">
+            <span>LOGIN</span>
+        </div>
+
+    </div>
+
+    <div class="nm-stripe">
+        VACATION 2026
+    </div>
+</header>
+
+<main class="page-container">
+
+  <div class="content-row">
+
+    <div class="text-column">
+      <h1>Petroglyphs</h1>
+
+      <p><strong>Did you know…</strong></p>
+      <p>…petroglyphs aren’t random doodles?<br>
+      They’re messages, maps, warnings, and stories carved into stone by ancestral Puebloan peoples between 600–3,000 years ago.</p>
+      <p>Every line meant something.</p>
+
+      <p><strong>Did you know…</strong></p>
+      <p>…the most common symbol in the Southwest — the spiral — can represent:</p>
+      <p>
+        • Water sources<br>
+        • Migration routes<br>
+        • Life cycles<br>
+        • The sun’s path across seasons
+      </p>
+      <p>Clockwise often = journey outward.<br>
+      Counterclockwise = return.</p>
+      <p>Sometimes two spirals touching mark paths converging.</p>
+
+      <p><strong>Did you know…</strong></p>
+      <p>…the snake glyph appears near water?<br>
+      Ancient cultures linked serpent shapes to underground aquifers. Snake petroglyphs often point toward life-saving springs.</p>
+      <p>They also symbolize:</p>
+      <p>
+        • transformation,<br>
+        • fertility,<br>
+        • danger.
+      </p>
+
+      <p><strong>Did you know…</strong></p>
+      <p>…handprints can mean:</p>
+      <p>
+        • “I was here,”<br>
+        • ancestry,<br>
+        • ownership,<br>
+        • or the presence of a spirit?
+      </p>
+      <p>Some are negative handprints — pigments sprayed around a hand — often linked to transition rituals.</p>
+
+      <p><strong>Did you know…</strong></p>
+      <p>…footprints aren’t cute art?<br>
+      They can literally mark a route.<br>
+      Follow the direction they “walk” and you may find related symbols, springs, or vantage points.</p>
+
+      <p><strong>Did you know…</strong></p>
+      <p>…animals carved on stone may show:</p>
+      <p>
+        • clan totems,<br>
+        • hunting grounds,<br>
+        • migration observation.
+      </p>
+      <p>Bighorn sheep are especially common — symbolizing prosperity.</p>
+
+      <p><strong>Did you know…</strong></p>
+      <p>…stars, dots, and radiating circles often mark astronomical events?<br>
+      Some align with:</p>
+      <p>
+        • solstice sunrise,<br>
+        • equinox shadows,<br>
+        • planetary conjunctions.
+      </p>
+      <p>Rock = calendar.</p>
+
+      <p><strong>Did you know…</strong></p>
+      <p>…parallel vertical lines often represent rain?<br>
+      In the desert, rain = survival.<br>
+      Sometimes dots between lines = raindrops.</p>
+
+      <p><strong>Did you know…</strong></p>
+      <p>…grids and boxes can be maps?</p>
+      <p>
+        • Villages<br>
+        • Field divisions<br>
+        • Migration journeys
+      </p>
+      <p>Often carved near canyon entrances.</p>
+
+      <p><strong>Did you know…</strong></p>
+      <p>…circles-with-a-dot may represent the solar zenith — when the sun is directly overhead, shadowless — a sacred moment.</p>
+
+      <p><strong>Did you know…</strong></p>
+      <p>…the shamanic figure (humanoid with antennas/horns) is widespread?<br>
+      Interpretations include:</p>
+      <p>
+        • mythic beings,<br>
+        • trance visions,<br>
+        • constellations,<br>
+        • ancestral guides.
+      </p>
+
+      <p><strong>Did you know…</strong></p>
+      <p>…some glyphs cluster near acoustic hotspots?<br>
+      Clap once — if you hear multiple echoes, you’re near a ceremonial acoustic site.</p>
+
+      <p><strong>Did you know…</strong></p>
+      <p>…petroglyph sites often exist along migration corridors?<br>
+      Humans carved where humans traveled.</p>
+      <p>You’re standing in a footnote of history.</p>
+
+      <h2>🔍 How to decode like an archaeologist</h2>
+      <p>Ask yourself:</p>
+      <p>
+        1. Where is it carved? (hill = watchpoint)<br><br>
+        2. What symbols are near it? (clusters matter)<br><br>
+        3. Which direction does it “point”? (feet matter)<br><br>
+        4. Is water nearby? (snakes + spirals)<br><br>
+        5. Do shadows cross it at noon? (calendar stone)
+      </p>
+      <p>Petroglyphs speak in context.</p>
+
+      <h2>🚫 What NOT to do</h2>
+      <p>
+        Don’t trace carvings with your fingers (oils damage patina).<br><br>
+        Don’t scrape chalk into grooves (illegal).<br><br>
+        Don’t stand on boulders with glyphs (microerosion).
+      </p>
+      <p>Leave messages intact for the next thousand years.</p>
+
+      <h2>🧭 QUEST</h2>
+      <p>Try to spot:</p>
+      <p>
+        ✔ a spiral<br>
+        ✔ a handprint<br>
+        ✔ a snake<br>
+        ✔ rain lines<br>
+        ✔ a bighorn sheep
+      </p>
+      <p>You’re seeing someone’s story.</p>
+
+      <h2>🤯 Mind-Blower</h2>
+      <p>Many rock panels face:</p>
+      <p>
+        • water,<br>
+        • sunrise points,<br>
+        • or ancient road alignments.
+      </p>
+      <p>These aren’t random walls — they’re billboards from the past.</p>
+
+      <h2>🧠 Think about this</h2>
+      <p>When you stand in front of a petroglyph panel…</p>
+      <p>…the last person to look at it with intention might have lived before Europeans ever saw this continent.</p>
+      <p>You’re joining their gaze.</p>
+    </div>
+
+    <div class="dusty-column">
+      <img src="assets/images/wise-old-traveler.png" alt="Dusty Sagebrush">
+    </div>
+
+  </div>
+
+</main>
+
+
+</body>
+</html>
