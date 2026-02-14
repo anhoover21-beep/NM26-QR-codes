@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NM26 — Did You Know?</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f4f4;
+    color: #222;
+}
+
+/* =========================
+   LOCKED NM26 HEADER
+   ========================= */
+
+.nm-header {
+    background: #c5161d;
+    color: white;
+}
+
+.nm-header-inner {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 28px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nm-brand {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.nm-state {
+    width: 110px;
+    height: 110px;
+    background: url("assets/images/new-mexico.png") no-repeat center;
+    background-size: contain;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nm-text {
+    font-size: 40px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    color: white;
+}
+
+.nm-year {
+    font-size: 72px;
+    font-weight: 900;
+    color: #ffd23f;
+}
+
+.nm-nav {
+    display: flex;
+    gap: 60px;
+}
+
+.nm-nav span {
+    color: white;
+    font-size: 26px;
+    letter-spacing: 2px;
+    font-weight: 600;
+}
+
+.nm-login span {
+    background: #ffd23f;
+    color: #c5161d;
+    padding: 12px 26px;
+    border-radius: 16px;
+    font-weight: 900;
+    font-size: 22px;
+}
+
+.nm-stripe {
+    background: #ffd23f;
+    padding: 10px 40px;
+    font-weight: 900;
+    color: #c5161d;
+    letter-spacing: 2px;
+}
+
+/* =========================
+   DID YOU KNOW LAYOUT
+   ========================= */
+
+.page-container {
+    max-width: 1000px;
+    margin: 80px auto 100px auto;
+    padding: 0 30px;
+}
+
+.content-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 50px;
+}
+
+.text-column {
+    flex: 1;
+}
+
+.text-column h1 {
+    font-size: 42px;
+    margin-bottom: 30px;
+    letter-spacing: 2px;
+}
+
+.text-column p {
+    font-size: 20px;
+    line-height: 1.7;
+    margin-bottom: 24px;
+}
+
+.dusty-column {
+    width: 260px;
+    flex-shrink: 0;
+}
+
+.dusty-column img {
+    width: 100%;
+    height: auto;
+}
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+
+@media (max-width: 1024px) {
+
+    .nm-header-inner {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+
+    .nm-nav {
+        gap: 30px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .nm-nav span {
+        font-size: 20px;
+    }
+
+    .nm-state {
+        width: 90px;
+        height: 90px;
+    }
+
+    .nm-text {
+        font-size: 30px;
+    }
+
+    .nm-year {
+        font-size: 54px;
+    }
+
+    .nm-login span {
+        font-size: 18px;
+        padding: 10px 20px;
+    }
+}
+
+@media (max-width: 900px) {
+
+    .content-row {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .dusty-column {
+        width: 200px;
+        margin-bottom: 30px;
+    }
+
+    .text-column {
+        text-align: center;
+    }
+
+    .text-column h1 {
+        font-size: 32px;
+    }
+
+    .text-column p {
+        font-size: 17px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .nm-nav {
+        gap: 16px;
+    }
+
+    .nm-nav span {
+        font-size: 16px;
+    }
+
+    .nm-state {
+        width: 70px;
+        height: 70px;
+    }
+
+    .nm-text {
+        font-size: 22px;
+    }
+
+    .nm-year {
+        font-size: 40px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header class="nm-header">
+    <div class="nm-header-inner">
+
+        <div class="nm-brand">
+            <div class="nm-state">
+                <span class="nm-text">NM</span>
+            </div>
+            <span class="nm-year">26</span>
+        </div>
+
+        <nav class="nm-nav">
+            <span>HOME</span>
+            <span>PLANNER</span>
+            <span>RESOURCES</span>
+            <span>GUIDE</span>
+        </nav>
+
+        <div class="nm-login">
+            <span>LOGIN</span>
+        </div>
+
+    </div>
+
+    <div class="nm-stripe">
+        VACATION 2026
+    </div>
+</header>
+
+<main class="page-container">
+
+  <div class="content-row">
+
+    <div class="text-column">
+      <h1>OBSIDIAN</h1>
+
+      <p><strong>Did you know…</strong></p>
+      <p>…obsidian forms when lava cools so fast that crystals don’t have time to grow?<br>
+      That means you’re looking at natural volcanic glass, frozen mid-eruption.</p>
+
+      <p><strong>Did you know…</strong></p>
+      <p>…obsidian fractures with a “conchoidal” (shell-shaped) break, creating razor-sharp edges?<br>
+      Modern surgeons have tested obsidian scalpels—some edges are sharper than steel on a microscopic level.</p>
+
+      <p><strong>Did you know…</strong></p>
+      <p>…Valles Caldera obsidian was once a prehistoric super-commodity?<br>
+      Artifacts made from this exact volcanic glass have been found:</p>
+      <p>
+        • across the Great Plains,<br>
+        • in the Mississippi Valley,<br>
+        • and as far as Canada.
+      </p>
+      <p>Trade routes 1,500+ miles long moved this stuff.</p>
+
+      <p><strong>Did you know…</strong></p>
+      <p>…scientists can “fingerprint” obsidian chemically?<br>
+      A tiny sample can be traced back to:</p>
+      <p>
+        • a specific eruption zone,<br>
+        • on a specific lava dome,<br>
+        • within the Jemez Mountains.
+      </p>
+      <p>That’s how archeologists map ancient trade networks.</p>
+
+      <p><strong>Did you know…</strong></p>
+      <p>…indigenous knappers shaped obsidian into:</p>
+      <p>
+        • arrowheads,<br>
+        • spear points,<br>
+        • ritual blades,<br>
+        • mirrors,<br>
+        • and even ceremonial ear spools?
+      </p>
+      <p>To them, it wasn’t just sharp—it was sacred black glass.</p>
+
+      <p><strong>Did you know…</strong></p>
+      <p>…Valles Caldera has multiple obsidian-bearing domes?<br>
+      Cerro del Medio is the most famous source, erupting repeatedly and resurfacing obsidian deposits over 1.2 million years.</p>
+      <p>Each eruption = a new “layer” of black glass.</p>
+
+      <p><strong>Did you know…</strong></p>
+      <p>…obsidian is fragile under stress?<br>
+      Drop it, and it shatters like a windshield.<br>
+      That’s why ancient knappers carried wrapped bundles in hides.</p>
+
+      <p><strong>Did you know…</strong></p>
+      <p>…it absorbs heat like crazy?<br>
+      Leave a piece in the sun—you’ll feel the difference instantly.</p>
+
+      <p><strong>Did you know…</strong></p>
+      <p>…you’re not allowed to collect obsidian inside the National Preserve?<br>
+      (Leave no trace, protect archeological context—park rules.)<br>
+      Good news: rock shops in Santa Fe sell legal local pieces.</p>
+
+      <p><strong>Did you know…</strong></p>
+      <p>…some archaeologists think obsidian glints helped ancient travelers navigate?<br>
+      A shimmer on the hillside = potential toolmaking site.</p>
+
+      <h2>🧭 OBSERVATION QUEST</h2>
+      <p>Look for:</p>
+      <p>
+        ✔ conchoidal curved flakes on the ground<br>
+        ✔ tiny glassy shards in sunlight<br>
+        ✔ “flake scars” on broken surfaces
+      </p>
+      <p>Spot three?<br>
+      You’ve found a prehistoric workshop.</p>
+
+      <h2>⚠️ SAFETY WARNING</h2>
+      <p>Obsidian edges can cut deep.<br>
+      Think “instant ER trip” sharp.</p>
+      <p>
+        Eyes up<br>
+        Hands off<br>
+        Don’t kick shards
+      </p>
+
+      <h2>🧠 Think About This</h2>
+      <p>You just walked where people once:</p>
+      <p>Traded, shaped, sharpened, carried stories, and survived…</p>
+      <p>…using this exact rock.</p>
+    </div>
+
+    <div class="dusty-column">
+      <img src="assets/images/wise-old-traveler.png" alt="Dusty Sagebrush">
+    </div>
+
+  </div>
+
+</main>
+
+</body>
+</html>
