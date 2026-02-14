@@ -13,47 +13,62 @@ body {
   color: #222;
 }
 
+/* ===== HEADER ===== */
+
 .nm-header {
   background: #C8102E;
   color: white;
 }
 
-.nm-container {
+.nm-header-inner {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 30px 40px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
 }
 
-.nm-logo {
+.nm-brand {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 20px;
 }
 
-.nm-outline {
-  border: 3px solid white;
-  padding: 10px 18px;
-  border-radius: 8px;
+.nm-state {
+  position: relative;
+  width: 110px;
+  height: 110px;
+  background: url("assets/images/new-mexico.png") no-repeat center;
+  background-size: contain;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .nm-text {
-  font-size: 42px;
-  font-weight: bold;
+  font-size: 40px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  color: white;
 }
 
 .nm-number {
-  font-size: 42px;
-  font-weight: bold;
+  font-size: 72px;
+  font-weight: 900;
   color: #F4C300;
 }
 
 .nm-stripe {
   background: #F4C300;
-  height: 8px;
+  padding: 8px 40px;
+  font-weight: 900;
+  color: #C8102E;
+  text-align: center;
+  letter-spacing: 2px;
 }
+
+/* ===== CONTENT ===== */
 
 .main-content {
   max-width: 800px;
@@ -78,21 +93,53 @@ body {
   margin-top: 20px;
   color: #C8102E;
 }
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 600px) {
+
+  .nm-header-inner {
+    padding: 20px;
+  }
+
+  .nm-state {
+    width: 80px;
+    height: 80px;
+  }
+
+  .nm-text {
+    font-size: 26px;
+  }
+
+  .nm-number {
+    font-size: 42px;
+  }
+
+  .main-content {
+    margin: 40px auto;
+  }
+
+  .mission-card {
+    padding: 25px;
+  }
+}
 </style>
 </head>
 
 <body>
 
 <header class="nm-header">
-  <div class="nm-container">
-    <div class="nm-logo">
-      <div class="nm-outline">
+  <div class="nm-header-inner">
+    <div class="nm-brand">
+      <div class="nm-state">
         <span class="nm-text">NM</span>
       </div>
       <span class="nm-number">26</span>
     </div>
   </div>
-  <div class="nm-stripe"></div>
+  <div class="nm-stripe">
+    VACATION 2026
+  </div>
 </header>
 
 <div class="main-content">
@@ -112,8 +159,8 @@ body {
 <script>
 
 // ===== TRIP SETTINGS =====
-const tripStart = new Date("2026-06-05");
-const tripEnd   = new Date("2026-06-12");
+const tripStart = new Date("2026-06-05T00:00:00");
+const tripEnd   = new Date("2026-06-12T23:59:59");
 
 // ===== MISSIONS (PARAGRAPH MODE) =====
 const missions = {
@@ -169,7 +216,6 @@ const lockedSection = document.getElementById("locked");
 const missionSection = document.getElementById("mission");
 const missionCard = document.querySelector(".mission-card");
 
-// POST TRIP
 if (now > tripEnd) {
 
   missionSection.style.display = "block";
@@ -180,7 +226,6 @@ if (now > tripEnd) {
 
 }
 
-// ACTIVE TRIP
 else if (currentHour >= 18 && now >= tripStart && now <= tripEnd) {
 
   if (missions[todayString]) {
@@ -196,13 +241,12 @@ else if (currentHour >= 18 && now >= tripStart && now <= tripEnd) {
   missionSection.style.display = "block";
 }
 
-// LOCKED
 else {
+
   lockedSection.style.display = "block";
   startCountdown();
 }
 
-// COUNTDOWN
 function startCountdown() {
   const countdownElement = document.getElementById("countdown");
 
