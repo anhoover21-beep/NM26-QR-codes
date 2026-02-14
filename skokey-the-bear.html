@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NM26 Mission Portal</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        background: #f4f4f4;
+        color: #222;
+    }
+
+    /* ===== HEADER ===== */
+
+    .nm-header {
+        background: #c5161d;
+        color: white;
+    }
+
+    .nm-header-inner {
+        max-width: 1300px;
+        margin: 0 auto;
+        padding: 30px 40px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .nm-brand {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .nm-state {
+        position: relative;
+        width: 110px;
+        height: 110px;
+        background: url("assets/images/new-mexico.png") no-repeat center;
+        background-size: contain;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .nm-text {
+        font-size: 40px;
+        font-weight: 900;
+        letter-spacing: 2px;
+        color: white;
+    }
+
+    .nm-year {
+        font-size: 72px;
+        font-weight: 900;
+        color: #ffd23f;
+    }
+
+    .nm-nav {
+        display: flex;
+        gap: 60px;
+    }
+
+    .nm-nav span {
+        color: white;
+        font-size: 26px;
+        letter-spacing: 2px;
+        font-weight: 600;
+    }
+
+    .nm-login span {
+        background: #ffd23f;
+        color: #c5161d;
+        padding: 12px 26px;
+        border-radius: 16px;
+        font-weight: 900;
+        font-size: 22px;
+    }
+
+    .nm-stripe {
+        background: #ffd23f;
+        padding: 10px 40px;
+        font-weight: 900;
+        color: #c5161d;
+        letter-spacing: 2px;
+    }
+
+    /* ===== CONTENT ===== */
+
+    .page-container {
+        max-width: 900px;
+        margin: 80px auto;
+        padding: 0 30px 100px 30px;
+    }
+
+    .page-container h1 {
+        font-size: 42px;
+        margin-bottom: 24px;
+    }
+
+    .page-container p {
+        font-size: 20px;
+        line-height: 1.7;
+        margin-bottom: 24px;
+    }
+
+    /* ===== RESPONSIVE ===== */
+
+    @media (max-width: 1024px) {
+
+        .nm-header-inner {
+            flex-direction: column;
+            gap: 20px;
+            text-align: center;
+        }
+
+        .nm-nav {
+            gap: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .nm-nav span {
+            font-size: 20px;
+        }
+
+        .nm-state {
+            width: 90px;
+            height: 90px;
+        }
+
+        .nm-text {
+            font-size: 30px;
+        }
+
+        .nm-year {
+            font-size: 54px;
+        }
+
+        .nm-login span {
+            font-size: 18px;
+            padding: 10px 20px;
+        }
+    }
+
+    @media (max-width: 600px) {
+
+        .nm-header-inner {
+            padding: 20px;
+        }
+
+        .nm-nav {
+            gap: 16px;
+        }
+
+        .nm-nav span {
+            font-size: 16px;
+        }
+
+        .nm-state {
+            width: 70px;
+            height: 70px;
+        }
+
+        .nm-text {
+            font-size: 22px;
+        }
+
+        .nm-year {
+            font-size: 40px;
+        }
+
+        .page-container {
+            margin: 50px auto;
+            padding: 0 20px 80px 20px;
+        }
+
+        .page-container h1 {
+            font-size: 28px;
+        }
+
+        .page-container p {
+            font-size: 17px;
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<header class="nm-header">
+    <div class="nm-header-inner">
+
+        <div class="nm-brand">
+            <div class="nm-state">
+                <span class="nm-text">NM</span>
+            </div>
+            <span class="nm-year">26</span>
+        </div>
+
+        <nav class="nm-nav">
+            <span>HOME</span>
+            <span>PLANNER</span>
+            <span>RESOURCES</span>
+            <span>GUIDE</span>
+        </nav>
+
+        <div class="nm-login">
+            <span>LOGIN</span>
+        </div>
+
+    </div>
+
+    <div class="nm-stripe">
+        VACATION 2026
+    </div>
+</header>
+
+<main class="page-container">
+
+<h1>Smokey Bear: The Life of a Symbol</h1>
+
+<p>
+Deep in the dry pine forests near Capitan, New Mexico, a wildfire roared through Lincoln National Forest in the spring of 1950. Firefighters on the scene discovered a small black bear cub clinging to a charred spruce tree — singed, shaken, and alone. They rescued him, tended his burns, and the newspapers named him <strong>Smokey</strong>.
+</p>
+
+<p>
+It’s a poetic twist of history that the U.S. Forest Service had already introduced a cartoon wildfire-prevention mascot six years earlier. Overnight, the fictional poster character fused with a real surviving bear, and America finally had a face to go with the warning.
+</p>
+
+<p>
+The cub was flown to Washington, D.C., where he became a living ambassador at the National Zoo. Letters, drawings, and gifts poured in from children across the country. Smokey wasn’t simply a symbol of fire safety anymore — he became an emblem of resilience.
+</p>
+
+<p>
+For decades, his message echoed across posters, radio spots, schoolrooms, and trailheads:
+</p>
+
+<blockquote><strong>“Only you can prevent forest fires.”</strong></blockquote>
+
+<p>
+It remains the longest-running public service campaign in American history.
+</p>
+
+<h2>🔥 Changing a Nation’s Habits</h2>
+
+<p>
+Before Smokey, careless campfires, burning brush piles, and tossed matches were part of everyday life in the American West. After Smokey, wildfire prevention became cultural instinct. The image of a ranger-hat-wearing black bear pointing straight into the viewer’s eyes embedded itself into generations of hikers, campers, and families.
+</p>
+
+<p>
+His influence helped usher in better rules, safer trails, and a deeper respect for the natural world.
+</p>
+
+<h2>🌲 A Return Home</h2>
+
+<p>
+When Smokey died in 1976, he was brought home to be buried in Capitan — the New Mexico town nearest to the fire that rescued him.
+</p>
+
+<p>
+Today, visitors stop by his gravesite not out of novelty, but out of gratitude. He reminds us that the wild lands we travel through are fragile — and that stewardship begins with individuals, not agencies.
+</p>
+
+<h2>🧭 Legacy</h2>
+
+<p>
+Smokey stands as a gentle monument to responsibility, and to the small burned cub who survived long enough to teach America how to care for its forests.
+</p>
+
+</main>
+
+
+</body>
+</html>
