@@ -3,189 +3,223 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NM26 Mission Portal</title>
+<title>NM26 — Did You Know?</title>
 
 <style>
-    body {
-        margin: 0;
-        font-family: Arial, Helvetica, sans-serif;
-        background: #f4f4f4;
-        color: #222;
-    }
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f4f4;
+    color: #222;
+}
 
-    /* ===== HEADER ===== */
+/* =========================
+   LOCKED NM26 HEADER
+   ========================= */
 
-    .nm-header {
-        background: #c5161d;
-        color: white;
-    }
+.nm-header {
+    background: #c5161d;
+    color: white;
+}
+
+.nm-header-inner {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 28px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nm-brand {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.nm-state {
+    width: 110px;
+    height: 110px;
+    background: url("assets/images/new-mexico.png") no-repeat center;
+    background-size: contain;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nm-text {
+    font-size: 40px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    color: white;
+}
+
+.nm-year {
+    font-size: 72px;
+    font-weight: 900;
+    color: #ffd23f;
+}
+
+.nm-nav {
+    display: flex;
+    gap: 60px;
+}
+
+.nm-nav span {
+    color: white;
+    font-size: 26px;
+    letter-spacing: 2px;
+    font-weight: 600;
+}
+
+.nm-login span {
+    background: #ffd23f;
+    color: #c5161d;
+    padding: 12px 26px;
+    border-radius: 16px;
+    font-weight: 900;
+    font-size: 22px;
+}
+
+.nm-stripe {
+    background: #ffd23f;
+    padding: 10px 40px;
+    font-weight: 900;
+    color: #c5161d;
+    letter-spacing: 2px;
+}
+
+/* =========================
+   DID YOU KNOW LAYOUT
+   ========================= */
+
+.page-container {
+    max-width: 1000px;
+    margin: 80px auto 100px auto;
+    padding: 0 30px;
+}
+
+.content-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 50px;
+}
+
+.text-column {
+    flex: 1;
+}
+
+.text-column h1 {
+    font-size: 42px;
+    margin-bottom: 30px;
+    letter-spacing: 2px;
+}
+
+.text-column p {
+    font-size: 20px;
+    line-height: 1.7;
+    margin-bottom: 24px;
+}
+
+.dusty-column {
+    width: 260px;
+    flex-shrink: 0;
+}
+
+.dusty-column img {
+    width: 100%;
+    height: auto;
+}
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+
+@media (max-width: 1024px) {
 
     .nm-header-inner {
-        max-width: 1300px;
-        margin: 0 auto;
-        padding: 30px 40px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
-
-    .nm-brand {
-        display: flex;
-        align-items: center;
+        flex-direction: column;
         gap: 20px;
-    }
-
-    .nm-state {
-        position: relative;
-        width: 110px;
-        height: 110px;
-        background: url("assets/images/new-mexico.png") no-repeat center;
-        background-size: contain;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .nm-text {
-        font-size: 40px;
-        font-weight: 900;
-        letter-spacing: 2px;
-        color: white;
-    }
-
-    .nm-year {
-        font-size: 72px;
-        font-weight: 900;
-        color: #ffd23f;
+        text-align: center;
     }
 
     .nm-nav {
-        display: flex;
-        gap: 60px;
+        gap: 30px;
+        flex-wrap: wrap;
+        justify-content: center;
     }
 
     .nm-nav span {
-        color: white;
-        font-size: 26px;
-        letter-spacing: 2px;
-        font-weight: 600;
+        font-size: 20px;
+    }
+
+    .nm-state {
+        width: 90px;
+        height: 90px;
+    }
+
+    .nm-text {
+        font-size: 30px;
+    }
+
+    .nm-year {
+        font-size: 54px;
     }
 
     .nm-login span {
-        background: #ffd23f;
-        color: #c5161d;
-        padding: 12px 26px;
-        border-radius: 16px;
-        font-weight: 900;
+        font-size: 18px;
+        padding: 10px 20px;
+    }
+}
+
+@media (max-width: 900px) {
+
+    .content-row {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .dusty-column {
+        width: 200px;
+        margin-bottom: 30px;
+    }
+
+    .text-column {
+        text-align: center;
+    }
+
+    .text-column h1 {
+        font-size: 32px;
+    }
+
+    .text-column p {
+        font-size: 17px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .nm-nav {
+        gap: 16px;
+    }
+
+    .nm-nav span {
+        font-size: 16px;
+    }
+
+    .nm-state {
+        width: 70px;
+        height: 70px;
+    }
+
+    .nm-text {
         font-size: 22px;
     }
 
-    .nm-stripe {
-        background: #ffd23f;
-        padding: 10px 40px;
-        font-weight: 900;
-        color: #c5161d;
-        letter-spacing: 2px;
+    .nm-year {
+        font-size: 40px;
     }
-
-    /* ===== CONTENT ===== */
-
-    .page-container {
-        max-width: 900px;
-        margin: 80px auto;
-        padding: 0 30px 100px 30px;
-    }
-
-    .page-container h1 {
-        font-size: 42px;
-        margin-bottom: 24px;
-    }
-
-    .page-container p {
-        font-size: 20px;
-        line-height: 1.7;
-        margin-bottom: 24px;
-    }
-
-    /* ===== RESPONSIVE ===== */
-
-    @media (max-width: 1024px) {
-
-        .nm-header-inner {
-            flex-direction: column;
-            gap: 20px;
-            text-align: center;
-        }
-
-        .nm-nav {
-            gap: 30px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .nm-nav span {
-            font-size: 20px;
-        }
-
-        .nm-state {
-            width: 90px;
-            height: 90px;
-        }
-
-        .nm-text {
-            font-size: 30px;
-        }
-
-        .nm-year {
-            font-size: 54px;
-        }
-
-        .nm-login span {
-            font-size: 18px;
-            padding: 10px 20px;
-        }
-    }
-
-    @media (max-width: 600px) {
-
-        .nm-header-inner {
-            padding: 20px;
-        }
-
-        .nm-nav {
-            gap: 16px;
-        }
-
-        .nm-nav span {
-            font-size: 16px;
-        }
-
-        .nm-state {
-            width: 70px;
-            height: 70px;
-        }
-
-        .nm-text {
-            font-size: 22px;
-        }
-
-        .nm-year {
-            font-size: 40px;
-        }
-
-        .page-container {
-            margin: 50px auto;
-            padding: 0 20px 80px 20px;
-        }
-
-        .page-container h1 {
-            font-size: 28px;
-        }
-
-        .page-container p {
-            font-size: 17px;
-        }
-    }
+}
 </style>
 </head>
 
@@ -221,21 +255,146 @@
 
 <main class="page-container">
 
-    <h1>UV Desert Operations</h1>
+  <div class="content-row">
 
-    <p>
-        Welcome to the UV Desert mission briefing. This checkpoint marks the beginning of your New Mexico 2026 operational sequence.
-    </p>
+    <div class="text-column">
+      <h1>Desert Sky at Night</h1>
 
-    <p>
-        Environmental conditions and mission directives will be delivered here.
-    </p>
+      <p><strong>Did you know…</strong></p>
+      <p>…the American Southwest has some of the darkest skies on Earth?<br>
+      Low humidity, high elevation, and limited light pollution create air so clear, even distant galaxies are visible.</p>
 
-    <p>
-        Maintain readiness.
-    </p>
+      <p><strong>Did you know…</strong></p>
+      <p>…there’s a scale for darkness?<br>
+      It’s called the Bortle Scale (1 = perfect black wilderness, 9 = downtown neon).<br>
+      Parts of New Mexico rate Bortle 1–2 — astronomer heaven.</p>
+
+      <p><strong>Did you know…</strong></p>
+      <p>…the desert air is bone-dry?<br>
+      Moisture scatters light.<br>
+      Dry air = sharper stars, cleaner constellations, and brighter Milky Way spill.</p>
+
+      <p><strong>Did you know…</strong></p>
+      <p>…New Mexico is home to the world’s first International Dark Sky Sanctuary?<br>
+      The cosmic quiet here isn’t an accident — it’s protected.</p>
+
+      <p><strong>Did you know…</strong></p>
+      <p>…those faint streaks you’ll see aren’t planes?<br>
+      They’re satellites — and during a dark-sky pass, you can spot dozens.</p>
+      <p>If they appear in a straight dotted line?<br>
+      That’s Starlink.</p>
+
+      <p><strong>Did you know…</strong></p>
+      <p>…the Milky Way in New Mexico looks like spilled milk across the sky?<br>
+      In cities, that band simply disappears.<br>
+      Out here — it becomes mythic again.</p>
+
+      <p><strong>Did you know…</strong></p>
+      <p>…your eyes need 30 minutes to fully night-adapt?<br>
+      Avoid phones and headlights — red light preserves night vision.</p>
+      <p>After 30 minutes, you’ll see 3× more stars than when you started.</p>
+
+      <p><strong>Did you know…</strong></p>
+      <p>…the desert’s temperature drop at night helps visibility?<br>
+      Cold air sinks, creating stable atmospheric layers — astronomers call it good seeing.</p>
+
+      <p><strong>Did you know…</strong></p>
+      <p>…the bright star you’re staring at might be a planet?<br>
+      Look for:</p>
+      <p>
+        • No twinkle = likely a planet<br>
+        • Steady glow = Jupiter, Venus, Mars
+      </p>
+      <p>Venus in the desert is shockingly bright.</p>
+
+      <p><strong>Did you know…</strong></p>
+      <p>…shooting stars aren’t rare here?<br>
+      You can catch several per hour on an average night — more during meteor showers.</p>
+
+      <p><strong>Did you know…</strong></p>
+      <p>…humans navigated the Southwest by the stars?<br>
+      Ancient travelers used:</p>
+      <p>
+        • the North Star (Polaris),<br>
+        • the Pleiades cluster,<br>
+        • the Milky Way’s arc
+      </p>
+      <p>Their migrations are carved into petroglyph spirals.</p>
+
+      <p><strong>Did you know…</strong></p>
+      <p>…you can spot the International Space Station with your eyes?<br>
+      It moves like a bright, silent plane — no blinking lights.<br>
+      It’s brighter than 95% of stars.</p>
+
+      <p><strong>Did you know…</strong></p>
+      <p>…the desert night is loud?<br>
+      Listen for:</p>
+      <p>
+        • bats hunting insects,<br>
+        • coyotes calling across miles,<br>
+        • night wind moving like water.
+      </p>
+      <p>The land breathes differently after sunset.</p>
+
+      <h2>🌌 HOW TO GET A PERFECT VIEW</h2>
+      <p>
+        1. Let your eyes adapt 30 min<br>
+        2. Turn off screens + headlamps<br>
+        3. Look away from the moon<br>
+        4. Cup your hands to block side light<br>
+        5. Focus on the darkest patch of sky
+      </p>
+      <p>Watch the stars multiply.</p>
+
+      <h2>🌠 STAR QUEST</h2>
+      <p>Try to spot:</p>
+      <p>
+        ✔ The Milky Way band<br>
+        ✔ The Pleiades (“Seven Sisters”)<br>
+        ✔ A satellite streak<br>
+        ✔ A shooting star<br>
+        ✔ Venus or Jupiter
+      </p>
+      <p>Each one unlocks a cosmic “wow” moment.</p>
+
+      <h2>🔦 RED LIGHT PRO TIP</h2>
+      <p>Switch your flashlight to red mode. Red wavelengths protect night vision.</p>
+      <p>You’ll see far more detail this way.</p>
+
+      <h2>🔭 BINOCULAR SECRET</h2>
+      <p>Turn your binoculars UP. They become instant amateur telescopes.</p>
+      <p>Look at:</p>
+      <p>
+        • the moon’s craters<br>
+        • the Milky Way’s dust lanes<br>
+        • Orion’s nebula (fuzzy star patch)
+      </p>
+      <p>Mind blown.</p>
+
+      <h2>🔊 LISTEN CLOSELY</h2>
+      <p>After 10 PM, distant sounds travel further. You may hear coyotes miles away — bouncing off canyon walls.</p>
+      <p>That’s atmospheric ducting. Very desert. Very eerie.</p>
+
+      <h2>🧠 Think about this</h2>
+      <p>Every star you’re seeing is:</p>
+      <p>
+        • a sun,<br>
+        • with planets,<br>
+        • some older than Earth,<br>
+        • some gone for millions of years…
+      </p>
+      <p>…and you’re seeing them as they were, not as they are.</p>
+      <p>The desert sky is time travel.</p>
+    </div>
+
+    <div class="dusty-column">
+      <img src="assets/images/wise-old-traveler.png" alt="Dusty Sagebrush">
+    </div>
+
+  </div>
 
 </main>
+
 
 </body>
 </html>
