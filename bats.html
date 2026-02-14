@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NM26 — Did You Know?</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f4f4;
+    color: #222;
+}
+
+/* =========================
+   LOCKED NM26 HEADER
+   ========================= */
+
+.nm-header {
+    background: #c5161d;
+    color: white;
+}
+
+.nm-header-inner {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 28px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nm-brand {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.nm-state {
+    width: 110px;
+    height: 110px;
+    background: url("assets/images/new-mexico.png") no-repeat center;
+    background-size: contain;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nm-text {
+    font-size: 40px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    color: white;
+}
+
+.nm-year {
+    font-size: 72px;
+    font-weight: 900;
+    color: #ffd23f;
+}
+
+.nm-nav {
+    display: flex;
+    gap: 60px;
+}
+
+.nm-nav span {
+    color: white;
+    font-size: 26px;
+    letter-spacing: 2px;
+    font-weight: 600;
+}
+
+.nm-login span {
+    background: #ffd23f;
+    color: #c5161d;
+    padding: 12px 26px;
+    border-radius: 16px;
+    font-weight: 900;
+    font-size: 22px;
+}
+
+.nm-stripe {
+    background: #ffd23f;
+    padding: 10px 40px;
+    font-weight: 900;
+    color: #c5161d;
+    letter-spacing: 2px;
+}
+
+/* =========================
+   DID YOU KNOW LAYOUT
+   ========================= */
+
+.page-container {
+    max-width: 1000px;
+    margin: 80px auto 100px auto;
+    padding: 0 30px;
+}
+
+.content-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 50px;
+}
+
+.text-column {
+    flex: 1;
+}
+
+.text-column h1 {
+    font-size: 42px;
+    margin-bottom: 30px;
+    letter-spacing: 2px;
+}
+
+.text-column p {
+    font-size: 20px;
+    line-height: 1.7;
+    margin-bottom: 24px;
+}
+
+.dusty-column {
+    width: 260px;
+    flex-shrink: 0;
+}
+
+.dusty-column img {
+    width: 100%;
+    height: auto;
+}
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+
+@media (max-width: 1024px) {
+
+    .nm-header-inner {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+
+    .nm-nav {
+        gap: 30px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .nm-nav span {
+        font-size: 20px;
+    }
+
+    .nm-state {
+        width: 90px;
+        height: 90px;
+    }
+
+    .nm-text {
+        font-size: 30px;
+    }
+
+    .nm-year {
+        font-size: 54px;
+    }
+
+    .nm-login span {
+        font-size: 18px;
+        padding: 10px 20px;
+    }
+}
+
+@media (max-width: 900px) {
+
+    .content-row {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .dusty-column {
+        width: 200px;
+        margin-bottom: 30px;
+    }
+
+    .text-column {
+        text-align: center;
+    }
+
+    .text-column h1 {
+        font-size: 32px;
+    }
+
+    .text-column p {
+        font-size: 17px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .nm-nav {
+        gap: 16px;
+    }
+
+    .nm-nav span {
+        font-size: 16px;
+    }
+
+    .nm-state {
+        width: 70px;
+        height: 70px;
+    }
+
+    .nm-text {
+        font-size: 22px;
+    }
+
+    .nm-year {
+        font-size: 40px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header class="nm-header">
+    <div class="nm-header-inner">
+
+        <div class="nm-brand">
+            <div class="nm-state">
+                <span class="nm-text">NM</span>
+            </div>
+            <span class="nm-year">26</span>
+        </div>
+
+        <nav class="nm-nav">
+            <span>HOME</span>
+            <span>PLANNER</span>
+            <span>RESOURCES</span>
+            <span>GUIDE</span>
+        </nav>
+
+        <div class="nm-login">
+            <span>LOGIN</span>
+        </div>
+
+    </div>
+
+    <div class="nm-stripe">
+        VACATION 2026
+    </div>
+</header>
+
+<main class="page-container">
+
+    <div class="content-row">
+
+       <div class="text-column">
+    <h1>BATS IN CARLSBAD</h1>
+
+    <p><strong>Did you know…</strong><br>
+    the bat colony at Carlsbad Caverns is one of the largest maternity colonies on Earth? In summer, this cave becomes a nursery for hundreds of thousands of newborn pups.</p>
+
+    <p><strong>Did you know…</strong><br>
+    the primary species here — the Brazilian free-tailed bat — may be the fastest mammal on Earth in level flight? Some have been clocked at over 100 mph.</p>
+
+    <p><strong>Did you know…</strong><br>
+    modern counts estimate the colony between 400,000 and 700,000 bats in peak season. Historical accounts from the early 1900s describe emergence clouds in the millions, darkening the sky for hours.</p>
+
+    <p><strong>Did you know…</strong><br>
+    each mother gives birth to only one pup per year? Every lost bat matters — population recovery is slow and fragile.</p>
+
+    <p><strong>Did you know…</strong><br>
+    a single bat can consume its weight in insects every night. Multiply that by hundreds of thousands, and this colony devours tons of moths and beetles nightly — saving farmers millions in crop loss.</p>
+
+    <p><strong>Did you know…</strong><br>
+    the bats launch into the evening in a massive spiral vortex? It prevents collisions, confuses predators, uses rising warm air for lift, saves energy, and gets everyone airborne fast. It’s a vortex of survival.</p>
+
+    <p><strong>Did you know…</strong><br>
+    the spiral tightens if hawks or owls appear at the cave mouth? It changes shape instantly — a living defense shield.</p>
+
+    <p><strong>Did you know…</strong><br>
+    pups cling to the ceiling in clusters tens of thousands strong, and mothers find their own baby by smell, sound, and memory of location — like finding your child in a stadium in the dark by voice alone.</p>
+
+    <p><strong>Did you know…</strong><br>
+    bats can fly 50+ miles in a single night and sometimes reach 10,000 feet altitude — higher than aircraft on approach.</p>
+
+    <p><strong>Did you know…</strong><br>
+    the colony migrates over 900–1,000 miles each year, riding warm air corridors and following insect blooms like sky-herds moving with weather.</p>
+
+    <p><strong>Did you know…</strong><br>
+    the rushing sound you hear during emergence is hundreds of thousands of wingbeats compressing air. It sounds like distant rainfall.</p>
+
+    <p><strong>Did you know…</strong><br>
+    researchers track nightly emergence on Doppler radar. On weather screens it looks like an expanding storm bubble — you can literally watch the colony bloom into the sky.</p>
+
+    <p><strong>Did you know…</strong><br>
+    the cave’s bat guano once fueled industry? It was mined to make saltpeter for gunpowder. This cave shaped history quietly.</p>
+
+    <p><strong>Did you know…</strong><br>
+    bat calls are built from ultrasonic syllables that can signal warnings, maternal contact, courtship, or territorial messages. They’re tiny mammals with a language.</p>
+
+    <p><strong>Did you know…</strong><br>
+    emergence timing is instinctively precise — too early means hawks, too late means lost feeding hours.</p>
+
+    <p><strong>Did you know…</strong><br>
+    white-nose fungus has devastated bat colonies in the East, but hasn’t crushed Carlsbad’s colony. Rangers monitor constantly.</p>
+
+    <p><strong>Did you know…</strong><br>
+    every bat has a role in the spiral. Scientists observe shockwave ripples in the swarm — instant signals that reshape the colony mid-flight. It’s like watching a shared mind.</p>
+
+    <h2>Why the spiral matters</h2>
+    <p>The vortex accelerates departures, uses rising cavern heat like an elevator, reduces collisions, and throws off predators waiting at the entrance. What you’re seeing is physics + survival + social flight.</p>
+
+    <h2>Ecological superpower</h2>
+    <p>In a single night this colony can protect crops, reduce pesticide use, limit disease-carrying insects, and reshape local food webs. Farmers owe these wings more than most realize.</p>
+
+    <h2>Why historic numbers dropped</h2>
+    <p>Population declined due to mining disturbance, drought, pesticide residue, and habitat change. Today’s colony is stable because of protection.</p>
+
+    <h2>Think about this</h2>
+    <p>For thousands of years, every summer night, this same cave mouth has launched waves of life into the dark. You’re witnessing a ritual older than your entire civilization.</p>
+</div>
+
+        </div>
+
+        <div class="dusty-column">
+            <img src="assets/images/wise-old-traveler.png" alt="Dusty Sagebrush">
+        </div>
+
+    </div>
+
+</main>
+
+</body>
+</html>
