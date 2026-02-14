@@ -3,266 +3,303 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NM26 — Did You Know?</title>
+<title>NM26 Mission Portal</title>
 
 <style>
-body {
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background: #f4f4f4;
-    color: #222;
-}
-
-/* =========================
-   LOCKED NM26 HEADER
-   ========================= */
-
-.nm-header {
-    background: #c5161d;
-    color: white;
-}
-
-.nm-header-inner {
-    max-width: 1300px;
-    margin: 0 auto;
-    padding: 28px 40px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.nm-brand {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-}
-
-.nm-state {
-    width: 110px;
-    height: 110px;
-    background: url("assets/images/new-mexico.png") no-repeat center;
-    background-size: contain;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.nm-text {
-    font-size: 40px;
-    font-weight: 900;
-    letter-spacing: 2px;
-    color: white;
-}
-
-.nm-year {
-    font-size: 72px;
-    font-weight: 900;
-    color: #ffd23f;
-}
-
-.nm-nav {
-    display: flex;
-    gap: 60px;
-}
-
-.nm-nav span {
-    color: white;
-    font-size: 26px;
-    letter-spacing: 2px;
-    font-weight: 600;
-}
-
-.nm-login span {
-    background: #ffd23f;
-    color: #c5161d;
-    padding: 12px 26px;
-    border-radius: 16px;
-    font-weight: 900;
-    font-size: 22px;
-}
-
-.nm-stripe {
-    background: #ffd23f;
-    padding: 10px 40px;
-    font-weight: 900;
-    color: #c5161d;
-    letter-spacing: 2px;
-}
-
-/* =========================
-   PAGE LAYOUT
-   ========================= */
-
-.page-container {
-    max-width: 1000px;
-    margin: 80px auto 100px auto;
-    padding: 0 30px;
-}
-
-.text-column h1 {
-    font-size: 42px;
-    margin-bottom: 30px;
-    letter-spacing: 2px;
-}
-
-.text-column p {
-    font-size: 20px;
-    line-height: 1.7;
-    margin-bottom: 24px;
-}
-
-/* FLOAT IMAGE WRAP */
-
-.traveler-img {
-    float: right;
-    width: 260px;
-    max-width: 40%;
-    margin: 0 0 25px 30px;
-}
-
-/* =========================
-   RESPONSIVE
-   ========================= */
-
-@media (max-width: 1024px) {
-
-    .nm-header-inner {
-        flex-direction: column;
-        gap: 20px;
-        text-align: center;
+    body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        background: #f4f4f4;
+        color: #222;
     }
 
-    .nm-nav {
-        gap: 30px;
-        flex-wrap: wrap;
+    /* ===== HEADER ===== */
+
+    .nm-header {
+        background: #c5161d;
+        color: white;
+    }
+
+    .nm-header-inner {
+        max-width: 1300px;
+        margin: 0 auto;
+        padding: 30px 40px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .nm-brand {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .nm-state {
+        position: relative;
+        width: 110px;
+        height: 110px;
+        background: url("assets/images/new-mexico.png") no-repeat center;
+        background-size: contain;
+        display: flex;
+        align-items: center;
         justify-content: center;
     }
 
-    .nm-nav span { font-size: 20px; }
-
-    .nm-state {
-        width: 90px;
-        height: 90px;
+    .nm-text {
+        font-size: 40px;
+        font-weight: 900;
+        letter-spacing: 2px;
+        color: white;
     }
 
-    .nm-text { font-size: 30px; }
-    .nm-year { font-size: 54px; }
+    .nm-year {
+        font-size: 72px;
+        font-weight: 900;
+        color: #ffd23f;
+    }
+
+    .nm-nav {
+        display: flex;
+        gap: 60px;
+    }
+
+    .nm-nav span {
+        color: white;
+        font-size: 26px;
+        letter-spacing: 2px;
+        font-weight: 600;
+    }
 
     .nm-login span {
-        font-size: 18px;
-        padding: 10px 20px;
-    }
-}
-
-@media (max-width: 700px) {
-    .traveler-img {
-        float: none;
-        display: block;
-        margin: 0 auto 30px auto;
-        max-width: 220px;
+        background: #ffd23f;
+        color: #c5161d;
+        padding: 12px 26px;
+        border-radius: 16px;
+        font-weight: 900;
+        font-size: 22px;
     }
 
-    .text-column {
-        text-align: center;
+    .nm-stripe {
+        background: #ffd23f;
+        padding: 10px 40px;
+        font-weight: 900;
+        color: #c5161d;
+        letter-spacing: 2px;
     }
 
-    .text-column h1 { font-size: 32px; }
-    .text-column p { font-size: 17px; }
-}
+    /* ===== CONTENT ===== */
 
-@media (max-width: 600px) {
-    .nm-nav { gap: 16px; }
-    .nm-nav span { font-size: 16px; }
-
-    .nm-state {
-        width: 70px;
-        height: 70px;
+    .page-container {
+        max-width: 900px;
+        margin: 80px auto;
+        padding: 0 30px 100px 30px;
     }
 
-    .nm-text { font-size: 22px; }
-    .nm-year { font-size: 40px; }
-}
+    .page-container h1 {
+        font-size: 42px;
+        margin-bottom: 24px;
+    }
+
+    .page-container p {
+        font-size: 20px;
+        line-height: 1.7;
+        margin-bottom: 24px;
+    }
+
+    /* ===== RESPONSIVE ===== */
+
+    @media (max-width: 1024px) {
+
+        .nm-header-inner {
+            flex-direction: column;
+            gap: 20px;
+            text-align: center;
+        }
+
+        .nm-nav {
+            gap: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .nm-nav span {
+            font-size: 20px;
+        }
+
+        .nm-state {
+            width: 90px;
+            height: 90px;
+        }
+
+        .nm-text {
+            font-size: 30px;
+        }
+
+        .nm-year {
+            font-size: 54px;
+        }
+
+        .nm-login span {
+            font-size: 18px;
+            padding: 10px 20px;
+        }
+    }
+
+    @media (max-width: 600px) {
+
+        .nm-header-inner {
+            padding: 20px;
+        }
+
+        .nm-nav {
+            gap: 16px;
+        }
+
+        .nm-nav span {
+            font-size: 16px;
+        }
+
+        .nm-state {
+            width: 70px;
+            height: 70px;
+        }
+
+        .nm-text {
+            font-size: 22px;
+        }
+
+        .nm-year {
+            font-size: 40px;
+        }
+
+        .page-container {
+            margin: 50px auto;
+            padding: 0 20px 80px 20px;
+        }
+
+        .page-container h1 {
+            font-size: 28px;
+        }
+
+        .page-container p {
+            font-size: 17px;
+        }
+    }
 </style>
 </head>
 
 <body>
 
 <header class="nm-header">
-<div class="nm-header-inner">
+    <div class="nm-header-inner">
 
-<div class="nm-brand">
-<div class="nm-state">
-<span class="nm-text">NM</span>
-</div>
-<span class="nm-year">26</span>
-</div>
+        <div class="nm-brand">
+            <div class="nm-state">
+                <span class="nm-text">NM</span>
+            </div>
+            <span class="nm-year">26</span>
+        </div>
 
-<nav class="nm-nav">
-<span>HOME</span>
-<span>PLANNER</span>
-<span>RESOURCES</span>
-<span>GUIDE</span>
-</nav>
+        <nav class="nm-nav">
+            <span>HOME</span>
+            <span>PLANNER</span>
+            <span>RESOURCES</span>
+            <span>GUIDE</span>
+        </nav>
 
-<div class="nm-login">
-<span>LOGIN</span>
-</div>
+        <div class="nm-login">
+            <span>LOGIN</span>
+        </div>
 
-</div>
+    </div>
 
-<div class="nm-stripe">
-VACATION 2026
-</div>
+    <div class="nm-stripe">
+        VACATION 2026
+    </div>
 </header>
 
 <main class="page-container">
 
-<div class="text-column">
+<h1>🌅 Why New Mexico Sunsets Look Unreal</h1>
+<h2>(A Guide to Sky Sorcery)</h2>
 
-<img src="assets/images/wise-old-traveler.png" alt="Traveler" class="traveler-img">
+<p>If Louisiana sunsets are warm and cozy, New Mexico sunsets look like the sky took acid and turned the saturation to 200%. They’re deeper, brighter, wider, and somehow… bigger.</p>
 
-<h1>BATS IN CARLSBAD</h1>
+<p><strong>Here’s the truth behind the magic:</strong></p>
 
-<p><strong>Did you know…</strong><br>
-the bat colony at Carlsbad Caverns is one of the largest maternity colonies on Earth? In summer, this cave becomes a nursery for hundreds of thousands of newborn pups.</p>
+<p><strong>1. The Air Is Cleaner — Way Cleaner</strong><br>
+Down home, we’ve got humidity, pollen, swamp haze, and mosquitoes that count as airborne debris.<br>
+New Mexico? Bone-dry, thin desert air.<br><br>
+<strong>Result:</strong><br>
+Light travels farther and scatters cleaner.<br>
+Colors pop harder. Reds burn deeper. Purples hit like album cover art.</p>
 
-<p><strong>Did you know…</strong><br>
-the primary species here — the Brazilian free-tailed bat — may be the fastest mammal on Earth in level flight? Some have been clocked at over 100 mph.</p>
+<p><strong>2. The Horizon Is HUGE</strong><br>
+Trees? Nope.<br>
+Billboards? Rare.<br>
+Humidity wall? Nonexistent.<br><br>
+You see the entire dome of the sky, edge to edge.<br><br>
+<strong>Result:</strong><br>
+Sunsets stretch across the whole world, not just the slice above your neighborhood.</p>
 
-<p><strong>Did you know…</strong><br>
-modern counts estimate the colony between 400,000 and 700,000 bats in peak season. Historical accounts from the early 1900s describe emergence clouds in the millions, darkening the sky for hours.</p>
+<p><strong>3. High Elevation = Next Level Color</strong><br>
+The higher you go, the more atmosphere the sunlight passes through at an angle.<br><br>
+Santa Fe, Taos, Valles Caldera, Socorro… All high.<br><br>
+<strong>Result:</strong><br>
+More scattering = more reds, oranges, pinks, and neon-level purples.<br>
+The colors look like they’re plugged into an outlet.</p>
 
-<p><strong>Did you know…</strong><br>
-each mother gives birth to only one pup per year? Every lost bat matters — population recovery is slow and fragile.</p>
+<p><strong>4. Desert Dust = Nature’s Color Booster</strong><br>
+Yeah, it sounds bad, but desert dust in the upper atmosphere acts like tiny mirrors.<br><br>
+<strong>Result:</strong><br>
+The sky fires off reds and oranges like a flamethrower, especially after windy days.</p>
 
-<p><strong>Did you know…</strong><br>
-a single bat can consume its weight in insects every night. Multiply that by hundreds of thousands, and this colony devours tons of moths and beetles nightly — saving farmers millions in crop loss.</p>
+<p><strong>5. Clouds = God’s Paintbrush</strong><br>
+New Mexico has these long, stretched-out, painterly clouds called “lenticular” and “altocumulus bands.”<br><br>
+<strong>Result:</strong><br>
+They catch light from below the horizon, glowing red and gold like they’re lit from the inside.</p>
 
-<p><strong>Did you know…</strong><br>
-the bats launch into the evening in a massive spiral vortex? It prevents collisions, confuses predators, uses rising warm air for lift, saves energy, and gets everyone airborne fast. It’s a vortex of survival.</p>
+<p><strong>6. The “Afterglow” That Feels Fake</strong><br>
+Even after the sun dips, the light hits high desert dust and ice crystals.<br><br>
+<strong>Result:</strong><br>
+The sky stays pink, orange, or purple for 20–40 minutes, long after you think it should be dark.</p>
 
-<p><strong>Did you know…</strong><br>
-the spiral tightens if hawks or owls appear at the cave mouth? It changes shape instantly — a living defense shield.</p>
+<br>
 
-<p><strong>Did you know…</strong><br>
-pups cling to the ceiling in clusters tens of thousands strong, and mothers find their own baby by smell, sound, and memory of location — like finding your child in a stadium in the dark by voice alone.</p>
+<h2>🌄 What YOU Will See on This Trip</h2>
 
-<p><strong>Did you know…</strong><br>
-bats can fly 50+ miles in a single night and sometimes reach 10,000 feet altitude — higher than aircraft on approach.</p>
+<p><strong>Tucumcari – June 5</strong><br>
+Wide-open plains.<br>
+Neon signs lighting up under a melting orange sky.<br>
+Think: desert postcard + Route 66 nostalgia set to max brightness.</p>
 
-<p><strong>Did you know…</strong><br>
-the colony migrates over 900–1,000 miles each year, riding warm air corridors and following insect blooms like sky-herds moving with weather.</p>
+<p><strong>Santa Fe & Taos – June 6–8</strong><br>
+High elevation.<br>
+Mountain silhouettes.<br>
+Clouds catching fire in the distance.<br>
+Think: Bob Ross drank three Red Bulls and painted the sky.</p>
 
-<p><strong>Did you know…</strong><br>
-the rushing sound you hear during emergence is hundreds of thousands of wingbeats compressing air. It sounds like distant rainfall.</p>
+<p><strong>White Sands – June 9 or 10</strong><br>
+This is the holy grail.<br>
+White dunes turn gold… then pink… then purple…<br>
+Looks like snow reflecting a rave.</p>
 
-<p><strong>Did you know…</strong><br>
-researchers track nightly emergence on Doppler radar. On weather screens it looks like an expanding storm bubble — you can literally watch the colony bloom into the sky.</p>
+<p><strong>Socorro / Roswell – June 9–10</strong><br>
+Desert flatlands make the sun look HUGE.<br>
+Dust boosts the reds.<br>
+Think: Mars with WiFi.</p>
 
-<p><strong>Did you know…</strong><br>
-the cave’s bat guano once fueled industry? It was mined to make saltpeter for gunpowder. This cave shaped history quietly.</p>
+<br>
 
-</div>
+<h2>☀️ Why You’ll Never Forget It</h2>
+
+<p>Because in the desert:</p>
+
+<p><strong>The sky is the show.</strong></p>
+<p><strong>The land is the stage.</strong></p>
+<p><strong>And every evening is a grand finale.</strong></p>
+
 </main>
 
 </body>
