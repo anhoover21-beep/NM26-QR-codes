@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NM26 Mission Portal</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        background: #f4f4f4;
+        color: #222;
+    }
+
+    /* ===== HEADER ===== */
+
+    .nm-header {
+        background: #c5161d;
+        color: white;
+    }
+
+    .nm-header-inner {
+        max-width: 1300px;
+        margin: 0 auto;
+        padding: 30px 40px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .nm-brand {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .nm-state {
+        position: relative;
+        width: 110px;
+        height: 110px;
+        background: url("assets/images/new-mexico.png") no-repeat center;
+        background-size: contain;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .nm-text {
+        font-size: 40px;
+        font-weight: 900;
+        letter-spacing: 2px;
+        color: white;
+    }
+
+    .nm-year {
+        font-size: 72px;
+        font-weight: 900;
+        color: #ffd23f;
+    }
+
+    .nm-nav {
+        display: flex;
+        gap: 60px;
+    }
+
+    .nm-nav span {
+        color: white;
+        font-size: 26px;
+        letter-spacing: 2px;
+        font-weight: 600;
+    }
+
+    .nm-login span {
+        background: #ffd23f;
+        color: #c5161d;
+        padding: 12px 26px;
+        border-radius: 16px;
+        font-weight: 900;
+        font-size: 22px;
+    }
+
+    .nm-stripe {
+        background: #ffd23f;
+        padding: 10px 40px;
+        font-weight: 900;
+        color: #c5161d;
+        letter-spacing: 2px;
+    }
+
+    /* ===== CONTENT ===== */
+
+    .page-container {
+        max-width: 900px;
+        margin: 80px auto;
+        padding: 0 30px 100px 30px;
+    }
+
+    .page-container h1 {
+        font-size: 42px;
+        margin-bottom: 24px;
+    }
+
+    .page-container p {
+        font-size: 20px;
+        line-height: 1.7;
+        margin-bottom: 24px;
+    }
+
+    /* ===== RESPONSIVE ===== */
+
+    @media (max-width: 1024px) {
+
+        .nm-header-inner {
+            flex-direction: column;
+            gap: 20px;
+            text-align: center;
+        }
+
+        .nm-nav {
+            gap: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .nm-nav span {
+            font-size: 20px;
+        }
+
+        .nm-state {
+            width: 90px;
+            height: 90px;
+        }
+
+        .nm-text {
+            font-size: 30px;
+        }
+
+        .nm-year {
+            font-size: 54px;
+        }
+
+        .nm-login span {
+            font-size: 18px;
+            padding: 10px 20px;
+        }
+    }
+
+    @media (max-width: 600px) {
+
+        .nm-header-inner {
+            padding: 20px;
+        }
+
+        .nm-nav {
+            gap: 16px;
+        }
+
+        .nm-nav span {
+            font-size: 16px;
+        }
+
+        .nm-state {
+            width: 70px;
+            height: 70px;
+        }
+
+        .nm-text {
+            font-size: 22px;
+        }
+
+        .nm-year {
+            font-size: 40px;
+        }
+
+        .page-container {
+            margin: 50px auto;
+            padding: 0 20px 80px 20px;
+        }
+
+        .page-container h1 {
+            font-size: 28px;
+        }
+
+        .page-container p {
+            font-size: 17px;
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<header class="nm-header">
+    <div class="nm-header-inner">
+
+        <div class="nm-brand">
+            <div class="nm-state">
+                <span class="nm-text">NM</span>
+            </div>
+            <span class="nm-year">26</span>
+        </div>
+
+        <nav class="nm-nav">
+            <span>HOME</span>
+            <span>PLANNER</span>
+            <span>RESOURCES</span>
+            <span>GUIDE</span>
+        </nav>
+
+        <div class="nm-login">
+            <span>LOGIN</span>
+        </div>
+
+    </div>
+
+    <div class="nm-stripe">
+        VACATION 2026
+    </div>
+</header>
+
+<main class="page-container">
+
+<h1>🌌 June Constellations Over New Mexico</h1>
+
+<h2>⭐ WHAT CONSTELLATIONS YOU’LL SEE IN EARLY JUNE</h2>
+<p><strong>And Where to Look in the Night Sky</strong></p>
+
+<p>The desert sky in early June is one of the clearest in the country. Here’s what you’ll see — and exactly where to find each one.</p>
+
+<br>
+
+<h2>⭐ NORTH & NORTHEAST</h2>
+
+<p><strong>Ursa Major (The Big Dipper)</strong><br>
+Look north-northeast, fairly high in the sky.<br>
+The “bowl” points to Polaris.<br>
+Great orientation marker.</p>
+
+<p><strong>Ursa Minor (Little Dipper)</strong><br>
+Look due north, lower than Big Dipper.<br>
+Polaris (North Star) sits at the end of its handle.<br>
+The rest is faint but visible in dark desert skies.</p>
+
+<p><strong>Draco (The Dragon)</strong><br>
+Winding between the two dippers.<br>
+Look north, curling around Polaris.<br>
+Long, snake-like trail of faint stars.</p>
+
+<br>
+
+<h2>⭐ EAST & SOUTHEAST</h2>
+
+<p><strong>Scorpius (The Scorpion)</strong><br>
+Rising in the southeast after dark.<br>
+One of the easiest summer constellations to recognize.<br>
+Look for the bright red star Antares as its “heart.”</p>
+
+<p><strong>Sagittarius (The Archer)</strong><br>
+In the southeast, near Scorpius.<br>
+Shaped like a teapot — super easy to spot.<br>
+The Milky Way rises right through it.</p>
+
+<br>
+
+<h2>⭐ SOUTH & SOUTHWEST</h2>
+
+<p><strong>Libra (The Scales)</strong><br>
+Between Virgo and Scorpius.<br>
+Look south-southeast, a little low in the sky.<br>
+Subtle but visible in dark conditions.</p>
+
+<p><strong>Virgo (The Maiden)</strong><br>
+In the southwest, fairly high.<br>
+Look for the bright star Spica marking her side.</p>
+
+<br>
+
+<h2>⭐ WEST & NORTHWEST</h2>
+
+<p><strong>Leo (The Lion)</strong><br>
+Setting in the west after sunset.<br>
+Can still see the backward question mark (the Sickle) before it dips below the horizon.</p>
+
+<p><strong>Gemini (The Twins)</strong><br>
+On its way down in the northwest.<br>
+Look for Castor & Pollux — two bright “twin” stars.</p>
+
+<br>
+
+<h2>⭐ OVERHEAD / HIGH IN THE SKY</h2>
+
+<p><strong>Bootes (The Herdsman)</strong><br>
+Nearly overhead in early June.<br>
+Bright star Arcturus leads the way — one of the brightest in the sky.</p>
+
+<p><strong>Corona Borealis (Northern Crown)</strong><br>
+A curved half-circle of faint stars near Bootes.<br>
+Easy to see in dark skies.</p>
+
+<p><strong>Hercules</strong><br>
+Just east of Corona Borealis.<br>
+Large, faint constellation with the famous Hercules “keystone” shape.</p>
+
+<br>
+
+<h2>⭐ MILKY WAY (Prime Viewing)</h2>
+
+<p>Begins rising around 10 PM on June 9.</p>
+
+<p>
+Look southeast, stretching up through Sagittarius and Scorpius.<br>
+By midnight, it forms a bright diagonal band across the sky.
+</p>
+
+<br>
+
+<h2>Satellites</h2>
+
+<p>Watch for “moving stars.” These are:</p>
+
+<p>
+communication satellites<br>
+weather satellites<br>
+Starlink trains<br>
+space station passes
+</p>
+
+</main>
+
+</body>
+</html>
