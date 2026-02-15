@@ -91,7 +91,8 @@ body {
 /* ===== HERO ===== */
 
 .hero {
-    height: 70vh;
+    height: 90vh;
+    min-height: 700px;
     background: url("assets/images/billy-hero.jpg") center/cover no-repeat;
     position: relative;
     display: flex;
@@ -103,7 +104,7 @@ body {
     content: "";
     position: absolute;
     inset: 0;
-    background: rgba(0,0,0,0.55);
+    background: rgba(0,0,0,0.6);
 }
 
 .hero-overlay {
@@ -114,13 +115,14 @@ body {
 }
 
 .hero-overlay h1 {
-    font-size: 64px;
+    font-size: 72px;
     margin: 0;
 }
 
 .hero-overlay p {
-    font-size: 24px;
-    letter-spacing: 2px;
+    font-size: 28px;
+    letter-spacing: 3px;
+    margin-top: 10px;
 }
 
 /* ===== CONTENT ===== */
@@ -133,7 +135,7 @@ body {
 
 .page-container h2 {
     font-size: 32px;
-    margin-top: 60px;
+    margin-top: 70px;
 }
 
 .page-container p {
@@ -142,20 +144,29 @@ body {
     margin-bottom: 24px;
 }
 
-/* ===== IMAGES ===== */
+/* ===== FIGURES ===== */
 
-.section-img {
-    width: 220px;
-    display: block;
-    margin: 20px auto 30px auto;
+figure {
+    margin: 50px 0;
+    text-align: center;
+}
+
+figure img {
+    width: 100%;
+    border-radius: 10px;
     filter: sepia(0.6) contrast(1.1);
 }
 
-.full-img {
-    width: 100%;
-    margin: 40px 0;
-    border-radius: 10px;
-    filter: sepia(0.6) contrast(1.1);
+figure.small img {
+    width: 220px;
+}
+
+figcaption {
+    font-size: 14px;
+    color: #666;
+    margin-top: 12px;
+    font-style: italic;
+    letter-spacing: 0.5px;
 }
 
 /* ===== RESPONSIVE ===== */
@@ -178,30 +189,17 @@ body {
         font-size: 20px;
     }
 
-    .nm-state {
-        width: 90px;
-        height: 90px;
-    }
-
-    .nm-text {
-        font-size: 30px;
-    }
-
-    .nm-year {
-        font-size: 54px;
-    }
-
-    .nm-login span {
-        font-size: 18px;
-        padding: 10px 20px;
-    }
-
     .hero-overlay h1 {
-        font-size: 44px;
+        font-size: 48px;
     }
 
     .hero-overlay p {
-        font-size: 18px;
+        font-size: 20px;
+    }
+
+    .hero {
+        height: 75vh;
+        min-height: 500px;
     }
 }
 
@@ -219,17 +217,9 @@ body {
         font-size: 16px;
     }
 
-    .nm-state {
-        width: 70px;
-        height: 70px;
-    }
-
-    .nm-text {
-        font-size: 22px;
-    }
-
-    .nm-year {
-        font-size: 40px;
+    .hero {
+        height: 70vh;
+        min-height: 400px;
     }
 
     .page-container {
@@ -239,10 +229,6 @@ body {
 
     .page-container p {
         font-size: 17px;
-    }
-
-    .hero {
-        height: 50vh;
     }
 }
 </style>
@@ -286,53 +272,48 @@ body {
 <main class="page-container">
 
 <p>
-Few names in the American West ignite the imagination like <strong>Billy the Kid</strong>. Born as Henry McCarty—most likely in 1859—his early life was marked by poverty, loss, and the constant churn of frontier violence. Orphaned as a young teenager, he drifted into the rough New Mexico Territory at a time when laws were flexible, loyalties were fluid, and survival demanded both wit and nerve.
+Few names in the American West ignite the imagination like <strong>Billy the Kid</strong>...
 </p>
 
 <h2>The Lincoln County War</h2>
 
-<img class="section-img" src="assets/images/regulators-logo.jpg" alt="The Regulators">
+<figure class="small">
+    <img src="assets/images/regulators-logo.jpg" alt="The Regulators">
+    <figcaption>The Regulators — the vigilante group formed after the killing of John Tunstall.</figcaption>
+</figure>
 
 <p>
-Billy was drawn into the Lincoln County War, a bitter conflict between rival merchant factions vying for economic control. One side acted with the blessing of corrupt local officials; the other was backed by independent ranchers and new settlers. When English rancher <strong>John Tunstall</strong>, a mentor figure to Billy, was gunned down, the young outlaw joined a group calling themselves <strong>The Regulators</strong>.
-</p>
-
-<p>
-What followed was a mix of legal deputization, vigilantism, assassination, and ambush — depending on who was telling the story.
-</p>
-
-<h2>More Than a Gunfighter</h2>
-
-<p>
-Legends often paint Billy as a ruthless gunslinger, but firsthand accounts describe something more complex. He was said to be polite, quick-witted, fluent in Spanish, and popular among Hispanic communities. He played guitar, danced well, and possessed a boyish charm that made him memorable.
-</p>
-
-<p>
-His gunfighting reputation, while real, was inseparable from the myth that grew around him. Newspapers hungry for sensational stories fed the public an outlaw who was both villain and folk hero. Billy — barely in his twenties — became famous in a world without television.
+Billy was drawn into the Lincoln County War...
 </p>
 
 <h2>The Great Escape</h2>
 
 <p>
-His most daring chapter came in April 1881, when he escaped from the Lincoln County Courthouse after being sentenced to hang. Killing two guards and slipping into the desert, he vanished into the mesas and brushlands of New Mexico.
+His most daring chapter came in April 1881...
 </p>
 
-<img class="full-img" src="assets/images/escape-drawing.jpg" alt="Billy the Kid Escape">
+<figure>
+    <img src="assets/images/escape-drawing.jpg" alt="Billy the Kid Escape">
+    <figcaption>Illustration depicting Billy’s 1881 escape from the Lincoln County Courthouse.</figcaption>
+</figure>
 
 <p>
-The escape electrified the nation. For a brief moment, he was a ghost riding the high desert — a young rebel outsmarting a growing system.
+The escape electrified the nation...
 </p>
 
 <h2>The Final Night</h2>
 
 <p>
-Sheriff <strong>Pat Garrett</strong> eventually tracked Billy to <strong>Fort Sumner</strong>. On July 14, 1881, Garrett fired in the dark, and the Kid — just 21 years old — fell.
+Sheriff <strong>Pat Garrett</strong> eventually tracked Billy to <strong>Fort Sumner</strong>...
 </p>
 
-<img class="full-img" src="assets/images/cannon-hill.jpg" alt="Cannon on the Hill">
+<figure>
+    <img src="assets/images/cannon-hill.jpg" alt="Cannon on the Hill">
+    <figcaption>Cannon positioned on a hill during the Lincoln County War conflicts.</figcaption>
+</figure>
 
 <p>
-His death cemented him as an American archetype: the tragic outlaw caught between old frontier freedom and emerging law.
+His death cemented him as an American archetype...
 </p>
 
 <h2>Legend vs. Reality</h2>
@@ -352,11 +333,11 @@ The truth lies somewhere in the dust between.
 <h2>Why He Endures</h2>
 
 <p>
-Billy the Kid embodies the restless spirit of the Southwest — a place where mountains keep secrets, the wind carries old stories, and history refuses to sit still.
+Billy the Kid embodies the restless spirit of the Southwest...
 </p>
 
 <p>
-Travel through New Mexico and you’ll find traces of him everywhere: courthouse ruins, weathered markers, whispered arguments in museums, souvenirs bearing his silhouette.
+Travel through New Mexico and you’ll find traces of him everywhere...
 </p>
 
 <p><strong>He isn’t remembered because he lived long. He’s remembered because he lived loudly, briefly, and right in the middle of a changing world.</strong></p>
