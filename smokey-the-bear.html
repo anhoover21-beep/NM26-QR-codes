@@ -88,6 +88,47 @@
         letter-spacing: 2px;
     }
 
+    /* ===== HERO ===== */
+
+    .nm-hero {
+        height: 85vh;
+        min-height: 600px;
+        background: url("assets/images/wildfire.jpg") center center / cover no-repeat;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .nm-hero::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+            rgba(0,0,0,0.6),
+            rgba(180, 60, 0, 0.35)
+        );
+    }
+
+    .nm-hero-overlay {
+        position: relative;
+        text-align: center;
+        color: white;
+        z-index: 1;
+        padding: 0 20px;
+    }
+
+    .nm-hero-overlay h1 {
+        font-size: 64px;
+        margin: 0;
+    }
+
+    .nm-hero-overlay p {
+        font-size: 22px;
+        letter-spacing: 2px;
+        margin-top: 12px;
+    }
+
     /* ===== CONTENT ===== */
 
     .page-container {
@@ -105,6 +146,29 @@
         font-size: 20px;
         line-height: 1.7;
         margin-bottom: 24px;
+    }
+
+    blockquote {
+        font-size: 26px;
+        text-align: center;
+        margin: 40px 0;
+        color: #b34700;
+    }
+
+    /* ===== POSTER ===== */
+
+    .nm-poster {
+        text-align: center;
+        margin: 50px 0 20px 0;
+    }
+
+    .nm-poster img {
+        max-width: 420px;
+        width: 100%;
+        display: block;
+        margin: 0 auto;
+        border-radius: 8px;
+        box-shadow: 0 12px 30px rgba(0,0,0,0.25);
     }
 
     /* ===== RESPONSIVE ===== */
@@ -127,22 +191,16 @@
             font-size: 20px;
         }
 
-        .nm-state {
-            width: 90px;
-            height: 90px;
+        .nm-hero {
+            height: 70vh;
         }
 
-        .nm-text {
-            font-size: 30px;
+        .nm-hero-overlay h1 {
+            font-size: 44px;
         }
 
-        .nm-year {
-            font-size: 54px;
-        }
-
-        .nm-login span {
+        .nm-hero-overlay p {
             font-size: 18px;
-            padding: 10px 20px;
         }
     }
 
@@ -185,6 +243,10 @@
         .page-container p {
             font-size: 17px;
         }
+
+        blockquote {
+            font-size: 20px;
+        }
     }
 </style>
 </head>
@@ -193,7 +255,6 @@
 
 <header class="nm-header">
     <div class="nm-header-inner">
-
         <div class="nm-brand">
             <div class="nm-state">
                 <span class="nm-text">NM</span>
@@ -211,13 +272,19 @@
         <div class="nm-login">
             <span>LOGIN</span>
         </div>
-
     </div>
 
     <div class="nm-stripe">
         VACATION 2026
     </div>
 </header>
+
+<section class="nm-hero">
+    <div class="nm-hero-overlay">
+        <h1>Smokey Bear</h1>
+        <p>The Life of a Symbol</p>
+    </div>
+</section>
 
 <main class="page-container">
 
@@ -238,6 +305,10 @@ The cub was flown to Washington, D.C., where he became a living ambassador at th
 <p>
 For decades, his message echoed across posters, radio spots, schoolrooms, and trailheads:
 </p>
+
+<div class="nm-poster">
+    <img src="assets/images/only-you.jpg" alt="Only You Can Prevent Forest Fires poster">
+</div>
 
 <blockquote><strong>“Only you can prevent forest fires.”</strong></blockquote>
 
@@ -272,7 +343,6 @@ Smokey stands as a gentle monument to responsibility, and to the small burned cu
 </p>
 
 </main>
-
 
 </body>
 </html>
