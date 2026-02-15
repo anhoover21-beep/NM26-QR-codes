@@ -6,186 +6,211 @@
 <title>NM26 Mission Portal</title>
 
 <style>
-    body {
-        margin: 0;
-        font-family: Arial, Helvetica, sans-serif;
-        background: #f4f4f4;
-        color: #222;
-    }
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f6f1e6; /* subtle desert warmth */
+    color: #222;
+}
 
-    /* ===== HEADER ===== */
+/* ===== HEADER ===== */
 
-    .nm-header {
-        background: #c5161d;
-        color: white;
-    }
+.nm-header {
+    background: #c5161d;
+    color: white;
+}
+
+.nm-header-inner {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 30px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nm-brand {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.nm-state {
+    position: relative;
+    width: 110px;
+    height: 110px;
+    background: url("assets/images/new-mexico.png") no-repeat center;
+    background-size: contain;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nm-text {
+    font-size: 40px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    color: white;
+}
+
+.nm-year {
+    font-size: 72px;
+    font-weight: 900;
+    color: #ffd23f;
+}
+
+.nm-nav {
+    display: flex;
+    gap: 60px;
+}
+
+.nm-nav span {
+    color: white;
+    font-size: 26px;
+    letter-spacing: 2px;
+    font-weight: 600;
+}
+
+.nm-login span {
+    background: #ffd23f;
+    color: #c5161d;
+    padding: 12px 26px;
+    border-radius: 16px;
+    font-weight: 900;
+    font-size: 22px;
+}
+
+.nm-stripe {
+    background: #ffd23f;
+    padding: 10px 40px;
+    font-weight: 900;
+    color: #c5161d;
+    letter-spacing: 2px;
+}
+
+/* ===== CONTENT ===== */
+
+.page-container {
+    max-width: 900px;
+    margin: 80px auto;
+    padding: 0 30px 100px 30px;
+}
+
+.page-container h1 {
+    font-size: 42px;
+    margin-bottom: 24px;
+}
+
+.page-container h2 {
+    margin-top: 60px;
+}
+
+.page-container p {
+    font-size: 20px;
+    line-height: 1.7;
+    margin-bottom: 24px;
+}
+
+/* ===== IMAGE ===== */
+
+.nm-figure {
+    margin: 40px 0 50px 0;
+    text-align: center;
+}
+
+.nm-figure img {
+    max-width: 520px;
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+}
+
+.nm-caption {
+    font-size: 14px;
+    color: #666;
+    margin-top: 10px;
+    font-style: italic;
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 1024px) {
 
     .nm-header-inner {
-        max-width: 1300px;
-        margin: 0 auto;
-        padding: 30px 40px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
-
-    .nm-brand {
-        display: flex;
-        align-items: center;
+        flex-direction: column;
         gap: 20px;
-    }
-
-    .nm-state {
-        position: relative;
-        width: 110px;
-        height: 110px;
-        background: url("assets/images/new-mexico.png") no-repeat center;
-        background-size: contain;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .nm-text {
-        font-size: 40px;
-        font-weight: 900;
-        letter-spacing: 2px;
-        color: white;
-    }
-
-    .nm-year {
-        font-size: 72px;
-        font-weight: 900;
-        color: #ffd23f;
+        text-align: center;
     }
 
     .nm-nav {
-        display: flex;
-        gap: 60px;
+        gap: 30px;
+        flex-wrap: wrap;
+        justify-content: center;
     }
 
     .nm-nav span {
-        color: white;
-        font-size: 26px;
-        letter-spacing: 2px;
-        font-weight: 600;
+        font-size: 20px;
+    }
+
+    .nm-state {
+        width: 90px;
+        height: 90px;
+    }
+
+    .nm-text {
+        font-size: 30px;
+    }
+
+    .nm-year {
+        font-size: 54px;
     }
 
     .nm-login span {
-        background: #ffd23f;
-        color: #c5161d;
-        padding: 12px 26px;
-        border-radius: 16px;
-        font-weight: 900;
+        font-size: 18px;
+        padding: 10px 20px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .nm-header-inner {
+        padding: 20px;
+    }
+
+    .nm-nav {
+        gap: 16px;
+    }
+
+    .nm-nav span {
+        font-size: 16px;
+    }
+
+    .nm-state {
+        width: 70px;
+        height: 70px;
+    }
+
+    .nm-text {
         font-size: 22px;
     }
 
-    .nm-stripe {
-        background: #ffd23f;
-        padding: 10px 40px;
-        font-weight: 900;
-        color: #c5161d;
-        letter-spacing: 2px;
+    .nm-year {
+        font-size: 40px;
     }
 
-    /* ===== CONTENT ===== */
-
     .page-container {
-        max-width: 900px;
-        margin: 80px auto;
-        padding: 0 30px 100px 30px;
+        margin: 50px auto;
+        padding: 0 20px 80px 20px;
     }
 
     .page-container h1 {
-        font-size: 42px;
-        margin-bottom: 24px;
+        font-size: 28px;
     }
 
     .page-container p {
-        font-size: 20px;
-        line-height: 1.7;
-        margin-bottom: 24px;
+        font-size: 17px;
     }
-
-    /* ===== RESPONSIVE ===== */
-
-    @media (max-width: 1024px) {
-
-        .nm-header-inner {
-            flex-direction: column;
-            gap: 20px;
-            text-align: center;
-        }
-
-        .nm-nav {
-            gap: 30px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .nm-nav span {
-            font-size: 20px;
-        }
-
-        .nm-state {
-            width: 90px;
-            height: 90px;
-        }
-
-        .nm-text {
-            font-size: 30px;
-        }
-
-        .nm-year {
-            font-size: 54px;
-        }
-
-        .nm-login span {
-            font-size: 18px;
-            padding: 10px 20px;
-        }
-    }
-
-    @media (max-width: 600px) {
-
-        .nm-header-inner {
-            padding: 20px;
-        }
-
-        .nm-nav {
-            gap: 16px;
-        }
-
-        .nm-nav span {
-            font-size: 16px;
-        }
-
-        .nm-state {
-            width: 70px;
-            height: 70px;
-        }
-
-        .nm-text {
-            font-size: 22px;
-        }
-
-        .nm-year {
-            font-size: 40px;
-        }
-
-        .page-container {
-            margin: 50px auto;
-            padding: 0 20px 80px 20px;
-        }
-
-        .page-container h1 {
-            font-size: 28px;
-        }
-
-        .page-container p {
-            font-size: 17px;
-        }
-    }
+}
 </style>
 </head>
 
@@ -193,7 +218,6 @@
 
 <header class="nm-header">
     <div class="nm-header-inner">
-
         <div class="nm-brand">
             <div class="nm-state">
                 <span class="nm-text">NM</span>
@@ -211,7 +235,6 @@
         <div class="nm-login">
             <span>LOGIN</span>
         </div>
-
     </div>
 
     <div class="nm-stripe">
@@ -253,6 +276,11 @@ His curved silhouette appears across stone walls from Colorado to New Mexico, et
 
 <h2>Echoes in Stone</h2>
 
+<figure class="nm-figure">
+    <img src="assets/images/kokopelli-petroglyph.jpg" alt="Kokopelli petroglyph carved into desert rock">
+    <div class="nm-caption">Kokopelli petroglyph carved into desert stone.</div>
+</figure>
+
 <p>
 His footprints vanish across the desert, but his spirit lingers in spiral carvings and wind-worn glyphs. Travelers swear that if you stand still as twilight settles and the desert cools, you might catch a distant flute threading through the stars.
 </p>
@@ -264,8 +292,6 @@ Out here, under an endless sky, Kokopelli doesn’t feel ancient — he feels al
 </p>
 
 </main>
-
-
 
 </body>
 </html>
