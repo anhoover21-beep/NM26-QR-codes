@@ -1,257 +1,216 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>NM26 Mission Portal</title>
 
 <style>
-body {
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background: #f4f4f4;
-    color: #222;
-}
-
-/* ===== HEADER ===== */
-
-.nm-header {
-    background: #c5161d;
-    color: white;
-}
-
-.nm-header-inner {
-    max-width: 1300px;
-    margin: 0 auto;
-    padding: 30px 40px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.nm-brand {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-
-.nm-state {
-    position: relative;
-    width: 110px;
-    height: 110px;
-    background: url("assets/images/new-mexico.png") no-repeat center;
-    background-size: contain;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.nm-text {
-    font-size: 40px;
-    font-weight: 900;
-    letter-spacing: 2px;
-    color: white;
-}
-
-.nm-year {
-    font-size: 72px;
-    font-weight: 900;
-    color: #ffd23f;
-}
-
-.nm-nav {
-    display: flex;
-    gap: 60px;
-}
-
-.nm-nav span {
-    color: white;
-    font-size: 26px;
-    letter-spacing: 2px;
-    font-weight: 600;
-}
-
-.nm-login span {
-    background: #ffd23f;
-    color: #c5161d;
-    padding: 12px 26px;
-    border-radius: 16px;
-    font-weight: 900;
-    font-size: 22px;
-}
-
-.nm-stripe {
-    background: #ffd23f;
-    padding: 10px 40px;
-    font-weight: 900;
-    color: #c5161d;
-    letter-spacing: 2px;
-}
-
-/* ===== HERO ===== */
-
-.hero {
-    height: 90vh;
-    min-height: 700px;
-    background: #111;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-}
-
-.hero-img {
-    position: absolute;
-    height: 100%;
-    width: auto;
-    left: 50%;
-    transform: translateX(-50%);
-    object-fit: contain;
-    z-index: 0;
-}
-
-.hero::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: rgba(0,0,0,0.6);
-    z-index: 1;
-}
-
-.hero-overlay {
-    position: relative;
-    text-align: center;
-    color: white;
-    z-index: 2;
-}
-
-.hero-overlay h1 {
-    font-size: 72px;
-    margin: 0;
-}
-
-.hero-overlay p {
-    font-size: 28px;
-    letter-spacing: 3px;
-    margin-top: 10px;
-}
-
-/* ===== CONTENT ===== */
-
-.page-container {
-    max-width: 900px;
-    margin: 80px auto;
-    padding: 0 30px 100px 30px;
-}
-
-.page-container h1 {
-    font-size: 42px;
-    margin-bottom: 24px;
-}
-
-.page-container h2 {
-    font-size: 32px;
-    margin-top: 60px;
-}
-
-.page-container p {
-    font-size: 20px;
-    line-height: 1.7;
-    margin-bottom: 24px;
-}
-
-/* ===== FIGURES ===== */
-
-figure {
-    margin: 50px 0;
-    text-align: center;
-}
-
-figure img {
-    width: 100%;
-    border-radius: 10px;
-    filter: sepia(0.6) contrast(1.1);
-}
-
-figure.small img {
-    width: 220px;
-}
-
-figcaption {
-    font-size: 14px;
-    color: #666;
-    margin-top: 12px;
-    font-style: italic;
-    letter-spacing: 0.5px;
-}
-
-/* ===== RESPONSIVE ===== */
-
-@media (max-width: 1024px) {
-
-    .nm-header-inner {
-        flex-direction: column;
-        gap: 20px;
-        text-align: center;
+    body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        background: #f4f4f4;
+        color: #222;
     }
 
-    .nm-nav {
-        gap: 30px;
-        flex-wrap: wrap;
+    /* ===== HEADER ===== */
+
+    .nm-header {
+        background: #c5161d;
+        color: white;
+    }
+
+    .nm-header-inner {
+        max-width: 1300px;
+        margin: 0 auto;
+        padding: 30px 40px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .nm-brand {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .nm-state {
+        position: relative;
+        width: 110px;
+        height: 110px;
+        background: url("assets/images/new-mexico.png") no-repeat center;
+        background-size: contain;
+        display: flex;
+        align-items: center;
         justify-content: center;
     }
 
-    .nm-nav span {
-        font-size: 20px;
+    .nm-text {
+        font-size: 40px;
+        font-weight: 900;
+        letter-spacing: 2px;
+        color: white;
     }
 
-    .hero {
-        height: 75vh;
-        min-height: 500px;
-    }
-
-    .hero-overlay h1 {
-        font-size: 48px;
-    }
-
-    .hero-overlay p {
-        font-size: 20px;
-    }
-}
-
-@media (max-width: 600px) {
-
-    .nm-header-inner {
-        padding: 20px;
+    .nm-year {
+        font-size: 72px;
+        font-weight: 900;
+        color: #ffd23f;
     }
 
     .nm-nav {
-        gap: 16px;
+        display: flex;
+        gap: 60px;
     }
 
     .nm-nav span {
-        font-size: 16px;
+        color: white;
+        font-size: 26px;
+        letter-spacing: 2px;
+        font-weight: 600;
     }
 
-    .hero {
-        height: 70vh;
-        min-height: 400px;
+    .nm-login span {
+        background: #ffd23f;
+        color: #c5161d;
+        padding: 12px 26px;
+        border-radius: 16px;
+        font-weight: 900;
+        font-size: 22px;
     }
+
+    .nm-stripe {
+        background: #ffd23f;
+        padding: 10px 40px;
+        font-weight: 900;
+        color: #c5161d;
+        letter-spacing: 2px;
+    }
+
+    /* ===== CONTENT ===== */
 
     .page-container {
-        margin: 50px auto;
-        padding: 0 20px 80px 20px;
+        max-width: 900px;
+        margin: 80px auto;
+        padding: 0 30px 100px 30px;
     }
 
     .page-container h1 {
-        font-size: 28px;
+        font-size: 42px;
+        margin-bottom: 24px;
     }
 
     .page-container p {
-        font-size: 17px;
+        font-size: 20px;
+        line-height: 1.7;
+        margin-bottom: 24px;
     }
-}
+
+    /* ===== IMAGE BLOCKS ===== */
+
+    .nm-figure {
+        margin: 32px 0 48px 0;
+    }
+
+    .nm-figure img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 14px;
+    }
+
+    .nm-figcaption {
+        margin-top: 10px;
+        font-size: 15px;
+        line-height: 1.4;
+        color: #555;
+        text-align: center;
+    }
+
+    /* ===== RESPONSIVE ===== */
+
+    @media (max-width: 1024px) {
+
+        .nm-header-inner {
+            flex-direction: column;
+            gap: 20px;
+            text-align: center;
+        }
+
+        .nm-nav {
+            gap: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .nm-nav span {
+            font-size: 20px;
+        }
+
+        .nm-state {
+            width: 90px;
+            height: 90px;
+        }
+
+        .nm-text {
+            font-size: 30px;
+        }
+
+        .nm-year {
+            font-size: 54px;
+        }
+
+        .nm-login span {
+            font-size: 18px;
+            padding: 10px 20px;
+        }
+    }
+
+    @media (max-width: 600px) {
+
+        .nm-header-inner {
+            padding: 20px;
+        }
+
+        .nm-nav {
+            gap: 16px;
+        }
+
+        .nm-nav span {
+            font-size: 16px;
+        }
+
+        .nm-state {
+            width: 70px;
+            height: 70px;
+        }
+
+        .nm-text {
+            font-size: 22px;
+        }
+
+        .nm-year {
+            font-size: 40px;
+        }
+
+        .page-container {
+            margin: 50px auto;
+            padding: 0 20px 80px 20px;
+        }
+
+        .page-container h1 {
+            font-size: 28px;
+        }
+
+        .page-container p {
+            font-size: 17px;
+        }
+
+        .nm-figcaption {
+            font-size: 13px;
+        }
+    }
 </style>
 </head>
 
@@ -285,104 +244,189 @@ figcaption {
     </div>
 </header>
 
-<section class="hero">
-    <img src="assets/images/billy-hero.jpg" alt="Billy the Kid portrait" class="hero-img">
-    <div class="hero-overlay">
-        <h1>Billy the Kid</h1>
-        <p>Legend in the Dust</p>
-    </div>
-</section>
-
 <main class="page-container">
 
-<h1>Billy the Kid: Legend in the Dust</h1>
+<h1>The Alamo: A Historical Overview</h1>
 
-<p>
-Few names in the American West ignite the imagination like <strong>Billy the Kid</strong>. Born as Henry McCarty—most likely in 1859—his early life was marked by poverty, loss, and the constant churn of frontier violence. Orphaned as a young teenager, he drifted into the rough New Mexico Territory at a time when laws were flexible, loyalties were fluid, and survival demanded both wit and nerve.
-</p>
-
-<h2>The Lincoln County War</h2>
-
-<figure class="small">
-    <img src="assets/images/regulators-logo.png" alt="The Regulators">
-    <figcaption>The Regulators — the vigilante group formed after the killing of John Tunstall.</figcaption>
+<!-- HERO PHOTO -->
+<figure class="nm-figure">
+    <img src="assets/images/alamo-hero.jpg" alt="Front facade of the Alamo in San Antonio, Texas" loading="lazy" />
+    <figcaption class="nm-figcaption">The Alamo church facade in San Antonio, Texas.</figcaption>
 </figure>
 
 <p>
-Billy was drawn into the Lincoln County War, a bitter conflict between rival merchant factions vying for economic control. One side acted with the blessing of corrupt local officials; the other was backed by independent ranchers and new settlers. When English rancher <strong>John Tunstall</strong>, a mentor figure to Billy, was gunned down, the young outlaw joined a group calling themselves <strong>The Regulators</strong>.
+The Alamo was originally established in 1718 as <strong>Mission San Antonio de Valero</strong>, a Spanish mission intended to convert Indigenous peoples to Catholicism and support Spanish settlement in the region. By the early 1800s, the mission had been secularized, abandoned, and repurposed several times. Its thick walls and multiple buildings later made it useful as a military post.
 </p>
 
 <p>
-What followed was a mix of legal deputization, vigilantism, assassination, and ambush — depending on who was telling the story.
-</p>
-
-<h2>More Than a Gunfighter</h2>
-
-<p>
-Legends often paint Billy as a ruthless gunslinger, but firsthand accounts describe something more complex. He was said to be polite, quick-witted, fluent in Spanish, and popular among Hispanic communities. He played guitar, danced well, and possessed a boyish charm that made him memorable.
-</p>
-
-<p>
-His gunfighting reputation, while real, was inseparable from the myth that grew around him. Newspapers hungry for sensational stories fed the public an outlaw who was both villain and folk hero. Billy — barely in his twenties — became famous in a world without television.
-</p>
-
-<h2>The Great Escape</h2>
-
-<p>
-His most daring chapter came in April 1881, when he escaped from the Lincoln County Courthouse after being sentenced to hang. Killing two guards and slipping into the desert, he vanished into the mesas and brushlands of New Mexico.
-</p>
-
-<figure>
-    <img src="assets/images/escape-drawing.jpg" alt="Billy the Kid Escape">
-    <figcaption>Illustration depicting Billy’s 1881 escape from the Lincoln County Courthouse.</figcaption>
-</figure>
-
-<p>
-The escape electrified the nation. For a brief moment, he was a ghost riding the high desert — a young rebel outsmarting a growing system.
-</p>
-
-<h2>The Final Night</h2>
-
-<p>
-Sheriff <strong>Pat Garrett</strong> eventually tracked Billy to <strong>Fort Sumner</strong>. On July 14, 1881, Garrett fired in the dark, and the Kid — just 21 years old — fell.
-</p>
-
-<figure>
-    <img src="assets/images/cannon-hill.jpg" alt="Cannon on the Hill">
-    <figcaption>Cannon positioned during the Lincoln County War conflicts.</figcaption>
-</figure>
-
-<p>
-His death cemented him as an American archetype: the tragic outlaw caught between old frontier freedom and emerging law.
-</p>
-
-<h2>Legend vs. Reality</h2>
-
-<p>
-Over time, stories blurred:
+By the 1820s, Mexico had won independence from Spain and controlled a vast northern territory that included Texas. The Mexican government encouraged Anglo-American settlers to move there, hoping they would develop the land and act as a buffer against Native American raids. However, several problems developed:
 </p>
 
 <ul>
-<li>Was he a cold-blooded killer?</li>
-<li>A wronged boy fighting corruption?</li>
-<li>A product of circumstance?</li>
+<li>Cultural and language differences between settlers and Mexican authorities</li>
+<li>Disputes over immigration laws</li>
+<li>Lack of representation in Mexican government</li>
+<li>Mexico’s abolition of slavery (which many Anglo settlers opposed)</li>
+<li>Santa Anna’s move toward centralized government authority</li>
+</ul>
+
+<p>These tensions contributed to the outbreak of the Texas Revolution in late 1835.</p>
+
+<p>
+In December 1835, Texian rebels captured San Antonio from Mexican forces. They occupied the Alamo complex because:
+</p>
+
+<ul>
+<li>It guarded strategic roads into central Texas</li>
+<li>It contained artillery</li>
+<li>San Antonio was politically symbolic</li>
 </ul>
 
 <p>
-The truth lies somewhere in the dust between.
-</p>
-
-<h2>Why He Endures</h2>
-
-<p>
-Billy the Kid embodies the restless spirit of the Southwest — a place where mountains keep secrets, the wind carries old stories, and history refuses to sit still.
+Although some argued the Alamo was difficult to defend, others believed abandoning it would hurt morale and leave central Texas exposed.
 </p>
 
 <p>
-Travel through New Mexico and you’ll find traces of him everywhere: courthouse ruins, weathered markers, whispered arguments in museums, souvenirs bearing his silhouette.
+In early 1836, Mexican President General Antonio López de Santa Anna led thousands of troops north to suppress the rebellion. His arrival in late February surprised Texian forces who expected more time to prepare.
 </p>
 
-<p><strong>He isn’t remembered because he lived long. He’s remembered because he lived loudly, briefly, and right in the middle of a changing world.</strong></p>
+<h2>The Defenders</h2>
+
+<p>The defenders numbered roughly 180–250 (estimates vary). They included:</p>
+
+<ul>
+<li>Volunteers from Texas</li>
+<li>Volunteers from the United States</li>
+<li>Tejano allies (Mexican Texans)</li>
+</ul>
+
+<p><strong>Leadership was shared primarily between:</strong></p>
+
+<ul>
+<li>Lieutenant Colonel William B. Travis</li>
+<li>James “Jim” Bowie</li>
+</ul>
+
+<p>
+Former U.S. congressman and frontiersman <strong>David Crockett</strong> was present with a small group of Tennessee volunteers.
+</p>
+
+<h2>The Siege</h2>
+
+<!-- SIEGE ART / HISTORICAL IMAGE -->
+<figure class="nm-figure">
+    <img src="assets/images/alamo-siege.jpg" alt="Historical depiction of the Battle of the Alamo during the 1836 siege" loading="lazy" />
+    <figcaption class="nm-figcaption">A historical depiction of the Battle of the Alamo during the 1836 siege.</figcaption>
+</figure>
+
+<p>
+The siege lasted from February 23 to March 6, 1836 (13 days). Mexican forces surrounded the mission, exchanging artillery fire and tightening supply access. Travis repeatedly sent letters requesting reinforcements, but only a small number arrived.
+</p>
+
+<p><strong>Conditions inside the compound included:</strong></p>
+
+<ul>
+<li>Limited food</li>
+<li>Limited water access</li>
+<li>Illness (including Bowie, bedridden during much of the siege)</li>
+<li>Constant artillery pressure</li>
+</ul>
+
+<p>
+Before dawn on March 6, Santa Anna ordered a direct assault on multiple sides of the Alamo. Mexican infantry units scaled the walls under heavy fire. The defenders resisted but were eventually overwhelmed by larger numbers, breached walls, and close-quarters combat.
+</p>
+
+<p>
+The battle likely lasted under two hours. Almost all defenders were killed. A small number of noncombatants survived and were released. Santa Anna ordered the bodies of defenders burned.
+</p>
+
+<h2>Aftermath</h2>
+
+<p>
+Militarily, the Alamo was a Mexican victory. However, the heavy casualties sustained by Mexican forces and Santa Anna’s harsh treatment of survivors had important consequences:
+</p>
+
+<ul>
+<li>It galvanized Texian support for independence</li>
+<li>“Remember the Alamo!” became a rallying cry</li>
+<li>It influenced public opinion in the United States</li>
+</ul>
+
+<p>
+Just six weeks later, Texian forces under <strong>General Sam Houston</strong> defeated Santa Anna at the <strong>Battle of San Jacinto</strong>, capturing him and forcing recognition of Texan independence.
+</p>
+
+<h2>Who Fought There</h2>
+
+<p><strong>Defenders included a cross-section of frontier society:</strong></p>
+
+<ul>
+<li>Farmers</li>
+<li>Tradesmen</li>
+<li>Frontiersmen</li>
+<li>Former soldiers</li>
+<li>Politicians</li>
+<li>Tejanos (including supporters like José Antonio Navarro)</li>
+</ul>
+
+<p><strong>Mexican forces included:</strong></p>
+
+<ul>
+<li>Regular infantry</li>
+<li>Cavalry</li>
+<li>Artillery</li>
+<li>Conscripts</li>
+</ul>
+
+<p>Santa Anna commanded the campaign personally.</p>
+
+<h2>Why the Alamo Matters</h2>
+
+<ul>
+<li>It symbolizes resistance against overwhelming odds</li>
+<li>It influenced the outcome of the Texas Revolution</li>
+<li>It shaped regional identity</li>
+<li>It affected U.S.–Mexico relations</li>
+<li>It contributed to westward expansion and later conflicts</li>
+</ul>
+
+<p><strong>Historians continue to debate:</strong></p>
+
+<ul>
+<li>Exact defender numbers</li>
+<li>Final moments of some individuals</li>
+<li>Motivations of various participants</li>
+<li>Interpretation of Tejano involvement</li>
+<li>Whether some defenders attempted surrender</li>
+</ul>
+
+<p>
+Modern scholarship emphasizes the multicultural nature of the conflict, the complexity of Texan and Mexican political aims, and the broader context of Indigenous displacement.
+</p>
+
+<h2>What Visitors See Today</h2>
+
+<!-- COMPOUND LAYOUT / MAP -->
+<figure class="nm-figure">
+    <img src="assets/images/alamo-layout.jpg" alt="Map showing the historic layout of the Alamo compound beyond the remaining church" loading="lazy" />
+    <figcaption class="nm-figcaption">A map of the original Alamo compound (the remaining church is only one part of the site).</figcaption>
+</figure>
+
+<p>
+The remaining church — often mistaken as the entire fort — is only part of the original compound. The historic complex once included:
+</p>
+
+<ul>
+<li>Long barracks</li>
+<li>Courtyard walls</li>
+<li>Workshops</li>
+<li>Storage rooms</li>
+<li>Defensive earthworks</li>
+</ul>
+
+<p>
+Modern San Antonio has grown around the site, and today it serves as a museum, memorial, and educational landmark.
+</p>
 
 </main>
 
