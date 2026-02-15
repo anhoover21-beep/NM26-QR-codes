@@ -88,6 +88,46 @@
         letter-spacing: 2px;
     }
 
+    /* ===== CINEMATIC HERO ===== */
+
+    .nm-hero {
+        height: 85vh;
+        min-height: 600px;
+        background: url("assets/images/alamo-hero.jpg") center center / cover no-repeat;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .nm-hero::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+            rgba(0,0,0,0.65),
+            rgba(0,0,0,0.45)
+        );
+    }
+
+    .nm-hero-overlay {
+        position: relative;
+        text-align: center;
+        color: white;
+        z-index: 1;
+    }
+
+    .nm-hero-overlay h1 {
+        font-size: 64px;
+        margin: 0;
+    }
+
+    .nm-hero-overlay p {
+        font-size: 24px;
+        letter-spacing: 2px;
+        margin-top: 12px;
+    }
+
     /* ===== CONTENT ===== */
 
     .page-container {
@@ -164,6 +204,18 @@
         .nm-login span {
             font-size: 18px;
             padding: 10px 20px;
+        }
+
+        .nm-hero {
+            height: 70vh;
+        }
+
+        .nm-hero-overlay h1 {
+            font-size: 44px;
+        }
+
+        .nm-hero-overlay p {
+            font-size: 18px;
         }
     }
 
@@ -244,15 +296,16 @@
     </div>
 </header>
 
+<section class="nm-hero">
+    <div class="nm-hero-overlay">
+        <h1>The Alamo</h1>
+        <p>A Historical Overview</p>
+    </div>
+</section>
+
 <main class="page-container">
 
 <h1>The Alamo: A Historical Overview</h1>
-
-<!-- HERO PHOTO -->
-<figure class="nm-figure">
-    <img src="assets/images/alamo-hero.jpg" alt="Front facade of the Alamo in San Antonio, Texas" loading="lazy" />
-    <figcaption class="nm-figcaption">The Alamo church facade in San Antonio, Texas.</figcaption>
-</figure>
 
 <p>
 The Alamo was originally established in 1718 as <strong>Mission San Antonio de Valero</strong>, a Spanish mission intended to convert Indigenous peoples to Catholicism and support Spanish settlement in the region. By the early 1800s, the mission had been secularized, abandoned, and repurposed several times. Its thick walls and multiple buildings later made it useful as a military post.
@@ -313,7 +366,6 @@ Former U.S. congressman and frontiersman <strong>David Crockett</strong> was pre
 
 <h2>The Siege</h2>
 
-<!-- SIEGE ART / HISTORICAL IMAGE -->
 <figure class="nm-figure">
     <img src="assets/images/alamo-siege.jpg" alt="Historical depiction of the Battle of the Alamo during the 1836 siege" loading="lazy" />
     <figcaption class="nm-figcaption">A historical depiction of the Battle of the Alamo during the 1836 siege.</figcaption>
@@ -406,7 +458,6 @@ Modern scholarship emphasizes the multicultural nature of the conflict, the comp
 
 <h2>What Visitors See Today</h2>
 
-<!-- COMPOUND LAYOUT / MAP -->
 <figure class="nm-figure">
     <img src="assets/images/alamo-layout.jpg" alt="Map showing the historic layout of the Alamo compound beyond the remaining church" loading="lazy" />
     <figcaption class="nm-figcaption">A map of the original Alamo compound (the remaining church is only one part of the site).</figcaption>
