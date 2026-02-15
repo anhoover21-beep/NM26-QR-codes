@@ -6,186 +6,245 @@
 <title>NM26 Mission Portal</title>
 
 <style>
-    body {
-        margin: 0;
-        font-family: Arial, Helvetica, sans-serif;
-        background: #f4f4f4;
-        color: #222;
-    }
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f4f4;
+    color: #222;
+}
 
-    /* ===== HEADER ===== */
+/* ===== HEADER ===== */
 
-    .nm-header {
-        background: #c5161d;
-        color: white;
-    }
+.nm-header {
+    background: #c5161d;
+    color: white;
+}
+
+.nm-header-inner {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 30px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nm-brand {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.nm-state {
+    position: relative;
+    width: 110px;
+    height: 110px;
+    background: url("assets/images/new-mexico.png") no-repeat center;
+    background-size: contain;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nm-text {
+    font-size: 40px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    color: white;
+}
+
+.nm-year {
+    font-size: 72px;
+    font-weight: 900;
+    color: #ffd23f;
+}
+
+.nm-nav {
+    display: flex;
+    gap: 60px;
+}
+
+.nm-nav span {
+    color: white;
+    font-size: 26px;
+    letter-spacing: 2px;
+    font-weight: 600;
+}
+
+.nm-login span {
+    background: #ffd23f;
+    color: #c5161d;
+    padding: 12px 26px;
+    border-radius: 16px;
+    font-weight: 900;
+    font-size: 22px;
+}
+
+.nm-stripe {
+    background: #ffd23f;
+    padding: 10px 40px;
+    font-weight: 900;
+    color: #c5161d;
+    letter-spacing: 2px;
+}
+
+/* ===== HERO ===== */
+
+.hero {
+    height: 70vh;
+    background: url("assets/images/billy-hero.jpg") center/cover no-repeat;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.55);
+}
+
+.hero-overlay {
+    position: relative;
+    text-align: center;
+    color: white;
+    z-index: 1;
+}
+
+.hero-overlay h1 {
+    font-size: 64px;
+    margin: 0;
+}
+
+.hero-overlay p {
+    font-size: 24px;
+    letter-spacing: 2px;
+}
+
+/* ===== CONTENT ===== */
+
+.page-container {
+    max-width: 900px;
+    margin: 80px auto;
+    padding: 0 30px 100px 30px;
+}
+
+.page-container h2 {
+    font-size: 32px;
+    margin-top: 60px;
+}
+
+.page-container p {
+    font-size: 20px;
+    line-height: 1.7;
+    margin-bottom: 24px;
+}
+
+/* ===== IMAGES ===== */
+
+.section-img {
+    width: 200px;
+    display: block;
+    margin: 20px auto 30px auto;
+    filter: sepia(0.6) contrast(1.1);
+}
+
+.full-img {
+    width: 100%;
+    margin: 40px 0;
+    border-radius: 10px;
+    filter: sepia(0.6) contrast(1.1);
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 1024px) {
 
     .nm-header-inner {
-        max-width: 1300px;
-        margin: 0 auto;
-        padding: 30px 40px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
-
-    .nm-brand {
-        display: flex;
-        align-items: center;
+        flex-direction: column;
         gap: 20px;
-    }
-
-    .nm-state {
-        position: relative;
-        width: 110px;
-        height: 110px;
-        background: url("assets/images/new-mexico.png") no-repeat center;
-        background-size: contain;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .nm-text {
-        font-size: 40px;
-        font-weight: 900;
-        letter-spacing: 2px;
-        color: white;
-    }
-
-    .nm-year {
-        font-size: 72px;
-        font-weight: 900;
-        color: #ffd23f;
+        text-align: center;
     }
 
     .nm-nav {
-        display: flex;
-        gap: 60px;
+        gap: 30px;
+        flex-wrap: wrap;
+        justify-content: center;
     }
 
     .nm-nav span {
-        color: white;
-        font-size: 26px;
-        letter-spacing: 2px;
-        font-weight: 600;
+        font-size: 20px;
+    }
+
+    .nm-state {
+        width: 90px;
+        height: 90px;
+    }
+
+    .nm-text {
+        font-size: 30px;
+    }
+
+    .nm-year {
+        font-size: 54px;
     }
 
     .nm-login span {
-        background: #ffd23f;
-        color: #c5161d;
-        padding: 12px 26px;
-        border-radius: 16px;
-        font-weight: 900;
+        font-size: 18px;
+        padding: 10px 20px;
+    }
+
+    .hero-overlay h1 {
+        font-size: 44px;
+    }
+
+    .hero-overlay p {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .nm-header-inner {
+        padding: 20px;
+    }
+
+    .nm-nav {
+        gap: 16px;
+    }
+
+    .nm-nav span {
+        font-size: 16px;
+    }
+
+    .nm-state {
+        width: 70px;
+        height: 70px;
+    }
+
+    .nm-text {
         font-size: 22px;
     }
 
-    .nm-stripe {
-        background: #ffd23f;
-        padding: 10px 40px;
-        font-weight: 900;
-        color: #c5161d;
-        letter-spacing: 2px;
+    .nm-year {
+        font-size: 40px;
     }
-
-    /* ===== CONTENT ===== */
 
     .page-container {
-        max-width: 900px;
-        margin: 80px auto;
-        padding: 0 30px 100px 30px;
-    }
-
-    .page-container h1 {
-        font-size: 42px;
-        margin-bottom: 24px;
+        margin: 50px auto;
+        padding: 0 20px 80px 20px;
     }
 
     .page-container p {
-        font-size: 20px;
-        line-height: 1.7;
-        margin-bottom: 24px;
+        font-size: 17px;
     }
 
-    /* ===== RESPONSIVE ===== */
-
-    @media (max-width: 1024px) {
-
-        .nm-header-inner {
-            flex-direction: column;
-            gap: 20px;
-            text-align: center;
-        }
-
-        .nm-nav {
-            gap: 30px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .nm-nav span {
-            font-size: 20px;
-        }
-
-        .nm-state {
-            width: 90px;
-            height: 90px;
-        }
-
-        .nm-text {
-            font-size: 30px;
-        }
-
-        .nm-year {
-            font-size: 54px;
-        }
-
-        .nm-login span {
-            font-size: 18px;
-            padding: 10px 20px;
-        }
+    .hero {
+        height: 50vh;
     }
-
-    @media (max-width: 600px) {
-
-        .nm-header-inner {
-            padding: 20px;
-        }
-
-        .nm-nav {
-            gap: 16px;
-        }
-
-        .nm-nav span {
-            font-size: 16px;
-        }
-
-        .nm-state {
-            width: 70px;
-            height: 70px;
-        }
-
-        .nm-text {
-            font-size: 22px;
-        }
-
-        .nm-year {
-            font-size: 40px;
-        }
-
-        .page-container {
-            margin: 50px auto;
-            padding: 0 20px 80px 20px;
-        }
-
-        .page-container h1 {
-            font-size: 28px;
-        }
-
-        .page-container p {
-            font-size: 17px;
-        }
-    }
+}
 </style>
 </head>
 
@@ -219,81 +278,49 @@
     </div>
 </header>
 
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-overlay">
+        <h1>Billy the Kid</h1>
+        <p>Legend in the Dust</p>
+    </div>
+</section>
+
 <main class="page-container">
 
-<h1>Billy the Kid: Legend in the Dust</h1>
-
 <p>
-Few names in the American West ignite the imagination like <strong>Billy the Kid</strong>. Born as Henry McCarty—most likely in 1859—his early life was marked by poverty, loss, and the constant churn of frontier violence. Orphaned as a young teenager, he drifted into the rough New Mexico Territory at a time when laws were flexible, loyalties were fluid, and survival demanded both wit and nerve.
+Few names in the American West ignite the imagination like <strong>Billy the Kid</strong>. Born as Henry McCarty—most likely in 1859—his early life was marked by poverty, loss, and the constant churn of frontier violence.
 </p>
 
 <h2>The Lincoln County War</h2>
 
-<p>
-Billy was drawn into the Lincoln County War, a bitter conflict between rival merchant factions vying for economic control. One side acted with the blessing of corrupt local officials; the other was backed by independent ranchers and new settlers. When English rancher <strong>John Tunstall</strong>, a mentor figure to Billy, was gunned down, the young outlaw joined a group calling themselves <strong>The Regulators</strong>.
-</p>
+<img class="section-img" src="assets/images/regulators-logo.png" alt="The Regulators">
 
 <p>
-What followed was a mix of legal deputization, vigilantism, assassination, and ambush — depending on who was telling the story.
-</p>
-
-<h2>More Than a Gunfighter</h2>
-
-<p>
-Legends often paint Billy as a ruthless gunslinger, but firsthand accounts describe something more complex. He was said to be polite, quick-witted, fluent in Spanish, and popular among Hispanic communities. He played guitar, danced well, and possessed a boyish charm that made him memorable.
-</p>
-
-<p>
-His gunfighting reputation, while real, was inseparable from the myth that grew around him. Newspapers hungry for sensational stories fed the public an outlaw who was both villain and folk hero. Billy — barely in his twenties — became famous in a world without television.
+Billy was drawn into the Lincoln County War...
 </p>
 
 <h2>The Great Escape</h2>
 
 <p>
-His most daring chapter came in April 1881, when he escaped from the Lincoln County Courthouse after being sentenced to hang. Killing two guards and slipping into the desert, he vanished into the mesas and brushlands of New Mexico.
+His most daring chapter came in April 1881...
 </p>
 
-<p>
-The escape electrified the nation. For a brief moment, he was a ghost riding the high desert — a young rebel outsmarting a growing system.
-</p>
+<img class="full-img" src="assets/images/escape-drawing.jpg" alt="Billy the Kid Escape">
 
 <h2>The Final Night</h2>
 
 <p>
-Sheriff <strong>Pat Garrett</strong> eventually tracked Billy to <strong>Fort Sumner</strong>. On July 14, 1881, Garrett fired in the dark, and the Kid — just 21 years old — fell.
+Sheriff Pat Garrett eventually tracked Billy to Fort Sumner...
 </p>
 
-<p>
-His death cemented him as an American archetype: the tragic outlaw caught between old frontier freedom and emerging law.
-</p>
-
-<h2>Legend vs. Reality</h2>
-
-<p>
-Over time, stories blurred:
-</p>
-
-<ul>
-<li>Was he a cold-blooded killer?</li>
-<li>A wronged boy fighting corruption?</li>
-<li>A product of circumstance?</li>
-</ul>
-
-<p>
-The truth lies somewhere in the dust between.
-</p>
+<img class="full-img" src="assets/images/cannon-hill.jpg" alt="Cannon on the Hill">
 
 <h2>Why He Endures</h2>
 
 <p>
-Billy the Kid embodies the restless spirit of the Southwest — a place where mountains keep secrets, the wind carries old stories, and history refuses to sit still.
+Billy the Kid embodies the restless spirit of the Southwest...
 </p>
-
-<p>
-Travel through New Mexico and you’ll find traces of him everywhere: courthouse ruins, weathered markers, whispered arguments in museums, souvenirs bearing his silhouette.
-</p>
-
-<p><strong>He isn’t remembered because he lived long. He’s remembered because he lived loudly, briefly, and right in the middle of a changing world.</strong></p>
 
 </main>
 
