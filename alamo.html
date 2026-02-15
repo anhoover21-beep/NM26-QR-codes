@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>NM26 Mission Portal</title>
 
 <style>
@@ -11,13 +11,6 @@
         font-family: Arial, Helvetica, sans-serif;
         background: #f4f4f4;
         color: #222;
-    }
-
-    img {
-        max-width: 100%;
-        height: auto;
-        display: block;
-        border-radius: 12px;
     }
 
     /* ===== HEADER ===== */
@@ -108,26 +101,31 @@
         margin-bottom: 24px;
     }
 
-    .page-container h2 {
-        margin-top: 60px;
-        font-size: 28px;
-    }
-
     .page-container p {
         font-size: 20px;
         line-height: 1.7;
         margin-bottom: 24px;
     }
 
-    .image-section {
-        margin: 40px 0 60px 0;
+    /* ===== IMAGE BLOCKS ===== */
+
+    .nm-figure {
+        margin: 32px 0 48px 0;
     }
 
-    .image-caption {
-        text-align: center;
-        font-size: 16px;
-        color: #555;
+    .nm-figure img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 14px;
+    }
+
+    .nm-figcaption {
         margin-top: 10px;
+        font-size: 15px;
+        line-height: 1.4;
+        color: #555;
+        text-align: center;
     }
 
     /* ===== RESPONSIVE ===== */
@@ -209,8 +207,8 @@
             font-size: 17px;
         }
 
-        .image-caption {
-            font-size: 14px;
+        .nm-figcaption {
+            font-size: 13px;
         }
     }
 </style>
@@ -220,6 +218,7 @@
 
 <header class="nm-header">
     <div class="nm-header-inner">
+
         <div class="nm-brand">
             <div class="nm-state">
                 <span class="nm-text">NM</span>
@@ -237,6 +236,7 @@
         <div class="nm-login">
             <span>LOGIN</span>
         </div>
+
     </div>
 
     <div class="nm-stripe">
@@ -248,30 +248,185 @@
 
 <h1>The Alamo: A Historical Overview</h1>
 
-<div class="image-section">
-    <img src="assets/images/alamo-hero.jpg" alt="Front facade of the Alamo in San Antonio" loading="lazy">
-    <div class="image-caption">The Alamo church facade in San Antonio, Texas.</div>
-</div>
+<!-- HERO PHOTO -->
+<figure class="nm-figure">
+    <img src="assets/images/alamo-hero.jpg" alt="Front facade of the Alamo in San Antonio, Texas" loading="lazy" />
+    <figcaption class="nm-figcaption">The Alamo church facade in San Antonio, Texas.</figcaption>
+</figure>
 
-<p>... (your original text continues unchanged here) ...</p>
+<p>
+The Alamo was originally established in 1718 as <strong>Mission San Antonio de Valero</strong>, a Spanish mission intended to convert Indigenous peoples to Catholicism and support Spanish settlement in the region. By the early 1800s, the mission had been secularized, abandoned, and repurposed several times. Its thick walls and multiple buildings later made it useful as a military post.
+</p>
+
+<p>
+By the 1820s, Mexico had won independence from Spain and controlled a vast northern territory that included Texas. The Mexican government encouraged Anglo-American settlers to move there, hoping they would develop the land and act as a buffer against Native American raids. However, several problems developed:
+</p>
+
+<ul>
+<li>Cultural and language differences between settlers and Mexican authorities</li>
+<li>Disputes over immigration laws</li>
+<li>Lack of representation in Mexican government</li>
+<li>Mexico’s abolition of slavery (which many Anglo settlers opposed)</li>
+<li>Santa Anna’s move toward centralized government authority</li>
+</ul>
+
+<p>These tensions contributed to the outbreak of the Texas Revolution in late 1835.</p>
+
+<p>
+In December 1835, Texian rebels captured San Antonio from Mexican forces. They occupied the Alamo complex because:
+</p>
+
+<ul>
+<li>It guarded strategic roads into central Texas</li>
+<li>It contained artillery</li>
+<li>San Antonio was politically symbolic</li>
+</ul>
+
+<p>
+Although some argued the Alamo was difficult to defend, others believed abandoning it would hurt morale and leave central Texas exposed.
+</p>
+
+<p>
+In early 1836, Mexican President General Antonio López de Santa Anna led thousands of troops north to suppress the rebellion. His arrival in late February surprised Texian forces who expected more time to prepare.
+</p>
+
+<h2>The Defenders</h2>
+
+<p>The defenders numbered roughly 180–250 (estimates vary). They included:</p>
+
+<ul>
+<li>Volunteers from Texas</li>
+<li>Volunteers from the United States</li>
+<li>Tejano allies (Mexican Texans)</li>
+</ul>
+
+<p><strong>Leadership was shared primarily between:</strong></p>
+
+<ul>
+<li>Lieutenant Colonel William B. Travis</li>
+<li>James “Jim” Bowie</li>
+</ul>
+
+<p>
+Former U.S. congressman and frontiersman <strong>David Crockett</strong> was present with a small group of Tennessee volunteers.
+</p>
 
 <h2>The Siege</h2>
 
-<div class="image-section">
-    <img src="assets/images/alamo-siege.jpg" alt="Historical painting of the Battle of the Alamo" loading="lazy">
-    <div class="image-caption">19th-century artistic depiction of the Battle of the Alamo (1836).</div>
-</div>
+<!-- SIEGE ART / HISTORICAL IMAGE -->
+<figure class="nm-figure">
+    <img src="assets/images/alamo-siege.jpg" alt="Historical depiction of the Battle of the Alamo during the 1836 siege" loading="lazy" />
+    <figcaption class="nm-figcaption">A historical depiction of the Battle of the Alamo during the 1836 siege.</figcaption>
+</figure>
 
-<p>... (rest of Siege content unchanged) ...</p>
+<p>
+The siege lasted from February 23 to March 6, 1836 (13 days). Mexican forces surrounded the mission, exchanging artillery fire and tightening supply access. Travis repeatedly sent letters requesting reinforcements, but only a small number arrived.
+</p>
+
+<p><strong>Conditions inside the compound included:</strong></p>
+
+<ul>
+<li>Limited food</li>
+<li>Limited water access</li>
+<li>Illness (including Bowie, bedridden during much of the siege)</li>
+<li>Constant artillery pressure</li>
+</ul>
+
+<p>
+Before dawn on March 6, Santa Anna ordered a direct assault on multiple sides of the Alamo. Mexican infantry units scaled the walls under heavy fire. The defenders resisted but were eventually overwhelmed by larger numbers, breached walls, and close-quarters combat.
+</p>
+
+<p>
+The battle likely lasted under two hours. Almost all defenders were killed. A small number of noncombatants survived and were released. Santa Anna ordered the bodies of defenders burned.
+</p>
+
+<h2>Aftermath</h2>
+
+<p>
+Militarily, the Alamo was a Mexican victory. However, the heavy casualties sustained by Mexican forces and Santa Anna’s harsh treatment of survivors had important consequences:
+</p>
+
+<ul>
+<li>It galvanized Texian support for independence</li>
+<li>“Remember the Alamo!” became a rallying cry</li>
+<li>It influenced public opinion in the United States</li>
+</ul>
+
+<p>
+Just six weeks later, Texian forces under <strong>General Sam Houston</strong> defeated Santa Anna at the <strong>Battle of San Jacinto</strong>, capturing him and forcing recognition of Texan independence.
+</p>
+
+<h2>Who Fought There</h2>
+
+<p><strong>Defenders included a cross-section of frontier society:</strong></p>
+
+<ul>
+<li>Farmers</li>
+<li>Tradesmen</li>
+<li>Frontiersmen</li>
+<li>Former soldiers</li>
+<li>Politicians</li>
+<li>Tejanos (including supporters like José Antonio Navarro)</li>
+</ul>
+
+<p><strong>Mexican forces included:</strong></p>
+
+<ul>
+<li>Regular infantry</li>
+<li>Cavalry</li>
+<li>Artillery</li>
+<li>Conscripts</li>
+</ul>
+
+<p>Santa Anna commanded the campaign personally.</p>
+
+<h2>Why the Alamo Matters</h2>
+
+<ul>
+<li>It symbolizes resistance against overwhelming odds</li>
+<li>It influenced the outcome of the Texas Revolution</li>
+<li>It shaped regional identity</li>
+<li>It affected U.S.–Mexico relations</li>
+<li>It contributed to westward expansion and later conflicts</li>
+</ul>
+
+<p><strong>Historians continue to debate:</strong></p>
+
+<ul>
+<li>Exact defender numbers</li>
+<li>Final moments of some individuals</li>
+<li>Motivations of various participants</li>
+<li>Interpretation of Tejano involvement</li>
+<li>Whether some defenders attempted surrender</li>
+</ul>
+
+<p>
+Modern scholarship emphasizes the multicultural nature of the conflict, the complexity of Texan and Mexican political aims, and the broader context of Indigenous displacement.
+</p>
 
 <h2>What Visitors See Today</h2>
 
-<div class="image-section">
-    <img src="assets/images/alamo-layout.jpg" alt="Map showing original layout of the Alamo compound" loading="lazy">
-    <div class="image-caption">Map showing the original Alamo compound beyond the remaining church.</div>
-</div>
+<!-- COMPOUND LAYOUT / MAP -->
+<figure class="nm-figure">
+    <img src="assets/images/alamo-layout.jpg" alt="Map showing the historic layout of the Alamo compound beyond the remaining church" loading="lazy" />
+    <figcaption class="nm-figcaption">A map of the original Alamo compound (the remaining church is only one part of the site).</figcaption>
+</figure>
 
-<p>Modern San Antonio has grown around the site, and today it serves as a museum, memorial, and educational landmark.</p>
+<p>
+The remaining church — often mistaken as the entire fort — is only part of the original compound. The historic complex once included:
+</p>
+
+<ul>
+<li>Long barracks</li>
+<li>Courtyard walls</li>
+<li>Workshops</li>
+<li>Storage rooms</li>
+<li>Defensive earthworks</li>
+</ul>
+
+<p>
+Modern San Antonio has grown around the site, and today it serves as a museum, memorial, and educational landmark.
+</p>
 
 </main>
 
