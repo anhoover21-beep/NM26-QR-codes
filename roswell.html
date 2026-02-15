@@ -6,186 +6,227 @@
 <title>NM26 Mission Portal</title>
 
 <style>
-    body {
-        margin: 0;
-        font-family: Arial, Helvetica, sans-serif;
-        background: #f4f4f4;
-        color: #222;
-    }
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f4f4;
+    color: #222;
+}
 
-    /* ===== HEADER ===== */
+/* ===== HEADER ===== */
 
-    .nm-header {
-        background: #c5161d;
-        color: white;
-    }
+.nm-header {
+    background: #c5161d;
+    color: white;
+}
+
+.nm-header-inner {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 30px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nm-brand {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.nm-state {
+    position: relative;
+    width: 110px;
+    height: 110px;
+    background: url("assets/images/new-mexico.png") no-repeat center;
+    background-size: contain;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nm-text {
+    font-size: 40px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    color: white;
+}
+
+.nm-year {
+    font-size: 72px;
+    font-weight: 900;
+    color: #ffd23f;
+}
+
+.nm-nav {
+    display: flex;
+    gap: 60px;
+}
+
+.nm-nav span {
+    color: white;
+    font-size: 26px;
+    letter-spacing: 2px;
+    font-weight: 600;
+}
+
+.nm-login span {
+    background: #ffd23f;
+    color: #c5161d;
+    padding: 12px 26px;
+    border-radius: 16px;
+    font-weight: 900;
+    font-size: 22px;
+}
+
+.nm-stripe {
+    background: #ffd23f;
+    padding: 10px 40px;
+    font-weight: 900;
+    color: #c5161d;
+    letter-spacing: 2px;
+}
+
+/* ===== HERO ===== */
+
+.nm-hero {
+    height: 85vh;
+    min-height: 600px;
+    background: url("assets/images/storm-hero.jpg") center center / cover no-repeat;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nm-hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        rgba(0,0,0,0.65),
+        rgba(30,30,60,0.45)
+    );
+}
+
+.nm-hero-overlay {
+    position: relative;
+    text-align: center;
+    color: white;
+    z-index: 1;
+    padding: 0 20px;
+}
+
+.nm-hero-overlay h1 {
+    font-size: 64px;
+    margin: 0;
+}
+
+.nm-hero-overlay p {
+    font-size: 22px;
+    letter-spacing: 2px;
+    margin-top: 12px;
+}
+
+/* ===== CONTENT ===== */
+
+.page-container {
+    max-width: 900px;
+    margin: 80px auto;
+    padding: 0 30px 100px 30px;
+}
+
+.page-container h1 {
+    font-size: 42px;
+    margin-bottom: 24px;
+}
+
+.page-container p {
+    font-size: 20px;
+    line-height: 1.7;
+    margin-bottom: 24px;
+}
+
+blockquote {
+    font-size: 24px;
+    text-align: center;
+    margin: 40px 0;
+    font-style: italic;
+}
+
+/* ===== IMAGE BLOCKS ===== */
+
+.nm-figure {
+    margin: 40px 0 50px 0;
+    text-align: center;
+}
+
+.nm-figure img {
+    width: 100%;
+    border-radius: 12px;
+}
+
+.nm-figure.small img {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.nm-caption {
+    font-size: 14px;
+    color: #666;
+    margin-top: 12px;
+    font-style: italic;
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 1024px) {
 
     .nm-header-inner {
-        max-width: 1300px;
-        margin: 0 auto;
-        padding: 30px 40px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
-
-    .nm-brand {
-        display: flex;
-        align-items: center;
+        flex-direction: column;
         gap: 20px;
-    }
-
-    .nm-state {
-        position: relative;
-        width: 110px;
-        height: 110px;
-        background: url("assets/images/new-mexico.png") no-repeat center;
-        background-size: contain;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .nm-text {
-        font-size: 40px;
-        font-weight: 900;
-        letter-spacing: 2px;
-        color: white;
-    }
-
-    .nm-year {
-        font-size: 72px;
-        font-weight: 900;
-        color: #ffd23f;
+        text-align: center;
     }
 
     .nm-nav {
-        display: flex;
-        gap: 60px;
+        gap: 30px;
+        flex-wrap: wrap;
+        justify-content: center;
     }
 
     .nm-nav span {
-        color: white;
-        font-size: 26px;
-        letter-spacing: 2px;
-        font-weight: 600;
+        font-size: 20px;
     }
 
-    .nm-login span {
-        background: #ffd23f;
-        color: #c5161d;
-        padding: 12px 26px;
-        border-radius: 16px;
-        font-weight: 900;
-        font-size: 22px;
+    .nm-hero {
+        height: 70vh;
     }
 
-    .nm-stripe {
-        background: #ffd23f;
-        padding: 10px 40px;
-        font-weight: 900;
-        color: #c5161d;
-        letter-spacing: 2px;
+    .nm-hero-overlay h1 {
+        font-size: 44px;
     }
 
-    /* ===== CONTENT ===== */
+    .nm-hero-overlay p {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 600px) {
 
     .page-container {
-        max-width: 900px;
-        margin: 80px auto;
-        padding: 0 30px 100px 30px;
+        margin: 50px auto;
+        padding: 0 20px 80px 20px;
     }
 
     .page-container h1 {
-        font-size: 42px;
-        margin-bottom: 24px;
+        font-size: 28px;
     }
 
     .page-container p {
-        font-size: 20px;
-        line-height: 1.7;
-        margin-bottom: 24px;
+        font-size: 17px;
     }
-
-    /* ===== RESPONSIVE ===== */
-
-    @media (max-width: 1024px) {
-
-        .nm-header-inner {
-            flex-direction: column;
-            gap: 20px;
-            text-align: center;
-        }
-
-        .nm-nav {
-            gap: 30px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .nm-nav span {
-            font-size: 20px;
-        }
-
-        .nm-state {
-            width: 90px;
-            height: 90px;
-        }
-
-        .nm-text {
-            font-size: 30px;
-        }
-
-        .nm-year {
-            font-size: 54px;
-        }
-
-        .nm-login span {
-            font-size: 18px;
-            padding: 10px 20px;
-        }
-    }
-
-    @media (max-width: 600px) {
-
-        .nm-header-inner {
-            padding: 20px;
-        }
-
-        .nm-nav {
-            gap: 16px;
-        }
-
-        .nm-nav span {
-            font-size: 16px;
-        }
-
-        .nm-state {
-            width: 70px;
-            height: 70px;
-        }
-
-        .nm-text {
-            font-size: 22px;
-        }
-
-        .nm-year {
-            font-size: 40px;
-        }
-
-        .page-container {
-            margin: 50px auto;
-            padding: 0 20px 80px 20px;
-        }
-
-        .page-container h1 {
-            font-size: 28px;
-        }
-
-        .page-container p {
-            font-size: 17px;
-        }
-    }
+}
 </style>
 </head>
 
@@ -193,7 +234,6 @@
 
 <header class="nm-header">
     <div class="nm-header-inner">
-
         <div class="nm-brand">
             <div class="nm-state">
                 <span class="nm-text">NM</span>
@@ -211,13 +251,19 @@
         <div class="nm-login">
             <span>LOGIN</span>
         </div>
-
     </div>
 
     <div class="nm-stripe">
         VACATION 2026
     </div>
 </header>
+
+<section class="nm-hero">
+    <div class="nm-hero-overlay">
+        <h1>The Roswell Incident</h1>
+        <p>Mystery in the Desert</p>
+    </div>
+</section>
 
 <main class="page-container">
 
@@ -236,6 +282,11 @@ After inspecting the site, the Army issued a press release that stunned the nati
 </p>
 
 <blockquote><strong>“The Army Air Forces today announced a flying disc has been recovered.”</strong></blockquote>
+
+<figure class="nm-figure small">
+    <img src="assets/images/roswell-headline.jpg" alt="1947 Roswell flying disc newspaper headline">
+    <div class="nm-caption">The Roswell Daily Record headline announcing the recovered “flying disc,” July 1947.</div>
+</figure>
 
 <p>
 Headlines exploded. Newspapers sold out. Radio hosts speculated. In a country just stepping into the Atomic Age, the idea of something not-of-this-earth electrified imaginations.
@@ -263,6 +314,11 @@ When people believe information has been buried, legends grow in the spaces left
 
 <h2>🧪 Official Explanation</h2>
 
+<figure class="nm-figure small">
+    <img src="assets/images/mogul-balloon.jpg" alt="Project Mogul high altitude balloon">
+    <div class="nm-caption">Project Mogul high-altitude balloon equipment used during early Cold War monitoring.</div>
+</figure>
+
 <p>
 In the 1990s, the U.S. Air Force released reports stating the debris most likely came from <strong>Project Mogul</strong>, a top-secret Cold War program using high-altitude balloons to detect Soviet nuclear tests. The strange materials, officials said, were experimental components and radar reflectors unfamiliar to civilians in 1947.
 </p>
@@ -272,6 +328,11 @@ To ranchers and deputies of the time, that technology might as well have been fr
 </p>
 
 <h2>👽 Roswell Today</h2>
+
+<figure class="nm-figure">
+    <img src="assets/images/roswell-today.jpg" alt="Roswell alien streetlights and UFO Museum">
+    <div class="nm-caption">Modern Roswell embraces its extraterrestrial legend with themed streetlights and museums.</div>
+</figure>
 
 <p>
 Today the town embraces its legacy with playful pride. Alien streetlights line Main Street. Murals glow neon at dusk. The <strong>International UFO Museum</strong> welcomes curious visitors year-round.
