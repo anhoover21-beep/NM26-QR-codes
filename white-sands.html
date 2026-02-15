@@ -6,186 +6,213 @@
 <title>NM26 Mission Portal</title>
 
 <style>
-    body {
-        margin: 0;
-        font-family: Arial, Helvetica, sans-serif;
-        background: #f4f4f4;
-        color: #222;
-    }
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f4f4;
+    color: #222;
+}
 
-    /* ===== HEADER ===== */
+/* ===== HEADER ===== */
 
-    .nm-header {
-        background: #c5161d;
-        color: white;
-    }
+.nm-header {
+    background: #c5161d;
+    color: white;
+}
 
+.nm-header-inner {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 30px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nm-brand {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.nm-state {
+    position: relative;
+    width: 110px;
+    height: 110px;
+    background: url("assets/images/new-mexico.png") no-repeat center;
+    background-size: contain;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nm-text {
+    font-size: 40px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    color: white;
+}
+
+.nm-year {
+    font-size: 72px;
+    font-weight: 900;
+    color: #ffd23f;
+}
+
+.nm-nav {
+    display: flex;
+    gap: 60px;
+}
+
+.nm-nav span {
+    color: white;
+    font-size: 26px;
+    letter-spacing: 2px;
+    font-weight: 600;
+}
+
+.nm-login span {
+    background: #ffd23f;
+    color: #c5161d;
+    padding: 12px 26px;
+    border-radius: 16px;
+    font-weight: 900;
+    font-size: 22px;
+}
+
+.nm-stripe {
+    background: #ffd23f;
+    padding: 10px 40px;
+    font-weight: 900;
+    color: #c5161d;
+    letter-spacing: 2px;
+}
+
+/* ===== HERO ===== */
+
+.nm-hero {
+    height: 85vh;
+    min-height: 600px;
+    background: url("assets/images/white-sands-hero.jpg") center center / cover no-repeat;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nm-hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        rgba(0,0,0,0.45),
+        rgba(255,255,255,0.1)
+    );
+}
+
+.nm-hero-overlay {
+    position: relative;
+    color: white;
+    text-align: center;
+    z-index: 1;
+    padding: 0 20px;
+}
+
+.nm-hero-overlay h1 {
+    font-size: 56px;
+    margin: 0;
+}
+
+.nm-hero-overlay p {
+    font-size: 20px;
+    margin-top: 12px;
+}
+
+/* ===== CONTENT ===== */
+
+.page-container {
+    max-width: 900px;
+    margin: 80px auto;
+    padding: 0 30px 100px 30px;
+}
+
+.page-container h1 {
+    font-size: 42px;
+    margin-bottom: 24px;
+}
+
+.page-container h2 {
+    margin-top: 60px;
+}
+
+.page-container p {
+    font-size: 20px;
+    line-height: 1.7;
+    margin-bottom: 24px;
+}
+
+/* ===== IMAGE BLOCKS ===== */
+
+.nm-figure {
+    margin: 40px 0 50px 0;
+    text-align: center;
+}
+
+.nm-figure img {
+    width: 100%;
+    border-radius: 12px;
+}
+
+.nm-caption {
+    font-size: 14px;
+    color: #666;
+    margin-top: 10px;
+    font-style: italic;
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 1024px) {
     .nm-header-inner {
-        max-width: 1300px;
-        margin: 0 auto;
-        padding: 30px 40px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
-
-    .nm-brand {
-        display: flex;
-        align-items: center;
+        flex-direction: column;
         gap: 20px;
-    }
-
-    .nm-state {
-        position: relative;
-        width: 110px;
-        height: 110px;
-        background: url("assets/images/new-mexico.png") no-repeat center;
-        background-size: contain;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .nm-text {
-        font-size: 40px;
-        font-weight: 900;
-        letter-spacing: 2px;
-        color: white;
-    }
-
-    .nm-year {
-        font-size: 72px;
-        font-weight: 900;
-        color: #ffd23f;
+        text-align: center;
     }
 
     .nm-nav {
-        display: flex;
-        gap: 60px;
+        gap: 30px;
+        flex-wrap: wrap;
+        justify-content: center;
     }
 
     .nm-nav span {
-        color: white;
-        font-size: 26px;
-        letter-spacing: 2px;
-        font-weight: 600;
+        font-size: 20px;
     }
 
-    .nm-login span {
-        background: #ffd23f;
-        color: #c5161d;
-        padding: 12px 26px;
-        border-radius: 16px;
-        font-weight: 900;
-        font-size: 22px;
+    .nm-hero {
+        height: 70vh;
     }
 
-    .nm-stripe {
-        background: #ffd23f;
-        padding: 10px 40px;
-        font-weight: 900;
-        color: #c5161d;
-        letter-spacing: 2px;
+    .nm-hero-overlay h1 {
+        font-size: 40px;
     }
+}
 
-    /* ===== CONTENT ===== */
+@media (max-width: 600px) {
 
     .page-container {
-        max-width: 900px;
-        margin: 80px auto;
-        padding: 0 30px 100px 30px;
+        margin: 50px auto;
+        padding: 0 20px 80px 20px;
     }
 
     .page-container h1 {
-        font-size: 42px;
-        margin-bottom: 24px;
+        font-size: 28px;
     }
 
     .page-container p {
-        font-size: 20px;
-        line-height: 1.7;
-        margin-bottom: 24px;
+        font-size: 17px;
     }
-
-    /* ===== RESPONSIVE ===== */
-
-    @media (max-width: 1024px) {
-
-        .nm-header-inner {
-            flex-direction: column;
-            gap: 20px;
-            text-align: center;
-        }
-
-        .nm-nav {
-            gap: 30px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .nm-nav span {
-            font-size: 20px;
-        }
-
-        .nm-state {
-            width: 90px;
-            height: 90px;
-        }
-
-        .nm-text {
-            font-size: 30px;
-        }
-
-        .nm-year {
-            font-size: 54px;
-        }
-
-        .nm-login span {
-            font-size: 18px;
-            padding: 10px 20px;
-        }
-    }
-
-    @media (max-width: 600px) {
-
-        .nm-header-inner {
-            padding: 20px;
-        }
-
-        .nm-nav {
-            gap: 16px;
-        }
-
-        .nm-nav span {
-            font-size: 16px;
-        }
-
-        .nm-state {
-            width: 70px;
-            height: 70px;
-        }
-
-        .nm-text {
-            font-size: 22px;
-        }
-
-        .nm-year {
-            font-size: 40px;
-        }
-
-        .page-container {
-            margin: 50px auto;
-            padding: 0 20px 80px 20px;
-        }
-
-        .page-container h1 {
-            font-size: 28px;
-        }
-
-        .page-container p {
-            font-size: 17px;
-        }
-    }
+}
 </style>
 </head>
 
@@ -193,31 +220,33 @@
 
 <header class="nm-header">
     <div class="nm-header-inner">
-
         <div class="nm-brand">
             <div class="nm-state">
                 <span class="nm-text">NM</span>
             </div>
             <span class="nm-year">26</span>
         </div>
-
         <nav class="nm-nav">
             <span>HOME</span>
             <span>PLANNER</span>
             <span>RESOURCES</span>
             <span>GUIDE</span>
         </nav>
-
         <div class="nm-login">
             <span>LOGIN</span>
         </div>
-
     </div>
-
     <div class="nm-stripe">
         VACATION 2026
     </div>
 </header>
+
+<section class="nm-hero">
+    <div class="nm-hero-overlay">
+        <h1>WHITE SANDS</h1>
+        <p>The place that looks fake even in person</p>
+    </div>
+</section>
 
 <main class="page-container">
 
@@ -228,7 +257,10 @@
 
 <p>Welcome to White Sands National Park, where the ground squeaks, the dunes move, and the whole place looks like it was designed by a bored god armed with a bucket of chalk.</p>
 
-<br>
+<figure class="nm-figure">
+    <img src="assets/images/gypsum-close.jpg" alt="Gypsum sand close up">
+    <div class="nm-caption">Gypsum crystals ground into soft white sand.</div>
+</figure>
 
 <h2>WHY THE SAND IS WHITE (THE REAL REASON)</h2>
 
@@ -244,7 +276,10 @@ And it sure as hell isn’t snow that got lost.</p>
 The largest gypsum dune field on Earth.<br>
 Nothing else like it exists.</p>
 
-<br>
+<figure class="nm-figure">
+    <img src="assets/images/barefoot-dunes.jpg" alt="Barefoot walking on White Sands dunes">
+    <div class="nm-caption">Cool to the touch — even in the desert heat.</div>
+</figure>
 
 <h2>WHY IT STAYS COOL, EVEN IN 100-DEGREE HEAT</h2>
 
@@ -256,27 +291,10 @@ Gypsum reflects sunlight like a champ.</p>
 <p>Your brain won’t believe it.<br>
 Your feet will.</p>
 
-<br>
-
-<h2>WHY IT LOOKS LIKE SNOW</h2>
-
-<p>Because your eyes are confused.</p>
-
-<p>The dunes:</p>
-
-<p>
-ripple like snowdrifts<br>
-clump like snow<br>
-drift like snow<br>
-pile up like snow<br>
-glow blue at twilight like snow
-</p>
-
-<p>Your brain keeps yelling:<br>
-<strong>“WHY IS IT HOT IN THE SNOW?!”</strong><br>
-Enjoy that feeling — it’s rare and unforgettable.</p>
-
-<br>
+<figure class="nm-figure">
+    <img src="assets/images/dune-ripples.jpg" alt="Wind shaped ripples in White Sands">
+    <div class="nm-caption">Wind-carved dunes constantly shifting across the basin.</div>
+</figure>
 
 <h2>HOW THE DUNES MOVE</h2>
 
@@ -287,49 +305,10 @@ They crawl.</p>
 
 <p>The whole landscape is alive and shifting, like a slow-motion ocean frozen in white.</p>
 
-<br>
-
-<h2>WHY IT LOOKS DIFFERENT EVERY TIME YOU TURN AROUND</h2>
-
-<p>Because White Sands is a giant natural light reflector.</p>
-
-<p>As the sun moves:</p>
-
-<p>
-dune curves change shape<br>
-shadows sharpen<br>
-ripples turn into dark stripes<br>
-the ground glows like it’s lit from below<br>
-at sunset, the sand turns pink<br>
-at twilight, it turns blue<br>
-at night, it looks silver under the moon
-</p>
-
-<p>This is one of the few places where the moon is brighter than your headlights.</p>
-
-<br>
-
-<h2>WHAT YOU’LL SEE ON THIS TRIP</h2>
-
-<p><strong>SUNSET</strong><br>
-The white dunes catch fire — glowing gold, then peach, then cotton-candy pink. If you’ve never seen pink sand before, prepare your soul.</p>
-
-<p><strong>TWILIGHT</strong><br>
-The entire landscape turns blue like a movie set. This is the most surreal moment — the dunes look like ice, and the mountains in the distance look painted.</p>
-
-<p><strong>MOONLIGHT</strong><br>
-The dunes glow silver. Your shadows stretch 30 feet long. And the world is quiet in a way you’ve never experienced — a kind of silence that feels holy.</p>
-
-<br>
-
-<h2>THE SOUND THE SAND MAKES</h2>
-
-<p>The sand squeaks.<br>
-Seriously.</p>
-
-<p>Gypsum crystals rub together and create a high-pitched squeaky sound. The boys will absolutely point this out before you do.</p>
-
-<br>
+<figure class="nm-figure">
+    <img src="assets/images/white-sands-moon.jpg" alt="White Sands under moonlight">
+    <div class="nm-caption">Moonlight turns the dunes silver and silent.</div>
+</figure>
 
 <h2>WHY YOU’LL REMEMBER THIS DAY FOREVER</h2>
 
@@ -339,7 +318,6 @@ Seriously.</p>
 It’s a memory furnace — a place that burns itself into your brain and stays there.</strong></p>
 
 </main>
-
 
 </body>
 </html>
