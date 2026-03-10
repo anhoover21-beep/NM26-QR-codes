@@ -13,8 +13,6 @@
         color: #222;
     }
 
-    /* ===== HEADER ===== */
-
     .nm-header {
         background: #c5161d;
         color: white;
@@ -93,8 +91,6 @@
         letter-spacing: 2px;
     }
 
-    /* ===== MAIN ===== */
-
     .main-content {
         min-height: calc(100vh - 180px);
     }
@@ -123,8 +119,6 @@
         font-weight: bold;
         margin-top: 20px;
     }
-
-    /* ===== MISSION CARD ===== */
 
     .mission-card {
         max-width: 960px;
@@ -245,7 +239,6 @@
 
 <header class="nm-header">
     <div class="nm-header-inner">
-
         <div class="nm-brand">
             <div class="nm-state">
                 <span class="nm-text">NM</span>
@@ -263,7 +256,6 @@
         <div class="nm-login">
             <span>LOGIN</span>
         </div>
-
     </div>
 
     <div class="nm-stripe">
@@ -272,7 +264,6 @@
 </header>
 
 <div class="main-content">
-
     <div id="locked" class="section">
         <div class="locked-message">
             Not ready yet, Jackass.<br>
@@ -285,21 +276,18 @@
     </div>
 
     <div id="mission" class="section"></div>
-
 </div>
 
 <script>
 const tripStart = new Date("2026-06-05T00:00:00");
-const tripEnd   = new Date("2026-06-12T23:59:59");
+const tripEnd = new Date("2026-06-12T23:59:59");
+const unlockHour = 18;
 
 const now = new Date();
-const currentHour = now.getHours();
-
 const lockedSection = document.getElementById("locked");
 const missionSection = document.getElementById("mission");
 
 const dailyMissions = {
-
 1: `
 <div class="mission-card">
     <h1>🌙 Day 1 — Tucumcari Neon Loop</h1>
@@ -331,7 +319,6 @@ const dailyMissions = {
     </div>
 </div>
 `,
-
 2: `
 <div class="mission-card">
     <h1>🌙 Day 2 — Santa Fe Plaza Geocache Night</h1>
@@ -393,7 +380,6 @@ const dailyMissions = {
     </ul>
 </div>
 `,
-
 3: `
 <div class="mission-card">
     <h1>🌄 Day 3 — Rio Grande Gorge &amp; Taos Nights</h1>
@@ -472,7 +458,6 @@ const dailyMissions = {
     </ul>
 </div>
 `,
-
 4: `
 <div class="mission-card">
     <h1>🌌 Day 4 — Meow Wolf: The Night We Got Lost (and Liked It)</h1>
@@ -532,7 +517,6 @@ const dailyMissions = {
     </ul>
 </div>
 `,
-
 5: `
 <div class="mission-card">
     <h1>🌌 Day 5 — Socorro: Beneath Our Feet, Above Our Heads</h1>
@@ -598,7 +582,6 @@ const dailyMissions = {
     </ul>
 </div>
 `,
-
 6: `
 <div class="mission-card">
     <h1>🌌 Day 6 — Roswell: The Night We Landed</h1>
@@ -655,7 +638,6 @@ const dailyMissions = {
     </ul>
 </div>
 `,
-
 7: `
 <div class="mission-card">
     <h1>🌅 Day 7 — Fort Stockton: The In Between</h1>
@@ -705,7 +687,6 @@ const dailyMissions = {
     </ul>
 </div>
 `,
-
 8: `
 <div class="mission-card">
     <h1>🌉 Day 8 — San Antonio: The Last Great Hurrah</h1>
@@ -766,12 +747,48 @@ function getTripDay(nowDate, startDate) {
     today.setHours(0, 0, 0, 0);
 
     const diffMs = today - start;
-    const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
-
-    return diffDays + 1;
+    return Math.floor(diffMs / (1000 * 60 * 60 * 24)) + 1;
 }
 
-if (now > tripEnd) {
+function getNextUnlockTime(currentTime) {
+    const firstUnlock = new Date(tripStart);
+    firstUnlock.setHours(unlockHour, 0, 0, 0);
+
+    if (currentTime < firstUnlock) {
+        return firstUnlock;
+    }
+
+    if (currentTime > tripEnd) {
+        return null;
+    }
+
+    const next = new Date(currentTime);
+    next.setHours(unlockHour, 0, 0, 0);
+
+    if (currentTime >= next) {
+        next.setDate(next.getDate() + 1);
+        next.setHours(unlockHour, 0, 0, 0);
+    }
+
+    if (next > tripEnd) {
+        return null;
+    }
+
+    return next;
+}
+
+function isMissionUnlocked(currentTime) {
+    if (currentTime < tripStart || currentTime > tripEnd) {
+        return false;
+    }
+
+    const unlockToday = new Date(currentTime);
+    unlockToday.setHours(unlockHour, 0, 0, 0);
+
+    return currentTime >= unlockToday;
+}
+
+function showTripOver() {
     missionSection.style.display = "block";
     missionSection.innerHTML = `
         <div class="trip-over-wrap">
@@ -780,9 +797,9 @@ if (now > tripEnd) {
         </div>
     `;
 }
-else if (currentHour >= 18 && now >= tripStart && now <= tripEnd) {
-    missionSection.style.display = "block";
 
+function showMission() {
+    missionSection.style.display = "block";
     const tripDay = getTripDay(now, tripStart);
 
     missionSection.innerHTML = dailyMissions[tripDay] || `
@@ -792,32 +809,51 @@ else if (currentHour >= 18 && now >= tripStart && now <= tripEnd) {
         </div>
     `;
 }
-else {
+
+function showLocked() {
     lockedSection.style.display = "block";
     startCountdown();
+}
+
+if (now > tripEnd) {
+    showTripOver();
+} else if (isMissionUnlocked(now)) {
+    showMission();
+} else {
+    showLocked();
 }
 
 function startCountdown() {
     const countdownElement = document.getElementById("countdown");
 
     function updateCountdown() {
-        const now = new Date();
-        const unlockTime = new Date();
-        unlockTime.setHours(18, 0, 0, 0);
+        const currentTime = new Date();
+        const nextUnlock = getNextUnlockTime(currentTime);
 
-        const diff = unlockTime - now;
+        if (!nextUnlock) {
+            location.reload();
+            return;
+        }
+
+        const diff = nextUnlock - currentTime;
 
         if (diff <= 0) {
             location.reload();
             return;
         }
 
-        const hours = Math.floor(diff / (1000 * 60 * 60));
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
-        countdownElement.textContent =
-            `Mission unlocks in ${hours}h ${minutes}m ${seconds}s`;
+        if (days > 0) {
+            countdownElement.textContent =
+                `Mission unlocks in ${days}d ${hours}h ${minutes}m ${seconds}s`;
+        } else {
+            countdownElement.textContent =
+                `Mission unlocks in ${hours}h ${minutes}m ${seconds}s`;
+        }
     }
 
     updateCountdown();
