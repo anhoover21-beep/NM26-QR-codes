@@ -27,6 +27,8 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+        gap: 20px;
+        flex-wrap: wrap;
     }
 
     .nm-brand {
@@ -56,16 +58,19 @@
         font-size: 72px;
         font-weight: 900;
         color: #ffd23f;
+        line-height: 1;
     }
 
     .nm-nav {
         display: flex;
-        gap: 60px;
+        gap: 36px;
+        flex-wrap: wrap;
+        justify-content: center;
     }
 
     .nm-nav span {
         color: white;
-        font-size: 26px;
+        font-size: 22px;
         letter-spacing: 2px;
         font-weight: 600;
     }
@@ -76,7 +81,8 @@
         padding: 12px 26px;
         border-radius: 16px;
         font-weight: 900;
-        font-size: 22px;
+        font-size: 20px;
+        display: inline-block;
     }
 
     .nm-stripe {
@@ -87,7 +93,11 @@
         letter-spacing: 2px;
     }
 
-    /* ===== LOCKED SCREEN ===== */
+    /* ===== MAIN ===== */
+
+    .main-content {
+        min-height: calc(100vh - 180px);
+    }
 
     .section {
         display: none;
@@ -99,6 +109,7 @@
         font-size: 44px;
         font-weight: 900;
         margin-bottom: 30px;
+        line-height: 1.15;
     }
 
     .locked-image {
@@ -113,6 +124,120 @@
         margin-top: 20px;
     }
 
+    /* ===== MISSION CARD ===== */
+
+    .mission-card {
+        max-width: 960px;
+        margin: 20px auto;
+        background: white;
+        padding: 40px;
+        border-radius: 22px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.14);
+        text-align: left;
+    }
+
+    .mission-card h1 {
+        margin-top: 0;
+        font-size: 42px;
+        line-height: 1.15;
+        color: #c5161d;
+    }
+
+    .mission-card h2 {
+        margin-top: 34px;
+        margin-bottom: 14px;
+        font-size: 28px;
+        color: #222;
+    }
+
+    .mission-card p,
+    .mission-card li {
+        font-size: 20px;
+        line-height: 1.65;
+    }
+
+    .mission-card ul,
+    .mission-card ol {
+        padding-left: 28px;
+    }
+
+    .mission-card strong {
+        color: #111;
+    }
+
+    .mission-card em {
+        color: #555;
+    }
+
+    .mission-note {
+        background: #fff8da;
+        border-left: 6px solid #ffd23f;
+        padding: 18px 20px;
+        border-radius: 12px;
+        margin: 24px 0;
+    }
+
+    .trip-over-wrap {
+        text-align: center;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .trip-over-wrap h1 {
+        font-size: 48px;
+        line-height: 1.15;
+        margin-bottom: 28px;
+        color: #c5161d;
+    }
+
+    .trip-over-wrap img {
+        max-width: 320px;
+        width: 100%;
+    }
+
+    @media (max-width: 900px) {
+        .nm-header-inner {
+            padding: 24px 20px;
+            justify-content: center;
+        }
+
+        .nm-nav {
+            gap: 20px;
+        }
+
+        .nm-nav span {
+            font-size: 18px;
+        }
+
+        .nm-year {
+            font-size: 56px;
+        }
+
+        .mission-card {
+            padding: 28px 22px;
+        }
+
+        .mission-card h1 {
+            font-size: 32px;
+        }
+
+        .mission-card h2 {
+            font-size: 24px;
+        }
+
+        .mission-card p,
+        .mission-card li {
+            font-size: 18px;
+        }
+
+        .locked-message {
+            font-size: 32px;
+        }
+
+        .countdown {
+            font-size: 20px;
+        }
+    }
 </style>
 </head>
 
@@ -148,20 +273,18 @@
 
 <div class="main-content">
 
-  <div id="locked" class="section">
-    <div class="locked-message">
-        Not ready yet, Jackass.<br>
-        Learn to follow directions.
+    <div id="locked" class="section">
+        <div class="locked-message">
+            Not ready yet, Jackass.<br>
+            Learn to follow directions.
+        </div>
+
+        <img src="assets/images/jackass.png" class="locked-image" alt="Jackass">
+
+        <div class="countdown" id="countdown"></div>
     </div>
 
-    <img src="assets/images/jackass.png" class="locked-image" alt="Jackass">
-
-    <div class="countdown" id="countdown"></div>
-  </div>
-
-  <div id="mission" class="section">
-    <div class="mission-card"></div>
-  </div>
+    <div id="mission" class="section"></div>
 
 </div>
 
@@ -175,190 +298,532 @@ const currentHour = now.getHours();
 const lockedSection = document.getElementById("locked");
 const missionSection = document.getElementById("mission");
 
-const missions = {
-  "2026-06-05": {
-    title: "NEON BOON",
-    subtitle: "Are you a glow worm?",
-    body: "Tonight’s Mission: You’ve checked in at the legendary Blue Swallow Motel, right in the heart of Route 66.
- When the sun slips behind the mesas, the street comes alive in neon — every sign buzzing like a time machine. Sunset: roughly 8:12 p.m. (Mountain Time).
- Slip on comfy shoes, grab a camera, and go see what the Mother Road looks like when it dreams in color. You just may earn your Glow Worm badge.
+const dailyMissions = {
 
-🚶 Walking Route
-Start right outside your room at Blue Swallow Motel, then follow this short evening loop:
-1️⃣ Walk east about 500 feet to Tee Pee Curios — bright reds, yellows, and that concrete teepee glow.
-2️⃣ Turn around and head west past the Blue Swallow to Motel Safari — spot the famous camel sign. 
-3️⃣ Cross the street to Pow Wow Inn & Lounge — grab a soda, snack, or just check out the glow.
-4️⃣ Optional bonus stop: drive (or walk if you’re up for it) about one mile west to the Route 66 Monument for a group photo under the giant shield.
+1: `
+<div class="mission-card">
+    <h1>🌙 Day 1 — Tucumcari Neon Loop</h1>
 
+    <h2>Tonight’s Mission</h2>
+    <p>
+        You’ve checked in at the legendary <strong>Blue Swallow Motel</strong>, right in the heart of Route 66.
+        When the sun slips behind the mesas, the street comes alive in neon — every sign buzzing like a time machine.
+        <strong>Sunset: roughly 8:12 p.m. (Mountain Time).</strong>
+    </p>
+    <p>
+        Slip on comfy shoes, grab a camera, and go see what the Mother Road looks like when it dreams in color.
+        You just may earn your <strong>Glow Worm</strong> badge.
+    </p>
 
-Round-trip walking distance: about 0.8 mile (1.6 mi with the Monument).
+    <h2>🚶 Walking Route</h2>
+    <p>
+        Start right outside your room at <strong>Blue Swallow Motel</strong>, then follow this short evening loop:
+    </p>
+    <ol>
+        <li>Walk east about 500 feet to <strong>Tee Pee Curios</strong> — bright reds, yellows, and that concrete teepee glow.</li>
+        <li>Turn around and head west past the Blue Swallow to <strong>Motel Safari</strong> — spot the famous camel sign.</li>
+        <li>Cross the street to <strong>Pow Wow Inn &amp; Lounge</strong> — grab a soda, snack, or just check out the glow.</li>
+        <li><strong>Optional bonus stop:</strong> drive (or walk if you’re up for it) about one mile west to the <strong>Route 66 Monument</strong> for a group photo under the giant shield.</li>
+    </ol>
 
+    <div class="mission-note">
+        <p><strong>Round-trip walking distance:</strong> about 0.8 mile (1.6 miles with the Monument).</p>
+    </div>
+</div>
+`,
 
+2: `
+<div class="mission-card">
+    <h1>🌙 Day 2 — Santa Fe Plaza Geocache Night</h1>
 
+    <h2>Evening Mission</h2>
+    <p>
+        Kick off the night with dinner at one of Santa Fe’s classic New Mexican restaurants.
+        When the sun sets and the lanterns come on, fire up <strong>Terri’s geocache app</strong> and set off on a twilight treasure hunt around the Plaza — a mix of history, mystery, and hidden surprises.
+    </p>
+    <p>
+        Earn your <strong>Cache Me Outside</strong> badge.
+    </p>
 
+    <h2>🌮 Dinner First</h2>
+    <p>Choose one of these walkable favorites near the Plaza:</p>
+    <ul>
+        <li><strong>The Shed</strong> – 113 ½ E Palace Ave. Iconic red &amp; green chile, classic adobe setting.</li>
+        <li><strong>Casa Chimayó</strong> – 409 W Water St. Cozy courtyard, warm glow, live music some nights.</li>
+        <li><strong>Palacio Café</strong> – 209 E Palace Ave. Small, casual, perfect pre-walk stop.</li>
+    </ul>
+    <p><em>If you’d rather drive a few minutes: Tomasita’s or La Choza are local legends.</em></p>
 
+    <h2>🧭 The Hunt — Real Geocaches</h2>
+    <p>Using Terri’s app, locate at least <strong>three caches</strong> within half a mile of the Plaza.</p>
+    <p><strong>Look near:</strong></p>
+    <ul>
+        <li>The Palace of the Governors portico (benches and trader tables)</li>
+        <li>The Cathedral Basilica of St. Francis of Assisi</li>
+        <li>The La Fonda Hotel courtyard or nearby streets like Water St. or San Francisco St.</li>
+    </ul>
+    <p><strong>Goal:</strong> Find hidden history, log your discoveries, and leave a small token if possible.</p>
 
+    <h2>💡 Extra Challenge</h2>
+    <ul>
+        <li>Take a photo with each cache you find.</li>
+        <li>Bonus points for the cache closest to a street musician or art gallery.</li>
+        <li>Extra bonus if you spot a coyote statue before the night ends.</li>
+    </ul>
 
-🔦 Neon Challenge
-Find at least five different neon colors.
+    <h2>🎵 Soundtrack Suggestions</h2>
+    <ul>
+        <li>Golden Hour – Kacey Musgraves</li>
+        <li>Nightingale – Demi Lovato</li>
+        <li>Santa Fe – Jon Bon Jovi</li>
+    </ul>
 
+    <h2>📸 Photo Prompt</h2>
+    <p>
+        “Find a place where an old adobe meets the sky’s new color.
+        Shoot the moment when the lanterns glow and you realize Santa Fe is whispering a secret.”
+    </p>
+    <p><strong>Don’t forget to post to photo album.</strong></p>
 
-Spot one sign that blinks or moves.
+    <h2>✅ Tips</h2>
+    <ul>
+        <li>Bring a small flashlight or use phone lights sparingly.</li>
+        <li>Twilight window: roughly an hour after sunset.</li>
+        <li>Keep a penny, charm, or sticker for cache trades.</li>
+    </ul>
+</div>
+`,
 
+3: `
+<div class="mission-card">
+    <h1>🌄 Day 3 — Rio Grande Gorge &amp; Taos Nights</h1>
 
-Take a reflection photo (chrome, window, or puddle).
- 💡 Bonus: Which sign hums the loudest?
+    <h2>Tonight’s Mission</h2>
+    <p>
+        You’ve made it to <strong>Taos</strong> — mountain air, wide skies, and a bridge so high it gives your stomach butterflies.
+        When the sun starts to fall, head for the <strong>Rio Grande Gorge Bridge</strong> and prepare to launch a few dreams into the canyon.
+        This is where the laughter echoes longest.
+    </p>
 
+    <h2>✈️ The Paper Airplane Challenge</h2>
+    <p>
+        Pull out those blank pages you packed in the binder.
+        Fold it, name it, decorate it if you want.
+        Then head to the center of the bridge and let ’em fly to earn your <strong>Paper Pilot</strong> badge.
+    </p>
+    <p><strong>Three missions:</strong></p>
+    <ol>
+        <li><strong>Longest Flight</strong> – whose plane vanishes into the canyon last?</li>
+        <li><strong>Prettiest Flight Path</strong> – which one glides or spins the smoothest?</li>
+        <li><strong>Most Creative Design</strong> – wildest fold, funniest artwork, or best story behind the plane.</li>
+    </ol>
+    <p>
+        When the contest’s over, keep one folded plane in the binder — a little memento of what it feels like to let go and laugh at the same time.
+    </p>
 
+    <h2>🌅 Sunset Tip</h2>
+    <p>
+        Arrive about <strong>30 minutes before sunset</strong>.
+        The light fades fast, the canyon glows orange, and the wind starts to hum.
+        <strong>Sunset: roughly 8:12 p.m. Mountain Time.</strong>
+    </p>
+    <p>
+        If you’re lucky, ravens will glide beneath you — nature’s reminder that everything eventually finds its flight path.
+    </p>
 
-🎵 Soundtrack Suggestions
-Route 66 – Chuck Berry
+    <h2>🪶 Quick Paper Plane Guide</h2>
+    <p>Need a refresher? Try one of these classic flyers — simple to fold, fun to test.</p>
+    <ul>
+        <li><strong>The Dart</strong> – fast, straight, perfect for distance.</li>
+        <li><strong>The Glider</strong> – wide wings, slow graceful descent.</li>
+        <li><strong>The Stunt Wing</strong> – folds at the nose for loops and spins.</li>
+        <li><strong>The Hammerhead</strong> – compact, heavy front end, dramatic dive.</li>
+    </ul>
 
+    <h2>🌮 Dinner &amp; Downtown Taos</h2>
+    <p>After the bridge, roll back into town for food and fun:</p>
+    <ul>
+        <li><strong>Orlando’s</strong> – bright colors, big flavors, perfect post-adventure spot.</li>
+        <li><strong>The Love Apple</strong> – cozy adobe dining for something slower-paced.</li>
+        <li><strong>Gorge Bar &amp; Grill</strong> – burgers, green chile, and Plaza lights.</li>
+        <li><strong>Taos Mesa Brewing Tap Room</strong> – pizza, live music, and mountain vibes.</li>
+    </ul>
+    <p>If the energy’s still high, walk the <strong>Taos Plaza</strong> — sometimes there’s music or art vendors after dark.</p>
 
-Neon Moon – Brooks & Dunn (Official Audio)
+    <h2>🎵 Soundtrack Suggestions</h2>
+    <ul>
+        <li>Free Fallin’ – Tom Petty</li>
+        <li>Fly Like an Eagle – Steve Miller Band</li>
+        <li>Learn to Fly – Foo Fighters</li>
+    </ul>
 
+    <h2>📸 Photo Prompt</h2>
+    <p>
+        “Capture the exact moment someone’s paper plane takes flight — or the faces right after.
+        The winner isn’t whose plane flew farthest; it’s whoever laughed hardest.”
+    </p>
+    <p><strong>Don’t forget to post to photo album.</strong></p>
 
-Chasing that Neon Rainbow
-Play it on a small Bluetooth speaker while you walk — the lights pulse right along with the beat.
+    <h2>✅ Tips</h2>
+    <ul>
+        <li>It gets windy fast — light jackets recommended.</li>
+        <li>Use phone flashlights sparingly for the walk back.</li>
+        <li>Keep a few blank sheets in the binder for next time.</li>
+    </ul>
+</div>
+`,
 
-💬 Photo Prompt
-Take a picture that captures what Route 66 feels like tonight.
-Maybe it’s a reflection, a smile, a neon bird mid-flight — whatever moment feels most alive.
-Don’t forget to post to photo album
-",
-    image: "assets/images/mission1.png"
-  },
-  "2026-06-06": {
-    title: "Night Mission 2",
-    subtitle: "Santa Fe Evening Objective",
-    body: "Walk the plaza, look for the best lit landmark, and log one thing that felt oldest, strangest, or most magical.",
-    image: "assets/images/mission2.png"
-  },
-  "2026-06-07": {
-    title: "Night Mission 3",
-    subtitle: "Taos Debrief",
-    body: "After today’s route, compare the weirdest stop, the prettiest stop, and the one place you’d return to.",
-    image: "assets/images/mission3.png"
-  },
-  "2026-06-08": {
-    title: "Night Mission 4",
-    subtitle: "High Desert Signal",
-    body: "Step outside after dark and look up. Find the brightest object in the sky and make your best guess what it is.",
-    image: "assets/images/mission4.png"
-  },
-  "2026-06-09": {
-    title: "Night Mission 5",
-    subtitle: "Roswell Watch",
-    body: "You are now authorized to begin low-level anomaly monitoring. Note any lights, sounds, or suspicious activity.",
-    image: "assets/images/mission5.png"
-  },
-  "2026-06-10": {
-    title: "Night Mission 6",
-    subtitle: "Carlsbad After Action Report",
-    body: "Record the most impressive natural sight of the day and rank today’s adventure from 1 to 10.",
-    image: "assets/images/mission6.png"
-  },
-  "2026-06-11": {
-    title: "Night Mission 7",
-    subtitle: "Final Night Directive",
-    body: "Choose your top memory of the trip so far and declare the unofficial winner of NM26.",
-    image: "assets/images/mission7.png"
-  },
-  "2026-06-12": {
-    title: "Night Mission 8",
-    subtitle: "Return Home Protocol",
-    body: "Mission nearly complete. Confirm final highlights, funniest moment, and one stop worth repeating next time.",
-    image: "assets/images/mission8.png"
-  }
+4: `
+<div class="mission-card">
+    <h1>🌌 Day 4 — Meow Wolf: The Night We Got Lost (and Liked It)</h1>
+
+    <h2>Tonight’s Mission</h2>
+    <p>
+        You’ve made it back to <strong>Santa Fe</strong>, dust on the bumper and mountains in the rearview.
+        Now it’s time to trade roads for rabbit holes.
+    </p>
+    <p>
+        Step inside <strong>Meow Wolf’s House of Eternal Return</strong> — a neon labyrinth where refrigerators are portals,
+        washing machines hum secrets, and every hallway leads somewhere your brain doesn’t expect.
+    </p>
+
+    <h2>🎟️ Before You Go</h2>
+    <ul>
+        <li><strong>Comfortable shoes</strong> – you’ll walk, crawl, and maybe climb.</li>
+        <li><strong>Full phone battery</strong> – photos here are half the fun.</li>
+        <li><strong>Curiosity</strong> – don’t rush; poke every doorway and listen for the sounds that shouldn’t exist.</li>
+    </ul>
+
+    <h2>🌀 Exploration Ideas</h2>
+    <ol>
+        <li>Start at the Victorian house and follow your curiosity.</li>
+        <li>Find at least one hidden door (there are several).</li>
+        <li>Locate a glowing tree, a tunnel of sound, and a room that changes color.</li>
+        <li>Pick one object that feels alive — figure out why.</li>
+        <li>When you think you’ve seen it all… you haven’t.</li>
+    </ol>
+
+    <h2>🌮 Dinner Options Before or After</h2>
+    <ul>
+        <li><strong>Boxcar Santa Fe</strong> – right nearby, good burgers and big energy.</li>
+        <li><strong>Tomasita’s</strong> – local classic if you missed it earlier.</li>
+        <li><strong>El Parasol</strong> – quick tacos before stepping into another dimension.</li>
+    </ul>
+
+    <h2>🎵 Soundtrack Suggestions</h2>
+    <ul>
+        <li>Uptown Funk – Mark Ronson ft. Bruno Mars</li>
+        <li>Funky Town – Lipps Inc.</li>
+        <li>Into the Mystic – Van Morrison</li>
+    </ul>
+
+    <h2>📸 Photo Prompt</h2>
+    <p>
+        “Capture a moment that shouldn’t exist — a color, reflection, or smile that looks like it came from another planet.”
+    </p>
+    <p><strong>Don’t forget to post to photo album.</strong></p>
+
+    <h2>✅ Tips</h2>
+    <ul>
+        <li>Expect to spend <strong>1½–2 hours</strong> inside.</li>
+        <li>The gift shop’s wild — budget a few extra minutes (and dollars).</li>
+        <li>Use your existing <strong>Meow Wolf QR</strong> for tickets and details.</li>
+        <li>Step back outside slowly; the world looks different afterward.</li>
+    </ul>
+</div>
+`,
+
+5: `
+<div class="mission-card">
+    <h1>🌌 Day 5 — Socorro: Beneath Our Feet, Above Our Heads</h1>
+
+    <h2>Tonight’s Mission</h2>
+    <p>
+        After climbing ladders into history and standing on the rim of a sleeping volcano, you’ve earned an easy evening.
+        Socorro’s lights are few, the air is still, and the stars come out like they’ve been waiting for you all day.
+    </p>
+    <p>
+        No plans tonight, just desert skies and UV lights.
+        This is the perfect opportunity to earn your <strong>Star Warrior</strong> and <strong>Night Hawk</strong> badges.
+    </p>
+    <p>
+        Don’t forget to scan the <strong>Desert Sky</strong> and <strong>UV</strong> QRs for photo tips and sky tracker link.
+    </p>
+
+    <h2>🌮 Dinner &amp; Downtime</h2>
+    <ul>
+        <li><strong>Socorro Springs Brewing Co.</strong> — casual, family-friendly, great pizza and local craft root beer.</li>
+        <li><strong>El Camino Restaurant</strong> — classic New Mexican comfort food if you’re still chasing chile.</li>
+        <li><strong>Sofia’s Kitchen</strong> — laid-back patio, perfect if the weather’s cool.</li>
+    </ul>
+    <p>Grab a table outside if you can; desert air makes everything taste better.</p>
+
+    <h2>🌌 Night in the Desert Options</h2>
+    <ol>
+        <li>Find a quiet pull-off west of town or near the Bosque del Apache turn-off.</li>
+        <li>Let your eyes adjust — the Milky Way will appear within minutes.</li>
+        <li>Don’t forget to bring your <strong>UV flashlight</strong>.</li>
+        <li>Do you have binoculars? Bring them.</li>
+    </ol>
+
+    <h2>💡 Mini-Challenge</h2>
+    <ul>
+        <li>Try to count ten constellations before giving up.</li>
+        <li>Pick one star and imagine it’s watching you instead.</li>
+        <li>Make a wish, but don’t say it out loud — desert stars are good secret-keepers.</li>
+        <li>Find a scorpion or tarantula. Bonus points if you catch it.</li>
+        <li>Listen for a wolf in the distance.</li>
+        <li>Was that an airplane, satellite, or UFO?</li>
+    </ul>
+
+    <h2>🎵 Soundtrack Suggestions</h2>
+    <ul>
+        <li>Keep the Wolves Away – Uncle Lucius</li>
+        <li>Peaceful Easy Feeling – Eagles</li>
+        <li>A Sky Full of Stars – Coldplay</li>
+    </ul>
+
+    <h2>📸 Photo Prompt</h2>
+    <p>
+        “Take a picture that shows what quiet looks like.
+        It might be the sky, a silhouette, or nothing but shadows — whatever moment made you feel small in the best way.”
+    </p>
+    <p><strong>Don’t forget to post to photo album.</strong></p>
+
+    <h2>✅ Tips</h2>
+    <ul>
+        <li><strong>Best viewing window:</strong> 9:45 p.m. – after midnight.</li>
+        <li>Bring a light jacket — high-desert nights cool fast.</li>
+        <li>Keep headlights off while stargazing — let your eyes adjust naturally.</li>
+    </ul>
+</div>
+`,
+
+6: `
+<div class="mission-card">
+    <h1>🌌 Day 6 — Roswell: The Night We Landed</h1>
+
+    <h2>Tonight’s Mission</h2>
+    <p>
+        Welcome to the UFO capital of the planet.
+        The goal tonight isn’t to spot a spaceship — it’s to enjoy being in the one town where nobody would blink if you did.
+    </p>
+
+    <h2>🍔 Dinner Destination – The UFO McDonald’s</h2>
+    <p>
+        You can’t come all the way to Roswell and not eat under the mothership.
+        Grab supper or dessert at the <strong>UFO-shaped McDonald’s</strong> (<strong>720 N Main St.</strong>).
+        Check out the glowing saucer lights, snap an abduction photo, and refuel before your alien hunt.
+    </p>
+
+    <h2>🛸 Evening Exploration Ideas</h2>
+    <p>After dinner, walk Main Street under the green glow to capture the <strong>Man in Black</strong> badge:</p>
+    <ul>
+        <li>Pose with the alien statues and murals scattered along the strip.</li>
+        <li>Visit the <strong>Alien Zone</strong> photo area — cheesy, glorious, and absolutely necessary.</li>
+        <li>Swing by the <strong>UFO Museum &amp; Research Center</strong> for night shots of the façade.</li>
+        <li>Hunt down the giant alien murals on <strong>2nd Street</strong> and <strong>Richardson Ave.</strong></li>
+        <li>Cap the night with dessert at <strong>Cowboy Café</strong> or <strong>Farley’s Food Fun &amp; Pub</strong>.</li>
+    </ul>
+
+    <h2>💡 Mini-Challenge</h2>
+    <ol>
+        <li>Count every alien you can find — statues, stickers, glowing eyes, everything.</li>
+        <li>Find the weirdest souvenir $5 can buy.</li>
+        <li>Bonus: Capture neon reflections in a shop window, car hood, or pair of sunglasses.</li>
+    </ol>
+
+    <h2>🎵 Soundtrack Suggestions</h2>
+    <ul>
+        <li>Spaceman – Harry Nilsson</li>
+        <li>Rocket Man – Elton John</li>
+        <li>Man on the Moon – R.E.M.</li>
+    </ul>
+
+    <h2>📸 Photo Prompt</h2>
+    <p>
+        “Take a picture that proves you were here among the Earthlings —
+        maybe an alien selfie, a green-glow reflection, or a family ‘abduction’ shot under the saucer lights.”
+    </p>
+    <p><strong>Don’t forget to post to photo album.</strong></p>
+
+    <h2>✅ Tips</h2>
+    <ul>
+        <li>Most shops close around <strong>8 p.m.</strong>, but the neon keeps buzzing till late.</li>
+        <li>The alien-eye streetlights on Main Street are perfect for night photos.</li>
+        <li>Plan an early breakfast tomorrow before heading toward Carlsbad.</li>
+    </ul>
+</div>
+`,
+
+7: `
+<div class="mission-card">
+    <h1>🌅 Day 7 — Fort Stockton: The In Between</h1>
+
+    <h2>Tonight’s Mission</h2>
+    <p>
+        The aliens are behind you, the Hill Country’s ahead.
+        Tonight’s for stretching, refueling, and catching your breath.
+    </p>
+    <p>
+        Some nights aren’t about adventure — they’re about the pause between stories,
+        when the highway burns low and the stars don’t care where you’ve been.
+    </p>
+
+    <h2>🍔 Dinner Options</h2>
+    <ul>
+        <li><strong>K-Bob’s Steakhouse</strong> – classic road-trip comfort food.</li>
+        <li><strong>Tacos OJ</strong> – quick, no-frills, and solid.</li>
+        <li><strong>Pepito’s Café</strong> – warm plates, cold drinks, small-town charm.</li>
+    </ul>
+
+    <h2>🌅 Simple Pleasures</h2>
+    <ul>
+        <li>Watch the sunset from the motel lot — the colors last longer out here.</li>
+        <li>Walk a block or two just to feel the desert wind.</li>
+        <li>Jot down one moment from the trip that’s still rattling around in your head.</li>
+    </ul>
+
+    <h2>🎵 Soundtrack Suggestions</h2>
+    <ul>
+        <li>Miles and Miles of Texas – Asleep at the Wheel</li>
+        <li>Wide Open Spaces – The Chicks</li>
+        <li>Happiness Is Lubbock, Texas (In My Rearview Mirror) – Mac Davis</li>
+    </ul>
+
+    <h2>📸 Photo Prompt</h2>
+    <p>
+        “Take a photo that proves there’s beauty in the in-between — not where you started or where you’re going, just right here.”
+    </p>
+    <p><strong>Don’t forget to post to photo album.</strong></p>
+
+    <h2>✅ Tips</h2>
+    <ul>
+        <li>Top off the gas tank before bed.</li>
+        <li>Double-check coolers, chargers, and snacks for tomorrow’s push east.</li>
+        <li>Sleep in if you can — the Hill Country waits, but it can wait a little longer.</li>
+    </ul>
+</div>
+`,
+
+8: `
+<div class="mission-card">
+    <h1>🌉 Day 8 — San Antonio: The Last Great Hurrah</h1>
+
+    <h2>Tonight’s Mission</h2>
+    <p>
+        You’ve crossed deserts, chased sunsets, thrown paper planes off bridges, and stood under alien lights.
+        Tonight, it’s time to celebrate — boots on the bricks, laughter on the breeze, and a toast to every mile behind you.
+        San Antonio waits with open arms and twinkling water.
+    </p>
+
+    <h2>🌮 Dinner &amp; Celebration</h2>
+    <ul>
+        <li><strong>Mi Tierra Café y Panadería</strong> – colorful, festive, and open late; mariachi music and neon saints.</li>
+        <li><strong>Casa Rio</strong> – classic River Walk dining, bright umbrellas, and cold margaritas but not for you kids.</li>
+        <li><strong>The Original Mexican Restaurant</strong> – river views and plenty of space for a slow meal.</li>
+        <li><strong>The Esquire Tavern</strong> – longest wooden bar in Texas; old-school charm and killer burgers.</li>
+    </ul>
+    <p>Eat, laugh, and let the city’s energy wash over you. You’ve earned it.</p>
+
+    <h2>🌉 Evening Wander</h2>
+    <ul>
+        <li>Walk the River Walk loop — stop where the music’s good or where the lights hit the water just right.</li>
+        <li>Slip by <strong>The Alamo</strong> after dark; it’s quieter and beautifully lit.</li>
+        <li>Find a busker or patio musician and let one song mark the end of the trip.</li>
+        <li>End the night with ice cream or one more drink — a sweet goodbye to the road.</li>
+    </ul>
+
+    <h2>🎵 Soundtrack Suggestions</h2>
+    <ul>
+        <li>San Antonio Stroll – Tanya Tucker</li>
+        <li>La Bamba – Ritchie Valens</li>
+        <li>Vaya Con Dios – Freddy Fender</li>
+    </ul>
+
+    <h2>📸 Photo Prompt</h2>
+    <p>
+        “Take a photo that feels like a toast — raised glass, laughing crew, glowing lights on the water.
+        The road brought you here. Let this picture prove you lived every mile.”
+    </p>
+    <p><strong>Don’t forget to post to photo album.</strong></p>
+
+    <h2>✅ Tips</h2>
+    <ul>
+        <li>Park once and walk — the night’s better that way.</li>
+        <li>River Walk hums till about 11 p.m.; enjoy the buzz, then wander back slow.</li>
+        <li>Charge phones for tomorrow’s drive home — but tonight, just be here.</li>
+    </ul>
+</div>
+`
 };
 
-function getLocalDateKey(date) {
-  const year = date.getFullYear();
-  const month = String(date.getMonth() + 1).padStart(2, "0");
-  const day = String(date.getDate()).padStart(2, "0");
-  return `${year}-${month}-${day}`;
-}
+function getTripDay(nowDate, startDate) {
+    const start = new Date(startDate);
+    start.setHours(0, 0, 0, 0);
 
-function renderMission() {
-  const dateKey = getLocalDateKey(now);
-  const mission = missions[dateKey];
+    const today = new Date(nowDate);
+    today.setHours(0, 0, 0, 0);
 
-  if (!mission) {
-    missionSection.innerHTML = `
-      <div style="max-width:800px;margin:80px auto;padding:30px;background:white;border-radius:20px;box-shadow:0 10px 30px rgba(0,0,0,0.12);">
-        <h1 style="margin-top:0;color:#c5161d;">No mission loaded</h1>
-        <p>There is no mission assigned for ${dateKey} yet.</p>
-      </div>
-    `;
-    return;
-  }
+    const diffMs = today - start;
+    const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
 
-  missionSection.innerHTML = `
-    <div style="max-width:900px;margin:60px auto;padding:0 20px;">
-      <div style="background:white;border-radius:24px;overflow:hidden;box-shadow:0 14px 40px rgba(0,0,0,0.15);">
-        ${mission.image ? `<img src="${mission.image}" alt="${mission.title}" style="width:100%;display:block;max-height:420px;object-fit:cover;">` : ""}
-        <div style="padding:32px;">
-          <div style="font-size:14px;font-weight:900;letter-spacing:2px;color:#c5161d;text-transform:uppercase;margin-bottom:10px;">
-            NM26 Night Mission
-          </div>
-          <h1 style="margin:0 0 10px 0;font-size:40px;color:#222;">${mission.title}</h1>
-          <h2 style="margin:0 0 20px 0;font-size:22px;color:#666;">${mission.subtitle}</h2>
-          <p style="font-size:20px;line-height:1.6;margin:0;color:#222;">
-            ${mission.body}
-          </p>
-        </div>
-      </div>
-    </div>
-  `;
+    return diffDays + 1;
 }
 
 if (now > tripEnd) {
-  missionSection.style.display = "block";
-  missionSection.innerHTML = `
-    <h1 style="text-align:center;margin-top:80px;">
-      Trip is over, Jackass. Stop Scanning.
-    </h1>
-    <div style="text-align:center;margin-top:30px;">
-      <img src="assets/images/jackass.png" style="max-width:300px;">
-    </div>
-  `;
+    missionSection.style.display = "block";
+    missionSection.innerHTML = `
+        <div class="trip-over-wrap">
+            <h1>Trip is over, Jackass.<br>Stop Scanning.</h1>
+            <img src="assets/images/jackass.png" alt="Jackass">
+        </div>
+    `;
 }
 else if (currentHour >= 18 && now >= tripStart && now <= tripEnd) {
-  missionSection.style.display = "block";
-  renderMission();
+    missionSection.style.display = "block";
+
+    const tripDay = getTripDay(now, tripStart);
+
+    missionSection.innerHTML = dailyMissions[tripDay] || `
+        <div class="mission-card">
+            <h1>No mission found for Day ${tripDay}</h1>
+            <p>Somehow you broke it. Impressive.</p>
+        </div>
+    `;
 }
 else {
-  lockedSection.style.display = "block";
-  startCountdown();
+    lockedSection.style.display = "block";
+    startCountdown();
 }
 
 function startCountdown() {
-  const countdownElement = document.getElementById("countdown");
+    const countdownElement = document.getElementById("countdown");
 
-  function updateCountdown() {
-    const now = new Date();
-    const unlockTime = new Date();
-    unlockTime.setHours(18, 0, 0, 0);
-    const diff = unlockTime - now;
+    function updateCountdown() {
+        const now = new Date();
+        const unlockTime = new Date();
+        unlockTime.setHours(18, 0, 0, 0);
 
-    if (diff <= 0) {
-      location.reload();
-      return;
+        const diff = unlockTime - now;
+
+        if (diff <= 0) {
+            location.reload();
+            return;
+        }
+
+        const hours = Math.floor(diff / (1000 * 60 * 60));
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+        countdownElement.textContent =
+            `Mission unlocks in ${hours}h ${minutes}m ${seconds}s`;
     }
 
-    const hours = Math.floor(diff / (1000 * 60 * 60));
-    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-
-    countdownElement.textContent = `Mission unlocks in ${hours}h ${minutes}m ${seconds}s`;
-  }
-
-  updateCountdown();
-  setInterval(updateCountdown, 1000);
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
 }
 </script>
-
-
 
 </body>
 </html>
