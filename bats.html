@@ -9,7 +9,9 @@
 body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
-    background: #f4f4f4;
+    background:
+        radial-gradient(circle at top, #fff7cc 0%, #f7f0d0 18%, #f4f4f4 55%),
+        #f4f4f4;
     color: #222;
 }
 
@@ -90,49 +92,83 @@ body {
 }
 
 /* =========================
-   PAGE LAYOUT
+   HERO FOCAL LAYOUT
    ========================= */
 
 .page-container {
-    max-width: 1000px;
-    margin: 80px auto 100px auto;
-    padding: 0 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 48px 24px 90px;
 }
 
-.text-column h1 {
-    font-size: 42px;
-    margin-bottom: 30px;
-    letter-spacing: 2px;
+.hero-section {
+    min-height: calc(100vh - 220px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.text-column p {
-    font-size: 20px;
-    line-height: 1.7;
-    margin-bottom: 24px;
-}
-
-/* FLOAT IMAGE WRAP */
-
-.traveler-audio-wrap {
-    float: right;
-    width: 280px;
-    max-width: 42%;
-    margin: 0 0 25px 30px;
+.hero-card {
+    width: 100%;
+    max-width: 900px;
     text-align: center;
+    padding: 24px 24px 40px;
+}
+
+.hero-kicker {
+    margin: 0 0 12px;
+    font-size: 18px;
+    font-weight: 900;
+    letter-spacing: 3px;
+    color: #c5161d;
+    text-transform: uppercase;
+}
+
+.hero-title {
+    margin: 0 0 14px;
+    font-size: 56px;
+    line-height: 1.05;
+    letter-spacing: 2px;
+    color: #1f1f1f;
+}
+
+.hero-subtitle {
+    max-width: 680px;
+    margin: 0 auto 32px;
+    font-size: 22px;
+    line-height: 1.6;
+    color: #444;
+}
+
+.traveler-stage {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 28px;
+}
+
+.traveler-glow {
+    position: absolute;
+    inset: auto 50% 10px auto;
+    width: 420px;
+    height: 420px;
+    transform: translateX(50%);
+    background: radial-gradient(circle, rgba(255, 210, 63, 0.45) 0%, rgba(255, 210, 63, 0.18) 35%, rgba(255, 210, 63, 0) 70%);
+    pointer-events: none;
+    filter: blur(6px);
 }
 
 .traveler-img {
-    width: 260px;
-    max-width: 100%;
+    position: relative;
+    width: min(100%, 420px);
     display: block;
-    margin: 0 auto 16px auto;
+    margin: 0 auto;
     transition: transform 0.18s ease, filter 0.18s ease;
     transform-origin: center bottom;
 }
 
 .traveler-img.speaking {
     animation: travelerTalk 0.45s ease-in-out infinite alternate;
-    filter: drop-shadow(0 0 14px rgba(197, 22, 29, 0.35));
+    filter: drop-shadow(0 20px 28px rgba(197, 22, 29, 0.18));
 }
 
 @keyframes travelerTalk {
@@ -140,7 +176,7 @@ body {
         transform: translateY(0) rotate(-1deg) scale(1);
     }
     to {
-        transform: translateY(-4px) rotate(1deg) scale(1.02);
+        transform: translateY(-6px) rotate(1deg) scale(1.02);
     }
 }
 
@@ -150,17 +186,18 @@ body {
     cursor: pointer;
     background: #c5161d;
     color: white;
-    font-size: 20px;
+    font-size: 24px;
     font-weight: 900;
-    letter-spacing: 1px;
-    padding: 14px 22px;
-    border-radius: 16px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
-    transition: transform 0.15s ease, opacity 0.15s ease;
+    letter-spacing: 2px;
+    padding: 18px 34px;
+    border-radius: 18px;
+    box-shadow: 0 14px 26px rgba(0, 0, 0, 0.14);
+    transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
 }
 
 .did-you-know-btn:hover {
-    transform: translateY(-1px);
+    transform: translateY(-2px);
+    box-shadow: 0 18px 30px rgba(0, 0, 0, 0.16);
 }
 
 .did-you-know-btn:active {
@@ -174,47 +211,48 @@ body {
 
 .speech-bubble {
     position: relative;
-    margin-top: 16px;
+    max-width: 620px;
+    margin: 24px auto 0;
     background: #fff8dc;
     color: #5b1f00;
-    border: 2px solid #ffd23f;
-    border-radius: 18px;
-    padding: 14px 16px;
-    font-size: 16px;
+    border: 3px solid #ffd23f;
+    border-radius: 24px;
+    padding: 18px 22px;
+    font-size: 20px;
     font-weight: 700;
     line-height: 1.5;
-    min-height: 54px;
-    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+    min-height: 34px;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
 }
 
 .speech-bubble::after {
     content: "";
     position: absolute;
-    top: -10px;
     left: 50%;
+    bottom: -18px;
     transform: translateX(-50%);
-    border-width: 0 10px 10px 10px;
+    border-width: 18px 16px 0 16px;
     border-style: solid;
-    border-color: transparent transparent #ffd23f transparent;
+    border-color: #ffd23f transparent transparent transparent;
 }
 
 .speech-bubble::before {
     content: "";
     position: absolute;
-    top: -7px;
     left: 50%;
+    bottom: -13px;
     transform: translateX(-50%);
-    border-width: 0 8px 8px 8px;
+    border-width: 14px 12px 0 12px;
     border-style: solid;
-    border-color: transparent transparent #fff8dc transparent;
+    border-color: #fff8dc transparent transparent transparent;
     z-index: 1;
 }
 
 .audio-note {
-    margin-top: 10px;
-    font-size: 13px;
+    margin-top: 34px;
+    font-size: 14px;
     color: #666;
-    line-height: 1.4;
+    line-height: 1.5;
 }
 
 /* =========================
@@ -222,7 +260,6 @@ body {
    ========================= */
 
 @media (max-width: 1024px) {
-
     .nm-header-inner {
         flex-direction: column;
         gap: 20px;
@@ -256,27 +293,52 @@ body {
         font-size: 18px;
         padding: 10px 20px;
     }
+
+    .hero-title {
+        font-size: 46px;
+    }
+
+    .hero-subtitle {
+        font-size: 20px;
+    }
 }
 
 @media (max-width: 700px) {
-    .traveler-audio-wrap {
-        float: none;
-        display: block;
-        margin: 0 auto 30px auto;
-        max-width: 260px;
+    .page-container {
+        padding: 34px 18px 70px;
+    }
+
+    .hero-section {
+        min-height: auto;
+    }
+
+    .hero-title {
+        font-size: 36px;
+    }
+
+    .hero-subtitle {
+        font-size: 18px;
+    }
+
+    .traveler-glow {
+        width: 300px;
+        height: 300px;
+    }
+
+    .traveler-img {
+        width: min(100%, 300px);
+    }
+
+    .did-you-know-btn {
         width: 100%;
+        max-width: 320px;
+        font-size: 20px;
+        padding: 16px 24px;
     }
 
-    .text-column {
-        text-align: center;
-    }
-
-    .text-column h1 {
-        font-size: 32px;
-    }
-
-    .text-column p {
+    .speech-bubble {
         font-size: 17px;
+        padding: 16px 18px;
     }
 }
 
@@ -302,8 +364,16 @@ body {
         font-size: 40px;
     }
 
-    .did-you-know-btn {
-        width: 100%;
+    .hero-kicker {
+        font-size: 15px;
+    }
+
+    .hero-title {
+        font-size: 30px;
+    }
+
+    .hero-subtitle {
+        font-size: 17px;
     }
 }
 </style>
@@ -338,14 +408,23 @@ body {
 </header>
 
 <main class="page-container">
-    <div class="text-column">
-        <div class="traveler-audio-wrap">
-            <img
-                src="assets/images/wise-old-traveler.png"
-                alt="Wise Old Traveler"
-                class="traveler-img"
-                id="travelerImage"
-            >
+    <section class="hero-section">
+        <div class="hero-card">
+            <p class="hero-kicker">Carlsbad Caverns</p>
+            <h1 class="hero-title">THE WISE OLD TRAVELER KNOWS</h1>
+            <p class="hero-subtitle">
+                Press the button and hear a random bat fact from Carlsbad.
+            </p>
+
+            <div class="traveler-stage">
+                <div class="traveler-glow" aria-hidden="true"></div>
+                <img
+                    src="assets/images/wise-old-traveler.png"
+                    alt="Wise Old Traveler"
+                    class="traveler-img"
+                    id="travelerImage"
+                >
+            </div>
 
             <button id="didYouKnowBtn" class="did-you-know-btn" type="button">
                 DID YOU KNOW
@@ -356,52 +435,10 @@ body {
             </div>
 
             <div class="audio-note">
-                Audio files expected at:
-                <strong>assets/audio/bats1.mp3</strong> through <strong>bats17.mp3</strong>
+                Audio files: <strong>assets/audio/bats1.mp3</strong> through <strong>assets/audio/bats17.mp3</strong>
             </div>
         </div>
-
-        <h1>BATS IN CARLSBAD</h1>
-
-        <p><strong>Did you know…</strong><br>
-        the bat colony at Carlsbad Caverns is one of the largest maternity colonies on Earth? In summer, this cave becomes a nursery for hundreds of thousands of newborn pups.</p>
-
-        <p><strong>Did you know…</strong><br>
-        the primary species here — the Brazilian free-tailed bat — may be the fastest mammal on Earth in level flight? Some have been clocked at over 100 mph.</p>
-
-        <p><strong>Did you know…</strong><br>
-        modern counts estimate the colony between 400,000 and 700,000 bats in peak season. Historical accounts from the early 1900s describe emergence clouds in the millions, darkening the sky for hours.</p>
-
-        <p><strong>Did you know…</strong><br>
-        each mother gives birth to only one pup per year? Every lost bat matters — population recovery is slow and fragile.</p>
-
-        <p><strong>Did you know…</strong><br>
-        a single bat can consume its weight in insects every night. Multiply that by hundreds of thousands, and this colony devours tons of moths and beetles nightly — saving farmers millions in crop loss.</p>
-
-        <p><strong>Did you know…</strong><br>
-        the bats launch into the evening in a massive spiral vortex? It prevents collisions, confuses predators, uses rising warm air for lift, saves energy, and gets everyone airborne fast. It’s a vortex of survival.</p>
-
-        <p><strong>Did you know…</strong><br>
-        the spiral tightens if hawks or owls appear at the cave mouth? It changes shape instantly — a living defense shield.</p>
-
-        <p><strong>Did you know…</strong><br>
-        pups cling to the ceiling in clusters tens of thousands strong, and mothers find their own baby by smell, sound, and memory of location — like finding your child in a stadium in the dark by voice alone.</p>
-
-        <p><strong>Did you know…</strong><br>
-        bats can fly 50+ miles in a single night and sometimes reach 10,000 feet altitude — higher than aircraft on approach.</p>
-
-        <p><strong>Did you know…</strong><br>
-        the colony migrates over 900–1,000 miles each year, riding warm air corridors and following insect blooms like sky-herds moving with weather.</p>
-
-        <p><strong>Did you know…</strong><br>
-        the rushing sound you hear during emergence is hundreds of thousands of wingbeats compressing air. It sounds like distant rainfall.</p>
-
-        <p><strong>Did you know…</strong><br>
-        researchers track nightly emergence on Doppler radar. On weather screens it looks like an expanding storm bubble — you can literally watch the colony bloom into the sky.</p>
-
-        <p><strong>Did you know…</strong><br>
-        the cave’s bat guano once fueled industry? It was mined to make saltpeter for gunpowder. This cave shaped history quietly.</p>
-    </div>
+    </section>
 </main>
 
 <script>
@@ -467,7 +504,7 @@ function playRandomDidYouKnow() {
     audio.addEventListener("error", () => {
         setSpeakingState(
             false,
-            `I couldn't play ${selectedFile}. Check that the .wav files are in assets/audio/.`
+            `I couldn't play ${selectedFile}. Check that the MP3 files are in assets/audio/.`
         );
         currentAudio = null;
     });
