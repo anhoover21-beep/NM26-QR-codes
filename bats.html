@@ -10,9 +10,10 @@ body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
     background:
-        radial-gradient(circle at top, #fff7cc 0%, #f7f0d0 18%, #f4f4f4 55%),
-        #f4f4f4;
+        radial-gradient(circle at 50% 18%, rgba(255, 210, 63, 0.55) 0%, rgba(255, 210, 63, 0.18) 20%, rgba(255, 255, 255, 0) 42%),
+        linear-gradient(180deg, #f8f1d5 0%, #f2f2f2 42%, #ececec 100%);
     color: #222;
+    overflow-x: hidden;
 }
 
 /* =========================
@@ -22,6 +23,8 @@ body {
 .nm-header {
     background: #c5161d;
     color: white;
+    position: relative;
+    z-index: 10;
 }
 
 .nm-header-inner {
@@ -92,82 +95,175 @@ body {
 }
 
 /* =========================
-   HERO FOCAL LAYOUT
+   POSTER HERO
    ========================= */
 
 .page-container {
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
-    padding: 48px 24px 90px;
+    padding: 0 24px 70px;
 }
 
-.hero-section {
-    min-height: calc(100vh - 220px);
-    display: flex;
+.poster-hero {
+    min-height: calc(100vh - 172px);
+    display: grid;
     align-items: center;
-    justify-content: center;
+    justify-items: center;
+    text-align: center;
+    position: relative;
+    padding: 40px 0 10px;
 }
 
-.hero-card {
-    width: 100%;
-    max-width: 900px;
-    text-align: center;
-    padding: 24px 24px 40px;
+.poster-hero::before,
+.poster-hero::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.poster-hero::before {
+    width: 860px;
+    height: 860px;
+    top: 40px;
+    background: radial-gradient(circle, rgba(255, 210, 63, 0.16) 0%, rgba(255, 210, 63, 0.06) 36%, rgba(255, 210, 63, 0) 68%);
+    filter: blur(8px);
+}
+
+.poster-hero::after {
+    width: 620px;
+    height: 620px;
+    top: 120px;
+    background: radial-gradient(circle, rgba(197, 22, 29, 0.10) 0%, rgba(197, 22, 29, 0.03) 35%, rgba(197, 22, 29, 0) 68%);
+    filter: blur(10px);
 }
 
 .hero-kicker {
     margin: 0 0 12px;
     font-size: 18px;
     font-weight: 900;
-    letter-spacing: 3px;
+    letter-spacing: 5px;
     color: #c5161d;
     text-transform: uppercase;
+    position: relative;
+    z-index: 1;
 }
 
 .hero-title {
-    margin: 0 0 14px;
-    font-size: 56px;
-    line-height: 1.05;
-    letter-spacing: 2px;
-    color: #1f1f1f;
+    margin: 0;
+    font-size: clamp(48px, 8vw, 104px);
+    line-height: 0.92;
+    letter-spacing: 3px;
+    font-weight: 900;
+    color: #1b1b1b;
+    text-transform: uppercase;
+    position: relative;
+    z-index: 1;
+    max-width: 1100px;
+}
+
+.hero-title-accent {
+    display: block;
+    color: #1b1b1b;
 }
 
 .hero-subtitle {
-    max-width: 680px;
-    margin: 0 auto 32px;
-    font-size: 22px;
-    line-height: 1.6;
-    color: #444;
+    margin: 18px 0 24px;
+    max-width: 780px;
+    font-size: clamp(18px, 2vw, 28px);
+    line-height: 1.45;
+    color: #4a4a4a;
+    position: relative;
+    z-index: 1;
+}
+
+.speech-bubble {
+    position: relative;
+    margin: 16px auto 20px;
+    max-width: 860px;
+    background: #fff8dc;
+    color: #5b1f00;
+    border: 3px solid #ffd23f;
+    border-radius: 28px;
+    padding: 22px 24px;
+    font-size: clamp(18px, 1.7vw, 26px);
+    font-weight: 700;
+    line-height: 1.5;
+    box-shadow: 0 16px 30px rgba(0, 0, 0, 0.08);
+    min-height: 72px;
+    z-index: 1;
+}
+
+.speech-bubble::after {
+    content: "";
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 20px 18px 0 18px;
+    border-style: solid;
+    border-color: #ffd23f transparent transparent transparent;
+}
+
+.speech-bubble::before {
+    content: "";
+    position: absolute;
+    bottom: -16px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 16px 14px 0 14px;
+    border-style: solid;
+    border-color: #fff8dc transparent transparent transparent;
+    z-index: 1;
 }
 
 .traveler-stage {
     position: relative;
-    display: inline-block;
-    margin-bottom: 28px;
+    width: min(92vw, 980px);
+    margin: 8px auto 10px;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    z-index: 1;
 }
 
 .traveler-glow {
     position: absolute;
-    inset: auto 50% 10px auto;
-    width: 420px;
-    height: 420px;
-    transform: translateX(50%);
-    background: radial-gradient(circle, rgba(255, 210, 63, 0.45) 0%, rgba(255, 210, 63, 0.18) 35%, rgba(255, 210, 63, 0) 70%);
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(85vw, 760px);
+    height: min(85vw, 760px);
+    background: radial-gradient(circle, rgba(255, 210, 63, 0.34) 0%, rgba(255, 210, 63, 0.14) 34%, rgba(255, 210, 63, 0) 66%);
+    filter: blur(10px);
     pointer-events: none;
-    filter: blur(6px);
+}
+
+.traveler-shadow {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(60vw, 520px);
+    height: 46px;
+    background: radial-gradient(circle, rgba(0, 0, 0, 0.22) 0%, rgba(0, 0, 0, 0.12) 42%, rgba(0, 0, 0, 0) 76%);
+    filter: blur(10px);
+    pointer-events: none;
 }
 
 .traveler-img {
     position: relative;
-    width: min(100%, 420px);
     display: block;
+    width: min(92vw, 650px);
+    max-width: 100%;
     margin: 0 auto;
-    transition: transform 0.18s ease, filter 0.18s ease;
     transform-origin: center bottom;
+    transition: transform 0.18s ease, filter 0.18s ease;
+    filter: drop-shadow(0 16px 26px rgba(0, 0, 0, 0.16));
 }
 
 .traveler-img.speaking {
-    animation: travelerTalk 0.45s ease-in-out infinite alternate;
+    animation: travelerTalk 0.4s ease-in-out infinite alternate;
     filter: drop-shadow(0 20px 28px rgba(197, 22, 29, 0.18));
 }
 
@@ -176,28 +272,35 @@ body {
         transform: translateY(0) rotate(-1deg) scale(1);
     }
     to {
-        transform: translateY(-6px) rotate(1deg) scale(1.02);
+        transform: translateY(-8px) rotate(1deg) scale(1.018);
     }
+}
+
+.controls {
+    margin-top: 16px;
+    position: relative;
+    z-index: 1;
 }
 
 .did-you-know-btn {
     appearance: none;
     border: 0;
     cursor: pointer;
-    background: #c5161d;
+    background: #d4121b;
     color: white;
-    font-size: 24px;
+    font-size: clamp(20px, 2vw, 28px);
     font-weight: 900;
     letter-spacing: 2px;
     padding: 18px 34px;
-    border-radius: 18px;
-    box-shadow: 0 14px 26px rgba(0, 0, 0, 0.14);
+    border-radius: 22px;
+    box-shadow: 0 16px 30px rgba(0, 0, 0, 0.16);
     transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
+    text-transform: uppercase;
 }
 
 .did-you-know-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 18px 30px rgba(0, 0, 0, 0.16);
+    box-shadow: 0 20px 34px rgba(0, 0, 0, 0.18);
 }
 
 .did-you-know-btn:active {
@@ -205,54 +308,17 @@ body {
 }
 
 .did-you-know-btn:disabled {
-    opacity: 0.75;
+    opacity: 0.8;
     cursor: wait;
 }
 
-.speech-bubble {
-    position: relative;
-    max-width: 620px;
-    margin: 24px auto 0;
-    background: #fff8dc;
-    color: #5b1f00;
-    border: 3px solid #ffd23f;
-    border-radius: 24px;
-    padding: 18px 22px;
-    font-size: 20px;
-    font-weight: 700;
-    line-height: 1.5;
-    min-height: 34px;
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
-}
-
-.speech-bubble::after {
-    content: "";
-    position: absolute;
-    left: 50%;
-    bottom: -18px;
-    transform: translateX(-50%);
-    border-width: 18px 16px 0 16px;
-    border-style: solid;
-    border-color: #ffd23f transparent transparent transparent;
-}
-
-.speech-bubble::before {
-    content: "";
-    position: absolute;
-    left: 50%;
-    bottom: -13px;
-    transform: translateX(-50%);
-    border-width: 14px 12px 0 12px;
-    border-style: solid;
-    border-color: #fff8dc transparent transparent transparent;
-    z-index: 1;
-}
-
 .audio-note {
-    margin-top: 34px;
+    margin-top: 28px;
     font-size: 14px;
     color: #666;
     line-height: 1.5;
+    position: relative;
+    z-index: 1;
 }
 
 /* =========================
@@ -294,55 +360,49 @@ body {
         padding: 10px 20px;
     }
 
+    .page-container {
+        padding: 0 18px 50px;
+    }
+
+    .poster-hero {
+        min-height: auto;
+        padding: 28px 0 10px;
+    }
+
+    .hero-kicker {
+        font-size: 16px;
+        letter-spacing: 4px;
+    }
+
     .hero-title {
-        font-size: 46px;
+        font-size: clamp(38px, 7vw, 72px);
+        line-height: 0.98;
+        letter-spacing: 2px;
+        max-width: 760px;
     }
 
     .hero-subtitle {
-        font-size: 20px;
+        margin: 14px 0 20px;
+        font-size: clamp(18px, 2.4vw, 24px);
+        max-width: 640px;
+    }
+
+    .speech-bubble {
+        max-width: 700px;
+        font-size: clamp(17px, 2.2vw, 22px);
+        padding: 20px 20px;
+    }
+
+    .traveler-img {
+        width: min(74vw, 500px);
     }
 }
 
 @media (max-width: 700px) {
-    .page-container {
-        padding: 34px 18px 70px;
+    .nm-header-inner {
+        padding: 22px 18px;
     }
 
-    .hero-section {
-        min-height: auto;
-    }
-
-    .hero-title {
-        font-size: 36px;
-    }
-
-    .hero-subtitle {
-        font-size: 18px;
-    }
-
-    .traveler-glow {
-        width: 300px;
-        height: 300px;
-    }
-
-    .traveler-img {
-        width: min(100%, 300px);
-    }
-
-    .did-you-know-btn {
-        width: 100%;
-        max-width: 320px;
-        font-size: 20px;
-        padding: 16px 24px;
-    }
-
-    .speech-bubble {
-        font-size: 17px;
-        padding: 16px 18px;
-    }
-}
-
-@media (max-width: 600px) {
     .nm-nav {
         gap: 16px;
     }
@@ -364,16 +424,138 @@ body {
         font-size: 40px;
     }
 
+    .nm-stripe {
+        padding: 10px 18px;
+        font-size: 14px;
+    }
+
+    .page-container {
+        padding: 0 12px 36px;
+    }
+
+    .poster-hero {
+        padding: 20px 0 0;
+        gap: 0;
+    }
+
+    .poster-hero::before {
+        width: 440px;
+        height: 440px;
+        top: 90px;
+    }
+
+    .poster-hero::after {
+        width: 300px;
+        height: 300px;
+        top: 170px;
+    }
+
     .hero-kicker {
-        font-size: 15px;
+        margin-bottom: 8px;
+        font-size: 14px;
+        letter-spacing: 3px;
     }
 
     .hero-title {
-        font-size: 30px;
+        font-size: clamp(28px, 11vw, 46px);
+        line-height: 0.98;
+        letter-spacing: 1px;
+        max-width: 100%;
     }
 
     .hero-subtitle {
+        margin: 12px 0 16px;
+        font-size: 16px;
+        line-height: 1.4;
+        max-width: 95%;
+    }
+
+    .speech-bubble {
+        order: 3;
+        width: calc(100% - 8px);
+        max-width: none;
+        margin: 14px auto 18px;
+        padding: 16px 16px;
+        border-radius: 22px;
+        font-size: 16px;
+        line-height: 1.45;
+        min-height: 0;
+        box-sizing: border-box;
+    }
+
+    .speech-bubble::after {
+        bottom: -16px;
+        border-width: 16px 14px 0 14px;
+    }
+
+    .speech-bubble::before {
+        bottom: -13px;
+        border-width: 13px 11px 0 11px;
+    }
+
+    .traveler-stage {
+        width: 100%;
+        margin: 4px auto 6px;
+        order: 2;
+    }
+
+    .traveler-glow {
+        width: 300px;
+        height: 300px;
+        bottom: 18px;
+    }
+
+    .traveler-shadow {
+        width: 220px;
+        height: 32px;
+        bottom: 8px;
+    }
+
+    .traveler-img {
+        width: min(78vw, 320px);
+    }
+
+    .controls {
+        order: 4;
+        width: 100%;
+        margin-top: 8px;
+    }
+
+    .did-you-know-btn {
+        width: 100%;
+        max-width: 360px;
+        font-size: 18px;
+        letter-spacing: 1px;
+        padding: 16px 20px;
+        border-radius: 18px;
+    }
+
+    .audio-note {
+        display: none;
+    }
+}
+
+@media (max-width: 420px) {
+    .hero-title {
+        font-size: 26px;
+    }
+
+    .hero-subtitle {
+        font-size: 15px;
+    }
+
+    .traveler-img {
+        width: min(82vw, 280px);
+    }
+
+    .speech-bubble {
+        font-size: 15px;
+        padding: 14px 14px;
+    }
+
+    .did-you-know-btn {
         font-size: 17px;
+        padding: 15px 18px;
     }
 }
 </style>
@@ -408,40 +590,68 @@ body {
 </header>
 
 <main class="page-container">
-    <section class="hero-section">
-        <div class="hero-card">
-            <p class="hero-kicker">Carlsbad Caverns</p>
-            <h1 class="hero-title">THE WISE OLD TRAVELER KNOWS</h1>
-            <p class="hero-subtitle">
-                Press the button and hear a random bat fact from Carlsbad.
-            </p>
+    <section class="poster-hero">
+        <p class="hero-kicker">Carlsbad Caverns</p>
 
-            <div class="traveler-stage">
-                <div class="traveler-glow" aria-hidden="true"></div>
-                <img
-                    src="assets/images/wise-old-traveler.png"
-                    alt="Wise Old Traveler"
-                    class="traveler-img"
-                    id="travelerImage"
-                >
-            </div>
+        <h1 class="hero-title">
+            The Wise Old Traveler
+            <span class="hero-title-accent">Knows</span>
+        </h1>
 
+        <p class="hero-subtitle">
+            Press the button and hear a random bat fact from Carlsbad.
+        </p>
+
+        <div id="speechBubble" class="speech-bubble" aria-live="polite">
+            Press the button and I’ll tell you something about the bats of Carlsbad.
+        </div>
+
+        <div class="traveler-stage">
+            <div class="traveler-glow" aria-hidden="true"></div>
+
+            <img
+                src="assets/images/wise-old-traveler.png"
+                alt="Wise Old Traveler"
+                class="traveler-img"
+                id="travelerImage"
+            >
+
+            <div class="traveler-shadow" aria-hidden="true"></div>
+        </div>
+
+        <div class="controls">
             <button id="didYouKnowBtn" class="did-you-know-btn" type="button">
                 DID YOU KNOW
             </button>
+        </div>
 
-            <div id="speechBubble" class="speech-bubble" aria-live="polite">
-                Press the button and I’ll tell you something about the bats of Carlsbad.
-            </div>
-
-            <div class="audio-note">
-                Audio files: <strong>assets/audio/bats1.mp3</strong> through <strong>assets/audio/bats17.mp3</strong>
-            </div>
+        <div class="audio-note">
+            Audio files: <strong>assets/audio/bats1.mp3</strong> through <strong>assets/audio/bats17.mp3</strong>
         </div>
     </section>
 </main>
 
 <script>
+const facts = [
+    "The bat colony at Carlsbad Caverns is one of the largest maternity colonies on Earth. In summer, this cave becomes a nursery for hundreds of thousands of newborn pups.",
+    "The primary species here, the Brazilian free-tailed bat, may be the fastest mammal on Earth in level flight. Some have been clocked at over 100 miles per hour.",
+    "Modern counts estimate the colony between 400,000 and 700,000 bats in peak season. Historical accounts from the early 1900s describe emergence clouds in the millions, darkening the sky for hours.",
+    "Each mother gives birth to only one pup per year. Every lost bat matters because population recovery is slow and fragile.",
+    "A single bat can consume its weight in insects every night. Multiply that by hundreds of thousands, and this colony devours tons of moths and beetles nightly, saving farmers millions in crop loss.",
+    "The bats launch into the evening in a massive spiral vortex. It prevents collisions, confuses predators, uses rising warm air for lift, saves energy, and gets everyone airborne fast.",
+    "The spiral tightens if hawks or owls appear at the cave mouth. It changes shape instantly into a living defense shield.",
+    "Pups cling to the ceiling in clusters tens of thousands strong, and mothers find their own baby by smell, sound, and memory of location.",
+    "Bats can fly more than 50 miles in a single night and sometimes reach 10,000 feet altitude.",
+    "The colony migrates over 900 to 1,000 miles each year, riding warm air corridors and following insect blooms.",
+    "The rushing sound you hear during emergence is hundreds of thousands of wingbeats compressing air. It sounds like distant rainfall.",
+    "Researchers track nightly emergence on Doppler radar. On weather screens it looks like an expanding storm bubble.",
+    "The cave’s bat guano once fueled industry. It was mined to make saltpeter for gunpowder.",
+    "Carlsbad’s evening bat flight is one of the most famous wildlife spectacles in the American Southwest.",
+    "Brazilian free-tailed bats are highly social and depend on the colony for warmth, protection, and raising their young.",
+    "Bat emergence usually begins around sunset, when cooler temperatures and darkness help protect the colony from predators.",
+    "These bats provide enormous ecological value by reducing insect populations across a huge area each night."
+];
+
 const audioFiles = Array.from(
     { length: 17 },
     (_, index) => `assets/audio/bats${index + 1}.mp3`
@@ -489,12 +699,13 @@ function playRandomDidYouKnow() {
 
     const selectedIndex = getRandomAudioIndex();
     const selectedFile = audioFiles[selectedIndex];
+    const selectedFact = facts[selectedIndex] || "Did you know...";
     const audio = new Audio(selectedFile);
 
     currentAudio = audio;
     lastPlayedIndex = selectedIndex;
 
-    setSpeakingState(true, "Did you know...");
+    setSpeakingState(true, selectedFact);
 
     audio.addEventListener("ended", () => {
         setSpeakingState(false, "Press the button and I’ll share another bat fact.");
