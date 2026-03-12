@@ -325,37 +325,55 @@ class DustyCharacter {
     }
 
     startAudioReactiveMouth() {
-        this.stopMouthSync();
+    this.stopMouthSync();
 
-        let smoothed = 0;
-        let holdOpenFrames = 0;
+    let smoothed = 0;
+    let chatterOpen = false;
+    let lastToggleTime = 0;
 
-        const tick = () => {
-            const isSpeaking = this.currentAudio && !this.currentAudio.paused;
+    const tick = (now) => {
+        const isSpeaking = this.currentAudio && !this.currentAudio.paused;
 
-            if (!isSpeaking) {
-                this.mouth.style.opacity = "1";
-                this.mouthFrame = null;
-                return;
-            }
+        if (!isSpeaking) {
+            this.mouth.style.opacity = "1";
+            this.mouthFrame = null;
+            return;
+        }
 
-            const volume = this.getAverageVolume();
-            smoothed = smoothed * 0.72 + volume * 0.28;
+        const volume = this.getAverageVolume();
+        smoothed = smoothed * 0.42 + volume * 0.58;
 
-            const shouldOpen = smoothed > 18 || holdOpenFrames > 0;
+        const talking = smoothed > 12;
 
-            if (smoothed > 24) {
-                holdOpenFrames = 2;
-            } else if (holdOpenFrames > 0) {
-                holdOpenFrames -= 1;
-            }
-
-            this.mouth.style.opacity = shouldOpen ? "0" : "1";
+        if (!talking) {
+            this.mouth.style.opacity = "1";
             this.mouthFrame = window.requestAnimationFrame(tick);
-        };
+            return;
+        }
 
+        let interval = 140;
+
+        if (smoothed > 30) {
+            interval = 55;
+        } else if (smoothed > 24) {
+            interval = 75;
+        } else if (smoothed > 18) {
+            interval = 95;
+        } else {
+            interval = 120;
+        }
+
+        if (now - lastToggleTime >= interval) {
+            chatterOpen = !chatterOpen;
+            lastToggleTime = now;
+        }
+
+        this.mouth.style.opacity = chatterOpen ? "0" : "1";
         this.mouthFrame = window.requestAnimationFrame(tick);
-    }
+    };
+
+    this.mouthFrame = window.requestAnimationFrame(tick);
+}
 
     stopMouthSync() {
         if (this.mouthTimer) {
