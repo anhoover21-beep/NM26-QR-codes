@@ -1,3 +1,4 @@
+<!-- /index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,8 +10,11 @@
 body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
-    background: #f4f4f4;
+    background:
+        radial-gradient(circle at 50% 18%, rgba(255, 210, 63, 0.55) 0%, rgba(255, 210, 63, 0.18) 20%, rgba(255, 255, 255, 0) 42%),
+        linear-gradient(180deg, #f8f1d5 0%, #f2f2f2 42%, #ececec 100%);
     color: #222;
+    overflow-x: hidden;
 }
 
 /* =========================
@@ -20,115 +24,312 @@ body {
 .nm-header {
     background: #c5161d;
     color: white;
+    position: relative;
+    z-index: 10;
+    width: 100%;
 }
 
 .nm-header-inner {
     max-width: 1300px;
     margin: 0 auto;
-    padding: 28px 40px;
+    padding: clamp(16px, 3vw, 28px) clamp(16px, 4vw, 40px);
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: clamp(16px, 2vw, 28px);
+    flex-wrap: wrap;
 }
 
 .nm-brand {
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: clamp(10px, 1.8vw, 16px);
+    min-width: 0;
 }
 
 .nm-state {
-    width: 110px;
-    height: 110px;
+    width: clamp(58px, 10vw, 110px);
+    aspect-ratio: 1 / 1;
     background: url("assets/images/new-mexico.png") no-repeat center;
     background-size: contain;
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-shrink: 0;
 }
 
 .nm-text {
-    font-size: 40px;
+    font-size: clamp(18px, 3vw, 40px);
     font-weight: 900;
-    letter-spacing: 2px;
+    letter-spacing: clamp(1px, 0.25vw, 2px);
     color: white;
 }
 
 .nm-year {
-    font-size: 72px;
+    font-size: clamp(34px, 7vw, 72px);
     font-weight: 900;
     color: #ffd23f;
+    line-height: 1;
+    flex-shrink: 0;
 }
 
 .nm-nav {
     display: flex;
-    gap: 60px;
+    gap: clamp(14px, 4vw, 60px);
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .nm-nav span {
     color: white;
-    font-size: 26px;
-    letter-spacing: 2px;
+    font-size: clamp(14px, 2vw, 26px);
+    letter-spacing: clamp(1px, 0.25vw, 2px);
     font-weight: 600;
+    white-space: nowrap;
+}
+
+.nm-login {
+    display: flex;
+    justify-content: center;
 }
 
 .nm-login span {
     background: #ffd23f;
     color: #c5161d;
-    padding: 12px 26px;
+    padding: clamp(9px, 1.5vw, 12px) clamp(16px, 2.6vw, 26px);
     border-radius: 16px;
     font-weight: 900;
-    font-size: 22px;
+    font-size: clamp(16px, 2vw, 22px);
+    white-space: nowrap;
 }
 
 .nm-stripe {
     background: #ffd23f;
-    padding: 10px 40px;
+    padding: 10px clamp(16px, 4vw, 40px);
     font-weight: 900;
     color: #c5161d;
     letter-spacing: 2px;
+    font-size: clamp(12px, 1.7vw, 16px);
 }
 
 /* =========================
-   DID YOU KNOW LAYOUT
+   POSTER HERO
    ========================= */
 
 .page-container {
-    max-width: 1000px;
-    margin: 80px auto 100px auto;
-    padding: 0 30px;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 clamp(12px, 3vw, 24px) 70px;
 }
 
-.content-row {
+.poster-hero {
+    min-height: calc(100vh - 172px);
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    text-align: center;
+    position: relative;
+    padding: 40px 0 10px;
+}
+
+.poster-hero::before,
+.poster-hero::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.poster-hero::before {
+    width: min(78vw, 860px);
+    height: min(78vw, 860px);
+    top: 40px;
+    background: radial-gradient(circle, rgba(255, 210, 63, 0.16) 0%, rgba(255, 210, 63, 0.06) 36%, rgba(255, 210, 63, 0) 68%);
+    filter: blur(8px);
+}
+
+.poster-hero::after {
+    width: min(56vw, 620px);
+    height: min(56vw, 620px);
+    top: 120px;
+    background: radial-gradient(circle, rgba(197, 22, 29, 0.10) 0%, rgba(197, 22, 29, 0.03) 35%, rgba(197, 22, 29, 0) 68%);
+    filter: blur(10px);
+}
+
+.hero-kicker {
+    margin: 0 0 12px;
+    font-size: 18px;
+    font-weight: 900;
+    letter-spacing: 5px;
+    color: #c5161d;
+    text-transform: uppercase;
+    position: relative;
+    z-index: 1;
+}
+
+.hero-title {
+    margin: 0;
+    font-size: clamp(48px, 8vw, 104px);
+    line-height: 0.92;
+    letter-spacing: 3px;
+    font-weight: 900;
+    color: #1b1b1b;
+    text-transform: uppercase;
+    position: relative;
+    z-index: 1;
+    max-width: 1100px;
+}
+
+.hero-title-accent {
+    display: block;
+    color: #1b1b1b;
+}
+
+.hero-subtitle {
+    margin: 18px 0 24px;
+    max-width: 780px;
+    font-size: clamp(18px, 2vw, 28px);
+    line-height: 1.45;
+    color: #4a4a4a;
+    position: relative;
+    z-index: 1;
+}
+
+.speech-bubble {
+    position: relative;
+    margin: 16px auto 20px;
+    width: min(100%, 860px);
+    background: #fff8dc;
+    color: #5b1f00;
+    border: 3px solid #ffd23f;
+    border-radius: 28px;
+    padding: 22px 24px;
+    font-size: clamp(18px, 1.7vw, 26px);
+    font-weight: 700;
+    line-height: 1.5;
+    box-shadow: 0 16px 30px rgba(0, 0, 0, 0.08);
+    min-height: 72px;
+    z-index: 1;
+    box-sizing: border-box;
+}
+
+.speech-bubble::after {
+    content: "";
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 20px 18px 0 18px;
+    border-style: solid;
+    border-color: #ffd23f transparent transparent transparent;
+}
+
+.speech-bubble::before {
+    content: "";
+    position: absolute;
+    bottom: -16px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 16px 14px 0 14px;
+    border-style: solid;
+    border-color: #fff8dc transparent transparent transparent;
+    z-index: 1;
+}
+
+.traveler-stage {
+    position: relative;
+    width: min(92vw, 980px);
+    margin: 8px auto 10px;
     display: flex;
-    align-items: flex-start;
-    gap: 50px;
+    justify-content: center;
+    align-items: end;
+    z-index: 1;
 }
 
-.text-column {
-    flex: 1;
+.traveler-glow {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(85vw, 760px);
+    height: min(85vw, 760px);
+    background: radial-gradient(circle, rgba(255, 210, 63, 0.34) 0%, rgba(255, 210, 63, 0.14) 34%, rgba(255, 210, 63, 0) 66%);
+    filter: blur(10px);
+    pointer-events: none;
 }
 
-.text-column h1 {
-    font-size: 42px;
-    margin-bottom: 30px;
-    letter-spacing: 2px;
+.traveler-shadow {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(60vw, 520px);
+    height: 46px;
+    background: radial-gradient(circle, rgba(0, 0, 0, 0.22) 0%, rgba(0, 0, 0, 0.12) 42%, rgba(0, 0, 0, 0) 76%);
+    filter: blur(10px);
+    pointer-events: none;
 }
 
-.text-column p {
-    font-size: 20px;
-    line-height: 1.7;
-    margin-bottom: 24px;
-}
-
-.dusty-column {
-    width: 260px;
-    flex-shrink: 0;
-}
-
-.dusty-column img {
-    width: 100%;
+.traveler-img {
+    position: relative;
+    display: block;
+    width: min(92vw, 650px);
     height: auto;
+    max-width: 100%;
+    margin: 0 auto;
+    transform-origin: center bottom;
+    transition: transform 0.18s ease, filter 0.18s ease;
+    filter: drop-shadow(0 16px 26px rgba(0, 0, 0, 0.16));
+}
+
+.traveler-img.speaking {
+    animation: travelerTalk 0.7s ease-in-out infinite alternate;
+    filter: drop-shadow(0 18px 28px rgba(0, 0, 0, 0.18));
+}
+
+@keyframes travelerTalk {
+    from {
+        transform: translateY(0) scale(1);
+    }
+    to {
+        transform: translateY(-3px) scale(1.006);
+    }
+}
+
+.controls {
+    margin-top: 16px;
+    position: relative;
+    z-index: 1;
+}
+
+.did-you-know-btn {
+    appearance: none;
+    border: 0;
+    cursor: pointer;
+    background: #d4121b;
+    color: white;
+    font-size: clamp(20px, 2vw, 28px);
+    font-weight: 900;
+    letter-spacing: 2px;
+    padding: 18px 34px;
+    border-radius: 22px;
+    box-shadow: 0 16px 30px rgba(0, 0, 0, 0.16);
+    transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
+    text-transform: uppercase;
+}
+
+.did-you-know-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 20px 34px rgba(0, 0, 0, 0.18);
+}
+
+.did-you-know-btn:active {
+    transform: translateY(1px);
+}
+
+.did-you-know-btn:disabled {
+    opacity: 0.8;
+    cursor: wait;
 }
 
 /* =========================
@@ -136,88 +337,201 @@ body {
    ========================= */
 
 @media (max-width: 1024px) {
-
     .nm-header-inner {
         flex-direction: column;
-        gap: 20px;
         text-align: center;
     }
 
     .nm-nav {
-        gap: 30px;
-        flex-wrap: wrap;
         justify-content: center;
     }
 
-    .nm-nav span {
-        font-size: 20px;
+    .page-container {
+        padding: 0 18px 50px;
     }
 
-    .nm-state {
-        width: 90px;
-        height: 90px;
+    .poster-hero {
+        min-height: auto;
+        padding: 28px 0 10px;
     }
 
-    .nm-text {
-        font-size: 30px;
+    .hero-kicker {
+        font-size: 16px;
+        letter-spacing: 4px;
     }
 
-    .nm-year {
-        font-size: 54px;
+    .hero-title {
+        font-size: clamp(38px, 7vw, 72px);
+        line-height: 0.98;
+        letter-spacing: 2px;
+        max-width: 760px;
     }
 
-    .nm-login span {
-        font-size: 18px;
-        padding: 10px 20px;
-    }
-}
-
-@media (max-width: 900px) {
-
-    .content-row {
-        flex-direction: column;
-        align-items: center;
+    .hero-subtitle {
+        margin: 14px 0 20px;
+        font-size: clamp(18px, 2.4vw, 24px);
+        max-width: 640px;
     }
 
-    .dusty-column {
-        width: 200px;
-        margin-bottom: 30px;
+    .speech-bubble {
+        max-width: 700px;
+        font-size: clamp(17px, 2.2vw, 22px);
+        padding: 20px 20px;
     }
 
-    .text-column {
-        text-align: center;
-    }
-
-    .text-column h1 {
-        font-size: 32px;
-    }
-
-    .text-column p {
-        font-size: 17px;
+    .traveler-img {
+        width: min(74vw, 500px);
     }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 700px) {
+    .nm-header-inner {
+        padding: 22px 18px;
+    }
+
+    .nm-brand {
+        justify-content: center;
+    }
 
     .nm-nav {
         gap: 16px;
     }
 
-    .nm-nav span {
+    .nm-stripe {
+        padding: 10px 18px;
+    }
+
+    .page-container {
+        padding: 0 12px 36px;
+    }
+
+    .poster-hero {
+        padding: 20px 0 0;
+        gap: 0;
+    }
+
+    .poster-hero::before {
+        width: 440px;
+        height: 440px;
+        top: 90px;
+    }
+
+    .poster-hero::after {
+        width: 300px;
+        height: 300px;
+        top: 170px;
+    }
+
+    .hero-kicker {
+        margin-bottom: 8px;
+        font-size: 14px;
+        letter-spacing: 3px;
+    }
+
+    .hero-title {
+        font-size: clamp(28px, 11vw, 46px);
+        line-height: 0.98;
+        letter-spacing: 1px;
+        max-width: 100%;
+    }
+
+    .hero-subtitle {
+        margin: 12px 0 16px;
         font-size: 16px;
+        line-height: 1.4;
+        max-width: 95%;
     }
 
-    .nm-state {
-        width: 70px;
-        height: 70px;
+    .speech-bubble {
+        order: 3;
+        width: calc(100% - 8px);
+        max-width: none;
+        margin: 14px auto 18px;
+        padding: 16px 16px;
+        border-radius: 22px;
+        font-size: 16px;
+        line-height: 1.45;
+        min-height: 0;
     }
 
-    .nm-text {
-        font-size: 22px;
+    .speech-bubble::after {
+        bottom: -16px;
+        border-width: 16px 14px 0 14px;
     }
 
-    .nm-year {
-        font-size: 40px;
+    .speech-bubble::before {
+        bottom: -13px;
+        border-width: 13px 11px 0 11px;
+    }
+
+    .traveler-stage {
+        width: 100%;
+        margin: 4px auto 6px;
+        order: 2;
+    }
+
+    .traveler-glow {
+        width: 300px;
+        height: 300px;
+        bottom: 18px;
+    }
+
+    .traveler-shadow {
+        width: 220px;
+        height: 32px;
+        bottom: 8px;
+    }
+
+    .traveler-img {
+        width: min(78vw, 320px);
+    }
+
+    .controls {
+        order: 4;
+        width: 100%;
+        margin-top: 8px;
+    }
+
+    .did-you-know-btn {
+        width: 100%;
+        max-width: 360px;
+        font-size: 18px;
+        letter-spacing: 1px;
+        padding: 16px 20px;
+        border-radius: 18px;
+    }
+}
+
+@media (max-width: 420px) {
+    .hero-title {
+        font-size: 26px;
+    }
+
+    .hero-subtitle {
+        font-size: 15px;
+    }
+
+    .traveler-img {
+        width: min(82vw, 280px);
+    }
+
+    .speech-bubble {
+        font-size: 15px;
+        padding: 14px 14px;
+    }
+
+    .did-you-know-btn {
+        font-size: 17px;
+        padding: 15px 18px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .traveler-img,
+    .traveler-img.speaking,
+    .did-you-know-btn {
+        animation: none !important;
+        transition: none !important;
     }
 }
 </style>
@@ -227,7 +541,6 @@ body {
 
 <header class="nm-header">
     <div class="nm-header-inner">
-
         <div class="nm-brand">
             <div class="nm-state">
                 <span class="nm-text">NM</span>
@@ -245,7 +558,6 @@ body {
         <div class="nm-login">
             <span>LOGIN</span>
         </div>
-
     </div>
 
     <div class="nm-stripe">
@@ -254,106 +566,142 @@ body {
 </header>
 
 <main class="page-container">
+    <section class="poster-hero">
+        <p class="hero-kicker">Did You Know?</p>
 
-  <div class="content-row">
+        <h1 class="hero-title">
+            Obsidian
+        </h1>
 
-    <div class="text-column">
-      <h1>OBSIDIAN</h1>
+        <p class="hero-subtitle">
+            Press the button and hear a random fact about obsidian.
+        </p>
 
-      <p><strong>Did you know…</strong></p>
-      <p>…obsidian forms when lava cools so fast that crystals don’t have time to grow?<br>
-      That means you’re looking at natural volcanic glass, frozen mid-eruption.</p>
+        <div id="speechBubble" class="speech-bubble" aria-live="polite">
+            Did You Know?
+        </div>
 
-      <p><strong>Did you know…</strong></p>
-      <p>…obsidian fractures with a “conchoidal” (shell-shaped) break, creating razor-sharp edges?<br>
-      Modern surgeons have tested obsidian scalpels—some edges are sharper than steel on a microscopic level.</p>
+        <div class="traveler-stage">
+            <div class="traveler-glow" aria-hidden="true"></div>
 
-      <p><strong>Did you know…</strong></p>
-      <p>…Valles Caldera obsidian was once a prehistoric super-commodity?<br>
-      Artifacts made from this exact volcanic glass have been found:</p>
-      <p>
-        • across the Great Plains,<br>
-        • in the Mississippi Valley,<br>
-        • and as far as Canada.
-      </p>
-      <p>Trade routes 1,500+ miles long moved this stuff.</p>
+            <img
+                src="assets/images/wise-old-traveler.png"
+                alt="Wise Old Traveler"
+                class="traveler-img"
+                id="travelerImage"
+            >
 
-      <p><strong>Did you know…</strong></p>
-      <p>…scientists can “fingerprint” obsidian chemically?<br>
-      A tiny sample can be traced back to:</p>
-      <p>
-        • a specific eruption zone,<br>
-        • on a specific lava dome,<br>
-        • within the Jemez Mountains.
-      </p>
-      <p>That’s how archeologists map ancient trade networks.</p>
+            <div class="traveler-shadow" aria-hidden="true"></div>
+        </div>
 
-      <p><strong>Did you know…</strong></p>
-      <p>…indigenous knappers shaped obsidian into:</p>
-      <p>
-        • arrowheads,<br>
-        • spear points,<br>
-        • ritual blades,<br>
-        • mirrors,<br>
-        • and even ceremonial ear spools?
-      </p>
-      <p>To them, it wasn’t just sharp—it was sacred black glass.</p>
-
-      <p><strong>Did you know…</strong></p>
-      <p>…Valles Caldera has multiple obsidian-bearing domes?<br>
-      Cerro del Medio is the most famous source, erupting repeatedly and resurfacing obsidian deposits over 1.2 million years.</p>
-      <p>Each eruption = a new “layer” of black glass.</p>
-
-      <p><strong>Did you know…</strong></p>
-      <p>…obsidian is fragile under stress?<br>
-      Drop it, and it shatters like a windshield.<br>
-      That’s why ancient knappers carried wrapped bundles in hides.</p>
-
-      <p><strong>Did you know…</strong></p>
-      <p>…it absorbs heat like crazy?<br>
-      Leave a piece in the sun—you’ll feel the difference instantly.</p>
-
-      <p><strong>Did you know…</strong></p>
-      <p>…you’re not allowed to collect obsidian inside the National Preserve?<br>
-      (Leave no trace, protect archeological context—park rules.)<br>
-      Good news: rock shops in Santa Fe sell legal local pieces.</p>
-
-      <p><strong>Did you know…</strong></p>
-      <p>…some archaeologists think obsidian glints helped ancient travelers navigate?<br>
-      A shimmer on the hillside = potential toolmaking site.</p>
-
-      <h2>🧭 OBSERVATION QUEST</h2>
-      <p>Look for:</p>
-      <p>
-        ✔ conchoidal curved flakes on the ground<br>
-        ✔ tiny glassy shards in sunlight<br>
-        ✔ “flake scars” on broken surfaces
-      </p>
-      <p>Spot three?<br>
-      You’ve found a prehistoric workshop.</p>
-
-      <h2>⚠️ SAFETY WARNING</h2>
-      <p>Obsidian edges can cut deep.<br>
-      Think “instant ER trip” sharp.</p>
-      <p>
-        Eyes up<br>
-        Hands off<br>
-        Don’t kick shards
-      </p>
-
-      <h2>🧠 Think About This</h2>
-      <p>You just walked where people once:</p>
-      <p>Traded, shaped, sharpened, carried stories, and survived…</p>
-      <p>…using this exact rock.</p>
-    </div>
-
-    <div class="dusty-column">
-      <img src="assets/images/wise-old-traveler.png" alt="Dusty Sagebrush">
-    </div>
-
-  </div>
-
+        <div class="controls">
+            <button id="didYouKnowBtn" class="did-you-know-btn" type="button">
+                PRESS TO KNOW
+            </button>
+        </div>
+    </section>
 </main>
+
+<script>
+const facts = [
+    "The bat colony at Carlsbad Caverns is one of the largest maternity colonies on Earth. In summer, this cave becomes a nursery for hundreds of thousands of newborn pups.",
+    "The primary species here, the Brazilian free-tailed bat, may be the fastest mammal on Earth in level flight. Some have been clocked at over 100 miles per hour.",
+    "Modern counts estimate the colony between 400,000 and 700,000 bats in peak season. Historical accounts from the early 1900s describe emergence clouds in the millions, darkening the sky for hours.",
+    "Each mother gives birth to only one pup per year. Every lost bat matters because population recovery is slow and fragile.",
+    "A single bat can consume its weight in insects every night. Multiply that by hundreds of thousands, and this colony devours tons of moths and beetles nightly, saving farmers millions in crop loss.",
+    "The bats launch into the evening in a massive spiral vortex. It prevents collisions, confuses predators, uses rising warm air for lift, saves energy, and gets everyone airborne fast.",
+    "The spiral tightens if hawks or owls appear at the cave mouth. It changes shape instantly into a living defense shield.",
+    "Pups cling to the ceiling in clusters tens of thousands strong, and mothers find their own baby by smell, sound, and memory of location.",
+    "Bats can fly more than 50 miles in a single night and sometimes reach 10,000 feet altitude.",
+    "The colony migrates over 900 to 1,000 miles each year, riding warm air corridors and following insect blooms.",
+    "The rushing sound you hear during emergence is hundreds of thousands of wingbeats compressing air. It sounds like distant rainfall.",
+    "Researchers track nightly emergence on Doppler radar. On weather screens it looks like an expanding storm bubble.",
+    "The cave’s bat guano once fueled industry. It was mined to make saltpeter for gunpowder.",
+    "Carlsbad’s evening bat flight is one of the most famous wildlife spectacles in the American Southwest.",
+    "Brazilian free-tailed bats are highly social and depend on the colony for warmth, protection, and raising their young.",
+    "Bat emergence usually begins around sunset, when cooler temperatures and darkness help protect the colony from predators.",
+    "These bats provide enormous ecological value by reducing insect populations across a huge area each night."
+];
+
+const audioFiles = Array.from(
+    { length: 17 },
+    (_, index) => `assets/audio/obsidian${index + 1}.mp3`
+);
+
+const button = document.getElementById("didYouKnowBtn");
+const speechBubble = document.getElementById("speechBubble");
+const travelerImage = document.getElementById("travelerImage");
+
+let currentAudio = null;
+let lastPlayedIndex = -1;
+
+function getRandomAudioIndex() {
+    if (audioFiles.length === 1) {
+        return 0;
+    }
+
+    let nextIndex = lastPlayedIndex;
+
+    while (nextIndex === lastPlayedIndex) {
+        nextIndex = Math.floor(Math.random() * audioFiles.length);
+    }
+
+    return nextIndex;
+}
+
+function setSpeakingState(isSpeaking, message) {
+    travelerImage.classList.toggle("speaking", isSpeaking);
+    speechBubble.textContent = message;
+    button.disabled = isSpeaking;
+}
+
+function stopCurrentAudio() {
+    if (!currentAudio) {
+        return;
+    }
+
+    currentAudio.pause();
+    currentAudio.currentTime = 0;
+    currentAudio = null;
+}
+
+function playRandomDidYouKnow() {
+    stopCurrentAudio();
+
+    const selectedIndex = getRandomAudioIndex();
+    const selectedFile = audioFiles[selectedIndex];
+    const selectedFact = facts[selectedIndex] || "Did you know...";
+    const audio = new Audio(selectedFile);
+
+    currentAudio = audio;
+    lastPlayedIndex = selectedIndex;
+
+    setSpeakingState(true, selectedFact);
+
+    audio.addEventListener("ended", () => {
+        setSpeakingState(false, "Press the button and I’ll share another bat fact.");
+        currentAudio = null;
+    });
+
+    audio.addEventListener("error", () => {
+        setSpeakingState(
+            false,
+            `I couldn't play ${selectedFile}. Check that the MP3 files are in assets/audio/.`
+        );
+        currentAudio = null;
+    });
+
+    audio.play().catch(() => {
+        setSpeakingState(
+            false,
+            `Playback was blocked or ${selectedFile} could not be loaded.`
+        );
+        currentAudio = null;
+    });
+}
+
+button.addEventListener("click", playRandomDidYouKnow);
+</script>
 
 </body>
 </html>
