@@ -1,22 +1,70 @@
 class DustyCharacter {
     constructor(options) {
-        this.container = document.querySelector(options.container);
-        this.speechBubble = document.querySelector(options.speechBubble);
-        this.button = document.querySelector(options.button);
-        this.facts = options.facts || [];
-        this.audioFiles = options.audioFiles || [];
+        this.container = this.resolveElement(options.container);
+        this.speechBubble = this.resolveElement(options.speechBubble);
+        this.button = this.resolveElement(options.button);
+        this.facts = Array.isArray(options.facts) ? options.facts : [];
+        this.audioFiles = Array.isArray(options.audioFiles) ? options.audioFiles : [];
         this.images = options.images || {};
         this.placement = options.placement || {};
+        this.idleMessage = options.idleMessage || "Press the button and Dusty will share another fact.";
 
         this.currentAudio = null;
         this.lastPlayedIndex = -1;
         this.mouthTimer = null;
         this.blinkTimer = null;
-
         this.handleResize = this.positionParts.bind(this);
+
+        this.widget = null;
+        this.base = null;
+        this.eyes = null;
+        this.mouth = null;
+        this.hand = null;
+        this.brow1 = null;
+        this.brow2 = null;
     }
 
-    async init() {
+    resolveElement(target) {
+        if (typeof target === "string") {
+            return document.querySelector(target);
+        }
+
+        return target instanceof Element ? target : null;
+    }
+
+    validate() {
+        if (!this.container) {
+            throw new Error("Dusty container not found.");
+        }
+
+        if (!this.speechBubble) {
+            throw new Error("Speech bubble not found.");
+        }
+
+        if (!this.button) {
+            throw new Error("Button not found.");
+        }
+
+        if (this.facts.length !== this.audioFiles.length) {
+            throw new Error("facts and audioFiles must be the same length.");
+        }
+
+        const requiredImages = ["base", "eyesClosed", "mouthClosed", "hand", "brow1", "brow2"];
+        for (const key of requiredImages) {
+            if (!this.images[key]) {
+                throw new Error(`Missing image path: ${key}`);
+            }
+        }
+
+        const requiredParts = ["hand", "brow1", "brow2"];
+        for (const key of requiredParts) {
+            if (!this.placement[key]) {
+                throw new Error(`Missing placement config: ${key}`);
+            }
+        }
+    }
+
+    buildMarkup() {
         this.container.innerHTML = `
             <div class="dusty-widget">
                 <img class="dusty-base" data-part="base" src="${this.images.base}" alt="Dusty">
@@ -35,24 +83,6 @@ class DustyCharacter {
         this.hand = this.container.querySelector('[data-part="hand"]');
         this.brow1 = this.container.querySelector('[data-part="brow1"]');
         this.brow2 = this.container.querySelector('[data-part="brow2"]');
-
-        await Promise.all([
-            this.waitForImage(this.base),
-            this.waitForImage(this.eyes),
-            this.waitForImage(this.mouth),
-            this.waitForImage(this.hand),
-            this.waitForImage(this.brow1),
-            this.waitForImage(this.brow2)
-        ]);
-
-        this.positionParts();
-        this.mouth.style.opacity = "1";
-        this.widget.classList.add("is-ready");
-
-        window.addEventListener("resize", this.handleResize);
-        this.button.addEventListener("click", () => this.playRandomFact());
-
-        this.scheduleBlinkLoop();
     }
 
     waitForImage(img) {
@@ -62,9 +92,20 @@ class DustyCharacter {
                 return;
             }
 
-            img.addEventListener("load", resolve, { once: true });
+            img.addEventListener("load", () => resolve(), { once: true });
             img.addEventListener("error", () => reject(new Error(`Failed to load ${img.src}`)), { once: true });
         });
+    }
+
+    async preload() {
+        await Promise.all([
+            this.waitForImage(this.base),
+            this.waitForImage(this.eyes),
+            this.waitForImage(this.mouth),
+            this.waitForImage(this.hand),
+            this.waitForImage(this.brow1),
+            this.waitForImage(this.brow2)
+        ]);
     }
 
     placePart(element, part, baseWidth, baseHeight) {
@@ -74,8 +115,8 @@ class DustyCharacter {
     }
 
     positionParts() {
-        const baseWidth = this.base.naturalWidth;
-        const baseHeight = this.base.naturalHeight;
+        const baseWidth = this.base?.naturalWidth;
+        const baseHeight = this.base?.naturalHeight;
 
         if (!baseWidth || !baseHeight) {
             return;
@@ -87,14 +128,22 @@ class DustyCharacter {
     }
 
     blinkOnce(duration = 150) {
+        if (!this.eyes) {
+            return;
+        }
+
         this.eyes.style.opacity = "1";
 
         window.setTimeout(() => {
-            this.eyes.style.opacity = "0";
+            if (this.eyes) {
+                this.eyes.style.opacity = "0";
+            }
         }, duration);
     }
 
     scheduleBlinkLoop() {
+        window.clearTimeout(this.blinkTimer);
+
         const queueBlink = () => {
             const delay = 2600 + Math.random() * 2600;
 
@@ -105,6 +154,17 @@ class DustyCharacter {
         };
 
         queueBlink();
+    }
+
+    lowerBrows() {
+        this.brow1.classList.remove("lower");
+        this.brow2.classList.remove("lower");
+
+        void this.brow1.offsetWidth;
+        void this.brow2.offsetWidth;
+
+        this.brow1.classList.add("lower");
+        this.brow2.classList.add("lower");
     }
 
     startTalking() {
@@ -122,23 +182,24 @@ class DustyCharacter {
             this.mouthTimer = null;
         }
 
-        this.widget.classList.remove("is-speaking");
-        this.mouth.style.opacity = "1";
-        this.button.disabled = false;
-    }
+        if (this.widget) {
+            this.widget.classList.remove("is-speaking");
+        }
 
-    lowerBrows() {
-        this.brow1.classList.remove("lower");
-        this.brow2.classList.remove("lower");
+        if (this.mouth) {
+            this.mouth.style.opacity = "1";
+        }
 
-        void this.brow1.offsetWidth;
-        void this.brow2.offsetWidth;
-
-        this.brow1.classList.add("lower");
-        this.brow2.classList.add("lower");
+        if (this.button) {
+            this.button.disabled = false;
+        }
     }
 
     getRandomIndex() {
+        if (this.audioFiles.length === 0) {
+            return -1;
+        }
+
         if (this.audioFiles.length === 1) {
             return 0;
         }
@@ -168,6 +229,11 @@ class DustyCharacter {
         this.stopCurrentAudio();
 
         const index = this.getRandomIndex();
+        if (index < 0) {
+            this.speechBubble.textContent = "No facts are configured.";
+            return;
+        }
+
         const file = this.audioFiles[index];
         const fact = this.facts[index] || "Did you know?";
         const audio = new Audio(file);
@@ -184,13 +250,19 @@ class DustyCharacter {
 
         audio.addEventListener("ended", () => {
             this.stopTalking();
-            this.speechBubble.textContent = "Press the button and I’ll share another fact.";
+            this.speechBubble.textContent = this.idleMessage;
             this.currentAudio = null;
+        });
+
+        audio.addEventListener("pause", () => {
+            if (this.currentAudio === audio) {
+                this.stopTalking();
+            }
         });
 
         audio.addEventListener("error", () => {
             this.stopTalking();
-            this.speechBubble.textContent = `I couldn't play ${file}.`;
+            this.speechBubble.textContent = `I couldn't play ${file}. Check assets/audio/.`;
             this.currentAudio = null;
         });
 
@@ -199,5 +271,20 @@ class DustyCharacter {
             this.speechBubble.textContent = `Playback failed for ${file}.`;
             this.currentAudio = null;
         });
+    }
+
+    async init() {
+        this.validate();
+        this.buildMarkup();
+        await this.preload();
+        this.positionParts();
+
+        this.mouth.style.opacity = "1";
+        this.widget.classList.add("is-ready");
+
+        window.addEventListener("resize", this.handleResize);
+        this.button.addEventListener("click", () => this.playRandomFact());
+
+        this.scheduleBlinkLoop();
     }
 }
