@@ -11,8 +11,17 @@ class DustyCharacter {
 
         this.currentAudio = null;
         this.lastPlayedIndex = -1;
-        this.mouthTimer = null;
+
         this.blinkTimer = null;
+        this.browTimer = null;
+        this.mouthTimer = null;
+        this.mouthFrame = null;
+
+        this.audioContext = null;
+        this.analyser = null;
+        this.sourceNode = null;
+        this.dataArray = null;
+
         this.handleResize = this.positionParts.bind(this);
 
         this.widget = null;
@@ -127,28 +136,53 @@ class DustyCharacter {
         this.placePart(this.brow2, this.placement.brow2, baseWidth, baseHeight);
     }
 
-    blinkOnce(duration = 150) {
+    blinkOnce(duration = 120) {
         if (!this.eyes) {
-            return;
+            return Promise.resolve();
         }
 
         this.eyes.style.opacity = "1";
 
-        window.setTimeout(() => {
-            if (this.eyes) {
-                this.eyes.style.opacity = "0";
-            }
-        }, duration);
+        return new Promise((resolve) => {
+            window.setTimeout(() => {
+                if (this.eyes) {
+                    this.eyes.style.opacity = "0";
+                }
+                resolve();
+            }, duration);
+        });
+    }
+
+    async blinkCluster() {
+        const roll = Math.random();
+
+        if (roll < 0.72) {
+            await this.blinkOnce(120);
+            return;
+        }
+
+        if (roll < 0.94) {
+            await this.blinkOnce(105);
+            await this.delay(90);
+            await this.blinkOnce(95);
+            return;
+        }
+
+        await this.blinkOnce(95);
+        await this.delay(80);
+        await this.blinkOnce(85);
+        await this.delay(70);
+        await this.blinkOnce(80);
     }
 
     scheduleBlinkLoop() {
         window.clearTimeout(this.blinkTimer);
 
         const queueBlink = () => {
-            const delay = 2600 + Math.random() * 2600;
+            const delay = 2200 + Math.random() * 3200;
 
-            this.blinkTimer = window.setTimeout(() => {
-                this.blinkOnce();
+            this.blinkTimer = window.setTimeout(async () => {
+                await this.blinkCluster();
                 queueBlink();
             }, delay);
         };
@@ -167,20 +201,188 @@ class DustyCharacter {
         this.brow2.classList.add("lower");
     }
 
-    startTalking() {
-        this.stopTalking();
-        this.widget.classList.add("is-speaking");
+    async browDropBurst() {
+        const roll = Math.random();
+
+        this.lowerBrows();
+
+        if (roll > 0.72) {
+            await this.delay(180 + Math.random() * 120);
+            this.lowerBrows();
+        }
+    }
+
+    scheduleBrowLoop() {
+        window.clearTimeout(this.browTimer);
+
+        const queueDrop = () => {
+            const delay = 2400 + Math.random() * 3600;
+
+            this.browTimer = window.setTimeout(async () => {
+                const isSpeaking = this.currentAudio && !this.currentAudio.paused;
+
+                if (!isSpeaking && Math.random() > 0.2) {
+                    await this.browDropBurst();
+                }
+
+                queueDrop();
+            }, delay);
+        };
+
+        queueDrop();
+    }
+
+    delay(ms) {
+        return new Promise((resolve) => {
+            window.setTimeout(resolve, ms);
+        });
+    }
+
+    ensureAudioContext() {
+        if (!this.audioContext) {
+            const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+            if (!AudioContextClass) {
+                return false;
+            }
+
+            this.audioContext = new AudioContextClass();
+        }
+
+        return true;
+    }
+
+    async resumeAudioContext() {
+        if (!this.audioContext) {
+            return;
+        }
+
+        if (this.audioContext.state === "suspended") {
+            await this.audioContext.resume();
+        }
+    }
+
+    connectAudioAnalysis(audio) {
+        if (!this.ensureAudioContext()) {
+            return false;
+        }
+
+        this.cleanupAudioNodes();
+
+        this.analyser = this.audioContext.createAnalyser();
+        this.analyser.fftSize = 256;
+        this.analyser.smoothingTimeConstant = 0.72;
+
+        this.dataArray = new Uint8Array(this.analyser.frequencyBinCount);
+        this.sourceNode = this.audioContext.createMediaElementSource(audio);
+
+        this.sourceNode.connect(this.analyser);
+        this.analyser.connect(this.audioContext.destination);
+
+        return true;
+    }
+
+    cleanupAudioNodes() {
+        if (this.sourceNode) {
+            try {
+                this.sourceNode.disconnect();
+            } catch (error) {
+            }
+            this.sourceNode = null;
+        }
+
+        if (this.analyser) {
+            try {
+                this.analyser.disconnect();
+            } catch (error) {
+            }
+            this.analyser = null;
+        }
+
+        this.dataArray = null;
+    }
+
+    getAverageVolume() {
+        if (!this.analyser || !this.dataArray) {
+            return 0;
+        }
+
+        this.analyser.getByteFrequencyData(this.dataArray);
+
+        let total = 0;
+        for (let i = 0; i < this.dataArray.length; i += 1) {
+            total += this.dataArray[i];
+        }
+
+        return total / this.dataArray.length;
+    }
+
+    startFallbackMouth() {
+        this.stopMouthSync();
 
         this.mouthTimer = window.setInterval(() => {
             this.mouth.style.opacity = this.mouth.style.opacity === "1" ? "0" : "1";
-        }, 170);
+        }, 140);
     }
 
-    stopTalking() {
+    startAudioReactiveMouth() {
+        this.stopMouthSync();
+
+        let smoothed = 0;
+        let holdOpenFrames = 0;
+
+        const tick = () => {
+            const isSpeaking = this.currentAudio && !this.currentAudio.paused;
+
+            if (!isSpeaking) {
+                this.mouth.style.opacity = "1";
+                this.mouthFrame = null;
+                return;
+            }
+
+            const volume = this.getAverageVolume();
+            smoothed = smoothed * 0.72 + volume * 0.28;
+
+            const shouldOpen = smoothed > 18 || holdOpenFrames > 0;
+
+            if (smoothed > 24) {
+                holdOpenFrames = 2;
+            } else if (holdOpenFrames > 0) {
+                holdOpenFrames -= 1;
+            }
+
+            this.mouth.style.opacity = shouldOpen ? "0" : "1";
+            this.mouthFrame = window.requestAnimationFrame(tick);
+        };
+
+        this.mouthFrame = window.requestAnimationFrame(tick);
+    }
+
+    stopMouthSync() {
         if (this.mouthTimer) {
             window.clearInterval(this.mouthTimer);
             this.mouthTimer = null;
         }
+
+        if (this.mouthFrame) {
+            window.cancelAnimationFrame(this.mouthFrame);
+            this.mouthFrame = null;
+        }
+    }
+
+    startTalking() {
+        this.stopTalking();
+        this.widget.classList.add("is-speaking");
+
+        if (this.analyser) {
+            this.startAudioReactiveMouth();
+            return;
+        }
+
+        this.startFallbackMouth();
+    }
+
+    stopTalking() {
+        this.stopMouthSync();
 
         if (this.widget) {
             this.widget.classList.remove("is-speaking");
@@ -222,10 +424,11 @@ class DustyCharacter {
         this.currentAudio.pause();
         this.currentAudio.currentTime = 0;
         this.currentAudio = null;
+        this.cleanupAudioNodes();
         this.stopTalking();
     }
 
-    playRandomFact() {
+    async playRandomFact() {
         this.stopCurrentAudio();
 
         const index = this.getRandomIndex();
@@ -238,10 +441,16 @@ class DustyCharacter {
         const fact = this.facts[index] || "Did you know?";
         const audio = new Audio(file);
 
+        audio.preload = "auto";
+
         this.currentAudio = audio;
         this.lastPlayedIndex = index;
         this.speechBubble.textContent = fact;
         this.button.disabled = true;
+
+        await this.resumeAudioContext();
+
+        const hasAnalysis = this.connectAudioAnalysis(audio);
 
         audio.addEventListener("play", () => {
             this.startTalking();
@@ -250,6 +459,7 @@ class DustyCharacter {
 
         audio.addEventListener("ended", () => {
             this.stopTalking();
+            this.cleanupAudioNodes();
             this.speechBubble.textContent = this.idleMessage;
             this.currentAudio = null;
         });
@@ -262,15 +472,21 @@ class DustyCharacter {
 
         audio.addEventListener("error", () => {
             this.stopTalking();
+            this.cleanupAudioNodes();
             this.speechBubble.textContent = `I couldn't play ${file}. Check assets/audio/.`;
             this.currentAudio = null;
         });
 
         audio.play().catch(() => {
             this.stopTalking();
+            this.cleanupAudioNodes();
             this.speechBubble.textContent = `Playback failed for ${file}.`;
             this.currentAudio = null;
         });
+
+        if (!hasAnalysis) {
+            this.startFallbackMouth();
+        }
     }
 
     async init() {
@@ -283,8 +499,11 @@ class DustyCharacter {
         this.widget.classList.add("is-ready");
 
         window.addEventListener("resize", this.handleResize);
-        this.button.addEventListener("click", () => this.playRandomFact());
+        this.button.addEventListener("click", () => {
+            this.playRandomFact();
+        });
 
         this.scheduleBlinkLoop();
+        this.scheduleBrowLoop();
     }
 }
