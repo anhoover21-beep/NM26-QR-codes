@@ -1,0 +1,124 @@
+.dusty-mount {
+    position: relative;
+    width: min(92vw, 650px);
+    max-width: 100%;
+    margin: 0 auto;
+    z-index: 1;
+}
+
+.dusty-widget {
+    position: relative;
+    width: 100%;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.dusty-widget.is-ready {
+    opacity: 1;
+}
+
+.dusty-base {
+    display: block;
+    width: 100%;
+    height: auto;
+    user-select: none;
+    -webkit-user-drag: none;
+    filter: drop-shadow(0 16px 26px rgba(0, 0, 0, 0.16));
+}
+
+.dusty-full,
+.dusty-part {
+    position: absolute;
+    pointer-events: none;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+.dusty-full {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+}
+
+.dusty-eyes {
+    z-index: 5;
+    opacity: 0;
+}
+
+.dusty-mouth {
+    z-index: 6;
+    opacity: 1;
+}
+
+.dusty-hand {
+    z-index: 2;
+    transform-origin: 50% 92%;
+}
+
+.dusty-widget.is-speaking .dusty-hand {
+    animation: dustyHandWag 1.05s ease-in-out infinite;
+}
+
+.dusty-brow-1,
+.dusty-brow-2 {
+    z-index: 4;
+    transform-origin: 50% 50%;
+}
+
+.dusty-brow-1.lower {
+    animation: dustyBrowLower1 0.32s ease-in-out 1;
+}
+
+.dusty-brow-2.lower {
+    animation: dustyBrowLower2 0.32s ease-in-out 1;
+}
+
+@keyframes dustyHandWag {
+    0%   { transform: rotate(0deg); }
+    20%  { transform: rotate(5deg); }
+    40%  { transform: rotate(0deg); }
+    65%  { transform: rotate(-3deg); }
+    82%  { transform: rotate(2deg); }
+    100% { transform: rotate(0deg); }
+}
+
+@keyframes dustyBrowLower1 {
+    0%   { transform: translateY(0) rotate(0deg); }
+    50%  { transform: translateY(4px) rotate(2deg); }
+    100% { transform: translateY(0) rotate(0deg); }
+}
+
+@keyframes dustyBrowLower2 {
+    0%   { transform: translateY(0) rotate(0deg); }
+    50%  { transform: translateY(4px) rotate(-2deg); }
+    100% { transform: translateY(0) rotate(0deg); }
+}
+
+@media (max-width: 1024px) {
+    .dusty-mount {
+        width: min(74vw, 500px);
+    }
+}
+
+@media (max-width: 700px) {
+    .dusty-mount {
+        width: min(78vw, 320px);
+    }
+}
+
+@media (max-width: 420px) {
+    .dusty-mount {
+        width: min(82vw, 280px);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .dusty-widget,
+    .dusty-base,
+    .dusty-full,
+    .dusty-part {
+        animation: none !important;
+        transition: none !important;
+    }
+}
