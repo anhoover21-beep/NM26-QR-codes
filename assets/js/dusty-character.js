@@ -270,7 +270,7 @@ class DustyCharacter {
 
         this.analyser = this.audioContext.createAnalyser();
         this.analyser.fftSize = 256;
-        this.analyser.smoothingTimeConstant = 0.72;
+        this.analyser.smoothingTimeConstant = 0.82;
 
         this.dataArray = new Uint8Array(this.analyser.frequencyBinCount);
         this.sourceNode = this.audioContext.createMediaElementSource(audio);
@@ -321,59 +321,59 @@ class DustyCharacter {
 
         this.mouthTimer = window.setInterval(() => {
             this.mouth.style.opacity = this.mouth.style.opacity === "1" ? "0" : "1";
-        }, 140);
+        }, 220);
     }
 
     startAudioReactiveMouth() {
-    this.stopMouthSync();
+        this.stopMouthSync();
 
-    let smoothed = 0;
-    let chatterOpen = false;
-    let lastToggleTime = 0;
+        let smoothed = 0;
+        let chatterOpen = false;
+        let lastToggleTime = 0;
 
-    const tick = (now) => {
-        const isSpeaking = this.currentAudio && !this.currentAudio.paused;
+        const tick = (now) => {
+            const isSpeaking = this.currentAudio && !this.currentAudio.paused;
 
-        if (!isSpeaking) {
-            this.mouth.style.opacity = "1";
-            this.mouthFrame = null;
-            return;
-        }
+            if (!isSpeaking) {
+                this.mouth.style.opacity = "1";
+                this.mouthFrame = null;
+                return;
+            }
 
-        const volume = this.getAverageVolume();
-        smoothed = smoothed * 0.42 + volume * 0.58;
+            const volume = this.getAverageVolume();
+            smoothed = smoothed * 0.68 + volume * 0.32;
 
-        const talking = smoothed > 12;
+            const talking = smoothed > 12;
 
-        if (!talking) {
-            this.mouth.style.opacity = "1";
+            if (!talking) {
+                this.mouth.style.opacity = "1";
+                this.mouthFrame = window.requestAnimationFrame(tick);
+                return;
+            }
+
+            let interval = 220;
+
+            if (smoothed > 30) {
+                interval = 110;
+            } else if (smoothed > 24) {
+                interval = 140;
+            } else if (smoothed > 18) {
+                interval = 170;
+            } else {
+                interval = 200;
+            }
+
+            if (now - lastToggleTime >= interval) {
+                chatterOpen = !chatterOpen;
+                lastToggleTime = now;
+            }
+
+            this.mouth.style.opacity = chatterOpen ? "0" : "1";
             this.mouthFrame = window.requestAnimationFrame(tick);
-            return;
-        }
+        };
 
-        let interval = 140;
-
-        if (smoothed > 30) {
-            interval = 55;
-        } else if (smoothed > 24) {
-            interval = 75;
-        } else if (smoothed > 18) {
-            interval = 95;
-        } else {
-            interval = 120;
-        }
-
-        if (now - lastToggleTime >= interval) {
-            chatterOpen = !chatterOpen;
-            lastToggleTime = now;
-        }
-
-        this.mouth.style.opacity = chatterOpen ? "0" : "1";
         this.mouthFrame = window.requestAnimationFrame(tick);
-    };
-
-    this.mouthFrame = window.requestAnimationFrame(tick);
-}
+    }
 
     stopMouthSync() {
         if (this.mouthTimer) {
