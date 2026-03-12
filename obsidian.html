@@ -1,4 +1,3 @@
-<!-- /index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,10 +15,6 @@ body {
     color: #222;
     overflow-x: hidden;
 }
-
-/* =========================
-   LOCKED NM26 HEADER
-   ========================= */
 
 .nm-header {
     background: #c5161d;
@@ -111,10 +106,6 @@ body {
     letter-spacing: 2px;
     font-size: clamp(12px, 1.7vw, 16px);
 }
-
-/* =========================
-   POSTER HERO
-   ========================= */
 
 .page-container {
     max-width: 1400px;
@@ -270,30 +261,80 @@ body {
     pointer-events: none;
 }
 
-.traveler-img {
+.dusty-mount {
     position: relative;
-    display: block;
     width: min(92vw, 650px);
-    height: auto;
     max-width: 100%;
     margin: 0 auto;
-    transform-origin: center bottom;
-    transition: transform 0.18s ease, filter 0.18s ease;
+    z-index: 1;
+}
+
+.dusty-widget {
+    position: relative;
+    width: 100%;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.dusty-widget.is-ready {
+    opacity: 1;
+}
+
+.dusty-base {
+    display: block;
+    width: 100%;
+    height: auto;
+    user-select: none;
+    -webkit-user-drag: none;
     filter: drop-shadow(0 16px 26px rgba(0, 0, 0, 0.16));
 }
 
-.traveler-img.speaking {
-    animation: travelerTalk 0.7s ease-in-out infinite alternate;
-    filter: drop-shadow(0 18px 28px rgba(0, 0, 0, 0.18));
+.dusty-full,
+.dusty-part {
+    position: absolute;
+    pointer-events: none;
+    user-select: none;
+    -webkit-user-drag: none;
 }
 
-@keyframes travelerTalk {
-    from {
-        transform: translateY(0) scale(1);
-    }
-    to {
-        transform: translateY(-3px) scale(1.006);
-    }
+.dusty-full {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+}
+
+.dusty-eyes {
+    z-index: 5;
+    opacity: 0;
+}
+
+.dusty-mouth {
+    z-index: 6;
+    opacity: 1;
+}
+
+.dusty-hand {
+    z-index: 2;
+    transform-origin: 50% 92%;
+}
+
+.dusty-widget.is-speaking .dusty-hand {
+    animation: dustyHandWag 1.05s ease-in-out infinite;
+}
+
+.dusty-brow-1,
+.dusty-brow-2 {
+    z-index: 4;
+    transform-origin: 50% 50%;
+}
+
+.dusty-brow-1.lower {
+    animation: dustyBrowLower1 0.32s ease-in-out 1;
+}
+
+.dusty-brow-2.lower {
+    animation: dustyBrowLower2 0.32s ease-in-out 1;
 }
 
 .controls {
@@ -332,9 +373,26 @@ body {
     cursor: wait;
 }
 
-/* =========================
-   RESPONSIVE
-   ========================= */
+@keyframes dustyHandWag {
+    0%   { transform: rotate(0deg); }
+    20%  { transform: rotate(5deg); }
+    40%  { transform: rotate(0deg); }
+    65%  { transform: rotate(-3deg); }
+    82%  { transform: rotate(2deg); }
+    100% { transform: rotate(0deg); }
+}
+
+@keyframes dustyBrowLower1 {
+    0%   { transform: translateY(0) rotate(0deg); }
+    50%  { transform: translateY(4px) rotate(2deg); }
+    100% { transform: translateY(0) rotate(0deg); }
+}
+
+@keyframes dustyBrowLower2 {
+    0%   { transform: translateY(0) rotate(0deg); }
+    50%  { transform: translateY(4px) rotate(-2deg); }
+    100% { transform: translateY(0) rotate(0deg); }
+}
 
 @media (max-width: 1024px) {
     .nm-header-inner {
@@ -379,7 +437,7 @@ body {
         padding: 20px 20px;
     }
 
-    .traveler-img {
+    .dusty-mount {
         width: min(74vw, 500px);
     }
 }
@@ -482,7 +540,7 @@ body {
         bottom: 8px;
     }
 
-    .traveler-img {
+    .dusty-mount {
         width: min(78vw, 320px);
     }
 
@@ -511,7 +569,7 @@ body {
         font-size: 15px;
     }
 
-    .traveler-img {
+    .dusty-mount {
         width: min(82vw, 280px);
     }
 
@@ -527,8 +585,10 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .traveler-img,
-    .traveler-img.speaking,
+    .dusty-widget,
+    .dusty-base,
+    .dusty-full,
+    .dusty-part,
     .did-you-know-btn {
         animation: none !important;
         transition: none !important;
@@ -538,7 +598,6 @@ body {
 </head>
 
 <body>
-
 <header class="nm-header">
     <div class="nm-header-inner">
         <div class="nm-brand">
@@ -578,19 +637,12 @@ body {
         </p>
 
         <div id="speechBubble" class="speech-bubble" aria-live="polite">
-            Did You Know?
+            Press the button and Dusty will share an obsidian fact.
         </div>
 
         <div class="traveler-stage">
             <div class="traveler-glow" aria-hidden="true"></div>
-
-            <img
-                src="assets/images/wise-old-traveler.png"
-                alt="Wise Old Traveler"
-                class="traveler-img"
-                id="travelerImage"
-            >
-
+            <div id="dustyMount" class="dusty-mount"></div>
             <div class="traveler-shadow" aria-hidden="true"></div>
         </div>
 
@@ -605,16 +657,16 @@ body {
 <script>
 const facts = [
     "Obsidian forms when lava cools so fast that crystals don’t have time to grow. That means you’re looking at natural volcanic glass, frozen mid-eruption.",
-    "Obsidian fractures with a “conchoidal” (shell-shaped) break, creating razor-sharp edges. Modern surgeons have tested obsidian scalpels —some edges are sharper than steel on a microscopic level.",
-    "Valles Caldera obsidian was once a prehistoric super-commodity. Artifacts made from this exact volcanic glass have been found: across the Great Plains, in the Mississippi Valley, and as far as Canada.",
-    "Scientists can “fingerprint” obsidian chemically. A tiny sample can be traced back to: a specific eruption zone, on a specific lava dome, within the Jemez Mountains. That’s how archeologists map ancient trade networks",
-    "Indigenous knappers shaped obsidian into: arrowheads, spear points, ritual blades, mirrors, and even ceremonial ear spools. To them, it wasn’t just sharp—it was sacred black glass.",
-    "Valles Caldera has multiple obsidian-bearing domes. Cerro del Medio is the most famous source, erupting repeatedly and resurfacing obsidian deposits over 1.2 million years. Each eruption creates a new “layer” of black glass.",
-    "Obsidian is fragile under stress. Drop it, and it shatters like a windshield. That’s why ancient knappers carried wrapped bundles in hides.",
-    "Obsidian absorbs heat like crazy. Leave a piece in the sun—you’ll feel the difference instantly.",
-    "You’re not allowed to collect obsidian inside the National Preserve. Good news: rock shops in Santa Fe sell legal local pieces.",
-    "Some archaeologists think obsidian glints helped ancient travelers navigate. A shimmer on the hillside? Well, now. That’s a potential toolmaking site.",
-    "Obsidian edges can cut deep. Think “instant ER trip” sharp. Eyes up! Hands off! Don’t kick shards…"
+    "Obsidian fractures with a conchoidal, shell-shaped break, creating razor-sharp edges. Modern surgeons have tested obsidian scalpels, and some edges are sharper than steel under a microscope.",
+    "Valles Caldera obsidian was once a prehistoric super-commodity. Artifacts made from this exact volcanic glass have been found across the Great Plains, in the Mississippi Valley, and as far as Canada.",
+    "Scientists can fingerprint obsidian chemically. A tiny sample can be traced back to a specific eruption zone on a specific lava dome within the Jemez Mountains.",
+    "Indigenous knappers shaped obsidian into arrowheads, spear points, ritual blades, mirrors, and ceremonial objects. It was not only useful. It was sacred.",
+    "Valles Caldera has multiple obsidian-bearing domes. Cerro del Medio is the most famous source, erupting repeatedly and resurfacing black glass deposits over about 1.2 million years.",
+    "Obsidian is fragile under stress. Drop it, and it can shatter like glass. That is why ancient toolmakers often carried pieces wrapped in hides.",
+    "Obsidian absorbs heat quickly. Leave a piece in the sun and you can feel the temperature rise fast.",
+    "You are not allowed to collect obsidian inside the National Preserve. Legal local pieces are sold through approved rock shops.",
+    "Some archaeologists think obsidian glints may have helped ancient travelers notice toolmaking areas from a distance.",
+    "Obsidian edges can cut extremely deep. Even small shards can be dangerous."
 ];
 
 const audioFiles = Array.from(
@@ -622,14 +674,175 @@ const audioFiles = Array.from(
     (_, index) => `assets/audio/obsidian${index + 1}.mp3`
 );
 
-const button = document.getElementById("didYouKnowBtn");
+const dustyPlacement = {
+    hand: { width: 270, height: 285, top: 310, left: 270 },
+    brow1: { width: 148, height: 84, top: 315, left: 730 },
+    brow2: { width: 166, height: 99, top: 340, left: 905 }
+};
+
 const speechBubble = document.getElementById("speechBubble");
-const travelerImage = document.getElementById("travelerImage");
+const button = document.getElementById("didYouKnowBtn");
+const dustyMount = document.getElementById("dustyMount");
 
 let currentAudio = null;
 let lastPlayedIndex = -1;
+let mouthTimer = null;
+let blinkTimer = null;
 
-function getRandomAudioIndex() {
+function createDustyMarkup() {
+    dustyMount.innerHTML = `
+        <div class="dusty-widget" id="dustyWidget">
+            <img
+                id="dustyBase"
+                class="dusty-base"
+                src="assets/images/dusty_base.png"
+                alt="Dusty"
+            >
+            <img
+                id="dustyEyes"
+                class="dusty-full dusty-eyes"
+                src="assets/images/dusty_eyes_closed.png"
+                alt=""
+            >
+            <img
+                id="dustyMouth"
+                class="dusty-full dusty-mouth"
+                src="assets/images/dusty_mouth_closed.png"
+                alt=""
+            >
+            <img
+                id="dustyHand"
+                class="dusty-part dusty-hand"
+                src="assets/images/dusty_hand.png"
+                alt=""
+            >
+            <img
+                id="dustyBrow1"
+                class="dusty-part dusty-brow-1"
+                src="assets/images/dusty_brow_1.png"
+                alt=""
+            >
+            <img
+                id="dustyBrow2"
+                class="dusty-part dusty-brow-2"
+                src="assets/images/dusty_brow_2.png"
+                alt=""
+            >
+        </div>
+    `;
+}
+
+function waitForImage(img) {
+    return new Promise((resolve, reject) => {
+        if (img.complete && img.naturalWidth > 0) {
+            resolve();
+            return;
+        }
+
+        img.addEventListener("load", () => resolve(), { once: true });
+        img.addEventListener("error", () => reject(new Error(`Failed to load ${img.src}`)), { once: true });
+    });
+}
+
+function placePart(element, part, baseWidth, baseHeight) {
+    element.style.width = `${(part.width / baseWidth) * 100}%`;
+    element.style.left = `${(part.left / baseWidth) * 100}%`;
+    element.style.top = `${(part.top / baseHeight) * 100}%`;
+}
+
+function positionDustyParts() {
+    const dustyBase = document.getElementById("dustyBase");
+    const dustyHand = document.getElementById("dustyHand");
+    const dustyBrow1 = document.getElementById("dustyBrow1");
+    const dustyBrow2 = document.getElementById("dustyBrow2");
+
+    if (!dustyBase || !dustyBase.naturalWidth || !dustyBase.naturalHeight) {
+        return;
+    }
+
+    const baseWidth = dustyBase.naturalWidth;
+    const baseHeight = dustyBase.naturalHeight;
+
+    placePart(dustyHand, dustyPlacement.hand, baseWidth, baseHeight);
+    placePart(dustyBrow1, dustyPlacement.brow1, baseWidth, baseHeight);
+    placePart(dustyBrow2, dustyPlacement.brow2, baseWidth, baseHeight);
+}
+
+function blinkOnce(duration = 150) {
+    const dustyEyes = document.getElementById("dustyEyes");
+    if (!dustyEyes) {
+        return;
+    }
+
+    dustyEyes.style.opacity = "1";
+
+    window.setTimeout(() => {
+        dustyEyes.style.opacity = "0";
+    }, duration);
+}
+
+function scheduleBlinkLoop() {
+    window.clearTimeout(blinkTimer);
+
+    const queueBlink = () => {
+        const delay = 2600 + Math.random() * 2600;
+
+        blinkTimer = window.setTimeout(() => {
+            blinkOnce();
+            queueBlink();
+        }, delay);
+    };
+
+    queueBlink();
+}
+
+function lowerBrows() {
+    const dustyBrow1 = document.getElementById("dustyBrow1");
+    const dustyBrow2 = document.getElementById("dustyBrow2");
+
+    dustyBrow1.classList.remove("lower");
+    dustyBrow2.classList.remove("lower");
+
+    void dustyBrow1.offsetWidth;
+    void dustyBrow2.offsetWidth;
+
+    dustyBrow1.classList.add("lower");
+    dustyBrow2.classList.add("lower");
+}
+
+function startTalking() {
+    const dustyWidget = document.getElementById("dustyWidget");
+    const dustyMouth = document.getElementById("dustyMouth");
+
+    stopTalking();
+    dustyWidget.classList.add("is-speaking");
+
+    mouthTimer = window.setInterval(() => {
+        dustyMouth.style.opacity = dustyMouth.style.opacity === "1" ? "0" : "1";
+    }, 170);
+}
+
+function stopTalking() {
+    const dustyWidget = document.getElementById("dustyWidget");
+    const dustyMouth = document.getElementById("dustyMouth");
+
+    if (mouthTimer) {
+        window.clearInterval(mouthTimer);
+        mouthTimer = null;
+    }
+
+    if (dustyWidget) {
+        dustyWidget.classList.remove("is-speaking");
+    }
+
+    if (dustyMouth) {
+        dustyMouth.style.opacity = "1";
+    }
+
+    button.disabled = false;
+}
+
+function getRandomIndex() {
     if (audioFiles.length === 1) {
         return 0;
     }
@@ -643,59 +856,94 @@ function getRandomAudioIndex() {
     return nextIndex;
 }
 
-function setSpeakingState(isSpeaking, message) {
-    travelerImage.classList.toggle("speaking", isSpeaking);
-    speechBubble.textContent = message;
-    button.disabled = isSpeaking;
-}
-
 function stopCurrentAudio() {
     if (!currentAudio) {
+        stopTalking();
         return;
     }
 
     currentAudio.pause();
     currentAudio.currentTime = 0;
     currentAudio = null;
+    stopTalking();
 }
 
-function playRandomDidYouKnow() {
+function playRandomFact() {
     stopCurrentAudio();
 
-    const selectedIndex = getRandomAudioIndex();
+    const selectedIndex = getRandomIndex();
     const selectedFile = audioFiles[selectedIndex];
-    const selectedFact = facts[selectedIndex] || "Did you know...";
+    const selectedFact = facts[selectedIndex] || "Did you know?";
     const audio = new Audio(selectedFile);
 
     currentAudio = audio;
     lastPlayedIndex = selectedIndex;
+    speechBubble.textContent = selectedFact;
+    button.disabled = true;
 
-    setSpeakingState(true, selectedFact);
+    audio.addEventListener("play", () => {
+        startTalking();
+        lowerBrows();
+    });
 
     audio.addEventListener("ended", () => {
-        setSpeakingState(false, "Press the button and I’ll share another obsidian fact.");
+        stopTalking();
+        speechBubble.textContent = "Press the button and Dusty will share another obsidian fact.";
         currentAudio = null;
     });
 
+    audio.addEventListener("pause", () => {
+        if (currentAudio === audio) {
+            stopTalking();
+        }
+    });
+
     audio.addEventListener("error", () => {
-        setSpeakingState(
-            false,
-            `I couldn't play ${selectedFile}. Check that the MP3 files are in assets/audio/.`
-        );
+        stopTalking();
+        speechBubble.textContent = `I couldn't play ${selectedFile}. Check assets/audio/.`;
         currentAudio = null;
     });
 
     audio.play().catch(() => {
-        setSpeakingState(
-            false,
-            `Playback was blocked or ${selectedFile} could not be loaded.`
-        );
+        stopTalking();
+        speechBubble.textContent = `Playback failed for ${selectedFile}.`;
         currentAudio = null;
     });
 }
 
-button.addEventListener("click", playRandomDidYouKnow);
-</script>
+async function initDusty() {
+    createDustyMarkup();
 
+    const dustyWidget = document.getElementById("dustyWidget");
+    const dustyBase = document.getElementById("dustyBase");
+    const dustyEyes = document.getElementById("dustyEyes");
+    const dustyMouth = document.getElementById("dustyMouth");
+    const dustyHand = document.getElementById("dustyHand");
+    const dustyBrow1 = document.getElementById("dustyBrow1");
+    const dustyBrow2 = document.getElementById("dustyBrow2");
+
+    await Promise.all([
+        waitForImage(dustyBase),
+        waitForImage(dustyEyes),
+        waitForImage(dustyMouth),
+        waitForImage(dustyHand),
+        waitForImage(dustyBrow1),
+        waitForImage(dustyBrow2)
+    ]);
+
+    positionDustyParts();
+    dustyMouth.style.opacity = "1";
+    dustyWidget.classList.add("is-ready");
+
+    window.addEventListener("resize", positionDustyParts);
+    button.addEventListener("click", playRandomFact);
+
+    scheduleBlinkLoop();
+}
+
+initDusty().catch((error) => {
+    speechBubble.textContent = `Dusty could not load: ${error.message}`;
+});
+</script>
 </body>
 </html>
