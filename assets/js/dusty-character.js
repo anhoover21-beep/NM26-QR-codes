@@ -1,14 +1,17 @@
 class DustyCharacter {
-    constructor(options) {
+    constructor(options = {}) {
         this.container = this.resolveElement(options.container);
         this.speechBubble = this.resolveElement(options.speechBubble);
         this.button = this.resolveElement(options.button);
+
         this.facts = Array.isArray(options.facts) ? options.facts : [];
         this.audioFiles = Array.isArray(options.audioFiles) ? options.audioFiles : [];
         this.images = options.images || {};
         this.placement = options.placement || {};
+
         this.idleMessage =
             options.idleMessage || "Press the button and Dusty will share another fact.";
+        this.baseAlt = options.baseAlt || "Dusty";
 
         this.currentAudio = null;
         this.lastPlayedIndex = -1;
@@ -23,9 +26,6 @@ class DustyCharacter {
         this.sourceNode = null;
         this.dataArray = null;
 
-        this.handleResize = this.positionParts.bind(this);
-        this.handleButtonClick = this.playRandomFact.bind(this);
-
         this.widget = null;
         this.base = null;
         this.eyes = null;
@@ -36,6 +36,42 @@ class DustyCharacter {
 
         this.isInitialized = false;
         this.isDestroyed = false;
+
+        this.handleResize = this.positionParts.bind(this);
+        this.handleButtonClick = this.playRandomFact.bind(this);
+
+        this.motionQuery =
+            typeof window !== "undefined" && "matchMedia" in window
+                ? window.matchMedia("(prefers-reduced-motion: reduce)")
+                : null;
+
+        this.reduceMotion = this.motionQuery ? this.motionQuery.matches : false;
+
+        this.handleMotionChange = (event) => {
+            this.reduceMotion = event.matches;
+
+            if (this.reduceMotion) {
+                window.clearTimeout(this.blinkTimer);
+                window.clearTimeout(this.browTimer);
+                this.blinkTimer = null;
+                this.browTimer = null;
+
+                if (this.eyes) {
+                    this.eyes.style.opacity = "0";
+                }
+
+                if (this.mouth) {
+                    this.mouth.style.opacity = "1";
+                }
+            } else if (this.isInitialized && !this.isDestroyed) {
+                this.scheduleBlinkLoop();
+                this.scheduleBrowLoop();
+
+                if (this.currentAudio && !this.currentAudio.paused) {
+                    this.startTalking();
+                }
+            }
+        };
     }
 
     resolveElement(target) {
@@ -79,14 +115,16 @@ class DustyCharacter {
     }
 
     buildMarkup() {
+        this.container.classList.add("dusty-mount");
+
         this.container.innerHTML = `
-            <div class="dusty-widget">
-                <img class="dusty-base" data-part="base" src="${this.images.base}" alt="Dusty">
-                <img class="dusty-full dusty-eyes" data-part="eyes" src="${this.images.eyesClosed}" alt="">
-                <img class="dusty-full dusty-mouth" data-part="mouth" src="${this.images.mouthClosed}" alt="">
-                <img class="dusty-part dusty-hand" data-part="hand" src="${this.images.hand}" alt="">
-                <img class="dusty-part dusty-brow-1" data-part="brow1" src="${this.images.brow1}" alt="">
-                <img class="dusty-part dusty-brow-2" data-part="brow2" src="${this.images.brow2}" alt="">
+            <div class="dusty-widget" aria-live="polite">
+                <img class="dusty-base" data-part="base" src="${this.images.base}" alt="${this.escapeAttribute(this.baseAlt)}">
+                <img class="dusty-full dusty-eyes" data-part="eyes" src="${this.images.eyesClosed}" alt="" aria-hidden="true">
+                <img class="dusty-full dusty-mouth" data-part="mouth" src="${this.images.mouthClosed}" alt="" aria-hidden="true">
+                <img class="dusty-part dusty-hand" data-part="hand" src="${this.images.hand}" alt="" aria-hidden="true">
+                <img class="dusty-part dusty-brow-1" data-part="brow1" src="${this.images.brow1}" alt="" aria-hidden="true">
+                <img class="dusty-part dusty-brow-2" data-part="brow2" src="${this.images.brow2}" alt="" aria-hidden="true">
             </div>
         `;
 
@@ -99,17 +137,28 @@ class DustyCharacter {
         this.brow2 = this.container.querySelector('[data-part="brow2"]');
     }
 
+    escapeAttribute(value) {
+        return String(value).replace(/"/g, "&quot;");
+    }
+
     waitForImage(img) {
         return new Promise((resolve, reject) => {
+            if (!img) {
+                reject(new Error("Image element is missing."));
+                return;
+            }
+
             if (img.complete && img.naturalWidth > 0) {
                 resolve();
                 return;
             }
 
             img.addEventListener("load", () => resolve(), { once: true });
-            img.addEventListener("error", () => reject(new Error(`Failed to load ${img.src}`)), {
-                once: true
-            });
+            img.addEventListener(
+                "error",
+                () => reject(new Error(`Failed to load ${img.src}`)),
+                { once: true }
+            );
         });
     }
 
@@ -125,7 +174,7 @@ class DustyCharacter {
     }
 
     placePart(element, part, baseWidth, baseHeight) {
-        if (!element || !part) {
+        if (!element || !part || !baseWidth || !baseHeight) {
             return;
         }
 
@@ -147,8 +196,14 @@ class DustyCharacter {
         this.placePart(this.brow2, this.placement.brow2, baseWidth, baseHeight);
     }
 
+    delay(ms) {
+        return new Promise((resolve) => {
+            window.setTimeout(resolve, ms);
+        });
+    }
+
     blinkOnce(duration = 120) {
-        if (!this.eyes) {
+        if (this.reduceMotion || !this.eyes) {
             return Promise.resolve();
         }
 
@@ -165,6 +220,10 @@ class DustyCharacter {
     }
 
     async blinkCluster() {
+        if (this.reduceMotion) {
+            return;
+        }
+
         const roll = Math.random();
 
         if (roll < 0.72) {
@@ -187,13 +246,17 @@ class DustyCharacter {
     }
 
     scheduleBlinkLoop() {
+        if (this.reduceMotion) {
+            return;
+        }
+
         window.clearTimeout(this.blinkTimer);
 
         const queueBlink = () => {
             const delay = 2200 + Math.random() * 3200;
 
             this.blinkTimer = window.setTimeout(async () => {
-                if (this.isDestroyed) {
+                if (this.isDestroyed || this.reduceMotion) {
                     return;
                 }
 
@@ -206,7 +269,7 @@ class DustyCharacter {
     }
 
     lowerBrows() {
-        if (!this.brow1 || !this.brow2) {
+        if (this.reduceMotion || !this.brow1 || !this.brow2) {
             return;
         }
 
@@ -221,6 +284,10 @@ class DustyCharacter {
     }
 
     async browDropBurst() {
+        if (this.reduceMotion) {
+            return;
+        }
+
         const roll = Math.random();
 
         this.lowerBrows();
@@ -232,17 +299,21 @@ class DustyCharacter {
     }
 
     scheduleBrowLoop() {
+        if (this.reduceMotion) {
+            return;
+        }
+
         window.clearTimeout(this.browTimer);
 
         const queueDrop = () => {
             const delay = 2400 + Math.random() * 3600;
 
             this.browTimer = window.setTimeout(async () => {
-                if (this.isDestroyed) {
+                if (this.isDestroyed || this.reduceMotion) {
                     return;
                 }
 
-                const isSpeaking = this.currentAudio && !this.currentAudio.paused;
+                const isSpeaking = Boolean(this.currentAudio && !this.currentAudio.paused);
 
                 if (!isSpeaking && Math.random() > 0.2) {
                     await this.browDropBurst();
@@ -255,15 +326,10 @@ class DustyCharacter {
         queueDrop();
     }
 
-    delay(ms) {
-        return new Promise((resolve) => {
-            window.setTimeout(resolve, ms);
-        });
-    }
-
     ensureAudioContext() {
         if (!this.audioContext) {
             const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+
             if (!AudioContextClass) {
                 return false;
             }
@@ -291,25 +357,30 @@ class DustyCharacter {
 
         this.cleanupAudioNodes();
 
-        this.analyser = this.audioContext.createAnalyser();
-        this.analyser.fftSize = 256;
-        this.analyser.smoothingTimeConstant = 0.82;
+        try {
+            this.analyser = this.audioContext.createAnalyser();
+            this.analyser.fftSize = 256;
+            this.analyser.smoothingTimeConstant = 0.82;
 
-        this.dataArray = new Uint8Array(this.analyser.frequencyBinCount);
-        this.sourceNode = this.audioContext.createMediaElementSource(audio);
+            this.dataArray = new Uint8Array(this.analyser.frequencyBinCount);
+            this.sourceNode = this.audioContext.createMediaElementSource(audio);
 
-        this.sourceNode.connect(this.analyser);
-        this.analyser.connect(this.audioContext.destination);
+            this.sourceNode.connect(this.analyser);
+            this.analyser.connect(this.audioContext.destination);
 
-        return true;
+            return true;
+        } catch {
+            this.cleanupAudioNodes();
+            return false;
+        }
     }
 
     cleanupAudioNodes() {
         if (this.sourceNode) {
             try {
                 this.sourceNode.disconnect();
-            } catch (error) {
-                console.debug("Dusty sourceNode disconnect failed:", error);
+            } catch {
+                // Ignore cleanup disconnect errors.
             }
             this.sourceNode = null;
         }
@@ -317,8 +388,8 @@ class DustyCharacter {
         if (this.analyser) {
             try {
                 this.analyser.disconnect();
-            } catch (error) {
-                console.debug("Dusty analyser disconnect failed:", error);
+            } catch {
+                // Ignore cleanup disconnect errors.
             }
             this.analyser = null;
         }
@@ -342,7 +413,7 @@ class DustyCharacter {
     }
 
     startFallbackMouth() {
-        if (!this.mouth) {
+        if (this.reduceMotion || !this.mouth) {
             return;
         }
 
@@ -354,7 +425,7 @@ class DustyCharacter {
     }
 
     startAudioReactiveMouth() {
-        if (!this.mouth) {
+        if (this.reduceMotion || !this.mouth) {
             return;
         }
 
@@ -365,9 +436,9 @@ class DustyCharacter {
         let lastToggleTime = 0;
 
         const tick = (now) => {
-            const isSpeaking = this.currentAudio && !this.currentAudio.paused;
+            const isSpeaking = Boolean(this.currentAudio && !this.currentAudio.paused);
 
-            if (!isSpeaking) {
+            if (!isSpeaking || this.reduceMotion) {
                 this.mouth.style.opacity = "1";
                 this.mouthFrame = null;
                 return;
@@ -427,6 +498,14 @@ class DustyCharacter {
             this.widget.classList.add("is-speaking");
         }
 
+        if (this.mouth) {
+            this.mouth.style.opacity = "1";
+        }
+
+        if (this.reduceMotion) {
+            return;
+        }
+
         if (this.analyser) {
             this.startAudioReactiveMouth();
             return;
@@ -474,8 +553,8 @@ class DustyCharacter {
         this.currentAudio = null;
 
         if (!audio) {
-            this.stopTalking();
             this.cleanupAudioNodes();
+            this.stopTalking();
             return;
         }
 
@@ -487,9 +566,14 @@ class DustyCharacter {
     }
 
     async playRandomFact() {
+        if (this.isDestroyed) {
+            return;
+        }
+
         this.stopCurrentAudio();
 
         const index = this.getRandomIndex();
+
         if (index < 0) {
             this.speechBubble.textContent = "No facts are configured.";
             return;
@@ -506,12 +590,11 @@ class DustyCharacter {
         this.speechBubble.textContent = fact;
         this.button.disabled = true;
 
+        const hasAnalysis = this.connectAudioAnalysis(audio);
         await this.resumeAudioContext();
 
-        const hasAnalysis = this.connectAudioAnalysis(audio);
-
         audio.addEventListener("play", () => {
-            if (this.currentAudio !== audio) {
+            if (this.currentAudio !== audio || this.isDestroyed) {
                 return;
             }
 
@@ -524,8 +607,8 @@ class DustyCharacter {
                 return;
             }
 
-            this.stopTalking();
             this.cleanupAudioNodes();
+            this.stopTalking();
             this.speechBubble.textContent = this.idleMessage;
             this.currentAudio = null;
         });
@@ -543,25 +626,52 @@ class DustyCharacter {
                 return;
             }
 
-            this.stopTalking();
             this.cleanupAudioNodes();
+            this.stopTalking();
             this.speechBubble.textContent = `I couldn't play ${file}. Check assets/audio/.`;
             this.currentAudio = null;
         });
 
         try {
             await audio.play();
-        } catch (error) {
+        } catch {
             if (this.currentAudio === audio) {
-                this.stopTalking();
                 this.cleanupAudioNodes();
+                this.stopTalking();
                 this.speechBubble.textContent = `Playback failed for ${file}.`;
                 this.currentAudio = null;
             }
+            return;
         }
 
-        if (!hasAnalysis && this.currentAudio === audio && !audio.paused) {
+        if (!hasAnalysis && this.currentAudio === audio && !audio.paused && !this.reduceMotion) {
             this.startFallbackMouth();
+        }
+    }
+
+    bindEvents() {
+        window.addEventListener("resize", this.handleResize);
+        this.button.addEventListener("click", this.handleButtonClick);
+
+        if (this.motionQuery) {
+            if ("addEventListener" in this.motionQuery) {
+                this.motionQuery.addEventListener("change", this.handleMotionChange);
+            } else if ("addListener" in this.motionQuery) {
+                this.motionQuery.addListener(this.handleMotionChange);
+            }
+        }
+    }
+
+    unbindEvents() {
+        window.removeEventListener("resize", this.handleResize);
+        this.button?.removeEventListener("click", this.handleButtonClick);
+
+        if (this.motionQuery) {
+            if ("removeEventListener" in this.motionQuery) {
+                this.motionQuery.removeEventListener("change", this.handleMotionChange);
+            } else if ("removeListener" in this.motionQuery) {
+                this.motionQuery.removeListener(this.handleMotionChange);
+            }
         }
     }
 
@@ -575,19 +685,36 @@ class DustyCharacter {
         await this.preload();
         this.positionParts();
 
-        this.mouth.style.opacity = "1";
+        if (this.speechBubble && !this.speechBubble.textContent.trim()) {
+            this.speechBubble.textContent = this.idleMessage;
+        }
+
+        if (this.mouth) {
+            this.mouth.style.opacity = "1";
+        }
+
+        if (this.eyes) {
+            this.eyes.style.opacity = "0";
+        }
+
         this.widget.classList.add("is-ready");
 
-        window.addEventListener("resize", this.handleResize);
-        this.button.addEventListener("click", this.handleButtonClick);
+        this.bindEvents();
 
-        this.scheduleBlinkLoop();
-        this.scheduleBrowLoop();
+        if (!this.reduceMotion) {
+            this.scheduleBlinkLoop();
+            this.scheduleBrowLoop();
+        }
 
         this.isInitialized = true;
+        this.isDestroyed = false;
     }
 
     destroy() {
+        if (!this.isInitialized) {
+            return;
+        }
+
         this.isDestroyed = true;
 
         window.clearTimeout(this.blinkTimer);
@@ -599,13 +726,23 @@ class DustyCharacter {
         this.stopCurrentAudio();
         this.stopMouthSync();
         this.cleanupAudioNodes();
+        this.unbindEvents();
 
-        window.removeEventListener("resize", this.handleResize);
+        if (this.widget) {
+            this.widget.classList.remove("is-speaking", "is-ready");
+        }
 
-        if (this.button) {
-            this.button.removeEventListener("click", this.handleButtonClick);
+        if (this.eyes) {
+            this.eyes.style.opacity = "0";
+        }
+
+        if (this.mouth) {
+            this.mouth.style.opacity = "1";
         }
 
         this.isInitialized = false;
     }
 }
+
+// Optional global export for non-module usage.
+window.DustyCharacter = DustyCharacter;
