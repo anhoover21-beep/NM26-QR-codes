@@ -17,12 +17,17 @@
     opacity: 1;
 }
 
-.dusty-base {
+.dusty-base,
+.dusty-full,
+.dusty-part {
     display: block;
-    width: 100%;
-    height: auto;
     user-select: none;
     -webkit-user-drag: none;
+}
+
+.dusty-base {
+    width: 100%;
+    height: auto;
     filter: drop-shadow(0 16px 26px rgba(0, 0, 0, 0.16));
 }
 
@@ -30,8 +35,6 @@
 .dusty-part {
     position: absolute;
     pointer-events: none;
-    user-select: none;
-    -webkit-user-drag: none;
 }
 
 .dusty-full {
@@ -54,45 +57,71 @@
 .dusty-hand {
     z-index: 2;
     transform-origin: 50% 92%;
+    will-change: transform;
 }
 
 .dusty-widget.is-speaking .dusty-hand {
-    animation: dustyHandWag 1.05s ease-in-out infinite;
+    animation: dusty-hand-wag 1.05s ease-in-out infinite;
 }
 
 .dusty-brow-1,
 .dusty-brow-2 {
     z-index: 4;
     transform-origin: 50% 50%;
+    will-change: transform;
 }
 
 .dusty-brow-1.lower {
-    animation: dustyBrowLower1 0.32s ease-in-out 1;
+    animation: dusty-brow-lower-1 0.32s ease-in-out 1;
 }
 
 .dusty-brow-2.lower {
-    animation: dustyBrowLower2 0.32s ease-in-out 1;
+    animation: dusty-brow-lower-2 0.32s ease-in-out 1;
 }
 
-@keyframes dustyHandWag {
-    0%   { transform: rotate(0deg); }
-    20%  { transform: rotate(5deg); }
-    40%  { transform: rotate(0deg); }
-    65%  { transform: rotate(-3deg); }
-    82%  { transform: rotate(2deg); }
-    100% { transform: rotate(0deg); }
+@keyframes dusty-hand-wag {
+    0% {
+        transform: rotate(0deg);
+    }
+    20% {
+        transform: rotate(5deg);
+    }
+    40% {
+        transform: rotate(0deg);
+    }
+    65% {
+        transform: rotate(-3deg);
+    }
+    82% {
+        transform: rotate(2deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
 }
 
-@keyframes dustyBrowLower1 {
-    0%   { transform: translateY(0) rotate(0deg); }
-    50%  { transform: translateY(4px) rotate(2deg); }
-    100% { transform: translateY(0) rotate(0deg); }
+@keyframes dusty-brow-lower-1 {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(4px) rotate(2deg);
+    }
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
 }
 
-@keyframes dustyBrowLower2 {
-    0%   { transform: translateY(0) rotate(0deg); }
-    50%  { transform: translateY(4px) rotate(-2deg); }
-    100% { transform: translateY(0) rotate(0deg); }
+@keyframes dusty-brow-lower-2 {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(4px) rotate(-2deg);
+    }
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
 }
 
 @media (max-width: 1024px) {
