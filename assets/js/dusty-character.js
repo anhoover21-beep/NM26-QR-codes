@@ -7,7 +7,8 @@ class DustyCharacter {
         this.audioFiles = Array.isArray(options.audioFiles) ? options.audioFiles : [];
         this.images = options.images || {};
         this.placement = options.placement || {};
-        this.idleMessage = options.idleMessage || "Press the button and Dusty will share another fact.";
+        this.idleMessage =
+            options.idleMessage || "Press the button and Dusty will share another fact.";
 
         this.currentAudio = null;
         this.lastPlayedIndex = -1;
@@ -23,6 +24,7 @@ class DustyCharacter {
         this.dataArray = null;
 
         this.handleResize = this.positionParts.bind(this);
+        this.handleButtonClick = this.playRandomFact.bind(this);
 
         this.widget = null;
         this.base = null;
@@ -31,6 +33,9 @@ class DustyCharacter {
         this.hand = null;
         this.brow1 = null;
         this.brow2 = null;
+
+        this.isInitialized = false;
+        this.isDestroyed = false;
     }
 
     resolveElement(target) {
@@ -102,7 +107,9 @@ class DustyCharacter {
             }
 
             img.addEventListener("load", () => resolve(), { once: true });
-            img.addEventListener("error", () => reject(new Error(`Failed to load ${img.src}`)), { once: true });
+            img.addEventListener("error", () => reject(new Error(`Failed to load ${img.src}`)), {
+                once: true
+            });
         });
     }
 
@@ -118,6 +125,10 @@ class DustyCharacter {
     }
 
     placePart(element, part, baseWidth, baseHeight) {
+        if (!element || !part) {
+            return;
+        }
+
         element.style.width = `${(part.width / baseWidth) * 100}%`;
         element.style.left = `${(part.left / baseWidth) * 100}%`;
         element.style.top = `${(part.top / baseHeight) * 100}%`;
@@ -182,6 +193,10 @@ class DustyCharacter {
             const delay = 2200 + Math.random() * 3200;
 
             this.blinkTimer = window.setTimeout(async () => {
+                if (this.isDestroyed) {
+                    return;
+                }
+
                 await this.blinkCluster();
                 queueBlink();
             }, delay);
@@ -191,6 +206,10 @@ class DustyCharacter {
     }
 
     lowerBrows() {
+        if (!this.brow1 || !this.brow2) {
+            return;
+        }
+
         this.brow1.classList.remove("lower");
         this.brow2.classList.remove("lower");
 
@@ -219,6 +238,10 @@ class DustyCharacter {
             const delay = 2400 + Math.random() * 3600;
 
             this.browTimer = window.setTimeout(async () => {
+                if (this.isDestroyed) {
+                    return;
+                }
+
                 const isSpeaking = this.currentAudio && !this.currentAudio.paused;
 
                 if (!isSpeaking && Math.random() > 0.2) {
@@ -286,6 +309,7 @@ class DustyCharacter {
             try {
                 this.sourceNode.disconnect();
             } catch (error) {
+                console.debug("Dusty sourceNode disconnect failed:", error);
             }
             this.sourceNode = null;
         }
@@ -294,6 +318,7 @@ class DustyCharacter {
             try {
                 this.analyser.disconnect();
             } catch (error) {
+                console.debug("Dusty analyser disconnect failed:", error);
             }
             this.analyser = null;
         }
@@ -317,6 +342,10 @@ class DustyCharacter {
     }
 
     startFallbackMouth() {
+        if (!this.mouth) {
+            return;
+        }
+
         this.stopMouthSync();
 
         this.mouthTimer = window.setInterval(() => {
@@ -325,6 +354,10 @@ class DustyCharacter {
     }
 
     startAudioReactiveMouth() {
+        if (!this.mouth) {
+            return;
+        }
+
         this.stopMouthSync();
 
         let smoothed = 0;
@@ -388,8 +421,11 @@ class DustyCharacter {
     }
 
     startTalking() {
-        this.stopTalking();
-        this.widget.classList.add("is-speaking");
+        this.stopMouthSync();
+
+        if (this.widget) {
+            this.widget.classList.add("is-speaking");
+        }
 
         if (this.analyser) {
             this.startAudioReactiveMouth();
@@ -434,14 +470,18 @@ class DustyCharacter {
     }
 
     stopCurrentAudio() {
-        if (!this.currentAudio) {
+        const audio = this.currentAudio;
+        this.currentAudio = null;
+
+        if (!audio) {
             this.stopTalking();
+            this.cleanupAudioNodes();
             return;
         }
 
-        this.currentAudio.pause();
-        this.currentAudio.currentTime = 0;
-        this.currentAudio = null;
+        audio.pause();
+        audio.currentTime = 0;
+
         this.cleanupAudioNodes();
         this.stopTalking();
     }
@@ -471,11 +511,19 @@ class DustyCharacter {
         const hasAnalysis = this.connectAudioAnalysis(audio);
 
         audio.addEventListener("play", () => {
+            if (this.currentAudio !== audio) {
+                return;
+            }
+
             this.startTalking();
             this.lowerBrows();
         });
 
         audio.addEventListener("ended", () => {
+            if (this.currentAudio !== audio) {
+                return;
+            }
+
             this.stopTalking();
             this.cleanupAudioNodes();
             this.speechBubble.textContent = this.idleMessage;
@@ -483,31 +531,45 @@ class DustyCharacter {
         });
 
         audio.addEventListener("pause", () => {
-            if (this.currentAudio === audio) {
-                this.stopTalking();
+            if (this.currentAudio !== audio) {
+                return;
             }
+
+            this.stopTalking();
         });
 
         audio.addEventListener("error", () => {
+            if (this.currentAudio !== audio) {
+                return;
+            }
+
             this.stopTalking();
             this.cleanupAudioNodes();
             this.speechBubble.textContent = `I couldn't play ${file}. Check assets/audio/.`;
             this.currentAudio = null;
         });
 
-        audio.play().catch(() => {
-            this.stopTalking();
-            this.cleanupAudioNodes();
-            this.speechBubble.textContent = `Playback failed for ${file}.`;
-            this.currentAudio = null;
-        });
+        try {
+            await audio.play();
+        } catch (error) {
+            if (this.currentAudio === audio) {
+                this.stopTalking();
+                this.cleanupAudioNodes();
+                this.speechBubble.textContent = `Playback failed for ${file}.`;
+                this.currentAudio = null;
+            }
+        }
 
-        if (!hasAnalysis) {
+        if (!hasAnalysis && this.currentAudio === audio && !audio.paused) {
             this.startFallbackMouth();
         }
     }
 
     async init() {
+        if (this.isInitialized) {
+            return;
+        }
+
         this.validate();
         this.buildMarkup();
         await this.preload();
@@ -517,11 +579,33 @@ class DustyCharacter {
         this.widget.classList.add("is-ready");
 
         window.addEventListener("resize", this.handleResize);
-        this.button.addEventListener("click", () => {
-            this.playRandomFact();
-        });
+        this.button.addEventListener("click", this.handleButtonClick);
 
         this.scheduleBlinkLoop();
         this.scheduleBrowLoop();
+
+        this.isInitialized = true;
+    }
+
+    destroy() {
+        this.isDestroyed = true;
+
+        window.clearTimeout(this.blinkTimer);
+        window.clearTimeout(this.browTimer);
+
+        this.blinkTimer = null;
+        this.browTimer = null;
+
+        this.stopCurrentAudio();
+        this.stopMouthSync();
+        this.cleanupAudioNodes();
+
+        window.removeEventListener("resize", this.handleResize);
+
+        if (this.button) {
+            this.button.removeEventListener("click", this.handleButtonClick);
+        }
+
+        this.isInitialized = false;
     }
 }
