@@ -4,14 +4,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>NM26 Header</title>
-
   <style>
     :root {
-      --bg-page: #000;
-      --orange: #e15700;
-      --orange-soft: #f08a35;
-      --maroon: #6d2d39;
-      --black: #111;
+      --orange-bg: #e98636;
+      --orange-accent: #e25a00;
+      --orange-text: #f08a35;
+      --maroon: #6f303d;
+      --maroon-dark: #5a2430;
+      --shadow: #7a1425;
+      --black: #111111;
+      --frame-pad: clamp(12px, 1.8vw, 28px);
+      --inner-pad-x: clamp(18px, 3vw, 48px);
+      --inner-pad-top: clamp(18px, 2.5vw, 40px);
+      --bottom-bar-h: clamp(54px, 8vw, 96px);
     }
 
     * {
@@ -20,203 +25,335 @@
 
     body {
       margin: 0;
-      background: var(--bg-page);
+      background: #000;
       font-family: Arial, Helvetica, sans-serif;
     }
 
-    .site-header {
-      width: min(100%, 2048px);
+    .nm-header-wrap {
+      width: min(100%, 1920px);
       margin: 0 auto;
+      padding: 0;
+    }
+
+    .nm-header {
       position: relative;
-      aspect-ratio: 2400 / 600;
-      background-image: url("assets/images/header_background.png");
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: 100% 100%;
+      background: var(--maroon);
+      padding: var(--frame-pad);
       overflow: hidden;
     }
 
-    .header-overlay {
+    .nm-header::before {
+      content: "";
       position: absolute;
-      inset: 0;
+      inset: 8px;
+      border: 6px solid rgba(226, 90, 0, 0.55);
+      pointer-events: none;
+    }
+
+    .nm-pattern-top,
+    .nm-pattern-bottom,
+    .nm-pattern-left,
+    .nm-pattern-right {
+      position: absolute;
+      display: flex;
+      gap: clamp(10px, 1vw, 18px);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .nm-pattern-top,
+    .nm-pattern-bottom {
+      left: 22px;
+      right: 22px;
+      justify-content: space-between;
+    }
+
+    .nm-pattern-top {
+      top: 10px;
+    }
+
+    .nm-pattern-bottom {
+      bottom: 10px;
+    }
+
+    .nm-pattern-left,
+    .nm-pattern-right {
+      top: 22px;
+      bottom: 22px;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .nm-pattern-left {
+      left: 10px;
+    }
+
+    .nm-pattern-right {
+      right: 10px;
+    }
+
+    .diamond {
+      width: clamp(16px, 1.3vw, 26px);
+      height: clamp(16px, 1.3vw, 26px);
+      background: var(--orange-accent);
+      transform: rotate(45deg);
+      flex: 0 0 auto;
+    }
+
+    .nm-panel {
+      position: relative;
+      z-index: 1;
+      background: var(--orange-bg);
+      min-height: clamp(190px, 28vw, 360px);
+      box-shadow: inset 0 0 0 4px rgba(111, 48, 61, 0.25);
+    }
+
+    .nm-top {
+      min-height: clamp(132px, 18vw, 240px);
+      padding: var(--inner-pad-top) var(--inner-pad-x) 20px;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      align-items: start;
+      column-gap: clamp(18px, 2vw, 34px);
     }
 
     .nm-logo {
-      position: absolute;
-      left: 10.8%;
-      top: 23.5%;
       display: flex;
       align-items: center;
-      gap: 1vw;
-      line-height: 1;
+      gap: clamp(10px, 1.2vw, 18px);
+      min-width: 0;
     }
 
-    .nm-logo-box {
-      border: 0.18vw solid var(--black);
-      border-radius: 0.35vw;
-      padding: 1.4vw 1vw 1vw;
-      transform: skew(-2deg);
-    }
-
-    .nm-logo-box span {
+    .nm-state {
+      width: clamp(56px, 7vw, 150px);
+      height: auto;
       display: block;
-      font-size: clamp(28px, 4vw, 92px);
-      font-weight: 900;
-      color: var(--maroon);
-      transform: skew(2deg);
     }
 
-    .nm-logo-number {
-      font-size: clamp(32px, 5.3vw, 118px);
+    .nm-number {
+      font-size: clamp(42px, 8vw, 110px);
       font-weight: 900;
-      color: var(--orange);
-    }
-
-    .header-top-nav {
-      position: absolute;
-      top: 31%;
-      left: 49%;
-      transform: translateX(-8%);
-      display: flex;
-      align-items: center;
-      gap: 1.8vw;
-      white-space: nowrap;
-    }
-
-    .header-top-nav a,
-    .header-top-nav span {
-      text-decoration: none;
-      font-size: clamp(18px, 3.2vw, 72px);
-      font-weight: 900;
-      color: var(--maroon);
       line-height: 1;
-    }
-
-    .header-top-nav .divider {
-      font-size: clamp(18px, 2.1vw, 46px);
-      font-weight: 700;
-      color: var(--maroon);
-      transform: translateY(2%);
-    }
-
-    .header-bottom-left {
-      position: absolute;
-      left: 12.3%;
-      bottom: 5.8%;
-      display: flex;
-      align-items: center;
-      gap: 3.8vw;
-      white-space: nowrap;
-    }
-
-    .header-bottom-left a {
-      text-decoration: none;
-      font-size: clamp(16px, 2vw, 46px);
-      font-weight: 500;
-      color: var(--orange-soft);
+      color: var(--orange-accent);
       letter-spacing: 0.02em;
     }
 
-    .header-bottom-right {
-      position: absolute;
-      right: 10.6%;
-      bottom: 4.5%;
-      text-decoration: none;
-      font-size: clamp(18px, 2.6vw, 58px);
-      font-weight: 900;
-      color: var(--orange);
-      white-space: nowrap;
-      line-height: 1;
+    .nm-top-nav {
+      justify-self: center;
+      align-self: center;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: clamp(14px, 1.5vw, 26px);
+      padding-left: clamp(0px, 2vw, 16px);
     }
 
-    .site-header a:focus-visible {
+    .nm-top-nav a,
+    .nm-top-nav span {
+      color: var(--maroon);
+      text-decoration: none;
+      font-size: clamp(22px, 3.2vw, 68px);
+      font-weight: 900;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .nm-top-nav a:hover,
+    .nm-bottom-left a:hover,
+    .nm-bottom-right:hover {
+      opacity: 0.85;
+    }
+
+    .nm-bottom {
+      position: relative;
+      min-height: var(--bottom-bar-h);
+      background: var(--maroon);
+      box-shadow: inset 0 8px 0 var(--shadow);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 0 var(--inner-pad-x);
+    }
+
+    .nm-bottom-left {
+      display: flex;
+      align-items: center;
+      gap: clamp(20px, 3vw, 58px);
+      flex-wrap: wrap;
+    }
+
+    .nm-bottom-left a {
+      color: var(--orange-text);
+      text-decoration: none;
+      font-size: clamp(18px, 2vw, 40px);
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      white-space: nowrap;
+    }
+
+    .nm-bottom-right {
+      color: var(--orange-accent);
+      text-decoration: none;
+      font-size: clamp(22px, 2.9vw, 56px);
+      font-weight: 900;
+      line-height: 1;
+      white-space: nowrap;
+      margin-left: auto;
+    }
+
+    a:focus-visible {
       outline: 3px solid #fff;
       outline-offset: 4px;
       border-radius: 4px;
     }
 
-    .site-header a:hover {
-      opacity: 0.88;
+    @media (max-width: 900px) {
+      .nm-top {
+        grid-template-columns: 1fr;
+        row-gap: 14px;
+      }
+
+      .nm-logo {
+        justify-content: flex-start;
+      }
+
+      .nm-top-nav {
+        justify-self: start;
+        justify-content: flex-start;
+        padding-left: 0;
+      }
+
+      .nm-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        padding-top: 12px;
+        padding-bottom: 12px;
+      }
+
+      .nm-bottom-right {
+        margin-left: 0;
+      }
     }
 
-    @media (max-width: 1100px) {
-      .nm-logo {
-        left: 8.5%;
-        top: 22%;
+    @media (max-width: 640px) {
+      .nm-header {
+        padding: 10px;
       }
 
-      .header-top-nav {
-        left: 54%;
-        top: 30%;
-        gap: 1.2vw;
+      .nm-pattern-top,
+      .nm-pattern-bottom {
+        left: 14px;
+        right: 14px;
       }
 
-      .header-bottom-left {
-        left: 10.5%;
-        gap: 2.4vw;
+      .nm-pattern-left,
+      .nm-pattern-right {
+        top: 14px;
+        bottom: 14px;
       }
 
-      .header-bottom-right {
-        right: 8%;
+      .nm-top {
+        min-height: auto;
+        padding-bottom: 14px;
+      }
+
+      .nm-top-nav {
+        gap: 10px 14px;
+      }
+
+      .nm-top-nav span {
+        display: none;
+      }
+
+      .nm-bottom-left {
+        gap: 14px 22px;
+      }
+
+      .nm-bottom-left a {
+        font-size: 16px;
+      }
+
+      .nm-bottom-right {
+        font-size: 24px;
       }
     }
 
-    @media (max-width: 760px) {
-      .nm-logo {
-        left: 7%;
-        top: 20%;
-        gap: 0.8vw;
+    @media (max-width: 420px) {
+      .nm-state {
+        width: 46px;
       }
 
-      .nm-logo-box {
-        padding: 1.1vw 0.8vw 0.8vw;
+      .nm-number {
+        font-size: 40px;
       }
 
-      .header-top-nav {
-        top: 28%;
-        left: 57%;
-        gap: 0.9vw;
+      .nm-top-nav a {
+        font-size: 18px;
       }
 
-      .header-bottom-left {
-        left: 9%;
-        bottom: 4.8%;
-        gap: 1.8vw;
-      }
-
-      .header-bottom-right {
-        right: 6.5%;
-        bottom: 4%;
+      .nm-bottom-right {
+        font-size: 20px;
       }
     }
   </style>
 </head>
 <body>
-  <header class="site-header" role="banner">
-    <div class="header-overlay">
-      <div class="nm-logo" aria-label="NM26 logo">
-        <div class="nm-logo-box">
-          <span>NM</span>
-        </div>
-        <div class="nm-logo-number">26</div>
+  <div class="nm-header-wrap">
+    <header class="nm-header" role="banner">
+      <div class="nm-pattern-top" aria-hidden="true">
+        <span class="diamond"></span><span class="diamond"></span><span class="diamond"></span><span class="diamond"></span>
+        <span class="diamond"></span><span class="diamond"></span><span class="diamond"></span><span class="diamond"></span>
+        <span class="diamond"></span><span class="diamond"></span><span class="diamond"></span><span class="diamond"></span>
+        <span class="diamond"></span><span class="diamond"></span><span class="diamond"></span><span class="diamond"></span>
+        <span class="diamond"></span><span class="diamond"></span>
       </div>
 
-      <nav class="header-top-nav" aria-label="Header topics">
-        <a href="#history">HISTORY</a>
-        <span class="divider" aria-hidden="true">✣</span>
-        <a href="#mystery">MYSTERY</a>
-        <span class="divider" aria-hidden="true">✣</span>
-        <a href="#miracles">MIRACLES</a>
-      </nav>
+      <div class="nm-pattern-bottom" aria-hidden="true">
+        <span class="diamond"></span><span class="diamond"></span><span class="diamond"></span><span class="diamond"></span>
+        <span class="diamond"></span><span class="diamond"></span><span class="diamond"></span><span class="diamond"></span>
+        <span class="diamond"></span><span class="diamond"></span><span class="diamond"></span><span class="diamond"></span>
+        <span class="diamond"></span><span class="diamond"></span><span class="diamond"></span><span class="diamond"></span>
+        <span class="diamond"></span><span class="diamond"></span>
+      </div>
 
-      <nav class="header-bottom-left" aria-label="Primary navigation">
-        <a href="#home">HOME</a>
-        <a href="#plan">PLAN</a>
-        <a href="#guide">GUIDE</a>
-      </nav>
+      <div class="nm-pattern-left" aria-hidden="true">
+        <span class="diamond"></span><span class="diamond"></span><span class="diamond"></span><span class="diamond"></span>
+      </div>
 
-      <a class="header-bottom-right" href="#vacation">VACATION 2026</a>
-    </div>
-  </header>
+      <div class="nm-pattern-right" aria-hidden="true">
+        <span class="diamond"></span><span class="diamond"></span><span class="diamond"></span><span class="diamond"></span>
+      </div>
+
+      <div class="nm-panel">
+        <div class="nm-top">
+          <div class="nm-logo">
+            <img src="assets/images/new_mexico.png" alt="New Mexico logo" class="nm-state" />
+            <span class="nm-number">26</span>
+          </div>
+
+          <nav class="nm-top-nav" aria-label="Topics">
+            <a href="#">HISTORY</a>
+            <span aria-hidden="true">✣</span>
+            <a href="#">MYSTERY</a>
+            <span aria-hidden="true">✣</span>
+            <a href="#">MIRACLES</a>
+          </nav>
+        </div>
+
+        <div class="nm-bottom">
+          <nav class="nm-bottom-left" aria-label="Primary navigation">
+            <a href="#">HOME</a>
+            <a href="#">PLAN</a>
+            <a href="#">GUIDE</a>
+          </nav>
+
+          <a href="#" class="nm-bottom-right">VACATION 2026</a>
+        </div>
+      </div>
+    </header>
+  </div>
 </body>
 </html>
