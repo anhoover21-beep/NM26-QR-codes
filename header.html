@@ -1,359 +1,257 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NM26 Header</title>
-  <style>
-    :root {
-      --orange-bg: #e98636;
-      --orange-accent: #e25a00;
-      --orange-text: #f08a35;
-      --maroon: #6f303d;
-      --maroon-dark: #5a2430;
-      --shadow: #7a1425;
-      --black: #111111;
-      --frame-pad: clamp(12px, 1.8vw, 28px);
-      --inner-pad-x: clamp(18px, 3vw, 48px);
-      --inner-pad-top: clamp(18px, 2.5vw, 40px);
-      --bottom-bar-h: clamp(54px, 8vw, 96px);
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NM26 Header</title>
 
-    * {
-      box-sizing: border-box;
-    }
+<style>
 
-    body {
-      margin: 0;
-      background: #000;
-      font-family: Arial, Helvetica, sans-serif;
-    }
+body{
+margin:0;
+background:black;
+font-family:Arial, Helvetica, sans-serif;
+}
 
-    .nm-header-wrap {
-      width: min(100%, 1920px);
-      margin: 0 auto;
-      padding: 0;
-    }
+/* HEADER FRAME */
 
-    .nm-header {
-      position: relative;
-      background: var(--maroon);
-      padding: var(--frame-pad);
-      overflow: hidden;
-    }
+.nm-header{
+position:relative;
+background:#6f2f3b;
+border:6px solid #e25a00;
+padding:18px;
+max-width:1900px;
+margin:auto;
+overflow:hidden;
+}
 
-    .nm-header::before {
-      content: "";
-      position: absolute;
-      inset: 8px;
-      border: 6px solid rgba(226, 90, 0, 0.55);
-      pointer-events: none;
-    }
+/* DIAMOND PATTERN */
 
-    .nm-pattern-top,
-    .nm-pattern-bottom,
-    .nm-pattern-left,
-    .nm-pattern-right {
-      position: absolute;
-      display: flex;
-      gap: clamp(10px, 1vw, 18px);
-      z-index: 0;
-      pointer-events: none;
-    }
+.pattern{
+position:absolute;
+pointer-events:none;
+}
 
-    .nm-pattern-top,
-    .nm-pattern-bottom {
-      left: 22px;
-      right: 22px;
-      justify-content: space-between;
-    }
+.pattern-top{
+top:8px;
+left:40px;
+right:40px;
+display:flex;
+justify-content:space-between;
+}
 
-    .nm-pattern-top {
-      top: 10px;
-    }
+.pattern-bottom{
+bottom:8px;
+left:40px;
+right:40px;
+display:flex;
+justify-content:space-between;
+}
 
-    .nm-pattern-bottom {
-      bottom: 10px;
-    }
+.pattern-left{
+left:8px;
+top:40px;
+bottom:40px;
+display:flex;
+flex-direction:column;
+justify-content:space-between;
+}
 
-    .nm-pattern-left,
-    .nm-pattern-right {
-      top: 22px;
-      bottom: 22px;
-      flex-direction: column;
-      justify-content: space-between;
-    }
+.pattern-right{
+right:8px;
+top:40px;
+bottom:40px;
+display:flex;
+flex-direction:column;
+justify-content:space-between;
+}
 
-    .nm-pattern-left {
-      left: 10px;
-    }
+.diamond{
+width:18px;
+height:18px;
+background:#e25a00;
+transform:rotate(45deg);
+}
 
-    .nm-pattern-right {
-      right: 10px;
-    }
+/* INNER PANEL */
 
-    .diamond {
-      width: clamp(16px, 1.3vw, 26px);
-      height: clamp(16px, 1.3vw, 26px);
-      background: var(--orange-accent);
-      transform: rotate(45deg);
-      flex: 0 0 auto;
-    }
+.nm-panel{
+background:#e98636;
+}
 
-    .nm-panel {
-      position: relative;
-      z-index: 1;
-      background: var(--orange-bg);
-      min-height: clamp(190px, 28vw, 360px);
-      box-shadow: inset 0 0 0 4px rgba(111, 48, 61, 0.25);
-    }
+/* TOP AREA */
 
-    .nm-top {
-      min-height: clamp(132px, 18vw, 240px);
-      padding: var(--inner-pad-top) var(--inner-pad-x) 20px;
-      display: grid;
-      grid-template-columns: auto 1fr;
-      align-items: start;
-      column-gap: clamp(18px, 2vw, 34px);
-    }
+.nm-top{
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:40px 50px;
+}
 
-    .nm-logo {
-      display: flex;
-      align-items: center;
-      gap: clamp(10px, 1.2vw, 18px);
-      min-width: 0;
-    }
+/* LOGO */
 
-    .nm-state {
-      width: clamp(56px, 7vw, 150px);
-      height: auto;
-      display: block;
-    }
+.nm-logo{
+display:flex;
+align-items:center;
+gap:18px;
+}
 
-    .nm-number {
-      font-size: clamp(42px, 8vw, 110px);
-      font-weight: 900;
-      line-height: 1;
-      color: var(--orange-accent);
-      letter-spacing: 0.02em;
-    }
+.nm-state-wrap{
+position:relative;
+width:90px;
+}
 
-    .nm-top-nav {
-      justify-self: center;
-      align-self: center;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: center;
-      gap: clamp(14px, 1.5vw, 26px);
-      padding-left: clamp(0px, 2vw, 16px);
-    }
+.nm-state{
+width:100%;
+}
 
-    .nm-top-nav a,
-    .nm-top-nav span {
-      color: var(--maroon);
-      text-decoration: none;
-      font-size: clamp(22px, 3.2vw, 68px);
-      font-weight: 900;
-      line-height: 1;
-      white-space: nowrap;
-    }
+.nm-state-text{
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-55%);
+font-size:40px;
+font-weight:900;
+color:white;
+}
 
-    .nm-top-nav a:hover,
-    .nm-bottom-left a:hover,
-    .nm-bottom-right:hover {
-      opacity: 0.85;
-    }
+.nm-number{
+font-size:90px;
+font-weight:900;
+color:#e25a00;
+}
 
-    .nm-bottom {
-      position: relative;
-      min-height: var(--bottom-bar-h);
-      background: var(--maroon);
-      box-shadow: inset 0 8px 0 var(--shadow);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-      padding: 0 var(--inner-pad-x);
-    }
+/* TOP NAV */
 
-    .nm-bottom-left {
-      display: flex;
-      align-items: center;
-      gap: clamp(20px, 3vw, 58px);
-      flex-wrap: wrap;
-    }
+.nm-main{
+display:flex;
+align-items:center;
+gap:30px;
+}
 
-    .nm-bottom-left a {
-      color: var(--orange-text);
-      text-decoration: none;
-      font-size: clamp(18px, 2vw, 40px);
-      font-weight: 500;
-      letter-spacing: 0.03em;
-      white-space: nowrap;
-    }
+.nm-main a{
+text-decoration:none;
+font-size:60px;
+font-weight:900;
+color:#6f2f3b;
+}
 
-    .nm-bottom-right {
-      color: var(--orange-accent);
-      text-decoration: none;
-      font-size: clamp(22px, 2.9vw, 56px);
-      font-weight: 900;
-      line-height: 1;
-      white-space: nowrap;
-      margin-left: auto;
-    }
+.divider{
+font-size:36px;
+color:#6f2f3b;
+}
 
-    a:focus-visible {
-      outline: 3px solid #fff;
-      outline-offset: 4px;
-      border-radius: 4px;
-    }
+/* BOTTOM BAR */
 
-    @media (max-width: 900px) {
-      .nm-top {
-        grid-template-columns: 1fr;
-        row-gap: 14px;
-      }
+.nm-bottom{
+background:#6f2f3b;
+padding:14px 50px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
 
-      .nm-logo {
-        justify-content: flex-start;
-      }
+/* LEFT NAV */
 
-      .nm-top-nav {
-        justify-self: start;
-        justify-content: flex-start;
-        padding-left: 0;
-      }
+.nm-left{
+display:flex;
+gap:40px;
+}
 
-      .nm-bottom {
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: center;
-        padding-top: 12px;
-        padding-bottom: 12px;
-      }
+.nm-left a{
+text-decoration:none;
+font-size:32px;
+color:#f08a35;
+}
 
-      .nm-bottom-right {
-        margin-left: 0;
-      }
-    }
+/* RIGHT TEXT */
 
-    @media (max-width: 640px) {
-      .nm-header {
-        padding: 10px;
-      }
+.nm-right{
+font-size:56px;
+font-weight:900;
+color:#e25a00;
+}
 
-      .nm-pattern-top,
-      .nm-pattern-bottom {
-        left: 14px;
-        right: 14px;
-      }
-
-      .nm-pattern-left,
-      .nm-pattern-right {
-        top: 14px;
-        bottom: 14px;
-      }
-
-      .nm-top {
-        min-height: auto;
-        padding-bottom: 14px;
-      }
-
-      .nm-top-nav {
-        gap: 10px 14px;
-      }
-
-      .nm-top-nav span {
-        display: none;
-      }
-
-      .nm-bottom-left {
-        gap: 14px 22px;
-      }
-
-      .nm-bottom-left a {
-        font-size: 16px;
-      }
-
-      .nm-bottom-right {
-        font-size: 24px;
-      }
-    }
-
-    @media (max-width: 420px) {
-      .nm-state {
-        width: 46px;
-      }
-
-      .nm-number {
-        font-size: 40px;
-      }
-
-      .nm-top-nav a {
-        font-size: 18px;
-      }
-
-      .nm-bottom-right {
-        font-size: 20px;
-      }
-    }
-  </style>
+</style>
 </head>
+
 <body>
-  <div class="nm-header-wrap">
-    <header class="nm-header" role="banner">
-      <div class="nm-pattern-top" aria-hidden="true">
-        <span class="diamond"></span><span class="diamond"></span><span class="diamond"></span><span class="diamond"></span>
-        <span class="diamond"></span><span class="diamond"></span><span class="diamond"></span><span class="diamond"></span>
-        <span class="diamond"></span><span class="diamond"></span><span class="diamond"></span><span class="diamond"></span>
-        <span class="diamond"></span><span class="diamond"></span><span class="diamond"></span><span class="diamond"></span>
-        <span class="diamond"></span><span class="diamond"></span>
-      </div>
 
-      <div class="nm-pattern-bottom" aria-hidden="true">
-        <span class="diamond"></span><span class="diamond"></span><span class="diamond"></span><span class="diamond"></span>
-        <span class="diamond"></span><span class="diamond"></span><span class="diamond"></span><span class="diamond"></span>
-        <span class="diamond"></span><span class="diamond"></span><span class="diamond"></span><span class="diamond"></span>
-        <span class="diamond"></span><span class="diamond"></span><span class="diamond"></span><span class="diamond"></span>
-        <span class="diamond"></span><span class="diamond"></span>
-      </div>
+<header class="nm-header">
 
-      <div class="nm-pattern-left" aria-hidden="true">
-        <span class="diamond"></span><span class="diamond"></span><span class="diamond"></span><span class="diamond"></span>
-      </div>
+<!-- DIAMOND FRAME -->
 
-      <div class="nm-pattern-right" aria-hidden="true">
-        <span class="diamond"></span><span class="diamond"></span><span class="diamond"></span><span class="diamond"></span>
-      </div>
+<div class="pattern pattern-top">
+<div class="diamond"></div><div class="diamond"></div><div class="diamond"></div>
+<div class="diamond"></div><div class="diamond"></div><div class="diamond"></div>
+<div class="diamond"></div><div class="diamond"></div><div class="diamond"></div>
+<div class="diamond"></div>
+</div>
 
-      <div class="nm-panel">
-        <div class="nm-top">
-          <div class="nm-logo">
-            <img src="assets/images/new-mexico.png" alt="New Mexico logo" class="nm-state" />
-            <span class="nm-number">26</span>
-          </div>
+<div class="pattern pattern-bottom">
+<div class="diamond"></div><div class="diamond"></div><div class="diamond"></div>
+<div class="diamond"></div><div class="diamond"></div><div class="diamond"></div>
+<div class="diamond"></div><div class="diamond"></div><div class="diamond"></div>
+<div class="diamond"></div>
+</div>
 
-          <nav class="nm-top-nav" aria-label="Topics">
-            <a href="#">HISTORY</a>
-            <span aria-hidden="true">✣</span>
-            <a href="#">MYSTERY</a>
-            <span aria-hidden="true">✣</span>
-            <a href="#">MIRACLES</a>
-          </nav>
-        </div>
+<div class="pattern pattern-left">
+<div class="diamond"></div>
+<div class="diamond"></div>
+<div class="diamond"></div>
+</div>
 
-        <div class="nm-bottom">
-          <nav class="nm-bottom-left" aria-label="Primary navigation">
-            <a href="#">HOME</a>
-            <a href="#">PLAN</a>
-            <a href="#">GUIDE</a>
-          </nav>
+<div class="pattern pattern-right">
+<div class="diamond"></div>
+<div class="diamond"></div>
+<div class="diamond"></div>
+</div>
 
-          <a href="#" class="nm-bottom-right">VACATION 2026</a>
-        </div>
-      </div>
-    </header>
-  </div>
+<!-- MAIN PANEL -->
+
+<div class="nm-panel">
+
+<div class="nm-top">
+
+<div class="nm-logo">
+
+<div class="nm-state-wrap">
+<img src="assets/images/new_mexico.png" class="nm-state">
+<span class="nm-state-text">NM</span>
+</div>
+
+<span class="nm-number">26</span>
+
+</div>
+
+<nav class="nm-main">
+<a href="#">HISTORY</a>
+<span class="divider">✣</span>
+<a href="#">MYSTERY</a>
+<span class="divider">✣</span>
+<a href="#">MIRACLES</a>
+</nav>
+
+</div>
+
+
+<div class="nm-bottom">
+
+<nav class="nm-left">
+<a href="#">HOME</a>
+<a href="#">PLAN</a>
+<a href="#">GUIDE</a>
+</nav>
+
+<div class="nm-right">
+VACATION 2026
+</div>
+
+</div>
+
+</div>
+
+</header>
+
 </body>
 </html>
