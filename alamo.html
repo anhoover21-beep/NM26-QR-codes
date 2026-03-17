@@ -76,7 +76,60 @@ padding:12px 14px;
 font-size:clamp(13px, 4vw, 18px);
 letter-spacing:0.5px;
 }
-}
+
+   /* ===== CINEMATIC HERO ===== */
+
+    .nm-hero {
+        height: 85vh;
+        min-height: 600px;
+        background: url("assets/images/alamo-hero.jpg") center center / cover no-repeat;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .nm-hero::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+            rgba(0,0,0,0.65),
+            rgba(0,0,0,0.45)
+        );
+    }
+
+    .nm-hero-overlay {
+        position: relative;
+        text-align: center;
+        color: white;
+        z-index: 1;
+    }
+
+    .nm-hero-overlay h1 {
+        font-size: 64px;
+        margin: 0;
+    }
+
+    .nm-hero-overlay p {
+        font-size: 24px;
+        letter-spacing: 2px;
+        margin-top: 12px;
+    }
+
+ .nm-hero {
+            height: 70vh;
+        }
+
+        .nm-hero-overlay h1 {
+            font-size: 44px;
+        }
+
+        .nm-hero-overlay p {
+            font-size: 18px;
+        }
+
+    
 </style>
 </head
 
