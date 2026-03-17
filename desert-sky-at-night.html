@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NM26 — Did You Know?</title>
+<title>Did You Know? Sky</title>
 
 <style>
 body {
@@ -17,104 +17,53 @@ body {
     overflow-x: hidden;
 }
 
-/* =========================
-   LOCKED NM26 HEADER
-   ========================= */
-
 .nm-header {
-    background: #c5161d;
-    color: white;
+    width: min(100%, 1900px);
+    margin: 0 auto;
     position: relative;
     z-index: 10;
+}
+
+.nm-banner {
     width: 100%;
+    height: auto;
+    display: block;
 }
 
-.nm-header-inner {
-    max-width: 1300px;
+.nm-home-nav-wrap {
+    width: min(100%, 1900px);
     margin: 0 auto;
-    padding: clamp(16px, 3vw, 28px) clamp(16px, 4vw, 40px);
+    background: #EE8537;
+    border-top: 5px solid #377654;
+}
+
+.nm-home-nav {
     display: flex;
+    justify-content: center;
     align-items: center;
-    justify-content: space-between;
-    gap: clamp(16px, 2vw, 28px);
+    gap: 40px;
+    padding: 14px 20px;
     flex-wrap: wrap;
 }
 
-.nm-brand {
-    display: flex;
-    align-items: center;
-    gap: clamp(10px, 1.8vw, 16px);
-    min-width: 0;
-}
-
-.nm-state {
-    width: clamp(58px, 10vw, 110px);
-    aspect-ratio: 1 / 1;
-    background: url("assets/images/new-mexico.png") no-repeat center;
-    background-size: contain;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-}
-
-.nm-text {
-    font-size: clamp(18px, 3vw, 40px);
-    font-weight: 900;
-    letter-spacing: clamp(1px, 0.25vw, 2px);
-    color: white;
-}
-
-.nm-year {
-    font-size: clamp(34px, 7vw, 72px);
-    font-weight: 900;
-    color: #ffd23f;
+.nm-home-nav a {
+    text-decoration: none;
+    font-size: clamp(14px, 2vw, 22px);
+    font-weight: 500;
+    letter-spacing: 1px;
+    color: #682D2E;
     line-height: 1;
-    flex-shrink: 0;
 }
 
-.nm-nav {
-    display: flex;
-    gap: clamp(14px, 4vw, 60px);
-    flex-wrap: wrap;
-    justify-content: center;
+.nm-home-nav a:link,
+.nm-home-nav a:visited {
+    color: #682D2E;
 }
 
-.nm-nav span {
-    color: white;
-    font-size: clamp(14px, 2vw, 26px);
-    letter-spacing: clamp(1px, 0.25vw, 2px);
-    font-weight: 600;
-    white-space: nowrap;
+.nm-home-nav a:hover,
+.nm-home-nav a:active {
+    color: #377654;
 }
-
-.nm-login {
-    display: flex;
-    justify-content: center;
-}
-
-.nm-login span {
-    background: #ffd23f;
-    color: #c5161d;
-    padding: clamp(9px, 1.5vw, 12px) clamp(16px, 2.6vw, 26px);
-    border-radius: 16px;
-    font-weight: 900;
-    font-size: clamp(16px, 2vw, 22px);
-    white-space: nowrap;
-}
-
-.nm-stripe {
-    background: #ffd23f;
-    padding: 10px clamp(16px, 4vw, 40px);
-    font-weight: 900;
-    color: #c5161d;
-    letter-spacing: 2px;
-    font-size: clamp(12px, 1.7vw, 16px);
-}
-
-/* =========================
-   POSTER HERO
-   ========================= */
 
 .page-container {
     max-width: 1400px;
@@ -161,79 +110,23 @@ body {
     font-size: 18px;
     font-weight: 900;
     letter-spacing: 5px;
-    color: #c5161d;
+    color: #EE8537;
     text-transform: uppercase;
     position: relative;
     z-index: 1;
 }
 
 .hero-title {
-    margin: 0;
+    margin: 0 0 10px;
     font-size: clamp(48px, 8vw, 104px);
     line-height: 0.92;
     letter-spacing: 3px;
     font-weight: 900;
-    color: #1b1b1b;
+    color: #682D2E;
     text-transform: uppercase;
     position: relative;
     z-index: 1;
     max-width: 1100px;
-}
-
-.hero-title-accent {
-    display: block;
-    color: #1b1b1b;
-}
-
-.hero-subtitle {
-    margin: 18px 0 24px;
-    max-width: 780px;
-    font-size: clamp(18px, 2vw, 28px);
-    line-height: 1.45;
-    color: #4a4a4a;
-    position: relative;
-    z-index: 1;
-}
-
-.speech-bubble {
-    position: relative;
-    margin: 16px auto 20px;
-    width: min(100%, 860px);
-    background: #fff8dc;
-    color: #5b1f00;
-    border: 3px solid #ffd23f;
-    border-radius: 28px;
-    padding: 22px 24px;
-    font-size: clamp(18px, 1.7vw, 26px);
-    font-weight: 700;
-    line-height: 1.5;
-    box-shadow: 0 16px 30px rgba(0, 0, 0, 0.08);
-    min-height: 72px;
-    z-index: 1;
-    box-sizing: border-box;
-}
-
-.speech-bubble::after {
-    content: "";
-    position: absolute;
-    bottom: -20px;
-    left: 50%;
-    transform: translateX(-50%);
-    border-width: 20px 18px 0 18px;
-    border-style: solid;
-    border-color: #ffd23f transparent transparent transparent;
-}
-
-.speech-bubble::before {
-    content: "";
-    position: absolute;
-    bottom: -16px;
-    left: 50%;
-    transform: translateX(-50%);
-    border-width: 16px 14px 0 14px;
-    border-style: solid;
-    border-color: #fff8dc transparent transparent transparent;
-    z-index: 1;
 }
 
 .traveler-stage {
@@ -382,12 +275,12 @@ body {
     appearance: none;
     border: 0;
     cursor: pointer;
-    background: #d4121b;
+    background: #2C7F7B;
     color: white;
     font-size: clamp(20px, 2vw, 28px);
     font-weight: 900;
     letter-spacing: 2px;
-    padding: 18px 34px;
+    padding: 18px 24px;
     border-radius: 22px;
     box-shadow: 0 16px 30px rgba(0, 0, 0, 0.16);
     transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
@@ -408,20 +301,7 @@ body {
     cursor: wait;
 }
 
-/* =========================
-   RESPONSIVE
-   ========================= */
-
 @media (max-width: 1024px) {
-    .nm-header-inner {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .nm-nav {
-        justify-content: center;
-    }
-
     .page-container {
         padding: 0 18px 50px;
     }
@@ -443,40 +323,12 @@ body {
         max-width: 760px;
     }
 
-    .hero-subtitle {
-        margin: 14px 0 20px;
-        font-size: clamp(18px, 2.4vw, 24px);
-        max-width: 640px;
-    }
-
-    .speech-bubble {
-        max-width: 700px;
-        font-size: clamp(17px, 2.2vw, 22px);
-        padding: 20px 20px;
-    }
-
     .dusty-mount {
         width: min(74vw, 500px);
     }
 }
 
 @media (max-width: 700px) {
-    .nm-header-inner {
-        padding: 22px 18px;
-    }
-
-    .nm-brand {
-        justify-content: center;
-    }
-
-    .nm-nav {
-        gap: 16px;
-    }
-
-    .nm-stripe {
-        padding: 10px 18px;
-    }
-
     .page-container {
         padding: 0 12px 36px;
     }
@@ -511,39 +363,9 @@ body {
         max-width: 100%;
     }
 
-    .hero-subtitle {
-        margin: 12px 0 16px;
-        font-size: 16px;
-        line-height: 1.4;
-        max-width: 95%;
-    }
-
-    .speech-bubble {
-        order: 3;
-        width: calc(100% - 8px);
-        max-width: none;
-        margin: 14px auto 18px;
-        padding: 16px 16px;
-        border-radius: 22px;
-        font-size: 16px;
-        line-height: 1.45;
-        min-height: 0;
-    }
-
-    .speech-bubble::after {
-        bottom: -16px;
-        border-width: 16px 14px 0 14px;
-    }
-
-    .speech-bubble::before {
-        bottom: -13px;
-        border-width: 13px 11px 0 11px;
-    }
-
     .traveler-stage {
         width: 100%;
         margin: 4px auto 6px;
-        order: 2;
     }
 
     .traveler-glow {
@@ -563,7 +385,6 @@ body {
     }
 
     .controls {
-        order: 4;
         width: 100%;
         margin-top: 8px;
     }
@@ -578,22 +399,25 @@ body {
     }
 }
 
+@media (max-width: 600px) {
+    .nm-home-nav {
+        gap: 22px;
+        padding: 12px 14px;
+    }
+
+    .nm-home-nav a {
+        font-size: clamp(13px, 4vw, 18px);
+        letter-spacing: 0.5px;
+    }
+}
+
 @media (max-width: 420px) {
     .hero-title {
         font-size: 26px;
     }
 
-    .hero-subtitle {
-        font-size: 15px;
-    }
-
     .dusty-mount {
         width: min(82vw, 280px);
-    }
-
-    .speech-bubble {
-        font-size: 15px;
-        padding: 14px 14px;
     }
 
     .did-you-know-btn {
@@ -614,50 +438,24 @@ body {
 }
 </style>
 </head>
-
 <body>
 
 <header class="nm-header">
-    <div class="nm-header-inner">
-        <div class="nm-brand">
-            <div class="nm-state">
-                <span class="nm-text">NM</span>
-            </div>
-            <span class="nm-year">26</span>
-        </div>
-
-        <nav class="nm-nav">
-            <span>HOME</span>
-            <span>PLANNER</span>
-            <span>RESOURCES</span>
-            <span>GUIDE</span>
-        </nav>
-
-        <div class="nm-login">
-            <span>LOGIN</span>
-        </div>
-    </div>
-
-    <div class="nm-stripe">
-        VACATION 2026
-    </div>
+    <img src="/NM26-QR-codes/assets/images/header_banner.png" class="nm-banner" alt="NM26 Header">
 </header>
+
+<div class="nm-home-nav-wrap">
+    <nav class="nm-home-nav">
+        <a href="index.html">HOME</a>
+        <a href="itinerary.html">ITINERARY</a>
+        <a href="lodging.html">LODGING</a>
+    </nav>
+</div>
 
 <main class="page-container">
     <section class="poster-hero">
         <p class="hero-kicker">Did You Know?</p>
-
-        <h1 class="hero-title">
-            Desert Sky At Night
-        </h1>
-
-        <p class="hero-subtitle">
-            Press the button and hear a random desert sky fact.
-        </p>
-
-        <div id="speechBubble" class="speech-bubble" aria-live="polite">
-            Press the button and Dusty will share another sky fact.
-        </div>
+        <h1 class="hero-title">Desert Sky At Night</h1>
 
         <div class="traveler-stage">
             <div class="traveler-glow" aria-hidden="true"></div>
@@ -667,7 +465,7 @@ body {
 
         <div class="controls">
             <button id="didYouKnowBtn" class="did-you-know-btn" type="button">
-                PRESS TO KNOW
+                DUSTY KNOWS
             </button>
         </div>
     </section>
@@ -677,16 +475,10 @@ body {
 class DustyCharacter {
     constructor(options = {}) {
         this.container = this.resolveElement(options.container);
-        this.speechBubble = this.resolveElement(options.speechBubble);
         this.button = this.resolveElement(options.button);
-
-        this.facts = Array.isArray(options.facts) ? options.facts : [];
         this.audioFiles = Array.isArray(options.audioFiles) ? options.audioFiles : [];
         this.images = options.images || {};
         this.placement = options.placement || {};
-
-        this.idleMessage =
-            options.idleMessage || "Press the button and Dusty will share another fact.";
         this.baseAlt = options.baseAlt || "Dusty";
 
         this.currentAudio = null;
@@ -763,16 +555,12 @@ class DustyCharacter {
             throw new Error("Dusty container not found.");
         }
 
-        if (!this.speechBubble) {
-            throw new Error("Speech bubble not found.");
-        }
-
         if (!this.button) {
             throw new Error("Button not found.");
         }
 
-        if (this.facts.length !== this.audioFiles.length) {
-            throw new Error("facts and audioFiles must be the same length.");
+        if (this.audioFiles.length === 0) {
+            throw new Error("No audio files configured.");
         }
 
         const requiredImages = ["base", "eyesClosed", "mouthClosed", "hand", "brow1", "brow2"];
@@ -830,11 +618,7 @@ class DustyCharacter {
             }
 
             img.addEventListener("load", () => resolve(), { once: true });
-            img.addEventListener(
-                "error",
-                () => reject(new Error(`Failed to load ${img.src}`)),
-                { once: true }
-            );
+            img.addEventListener("error", () => reject(new Error(`Failed to load ${img.src}`)), { once: true });
         });
     }
 
@@ -964,11 +748,9 @@ class DustyCharacter {
             return;
         }
 
-        const roll = Math.random();
-
         this.lowerBrows();
 
-        if (roll > 0.72) {
+        if (Math.random() > 0.72) {
             await this.delay(180 + Math.random() * 120);
             this.lowerBrows();
         }
@@ -1037,13 +819,10 @@ class DustyCharacter {
             this.analyser = this.audioContext.createAnalyser();
             this.analyser.fftSize = 256;
             this.analyser.smoothingTimeConstant = 0.82;
-
             this.dataArray = new Uint8Array(this.analyser.frequencyBinCount);
             this.sourceNode = this.audioContext.createMediaElementSource(audio);
-
             this.sourceNode.connect(this.analyser);
             this.analyser.connect(this.audioContext.destination);
-
             return true;
         } catch {
             this.cleanupAudioNodes();
@@ -1055,18 +834,14 @@ class DustyCharacter {
         if (this.sourceNode) {
             try {
                 this.sourceNode.disconnect();
-            } catch {
-                // Ignore cleanup disconnect errors.
-            }
+            } catch {}
             this.sourceNode = null;
         }
 
         if (this.analyser) {
             try {
                 this.analyser.disconnect();
-            } catch {
-                // Ignore cleanup disconnect errors.
-            }
+            } catch {}
             this.analyser = null;
         }
 
@@ -1122,7 +897,6 @@ class DustyCharacter {
 
             const volume = this.getAverageVolume();
             smoothed = smoothed * 0.68 + volume * 0.32;
-
             const talking = smoothed > 12;
 
             if (!talking) {
@@ -1132,7 +906,6 @@ class DustyCharacter {
             }
 
             let interval = 220;
-
             if (smoothed > 30) {
                 interval = 110;
             } else if (smoothed > 24) {
@@ -1207,20 +980,14 @@ class DustyCharacter {
     }
 
     getRandomIndex() {
-        if (this.audioFiles.length === 0) {
-            return -1;
-        }
-
         if (this.audioFiles.length === 1) {
             return 0;
         }
 
         let nextIndex = this.lastPlayedIndex;
-
         while (nextIndex === this.lastPlayedIndex) {
             nextIndex = Math.floor(Math.random() * this.audioFiles.length);
         }
-
         return nextIndex;
     }
 
@@ -1236,7 +1003,6 @@ class DustyCharacter {
 
         audio.pause();
         audio.currentTime = 0;
-
         this.cleanupAudioNodes();
         this.stopTalking();
     }
@@ -1249,21 +1015,12 @@ class DustyCharacter {
         this.stopCurrentAudio();
 
         const index = this.getRandomIndex();
-
-        if (index < 0) {
-            this.speechBubble.textContent = "No facts are configured.";
-            return;
-        }
-
         const file = this.audioFiles[index];
-        const fact = this.facts[index] || "Did you know?";
         const audio = new Audio(file);
 
         audio.preload = "auto";
-
         this.currentAudio = audio;
         this.lastPlayedIndex = index;
-        this.speechBubble.textContent = fact;
         this.button.disabled = true;
 
         const hasAnalysis = this.connectAudioAnalysis(audio);
@@ -1285,7 +1042,6 @@ class DustyCharacter {
 
             this.cleanupAudioNodes();
             this.stopTalking();
-            this.speechBubble.textContent = this.idleMessage;
             this.currentAudio = null;
         });
 
@@ -1304,7 +1060,6 @@ class DustyCharacter {
 
             this.cleanupAudioNodes();
             this.stopTalking();
-            this.speechBubble.textContent = `I couldn't play ${file}. Check assets/audio/.`;
             this.currentAudio = null;
         });
 
@@ -1314,7 +1069,6 @@ class DustyCharacter {
             if (this.currentAudio === audio) {
                 this.cleanupAudioNodes();
                 this.stopTalking();
-                this.speechBubble.textContent = `Playback failed for ${file}.`;
                 this.currentAudio = null;
             }
             return;
@@ -1361,10 +1115,6 @@ class DustyCharacter {
         await this.preload();
         this.positionParts();
 
-        if (this.speechBubble && !this.speechBubble.textContent.trim()) {
-            this.speechBubble.textContent = this.idleMessage;
-        }
-
         if (this.mouth) {
             this.mouth.style.opacity = "1";
         }
@@ -1391,10 +1141,8 @@ class DustyCharacter {
         }
 
         this.isDestroyed = true;
-
         window.clearTimeout(this.blinkTimer);
         window.clearTimeout(this.browTimer);
-
         this.blinkTimer = null;
         this.browTimer = null;
 
@@ -1419,36 +1167,15 @@ class DustyCharacter {
     }
 }
 
-const facts = [
-    "The American Southwest has some of the darkest skies on Earth. Low humidity, high elevation, and limited light pollution create air so clear, even distant galaxies are visible.",
-    "There’s a scale for darkness. It’s called the Bortle Scale (1 = perfect black wilderness, 9 = downtown neon). Parts of New Mexico rate Bortle 1–2 — astronomer heaven.",
-    "The desert air is bone-dry. Moisture scatters light. Dry air however, brings sharper stars, cleaner constellations, and brighter Milky Way spill.",
-    "New Mexico is home to the world’s first International Dark Sky Sanctuary. The cosmic quiet here isn’t an accident — it’s protected.",
-    "Those faint streaks you’ll see aren’t planes. They’re satellites — and during a dark-sky pass, you can spot dozens. If they appear in a straight dotted line, that’s Starlink. Thanks, Big Daddy Elon.",
-    "The Milky Way in New Mexico looks like spilled milk across the sky. In cities, that band simply disappears. Out here — it becomes epic.",
-    "Your eyes need 30 minutes to fully night-adapt. Avoid phones and headlights — red light preserves night vision. After 30 minutes, you’ll see 3× more stars than when you started.",
-    "The desert’s temperature drop at night helps visibility. Cold air sinks, creating stable atmospheric layers — astronomers call it good seeing.",
-    "The bright star you’re staring at might be a planet. Look for: No twinkle,  likely a planet. Steady glow, Jupiter, Venus, Mars. Venus in the desert is shockingly bright.",
-    "Shooting stars aren’t rare here. You can catch several per hour on an average night — more during meteor showers.",
-    "Humans navigated the Southwest by the stars. Ancient travelers used: the North Star, the Pleiades cluster, the Milky Way’s arc. Their migrations are carved into petroglyph spirals.",
-    "You can spot the International Space Station with your eyes. It moves like a bright, silent plane — no blinking lights. It’s brighter than 95% of stars.",
-    "The desert night is loud. Listen for: bats hunting insects, coyotes calling across miles, night wind moving like water. The land breathes differently after sunset.",
-    "Turn your binoculars towards the desert sky. They become instant amateur telescopes. The moon’s craters, the Milky Way’s dust lanes, Orion’s nebula; all visible through your binoculars. Now you know why you have a pair in your scrap box.",
-    "The desert sky is time travel. Every star you’re seeing is possibly: a sun, with planets, some older than Earth, some gone for millions of years…and you’re seeing them as they were, not as they are. Cool, isn’t it?"
-];
-
 const audioFiles = Array.from(
-    { length: facts.length },
-    (_, index) => `assets/audio/sky${index + 1}.mp3`
+    { length: 13 },
+    (_, index) => `assets/audio/obsidian{index + 1}.mp3`
 );
 
 const dusty = new DustyCharacter({
     container: "#dustyCharacter",
-    speechBubble: "#speechBubble",
     button: "#didYouKnowBtn",
-    facts,
     audioFiles,
-    idleMessage: "Press the button and Dusty will share another sky fact.",
     baseAlt: "Dusty the guide character",
     images: {
         base: "assets/images/dusty_base.png",
@@ -1466,10 +1193,6 @@ const dusty = new DustyCharacter({
 });
 
 dusty.init().catch((error) => {
-    const speechBubble = document.getElementById("speechBubble");
-    if (speechBubble) {
-        speechBubble.textContent = error.message;
-    }
     console.error(error);
 });
 </script>
