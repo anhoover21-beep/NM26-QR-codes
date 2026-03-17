@@ -3,13 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NM26 Header</title>
+<title>NM26 Lodging</title>
 
 <style>
 body{
 margin:0;
-background:black;
+background:
+linear-gradient(180deg, #f8f1d5 0%, #f2f2f2 42%, #ececec 100%);
 font-family:Arial, Helvetica, sans-serif;
+color:#222;
 }
 
 /* HEADER IMAGE */
@@ -30,7 +32,7 @@ display:block;
 .nm-home-nav-wrap{
 width:min(100%, 1900px);
 margin:0 auto;
-background:#C83F07;
+background:#EE8537;
 border-top:5px solid #377654;
 }
 
@@ -48,21 +50,224 @@ text-decoration:none;
 font-size:clamp(14px, 2vw, 22px);
 font-weight:500;
 letter-spacing:1px;
-color:#3682D2E;
+color:#682D2E;
 line-height:1;
 }
 
 .nm-home-nav a:link,
 .nm-home-nav a:visited{
- color:#682D2E;
+color:#682D2E;
 }
-  
+
 .nm-home-nav a:hover,
-.nm-home-nav a:active {
- color:#377654;
+.nm-home-nav a:active{
+color:#377654;
+}
+
+.nm-home-nav a.active:link,
+.nm-home-nav a.active:visited{
+color:#377654;
+font-weight:700;
+}
+
+/* PAGE */
+
+.page-shell{
+width:min(92%, 1200px);
+margin:28px auto 50px;
+}
+
+.page-hero{
+background:rgba(255,255,255,0.86);
+border:1px solid rgba(104,45,46,0.14);
+border-radius:22px;
+box-shadow:0 10px 30px rgba(0,0,0,0.08);
+padding:26px 22px;
+margin-bottom:28px;
+}
+
+.page-kicker{
+font-size:13px;
+font-weight:700;
+letter-spacing:1.8px;
+text-transform:uppercase;
+color:#377654;
+margin:0 0 8px;
+}
+
+.page-title{
+margin:0;
+font-size:clamp(30px, 4vw, 48px);
+line-height:1.05;
+color:#682D2E;
+}
+
+.page-subtitle{
+margin:12px 0 0;
+font-size:clamp(16px, 2vw, 20px);
+line-height:1.5;
+color:#4d4d4d;
+max-width:760px;
+}
+
+.lodging-grid{
+display:grid;
+gap:22px;
+}
+
+.lodging-card{
+background:#fff;
+border-radius:24px;
+box-shadow:0 12px 34px rgba(0,0,0,0.10);
+border:1px solid rgba(104,45,46,0.12);
+padding:22px 20px;
+}
+
+.lodging-top{
+display:flex;
+justify-content:space-between;
+align-items:flex-start;
+gap:16px;
+margin-bottom:16px;
+flex-wrap:wrap;
+}
+
+.night-block{
+min-width:220px;
+}
+
+.night-label{
+display:block;
+font-size:13px;
+font-weight:700;
+letter-spacing:1.4px;
+text-transform:uppercase;
+color:#377654;
+margin-bottom:6px;
+}
+
+.night-date{
+margin:0;
+font-size:clamp(20px, 2.6vw, 30px);
+line-height:1.15;
+color:#682D2E;
+}
+
+.status-badge{
+display:inline-flex;
+align-items:center;
+justify-content:center;
+padding:8px 12px;
+border-radius:999px;
+font-size:13px;
+font-weight:700;
+letter-spacing:0.6px;
+text-transform:uppercase;
+white-space:nowrap;
+}
+
+.status-paid{
+background:rgba(55,118,84,0.14);
+color:#377654;
+border:1px solid rgba(55,118,84,0.30);
+}
+
+.status-due{
+background:rgba(238,133,55,0.16);
+color:#9a4f0c;
+border:1px solid rgba(238,133,55,0.36);
+}
+
+.status-tbd{
+background:rgba(120,120,120,0.12);
+color:#666;
+border:1px solid rgba(120,120,120,0.28);
+}
+
+.lodging-name{
+margin:0 0 6px;
+font-size:clamp(24px, 3vw, 34px);
+line-height:1.12;
+color:#682D2E;
+}
+
+.lodging-phone,
+.lodging-room,
+.lodging-address,
+.lodging-city{
+margin:0;
+font-size:clamp(15px, 1.5vw, 18px);
+line-height:1.5;
+color:#2f2f2f;
+}
+
+.lodging-room{
+margin-top:6px;
+font-weight:700;
+color:#EE8537;
+}
+
+.lodging-address{
+margin-top:16px;
+}
+
+.info-grid{
+display:grid;
+grid-template-columns:repeat(2, minmax(0, 1fr));
+gap:14px 18px;
+margin-top:18px;
+padding-top:18px;
+border-top:1px solid rgba(104,45,46,0.12);
+}
+
+.info-item{
+min-width:0;
+}
+
+.info-label{
+display:block;
+font-size:12px;
+font-weight:700;
+letter-spacing:1.1px;
+text-transform:uppercase;
+color:#377654;
+margin-bottom:4px;
+}
+
+.info-value{
+margin:0;
+font-size:clamp(14px, 1.4vw, 17px);
+line-height:1.45;
+color:#333;
+}
+
+.tbd-note{
+margin-top:14px;
+padding-top:14px;
+border-top:1px solid rgba(104,45,46,0.12);
+font-size:clamp(15px, 1.5vw, 18px);
+line-height:1.5;
+color:#444;
+}
+
+/* FOOTER */
+
+.page-footer{
+width:min(92%, 1200px);
+margin:0 auto 40px;
+text-align:center;
+font-size:14px;
+letter-spacing:0.8px;
+color:#6b6b6b;
 }
 
 /* MOBILE */
+
+@media (max-width: 700px){
+.info-grid{
+grid-template-columns:1fr;
+}
+}
 
 @media (max-width: 600px){
 .nm-home-nav{
@@ -73,6 +278,26 @@ padding:12px 14px;
 .nm-home-nav a{
 font-size:clamp(13px, 4vw, 18px);
 letter-spacing:0.5px;
+}
+
+.page-shell{
+width:min(94%, 1200px);
+margin:20px auto 36px;
+}
+
+.page-hero{
+padding:22px 18px;
+margin-bottom:22px;
+border-radius:18px;
+}
+
+.lodging-card{
+padding:18px 16px;
+border-radius:18px;
+}
+
+.lodging-top{
+margin-bottom:14px;
 }
 }
 </style>
@@ -88,9 +313,294 @@ letter-spacing:0.5px;
   <nav class="nm-home-nav">
     <a href="index.html">HOME</a>
     <a href="itinerary.html">ITINERARY</a>
-    <a href="lodging.html">LODGING</a>
+    <a href="lodging.html" class="active">LODGING</a>
   </nav>
 </div>
+
+<main class="page-shell">
+  <section class="page-hero">
+    <p class="page-kicker">NM26 Staybook</p>
+    <h1 class="page-title">Lodging</h1>
+    <p class="page-subtitle">Overnight stays, addresses, and check-in details for the NM26 loop.</p>
+  </section>
+
+  <section class="lodging-grid">
+
+    <article class="lodging-card">
+      <div class="lodging-top">
+        <div class="night-block">
+          <span class="night-label">Night 1</span>
+          <h2 class="night-date">Friday, June 5</h2>
+        </div>
+        <div class="status-badge status-paid">Paid in Full</div>
+      </div>
+
+      <h3 class="lodging-name">Blue Swallow Motel</h3>
+      <p class="lodging-phone">(575) 461-9849</p>
+      <p class="lodging-room">Family Suite</p>
+
+      <p class="lodging-address">815 E Rte 66 Blvd</p>
+      <p class="lodging-city">Tucumcari, NM 88401</p>
+
+      <div class="info-grid">
+        <div class="info-item">
+          <span class="info-label">Booking</span>
+          <p class="info-value">Website</p>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Payment</span>
+          <p class="info-value">Paid in Full</p>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Check-in</span>
+          <p class="info-value">3:00 PM</p>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Check-out</span>
+          <p class="info-value">10:00 AM</p>
+        </div>
+      </div>
+    </article>
+
+    <article class="lodging-card">
+      <div class="lodging-top">
+        <div class="night-block">
+          <span class="night-label">Night 2</span>
+          <h2 class="night-date">Saturday, June 6</h2>
+        </div>
+        <div class="status-badge status-due">Due at Property</div>
+      </div>
+
+      <h3 class="lodging-name">Hotel Glorieta</h3>
+      <p class="lodging-phone">(505) 992-5800</p>
+      <p class="lodging-room">Standard Room, 2 Queen Beds</p>
+
+      <p class="lodging-address">750 N St Francis Dr</p>
+      <p class="lodging-city">Santa Fe, NM 87501</p>
+
+      <div class="info-grid">
+        <div class="info-item">
+          <span class="info-label">Booking</span>
+          <p class="info-value">Orbitz</p>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Payment</span>
+          <p class="info-value">$28.80 due at property</p>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Check-in</span>
+          <p class="info-value">4:00 PM</p>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Check-out</span>
+          <p class="info-value">12:00 PM</p>
+        </div>
+      </div>
+    </article>
+
+    <article class="lodging-card">
+      <div class="lodging-top">
+        <div class="night-block">
+          <span class="night-label">Night 3</span>
+          <h2 class="night-date">Sunday, June 7</h2>
+        </div>
+        <div class="status-badge status-paid">Paid in Full</div>
+      </div>
+
+      <h3 class="lodging-name">Taos Motor Lodge</h3>
+      <p class="lodging-phone">(575) 216-8467</p>
+      <p class="lodging-room">2 Bedroom Kachhina Suite</p>
+
+      <p class="lodging-address">1798 NM-68</p>
+      <p class="lodging-city">Rancho de Taos, NM 87557</p>
+
+      <div class="info-grid">
+        <div class="info-item">
+          <span class="info-label">Booking</span>
+          <p class="info-value">Orbitz</p>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Payment</span>
+          <p class="info-value">Paid in Full</p>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Check-in</span>
+          <p class="info-value">3:00 PM</p>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Check-out</span>
+          <p class="info-value">11:00 AM</p>
+        </div>
+      </div>
+    </article>
+
+    <article class="lodging-card">
+      <div class="lodging-top">
+        <div class="night-block">
+          <span class="night-label">Night 4</span>
+          <h2 class="night-date">Monday, June 8</h2>
+        </div>
+        <div class="status-badge status-due">Due at Property</div>
+      </div>
+
+      <h3 class="lodging-name">El Sandero Inn</h3>
+      <p class="lodging-phone">(505) 982-1851</p>
+      <p class="lodging-room">King Bed Suite</p>
+
+      <p class="lodging-address">311 Old Santa Fe Trail</p>
+      <p class="lodging-city">Santa Fe, NM 87501</p>
+
+      <div class="info-grid">
+        <div class="info-item">
+          <span class="info-label">Booking</span>
+          <p class="info-value">Orbitz</p>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Payment</span>
+          <p class="info-value">$195.87 due at property</p>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Check-in</span>
+          <p class="info-value">4:00 PM</p>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Check-out</span>
+          <p class="info-value">11:00 AM</p>
+        </div>
+      </div>
+    </article>
+
+    <article class="lodging-card">
+      <div class="lodging-top">
+        <div class="night-block">
+          <span class="night-label">Night 5</span>
+          <h2 class="night-date">Tuesday, June 9</h2>
+        </div>
+        <div class="status-badge status-paid">Paid in Full</div>
+      </div>
+
+      <h3 class="lodging-name">Lone Pine Inn</h3>
+      <p class="lodging-phone">No phone listed</p>
+      <p class="lodging-room">Airbnb Stay</p>
+
+      <p class="lodging-address">121 College Avenue</p>
+      <p class="lodging-city">Socorro, NM 87801</p>
+
+      <div class="info-grid">
+        <div class="info-item">
+          <span class="info-label">Booking</span>
+          <p class="info-value">Airbnb</p>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Payment</span>
+          <p class="info-value">Paid in Full</p>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Check-in</span>
+          <p class="info-value">2:00 PM</p>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Check-out</span>
+          <p class="info-value">12:00 PM</p>
+        </div>
+      </div>
+    </article>
+
+    <article class="lodging-card">
+      <div class="lodging-top">
+        <div class="night-block">
+          <span class="night-label">Night 6</span>
+          <h2 class="night-date">Wednesday, June 10</h2>
+        </div>
+        <div class="status-badge status-due">Due at Property</div>
+      </div>
+
+      <h3 class="lodging-name">Candlewood Suites Roswell</h3>
+      <p class="lodging-phone">(575) 623-4300</p>
+      <p class="lodging-room">King Bed Suite</p>
+
+      <p class="lodging-address">4 Military Heights Dr</p>
+      <p class="lodging-city">Roswell, NM 88201</p>
+
+      <div class="info-grid">
+        <div class="info-item">
+          <span class="info-label">Booking</span>
+          <p class="info-value">Orbitz</p>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Payment</span>
+          <p class="info-value">$138.42 due at property</p>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Check-in</span>
+          <p class="info-value">3:00 PM</p>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Check-out</span>
+          <p class="info-value">11:00 AM</p>
+        </div>
+      </div>
+    </article>
+
+    <article class="lodging-card">
+      <div class="lodging-top">
+        <div class="night-block">
+          <span class="night-label">Night 7</span>
+          <h2 class="night-date">Thursday, June 11</h2>
+        </div>
+        <div class="status-badge status-tbd">TBD</div>
+      </div>
+
+      <h3 class="lodging-name">Lodging to Be Finalized</h3>
+      <p class="lodging-room">Between Pecos → Fort Stockton</p>
+
+      <div class="tbd-note">
+        Details pending. This stop is being held open to give flexibility on the drive after Carlsbad Caverns and Sitting Bull Falls.
+      </div>
+    </article>
+
+    <article class="lodging-card">
+      <div class="lodging-top">
+        <div class="night-block">
+          <span class="night-label">Night 8</span>
+          <h2 class="night-date">Friday, June 12</h2>
+        </div>
+        <div class="status-badge status-due">Due at Property</div>
+      </div>
+
+      <h3 class="lodging-name">Menger Hotel</h3>
+      <p class="lodging-phone">(210) 223-4361</p>
+      <p class="lodging-room">2 Double Beds, Balcony</p>
+
+      <p class="lodging-address">204 Alamo Plaza</p>
+      <p class="lodging-city">San Antonio, TX 78205</p>
+
+      <div class="info-grid">
+        <div class="info-item">
+          <span class="info-label">Booking</span>
+          <p class="info-value">Orbitz</p>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Payment</span>
+          <p class="info-value">$296.82 due at property</p>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Check-in</span>
+          <p class="info-value">4:00 PM</p>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Check-out</span>
+          <p class="info-value">11:00 AM</p>
+        </div>
+      </div>
+    </article>
+
+  </section>
+</main>
+
+<footer class="page-footer">
+  NM26 • From Petroglyphs to Phenomena
+</footer>
 
 </body>
 </html>
