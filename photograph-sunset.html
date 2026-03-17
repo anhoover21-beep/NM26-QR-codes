@@ -16,66 +16,108 @@ body{
 /* HEADER IMAGE */
 
 .nm-header{
-width:min(100%, 1900px);
-margin:0 auto;
+  width:min(100%, 1900px);
+  margin:0 auto;
 }
 
 .nm-banner{
-width:100%;
-height:auto;
-display:block;
+  width:100%;
+  height:auto;
+  display:block;
 }
 
 /* NAV BELOW HEADER */
 
 .nm-home-nav-wrap{
-width:min(100%, 1900px);
-margin:0 auto;
-background:#EE8537;
-border-top:5px solid #377654;
+  width:min(100%, 1900px);
+  margin:0 auto;
+  background:#EE8537;
+  border-top:5px solid #377654;
 }
 
 .nm-home-nav{
-display:flex;
-justify-content:center;
-align-items:center;
-gap:40px;
-padding:14px 20px;
-flex-wrap:wrap;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:40px;
+  padding:14px 20px;
+  flex-wrap:wrap;
 }
 
 .nm-home-nav a{
-text-decoration:none;
-font-size:clamp(14px, 2vw, 22px);
-font-weight:500;
-letter-spacing:1px;
-color:#682D2E;
-line-height:1;
+  text-decoration:none;
+  font-size:clamp(14px, 2vw, 22px);
+  font-weight:500;
+  letter-spacing:1px;
+  color:#682D2E;
+  line-height:1;
 }
 
 .nm-home-nav a:link,
 .nm-home-nav a:visited{
- color:#682D2E;
+  color:#682D2E;
 }
   
 .nm-home-nav a:hover,
-.nm-home-nav a:active {
- color:#377654;
+.nm-home-nav a:active{
+  color:#377654;
+}
+
+/* CONTENT */
+
+.page-container{
+  max-width:900px;
+  margin:80px auto;
+  padding:0 30px 100px 30px;
+}
+
+.page-container h1{
+  font-size:42px;
+  margin-bottom:24px;
+  text-align:center;
+}
+
+.page-container h2{
+  margin-top:40px;
+  font-size:32px;
+}
+
+.page-container p{
+  font-size:20px;
+  line-height:1.7;
+  margin-bottom:24px;
 }
 
 /* MOBILE */
 
 @media (max-width: 600px){
-.nm-home-nav{
-gap:22px;
-padding:12px 14px;
-}
+  .nm-home-nav{
+    gap:22px;
+    padding:12px 14px;
+  }
 
-.nm-home-nav a{
-font-size:clamp(13px, 4vw, 18px);
-letter-spacing:0.5px;
-}
+  .nm-home-nav a{
+    font-size:clamp(13px, 4vw, 18px);
+    letter-spacing:0.5px;
+  }
 
+  .page-container{
+    margin:50px auto;
+    padding:0 20px 80px 20px;
+  }
+
+  .page-container h1{
+    font-size:28px;
+  }
+
+  .page-container h2{
+    font-size:24px;
+  }
+
+  .page-container p{
+    font-size:17px;
+  }
+}
 </style>
 </head>
 
@@ -92,19 +134,6 @@ letter-spacing:0.5px;
     <a href="lodging.html">LODGING</a>
   </nav>
 </div>
-
-</body>
-</html>
-
-
-
-
-
-
-
-
-
-
 
 <main class="page-container">
 
@@ -209,7 +238,6 @@ Or on Terri. She doesn’t mind.</p>
 You come home with photos that look EXACTLY like what you saw… and nobody will believe you didn’t use filters.</p>
 
 </main>
-
 
 </body>
 </html>
