@@ -6,215 +6,220 @@
 <title>NM26 Mission Portal</title>
 
 <style>
-body {
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background: #f4f4f4;
-    color: #222;
+body{
+  margin:0;
+  font-family:Arial, Helvetica, sans-serif;
+  background:#f4f4f4;
+  color:#222;
 }
 
-/* ===== HEADER ===== */
+/* ===== LOCKED HEADER ===== */
 
-.nm-header {
-    background: #c5161d;
-    color: white;
+.nm-header{
+  width:min(100%, 1900px);
+  margin:0 auto;
 }
 
-.nm-header-inner {
-    max-width: 1300px;
-    margin: 0 auto;
-    padding: 30px 40px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+.nm-banner{
+  width:100%;
+  height:auto;
+  display:block;
 }
 
-.nm-brand {
-    display: flex;
-    align-items: center;
-    gap: 20px;
+.nm-home-nav-wrap{
+  width:min(100%, 1900px);
+  margin:0 auto;
+  background:#EE8537;
+  border-top:5px solid #377654;
 }
 
-.nm-state {
-    position: relative;
-    width: 110px;
-    height: 110px;
-    background: url("assets/images/new-mexico.png") no-repeat center;
-    background-size: contain;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.nm-home-nav{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:40px;
+  padding:14px 20px;
+  flex-wrap:wrap;
 }
 
-.nm-text {
-    font-size: 40px;
-    font-weight: 900;
-    letter-spacing: 2px;
-    color: white;
+.nm-home-nav a{
+  text-decoration:none;
+  font-size:clamp(14px, 2vw, 22px);
+  font-weight:500;
+  letter-spacing:1px;
+  color:#682D2E;
+  line-height:1;
 }
 
-.nm-year {
-    font-size: 72px;
-    font-weight: 900;
-    color: #ffd23f;
+.nm-home-nav a:link,
+.nm-home-nav a:visited{
+  color:#682D2E;
 }
 
-.nm-nav {
-    display: flex;
-    gap: 60px;
-}
-
-.nm-nav span {
-    color: white;
-    font-size: 26px;
-    letter-spacing: 2px;
-    font-weight: 600;
-}
-
-.nm-login span {
-    background: #ffd23f;
-    color: #c5161d;
-    padding: 12px 26px;
-    border-radius: 16px;
-    font-weight: 900;
-    font-size: 22px;
-}
-
-.nm-stripe {
-    background: #ffd23f;
-    padding: 10px 40px;
-    font-weight: 900;
-    color: #c5161d;
-    letter-spacing: 2px;
+.nm-home-nav a:hover,
+.nm-home-nav a:active{
+  color:#377654;
 }
 
 /* ===== HERO ===== */
 
-.nm-hero {
-    height: 80vh;
-    min-height: 550px;
-    background: url("assets/images/loretto-hero.jpg") center center / cover no-repeat;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.nm-hero{
+  height:80vh;
+  min-height:550px;
+  background:url("assets/images/loretto-hero.jpg") center center / cover no-repeat;
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
 
-.nm-hero::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-        rgba(0,0,0,0.5),
-        rgba(60,40,20,0.3)
-    );
+.nm-hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    rgba(0,0,0,0.5),
+    rgba(60,40,20,0.3)
+  );
 }
 
-.nm-hero-overlay {
-    position: relative;
-    text-align: center;
-    color: white;
-    z-index: 1;
-    padding: 0 20px;
+.nm-hero-overlay{
+  position:relative;
+  text-align:center;
+  color:white;
+  z-index:1;
+  padding:0 20px;
 }
 
-.nm-hero-overlay h1 {
-    font-size: 52px;
-    margin: 0;
+.nm-hero-overlay h1{
+  font-size:52px;
+  margin:0;
 }
 
 /* ===== CONTENT ===== */
 
-.page-container {
-    max-width: 900px;
-    margin: 80px auto;
-    padding: 0 30px 100px 30px;
+.page-container{
+  max-width:900px;
+  margin:80px auto;
+  padding:0 30px 100px 30px;
+  text-align:center;
 }
 
-.page-container h1 {
-    font-size: 42px;
-    margin-bottom: 24px;
+.page-container h1{
+  font-size:42px;
+  margin-bottom:24px;
 }
 
-.page-container h2 {
-    margin-top: 60px;
+.page-container h2{
+  margin-top:60px;
+  font-size:32px;
+  text-align:left;
 }
 
-.page-container p {
-    font-size: 20px;
-    line-height: 1.7;
-    margin-bottom: 24px;
+.page-container h3{
+  font-size:24px;
+  margin-top:26px;
+  margin-bottom:10px;
+  text-align:left;
 }
 
-blockquote {
-    font-size: 24px;
-    text-align: center;
-    margin: 50px 0;
-    font-style: italic;
-    color: #6b4a2b;
+.page-container p{
+  font-size:20px;
+  line-height:1.7;
+  margin-bottom:24px;
+  text-align:left;
+}
+
+.page-container ul{
+  font-size:20px;
+  line-height:1.7;
+  margin-bottom:24px;
+  text-align:left;
+}
+
+blockquote{
+  font-size:24px;
+  text-align:center;
+  margin:50px 0;
+  font-style:italic;
+  color:#6b4a2b;
 }
 
 /* ===== IMAGE BLOCKS ===== */
 
-.nm-figure {
-    margin: 40px 0 50px 0;
-    text-align: center;
+.nm-figure{
+  margin:40px auto 50px auto;
+  text-align:center;
+  max-width:750px;
 }
 
-.nm-figure img {
-    width: 100%;
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+.nm-figure img{
+  width:100%;
+  border-radius:12px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.15);
+  display:block;
 }
 
-.nm-caption {
-    font-size: 14px;
-    color: #666;
-    margin-top: 10px;
-    font-style: italic;
+.nm-caption{
+  font-size:14px;
+  color:#666;
+  margin-top:10px;
+  font-style:italic;
+  text-align:center;
 }
 
 /* ===== RESPONSIVE ===== */
 
-@media (max-width: 1024px) {
-    .nm-header-inner {
-        flex-direction: column;
-        gap: 20px;
-        text-align: center;
-    }
+@media (max-width:1024px){
+  .nm-hero{
+    height:65vh;
+  }
 
-    .nm-nav {
-        gap: 30px;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
+  .nm-hero-overlay h1{
+    font-size:36px;
+  }
 
-    .nm-nav span {
-        font-size: 20px;
-    }
+  .page-container h2{
+    font-size:26px;
+  }
 
-    .nm-hero {
-        height: 65vh;
-    }
-
-    .nm-hero-overlay h1 {
-        font-size: 36px;
-    }
+  .page-container h3{
+    font-size:21px;
+  }
 }
 
-@media (max-width: 600px) {
-    .page-container {
-        margin: 50px auto;
-        padding: 0 20px 80px 20px;
-    }
+@media (max-width:600px){
+  .nm-home-nav{
+    gap:22px;
+    padding:12px 14px;
+  }
 
-    .page-container h1 {
-        font-size: 28px;
-    }
+  .nm-home-nav a{
+    font-size:clamp(13px, 4vw, 18px);
+    letter-spacing:0.5px;
+  }
 
-    .page-container p {
-        font-size: 17px;
-    }
+  .page-container{
+    margin:50px auto;
+    padding:0 20px 80px 20px;
+  }
+
+  .page-container h1{
+    font-size:28px;
+  }
+
+  .page-container h2{
+    font-size:24px;
+  }
+
+  .page-container h3{
+    font-size:18px;
+  }
+
+  .page-container p,
+  .page-container ul{
+    font-size:17px;
+  }
 }
 </style>
 </head>
@@ -222,150 +227,139 @@ blockquote {
 <body>
 
 <header class="nm-header">
-    <div class="nm-header-inner">
-        <div class="nm-brand">
-            <div class="nm-state">
-                <span class="nm-text">NM</span>
-            </div>
-            <span class="nm-year">26</span>
-        </div>
-        <nav class="nm-nav">
-            <span>HOME</span>
-            <span>PLANNER</span>
-            <span>RESOURCES</span>
-            <span>GUIDE</span>
-        </nav>
-        <div class="nm-login">
-            <span>LOGIN</span>
-        </div>
-    </div>
-    <div class="nm-stripe">
-        VACATION 2026
-    </div>
+  <img src="/NM26-QR-codes/assets/images/header_banner.png" class="nm-banner" alt="NM26 Header">
 </header>
 
+<div class="nm-home-nav-wrap">
+  <nav class="nm-home-nav">
+    <a href="index.html">HOME</a>
+    <a href="itinerary.html">ITINERARY</a>
+    <a href="lodging.html">LODGING</a>
+  </nav>
+</div>
+
 <section class="nm-hero">
-    <div class="nm-hero-overlay">
-        <h1>The Miraculous Staircase of Loretto Chapel</h1>
-    </div>
+  <div class="nm-hero-overlay">
+    <h1>The Miraculous Staircase of Loretto Chapel</h1>
+  </div>
 </section>
 
 <main class="page-container">
 
-<h1>✨ The Miraculous Staircase of Loretto Chapel</h1>
+  <h1>Overview</h1>
 
-<p><strong>Santa Fe, New Mexico — 1878</strong></p>
+  <p><strong>Santa Fe, New Mexico — 1878</strong></p>
 
-<p>
-In the late 19th century, the Sisters of Loretto faced a problem no ordinary carpenter could solve.
-</p>
+  <p>
+    In the late 19th century, the Sisters of Loretto faced a problem no ordinary carpenter could solve.
+  </p>
 
-<p>
-Their new chapel — inspired by Sainte-Chapelle in Paris — was breathtaking. But the architect died suddenly before designing a staircase to reach the choir loft twenty feet above. The space was too narrow for a traditional stairway, and adding one would block the pews.
-</p>
+  <p>
+    Their new chapel — inspired by Sainte-Chapelle in Paris — was breathtaking. But the architect died suddenly before designing a staircase to reach the choir loft twenty feet above. The space was too narrow for a traditional stairway, and adding one would block the pews.
+  </p>
 
-<p>
-A ladder was suggested. The nuns refused.
-</p>
+  <p>
+    A ladder was suggested. The nuns refused.
+  </p>
 
-<figure class="nm-figure">
+  <figure class="nm-figure">
     <img src="assets/images/loretto-staircase.jpg" alt="The spiral staircase inside Loretto Chapel">
     <div class="nm-caption">The spiral staircase inside Loretto Chapel, Santa Fe.</div>
-</figure>
+  </figure>
 
-<h2>The Prayer</h2>
+  <h2>The Prayer</h2>
 
-<p>
-So the sisters did what they knew best: they prayed a nine-day novena to St. Joseph, patron saint of carpenters.
-</p>
+  <p>
+    So the sisters did what they knew best: they prayed a nine-day novena to St. Joseph, patron saint of carpenters.
+  </p>
 
-<p>
-On the final day, a mysterious man appeared carrying only:
-</p>
+  <p>
+    On the final day, a mysterious man appeared carrying only:
+  </p>
 
-<ul>
-<li>a hammer</li>
-<li>a saw</li>
-<li>a square</li>
-</ul>
+  <ul>
+    <li>a hammer</li>
+    <li>a saw</li>
+    <li>a square</li>
+  </ul>
 
-<p>He offered to build them a staircase.</p>
+  <p>He offered to build them a staircase.</p>
 
-<h2>The Carpenter</h2>
+  <h2>The Carpenter</h2>
 
-<p>
-For months he worked in silence behind closed doors. No deliveries arrived. No lumber scraps were hauled in. When he finished, he disappeared without asking for payment.
-</p>
+  <p>
+    For months he worked in silence behind closed doors. No deliveries arrived. No lumber scraps were hauled in. When he finished, he disappeared without asking for payment.
+  </p>
 
-<p><strong>What he left behind still puzzles architects.</strong></p>
+  <p><strong>What he left behind still puzzles architects.</strong></p>
 
-<figure class="nm-figure">
+  <figure class="nm-figure">
     <img src="assets/images/loretto-detail.jpg" alt="Close-up of wooden pegs in Loretto staircase">
     <div class="nm-caption">Wooden pegs hold the staircase together — no visible nails.</div>
-</figure>
+  </figure>
 
-<h2>The Staircase Mystery</h2>
+  <h2>The Staircase Mystery</h2>
 
-<h3>The Spiral</h3>
-<p>
-A perfect double-helix staircase making two full turns — yet with no center pole and no visible support.
-</p>
+  <h3>The Spiral</h3>
+  <p>
+    A perfect double-helix staircase making two full turns — yet with no center pole and no visible support.
+  </p>
 
-<h3>No Nails</h3>
-<p>
-The entire structure is held together with wooden pegs instead of iron nails.
-</p>
+  <h3>No Nails</h3>
+  <p>
+    The entire structure is held together with wooden pegs instead of iron nails.
+  </p>
 
-<h3>Unknown Wood</h3>
-<p>
-Analysis suggests the wood’s structure doesn’t match any species native to the American Southwest.
-</p>
+  <h3>Unknown Wood</h3>
+  <p>
+    Analysis suggests the wood’s structure doesn’t match any species native to the American Southwest.
+  </p>
 
-<h3>Engineering Puzzle</h3>
-<p>
-For decades, carpenters have studied it. Engineers have modeled it. No one can fully explain how it supports weight — or why it still stands.
-</p>
+  <h3>Engineering Puzzle</h3>
+  <p>
+    For decades, carpenters have studied it. Engineers have modeled it. No one can fully explain how it supports weight — or why it still stands.
+  </p>
 
-<p>
-The railing was not added until later. Originally, the staircase appeared to float like a wooden ribbon.
-</p>
+  <p>
+    The railing was not added until later. Originally, the staircase appeared to float like a wooden ribbon.
+  </p>
 
-<h2>The Disappearance</h2>
+  <h2>The Disappearance</h2>
 
-<p>
-To this day, the craftsman’s identity remains unknown. The Sisters kept no record of payment, and no lumber source was documented.
-</p>
+  <p>
+    To this day, the craftsman’s identity remains unknown. The Sisters kept no record of payment, and no lumber source was documented.
+  </p>
 
-<p>
-Some believe he was simply an extraordinarily skilled craftsman. Others whisper it was St. Joseph himself.
-</p>
+  <p>
+    Some believe he was simply an extraordinarily skilled craftsman. Others whisper it was St. Joseph himself.
+  </p>
 
-<blockquote>
-It should not stand. Yet it does.
-</blockquote>
+  <blockquote>
+    It should not stand. Yet it does.
+  </blockquote>
 
-<h2>Still Standing</h2>
+  <h2>Still Standing</h2>
 
-<p>The staircase has survived:</p>
+  <p>The staircase has survived:</p>
 
-<ul>
-<li>vibrations</li>
-<li>heavy use</li>
-<li>remodels</li>
-<li>more than 145 years of tourism</li>
-</ul>
+  <ul>
+    <li>vibrations</li>
+    <li>heavy use</li>
+    <li>remodels</li>
+    <li>more than 145 years of tourism</li>
+  </ul>
 
-<p>
-Pilgrims call it a miracle. Architects call it impossible. Visitors call it unforgettable.
-</p>
+  <p>
+    Pilgrims call it a miracle. Architects call it impossible. Visitors call it unforgettable.
+  </p>
 
-<p>
-In a state famous for mysteries, UFOs, ghost lights, and ancient petroglyphs…
-</p>
+  <p>
+    In a state famous for mysteries, UFOs, ghost lights, and ancient petroglyphs…
+  </p>
 
-<p><strong>
-the quiet miracle inside a small Santa Fe chapel might be the strangest of all.
-</strong></p>
+  <p><strong>
+    the quiet miracle inside a small Santa Fe chapel might be the strangest of all.
+  </strong></p>
 
 </main>
 
