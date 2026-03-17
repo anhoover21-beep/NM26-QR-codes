@@ -19,7 +19,7 @@ font-family:Arial, Helvetica, sans-serif;
 position:relative;
 background:#6f2f3b;
 border:6px solid #e25a00;
-padding:35px;
+padding:35px 35px 6px 35px; /* 👈 FIXED (bottom reduced) */
 max-width:1900px;
 margin:auto;
 overflow:hidden;
@@ -133,11 +133,11 @@ font-size:36px;
 color:#6f2f3b;
 }
 
-/* BOTTOM BAR (TIGHTENED) */
+/* BOTTOM BAR */
 
 .nm-bottom{
 background:#6f2f3b;
-padding:2px 30px;
+padding:3px 30px;
 display:flex;
 justify-content:space-between;
 align-items:center;
@@ -152,17 +152,15 @@ gap:40px;
 
 .nm-left a{
 text-decoration:none;
-font-size:18px;
-line-height:1;
+font-size:24px;
 color:#f08a35;
 }
 
 /* RIGHT TEXT */
 
 .nm-right{
-font-size:18px;
+font-size:24px;
 font-weight:900;
-line-height:1;
 color:#e25a00;
 }
 
