@@ -3,15 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NM26 HOME</title>
+<title>NM26 Home</title>
 
 <style>
-    body {
-        margin: 0;
-        font-family: Arial, Helvetica, sans-serif;
-        background: #f4f4f4;
-        color: #222;
-    }
+body{
+margin:0;
+background:
+linear-gradient(180deg, #f8f1d5 0%, #f2f2f2 42%, #ececec 100%);
+font-family:Arial, Helvetica, sans-serif;
+color:#222;
+}
 
 /* HEADER IMAGE */
 
@@ -33,7 +34,6 @@ width:min(100%, 1900px);
 margin:0 auto;
 background:#EE8537;
 border-top:5px solid #377654;
-border-bottom:8px solid #682D2E;    
 }
 
 .nm-home-nav{
@@ -56,15 +56,270 @@ line-height:1;
 
 .nm-home-nav a:link,
 .nm-home-nav a:visited{
- color:#682D2E;
-}
-  
-.nm-home-nav a:hover,
-.nm-home-nav a:active {
- color:#377654;
+color:#682D2E;
 }
 
-/* MOBILE */
+.nm-home-nav a:hover,
+.nm-home-nav a:active{
+color:#377654;
+}
+
+.nm-home-nav a.active:link,
+.nm-home-nav a.active:visited{
+color:#377654;
+font-weight:700;
+}
+
+/* PAGE */
+
+.page-shell{
+width:min(92%, 1200px);
+margin:28px auto 50px;
+display:grid;
+gap:26px;
+}
+
+.hero-card{
+background:
+linear-gradient(135deg, rgba(255,255,255,0.94) 0%, rgba(255,248,235,0.92) 100%);
+border:1px solid rgba(104,45,46,0.14);
+border-radius:24px;
+box-shadow:0 12px 34px rgba(0,0,0,0.10);
+padding:28px 24px;
+}
+
+.hero-kicker{
+font-size:13px;
+font-weight:700;
+letter-spacing:1.8px;
+text-transform:uppercase;
+color:#377654;
+margin:0 0 8px;
+}
+
+.hero-title{
+margin:0;
+font-size:clamp(34px, 5vw, 58px);
+line-height:1.02;
+color:#682D2E;
+max-width:900px;
+}
+
+.hero-subtitle{
+margin:14px 0 0;
+font-size:clamp(17px, 2.2vw, 22px);
+line-height:1.55;
+color:#4b4b4b;
+max-width:860px;
+}
+
+.hero-buttons{
+display:flex;
+flex-wrap:wrap;
+gap:14px;
+margin-top:22px;
+}
+
+.hero-button{
+display:inline-flex;
+align-items:center;
+justify-content:center;
+padding:13px 18px;
+border-radius:999px;
+text-decoration:none;
+font-size:15px;
+font-weight:700;
+letter-spacing:0.6px;
+transition:transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.hero-button-primary{
+background:#377654;
+color:#fff;
+box-shadow:0 8px 18px rgba(55,118,84,0.22);
+}
+
+.hero-button-secondary{
+background:#EE8537;
+color:#682D2E;
+box-shadow:0 8px 18px rgba(238,133,55,0.22);
+}
+
+.hero-button:hover{
+transform:translateY(-1px);
+}
+
+.section-grid{
+display:grid;
+grid-template-columns:repeat(2, minmax(0, 1fr));
+gap:22px;
+}
+
+.info-card{
+background:#fff;
+border-radius:24px;
+box-shadow:0 12px 34px rgba(0,0,0,0.10);
+border:1px solid rgba(104,45,46,0.12);
+padding:22px 20px;
+}
+
+.card-kicker{
+font-size:12px;
+font-weight:700;
+letter-spacing:1.2px;
+text-transform:uppercase;
+color:#377654;
+margin:0 0 8px;
+}
+
+.card-title{
+margin:0;
+font-size:clamp(24px, 3vw, 34px);
+line-height:1.12;
+color:#682D2E;
+}
+
+.card-copy{
+margin:12px 0 0;
+font-size:clamp(15px, 1.6vw, 18px);
+line-height:1.6;
+color:#444;
+}
+
+.card-link{
+display:inline-block;
+margin-top:18px;
+text-decoration:none;
+font-size:14px;
+font-weight:700;
+letter-spacing:0.8px;
+text-transform:uppercase;
+color:#377654;
+}
+
+.trip-card{
+background:#fff;
+border-radius:24px;
+box-shadow:0 12px 34px rgba(0,0,0,0.10);
+border:1px solid rgba(104,45,46,0.12);
+padding:22px 20px;
+}
+
+.trip-grid{
+display:grid;
+grid-template-columns:repeat(4, minmax(0, 1fr));
+gap:16px;
+margin-top:18px;
+}
+
+.trip-stat{
+background:rgba(248,241,213,0.8);
+border:1px solid rgba(104,45,46,0.10);
+border-radius:18px;
+padding:16px 14px;
+}
+
+.trip-label{
+display:block;
+font-size:12px;
+font-weight:700;
+letter-spacing:1.1px;
+text-transform:uppercase;
+color:#377654;
+margin-bottom:6px;
+}
+
+.trip-value{
+margin:0;
+font-size:clamp(16px, 1.7vw, 20px);
+line-height:1.4;
+color:#682D2E;
+font-weight:700;
+}
+
+.route-list{
+margin:18px 0 0;
+padding:0;
+list-style:none;
+display:grid;
+gap:10px;
+}
+
+.route-list li{
+position:relative;
+padding-left:22px;
+font-size:clamp(15px, 1.5vw, 18px);
+line-height:1.5;
+color:#333;
+}
+
+.route-list li::before{
+content:"";
+position:absolute;
+left:0;
+top:0.62em;
+width:9px;
+height:9px;
+border-radius:50%;
+background:#EE8537;
+transform:translateY(-50%);
+}
+
+.feature-card{
+background:
+linear-gradient(135deg, rgba(104,45,46,0.96) 0%, rgba(81,33,34,0.96) 100%);
+border-radius:24px;
+box-shadow:0 12px 34px rgba(0,0,0,0.14);
+padding:26px 22px;
+color:#fff6ea;
+}
+
+.feature-kicker{
+font-size:12px;
+font-weight:700;
+letter-spacing:1.4px;
+text-transform:uppercase;
+color:#f7be86;
+margin:0 0 10px;
+}
+
+.feature-title{
+margin:0;
+font-size:clamp(28px, 4vw, 42px);
+line-height:1.08;
+color:#fff;
+}
+
+.feature-copy{
+margin:14px 0 0;
+font-size:clamp(16px, 1.8vw, 20px);
+line-height:1.65;
+max-width:820px;
+color:#fff1de;
+}
+
+/* FOOTER */
+
+.page-footer{
+width:min(92%, 1200px);
+margin:0 auto 40px;
+text-align:center;
+font-size:14px;
+letter-spacing:0.8px;
+color:#6b6b6b;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 900px){
+.section-grid{
+grid-template-columns:1fr;
+}
+
+.trip-grid{
+grid-template-columns:repeat(2, minmax(0, 1fr));
+}
+}
 
 @media (max-width: 600px){
 .nm-home-nav{
@@ -76,11 +331,27 @@ padding:12px 14px;
 font-size:clamp(13px, 4vw, 18px);
 letter-spacing:0.5px;
 }
+
+.page-shell{
+width:min(94%, 1200px);
+margin:20px auto 36px;
+gap:22px;
+}
+
+.hero-card,
+.info-card,
+.trip-card,
+.feature-card{
+border-radius:18px;
+padding:20px 16px;
+}
+
+.trip-grid{
+grid-template-columns:1fr;
+}
 }
 </style>
 </head>
-
-
 
 <body>
 
@@ -90,134 +361,95 @@ letter-spacing:0.5px;
 
 <div class="nm-home-nav-wrap">
   <nav class="nm-home-nav">
-    <a href="index.html">HOME</a>
-     <a href="itinerary.html">ITINERARY</a>
+    <a href="index.html" class="active">HOME</a>
+    <a href="itinerary.html">ITINERARY</a>
     <a href="lodging.html">LODGING</a>
   </nav>
 </div>
 
-   
+<main class="page-shell">
 
-<h1>Explore the Archive</h1>
+  <section class="hero-card">
+    <p class="hero-kicker">NM26 Mission Portal</p>
+    <h1 class="hero-title">Welcome to the Road Trip Hub</h1>
+    <p class="hero-subtitle">
+      Nine days. Desert skies. Route 66 neon. Petroglyphs, lava fields, canyon roads, aliens,
+      oddities, and one long loop from Louisiana through New Mexico and back again.
+    </p>
+    <div class="hero-buttons">
+      <a href="itinerary.html" class="hero-button hero-button-primary">View Itinerary</a>
+      <a href="lodging.html" class="hero-button hero-button-secondary">View Lodging</a>
+    </div>
+  </section>
 
-<style>
-.portal-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-    gap:26px;
-    margin-top:40px;
-}
-.portal-card{
-    background:white;
-    border-radius:18px;
-    padding:24px;
-    box-shadow:0 8px 18px rgba(0,0,0,.12);
-    transition:.25s;
-}
-.portal-card:hover{
-    transform:translateY(-6px);
-    box-shadow:0 16px 28px rgba(0,0,0,.18);
-}
-.portal-card h3{
-    margin-top:0;
-    color:#c5161d;
-}
-.portal-card a{
-    display:block;
-    text-decoration:none;
-    color:#333;
-    padding:6px 0;
-    font-weight:600;
-}
-.portal-card a:hover{
-    color:#c5161d;
-}
-</style>
+  <section class="section-grid">
+    <article class="info-card">
+      <p class="card-kicker">Day by Day</p>
+      <h2 class="card-title">Itinerary</h2>
+      <p class="card-copy">
+        Follow the full NM26 loop one day at a time, from Ponchatoula to Tucumcari, Santa Fe, Taos,
+        Socorro, Roswell, Fort Stockton, San Antonio, and back home again.
+      </p>
+      <a href="itinerary.html" class="card-link">Open Itinerary</a>
+    </article>
 
-<div class="portal-grid">
+    <article class="info-card">
+      <p class="card-kicker">Where We Stay</p>
+      <h2 class="card-title">Lodging</h2>
+      <p class="card-copy">
+        See each overnight stop, room type, address, booking source, and check-in details,
+        from the Blue Swallow Motel to the Menger Hotel.
+      </p>
+      <a href="lodging.html" class="card-link">Open Lodging</a>
+    </article>
+  </section>
 
-<!-- HISTORY -->
-<div class="portal-card">
-<h3>🏛 History & Legends</h3>
-<a href="alamo.html">The Alamo</a>
-<a href="billy-the-kid.html">Billy the Kid</a>
-<a href="smokey-the-bear.html">Smokey Bear</a>
-<a href="roswell.html">Roswell Incident</a>
+  <section class="trip-card">
+    <p class="card-kicker">Trip at a Glance</p>
+    <h2 class="card-title">The NM26 Loop</h2>
 
-</div>
+    <div class="trip-grid">
+      <div class="trip-stat">
+        <span class="trip-label">Trip Length</span>
+        <p class="trip-value">9 Days</p>
+      </div>
+      <div class="trip-stat">
+        <span class="trip-label">Start</span>
+        <p class="trip-value">Ponchatoula, LA</p>
+      </div>
+      <div class="trip-stat">
+        <span class="trip-label">Far West</span>
+        <p class="trip-value">New Mexico</p>
+      </div>
+      <div class="trip-stat">
+        <span class="trip-label">Finish</span>
+        <p class="trip-value">Home Again</p>
+      </div>
+    </div>
 
-<!-- NATURE -->
-<div class="portal-card">
-<h3>🌎 Nature & Landscapes</h3>
-<a href="white-sands.html">White Sands</a>
-<a href="desert-weather.html">Desert Weather</a>
+    <ul class="route-list">
+      <li>Route 66 flavor in Tucumcari, Santa Rosa, and the Blue Swallow neon.</li>
+      <li>Historic and scenic New Mexico stops including Chimayó, Taos, Bandelier, Jemez, and Three Rivers.</li>
+      <li>Big landscape days with White Sands, Valley of Fires, canyon roads, and mountain views.</li>
+      <li>Roadside oddities and fun stops like Cadillac Ranch, Stonehenge II, Roswell, and the River Walk.</li>
+    </ul>
+  </section>
 
-<a href="critters.html">Desert Critters</a>
-<a href="roadside-oddities.html">Roadside Oddities Index</a>
-
-</div>
-
-<!-- NIGHT SKY -->
-<div class="portal-card">
-<h3>🌌 Nights</h3>
-<a href="nightly-missions.html">Nightly Fun</a>
-<a href="sunsets.html">Sunsets</a>
-<a href="desert-night-sky.html">Desert Night Sky</a>  
-<a href="constellations.html">Constellations</a>
-<a href="uv.html">Desert Under UV Light</a>
-</div>
-
-<!-- CULTURE -->
-<div class="portal-card">
-<h3>🪶 Culture & Symbols</h3>
-<a href="new-mexico.html">New Mexico</a>
-<a href="kokopelli.html">Kokopelli</a>
-<a href="staircase.html">Miracle Staircase</a>
-
-</div>
-
-<!-- PHOTO TIPS -->
-<div class="portal-card">
-<h3>🛣 Photography Tips</h3>
-<a href="night-sky-photography.html">Night Sky Photography</a>    
-<a href="photograph-sunset.html">Photographing Sunsets</a>
-
-
-
-</div>
-
-<!-- DID YOU KNOW? -->
-<div class="portal-card">
-<h3>🧰 Did You Know</h3>
-<a href="bats.html">Carlsbad Bats</a>
-<a href="obsidian.html">Obsidian</a>
-<a href="desert-sky-at-night.html">Sky at Night</a> 
-<a href="petroglyphs.html">Petroglyphs</a>   
-</div>
-
-</div>
-
-
-<main class="page-container">
-
-<h1>New Mexico: A State of History, Mystery & Miracles</h1>
-
-<p>
-<strong>Nickname:</strong> The Land of Enchantment<br>
-<strong>Capital:</strong> Santa Fe<br>
-<strong>Statehood:</strong> Admitted as the 47th state, January 6, 1912<br>
-<strong>Population:</strong> ~2.1 million<br>
-<strong>Largest City:</strong> Albuquerque<br>
-<strong>Governor:</strong> Michelle Lujan Grisham<br>
-<strong>State Bird:</strong> Roadrunner (fast, curious, and notoriously bold)<br>
-<strong>State Flower:</strong> Yucca<br>
-<strong>State Tree:</strong> Piñon Pine<br>
-<strong>State Motto:</strong> Crescit eundo — “It grows as it goes.”
-</p>
-
+  <section class="feature-card">
+    <p class="feature-kicker">Trip Theme</p>
+    <h2 class="feature-title">History Written in Stone — Mystery Written in the Stars</h2>
+    <p class="feature-copy">
+      NM26 blends the old and the strange: mission churches, mountain villages, cliff dwellings,
+      lava flows, petroglyph hillsides, alien lore, desert highways, and classic roadside Americana.
+      This portal is the home base for the route, the stays, and the story of the trip.
+    </p>
+  </section>
 
 </main>
 
+<footer class="page-footer">
+  NM26 • From Petroglyphs to Phenomena
+</footer>
 
 </body>
 </html>
