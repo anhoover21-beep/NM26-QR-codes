@@ -1,11 +1,10 @@
+<!-- /index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NM26 — Did You Know?</title>
-
-<link rel="stylesheet" href="assets/css/dusty.css">
+<title>Did You Know? Obsidian</title>
 
 <style>
 body {
@@ -19,94 +18,51 @@ body {
 }
 
 .nm-header {
-    background: #c5161d;
-    color: white;
+    width: min(100%, 1900px);
+    margin: 0 auto;
     position: relative;
     z-index: 10;
+}
+
+.nm-banner {
     width: 100%;
+    height: auto;
+    display: block;
 }
 
-.nm-header-inner {
-    max-width: 1300px;
+.nm-home-nav-wrap {
+    width: min(100%, 1900px);
     margin: 0 auto;
-    padding: clamp(16px, 3vw, 28px) clamp(16px, 4vw, 40px);
+    background: #EE8537;
+    border-top: 5px solid #377654;
+}
+
+.nm-home-nav {
     display: flex;
+    justify-content: center;
     align-items: center;
-    justify-content: space-between;
-    gap: clamp(16px, 2vw, 28px);
+    gap: 40px;
+    padding: 14px 20px;
     flex-wrap: wrap;
 }
 
-.nm-brand {
-    display: flex;
-    align-items: center;
-    gap: clamp(10px, 1.8vw, 16px);
-    min-width: 0;
-}
-
-.nm-state {
-    width: clamp(58px, 10vw, 110px);
-    aspect-ratio: 1 / 1;
-    background: url("assets/images/new-mexico.png") no-repeat center;
-    background-size: contain;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-}
-
-.nm-text {
-    font-size: clamp(18px, 3vw, 40px);
-    font-weight: 900;
-    letter-spacing: clamp(1px, 0.25vw, 2px);
-    color: white;
-}
-
-.nm-year {
-    font-size: clamp(34px, 7vw, 72px);
-    font-weight: 900;
-    color: #ffd23f;
+.nm-home-nav a {
+    text-decoration: none;
+    font-size: clamp(14px, 2vw, 22px);
+    font-weight: 500;
+    letter-spacing: 1px;
+    color: #682D2E;
     line-height: 1;
-    flex-shrink: 0;
 }
 
-.nm-nav {
-    display: flex;
-    gap: clamp(14px, 4vw, 60px);
-    flex-wrap: wrap;
-    justify-content: center;
+.nm-home-nav a:link,
+.nm-home-nav a:visited {
+    color: #682D2E;
 }
 
-.nm-nav span {
-    color: white;
-    font-size: clamp(14px, 2vw, 26px);
-    letter-spacing: clamp(1px, 0.25vw, 2px);
-    font-weight: 600;
-    white-space: nowrap;
-}
-
-.nm-login {
-    display: flex;
-    justify-content: center;
-}
-
-.nm-login span {
-    background: #ffd23f;
-    color: #c5161d;
-    padding: clamp(9px, 1.5vw, 12px) clamp(16px, 2.6vw, 26px);
-    border-radius: 16px;
-    font-weight: 900;
-    font-size: clamp(16px, 2vw, 22px);
-    white-space: nowrap;
-}
-
-.nm-stripe {
-    background: #ffd23f;
-    padding: 10px clamp(16px, 4vw, 40px);
-    font-weight: 900;
-    color: #c5161d;
-    letter-spacing: 2px;
-    font-size: clamp(12px, 1.7vw, 16px);
+.nm-home-nav a:hover,
+.nm-home-nav a:active {
+    color: #377654;
 }
 
 .page-container {
@@ -154,74 +110,23 @@ body {
     font-size: 18px;
     font-weight: 900;
     letter-spacing: 5px;
-    color: #c5161d;
+    color: #EE8537;
     text-transform: uppercase;
     position: relative;
     z-index: 1;
 }
 
 .hero-title {
-    margin: 0;
+    margin: 0 0 10px;
     font-size: clamp(48px, 8vw, 104px);
     line-height: 0.92;
     letter-spacing: 3px;
     font-weight: 900;
-    color: #1b1b1b;
+    color: #682D2E;
     text-transform: uppercase;
     position: relative;
     z-index: 1;
     max-width: 1100px;
-}
-
-.hero-subtitle {
-    margin: 18px 0 24px;
-    max-width: 780px;
-    font-size: clamp(18px, 2vw, 28px);
-    line-height: 1.45;
-    color: #4a4a4a;
-    position: relative;
-    z-index: 1;
-}
-
-.speech-bubble {
-    position: relative;
-    margin: 16px auto 20px;
-    width: min(100%, 860px);
-    background: #fff8dc;
-    color: #5b1f00;
-    border: 3px solid #ffd23f;
-    border-radius: 28px;
-    padding: 22px 24px;
-    font-size: clamp(18px, 1.7vw, 26px);
-    font-weight: 700;
-    line-height: 1.5;
-    box-shadow: 0 16px 30px rgba(0, 0, 0, 0.08);
-    min-height: 72px;
-    z-index: 1;
-    box-sizing: border-box;
-}
-
-.speech-bubble::after {
-    content: "";
-    position: absolute;
-    bottom: -20px;
-    left: 50%;
-    transform: translateX(-50%);
-    border-width: 20px 18px 0 18px;
-    border-style: solid;
-    border-color: #ffd23f transparent transparent transparent;
-}
-
-.speech-bubble::before {
-    content: "";
-    position: absolute;
-    bottom: -16px;
-    left: 50%;
-    transform: translateX(-50%);
-    border-width: 16px 14px 0 14px;
-    border-style: solid;
-    border-color: #fff8dc transparent transparent transparent;
-    z-index: 1;
 }
 
 .traveler-stage {
@@ -258,6 +163,108 @@ body {
     pointer-events: none;
 }
 
+.dusty-mount {
+    position: relative;
+    width: min(92vw, 650px);
+    max-width: 100%;
+    margin: 0 auto;
+    z-index: 1;
+}
+
+.dusty-widget {
+    position: relative;
+    width: 100%;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.dusty-widget.is-ready {
+    opacity: 1;
+}
+
+.dusty-base,
+.dusty-full,
+.dusty-part {
+    display: block;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+.dusty-base {
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 16px 26px rgba(0, 0, 0, 0.16));
+}
+
+.dusty-full,
+.dusty-part {
+    position: absolute;
+    pointer-events: none;
+}
+
+.dusty-full {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+}
+
+.dusty-eyes {
+    z-index: 5;
+    opacity: 0;
+}
+
+.dusty-mouth {
+    z-index: 6;
+    opacity: 1;
+}
+
+.dusty-hand {
+    z-index: 2;
+    transform-origin: 50% 92%;
+    will-change: transform;
+}
+
+.dusty-widget.is-speaking .dusty-hand {
+    animation: dusty-hand-wag 1.05s ease-in-out infinite;
+}
+
+.dusty-brow-1,
+.dusty-brow-2 {
+    z-index: 4;
+    transform-origin: 50% 50%;
+    will-change: transform;
+}
+
+.dusty-brow-1.lower {
+    animation: dusty-brow-lower-1 0.32s ease-in-out 1;
+}
+
+.dusty-brow-2.lower {
+    animation: dusty-brow-lower-2 0.32s ease-in-out 1;
+}
+
+@keyframes dusty-hand-wag {
+    0% { transform: rotate(0deg); }
+    20% { transform: rotate(5deg); }
+    40% { transform: rotate(0deg); }
+    65% { transform: rotate(-3deg); }
+    82% { transform: rotate(2deg); }
+    100% { transform: rotate(0deg); }
+}
+
+@keyframes dusty-brow-lower-1 {
+    0% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(4px) rotate(2deg); }
+    100% { transform: translateY(0) rotate(0deg); }
+}
+
+@keyframes dusty-brow-lower-2 {
+    0% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(4px) rotate(-2deg); }
+    100% { transform: translateY(0) rotate(0deg); }
+}
+
 .controls {
     margin-top: 16px;
     position: relative;
@@ -268,12 +275,12 @@ body {
     appearance: none;
     border: 0;
     cursor: pointer;
-    background: #d4121b;
+    background: #2C7F7B;
     color: white;
     font-size: clamp(20px, 2vw, 28px);
     font-weight: 900;
     letter-spacing: 2px;
-    padding: 18px 34px;
+    padding: 18px 24px;
     border-radius: 22px;
     box-shadow: 0 16px 30px rgba(0, 0, 0, 0.16);
     transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
@@ -295,15 +302,6 @@ body {
 }
 
 @media (max-width: 1024px) {
-    .nm-header-inner {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .nm-nav {
-        justify-content: center;
-    }
-
     .page-container {
         padding: 0 18px 50px;
     }
@@ -325,36 +323,12 @@ body {
         max-width: 760px;
     }
 
-    .hero-subtitle {
-        margin: 14px 0 20px;
-        font-size: clamp(18px, 2.4vw, 24px);
-        max-width: 640px;
-    }
-
-    .speech-bubble {
-        max-width: 700px;
-        font-size: clamp(17px, 2.2vw, 22px);
-        padding: 20px 20px;
+    .dusty-mount {
+        width: min(74vw, 500px);
     }
 }
 
 @media (max-width: 700px) {
-    .nm-header-inner {
-        padding: 22px 18px;
-    }
-
-    .nm-brand {
-        justify-content: center;
-    }
-
-    .nm-nav {
-        gap: 16px;
-    }
-
-    .nm-stripe {
-        padding: 10px 18px;
-    }
-
     .page-container {
         padding: 0 12px 36px;
     }
@@ -389,39 +363,9 @@ body {
         max-width: 100%;
     }
 
-    .hero-subtitle {
-        margin: 12px 0 16px;
-        font-size: 16px;
-        line-height: 1.4;
-        max-width: 95%;
-    }
-
-    .speech-bubble {
-        order: 3;
-        width: calc(100% - 8px);
-        max-width: none;
-        margin: 14px auto 18px;
-        padding: 16px 16px;
-        border-radius: 22px;
-        font-size: 16px;
-        line-height: 1.45;
-        min-height: 0;
-    }
-
-    .speech-bubble::after {
-        bottom: -16px;
-        border-width: 16px 14px 0 14px;
-    }
-
-    .speech-bubble::before {
-        bottom: -13px;
-        border-width: 13px 11px 0 11px;
-    }
-
     .traveler-stage {
         width: 100%;
         margin: 4px auto 6px;
-        order: 2;
     }
 
     .traveler-glow {
@@ -436,8 +380,11 @@ body {
         bottom: 8px;
     }
 
+    .dusty-mount {
+        width: min(78vw, 320px);
+    }
+
     .controls {
-        order: 4;
         width: 100%;
         margin-top: 8px;
     }
@@ -452,18 +399,25 @@ body {
     }
 }
 
+@media (max-width: 600px) {
+    .nm-home-nav {
+        gap: 22px;
+        padding: 12px 14px;
+    }
+
+    .nm-home-nav a {
+        font-size: clamp(13px, 4vw, 18px);
+        letter-spacing: 0.5px;
+    }
+}
+
 @media (max-width: 420px) {
     .hero-title {
         font-size: 26px;
     }
 
-    .hero-subtitle {
-        font-size: 15px;
-    }
-
-    .speech-bubble {
-        font-size: 15px;
-        padding: 14px 14px;
+    .dusty-mount {
+        width: min(82vw, 280px);
     }
 
     .did-you-know-btn {
@@ -471,79 +425,747 @@ body {
         padding: 15px 18px;
     }
 }
+
+@media (prefers-reduced-motion: reduce) {
+    .dusty-widget,
+    .dusty-base,
+    .dusty-full,
+    .dusty-part,
+    .did-you-know-btn {
+        animation: none !important;
+        transition: none !important;
+    }
+}
 </style>
 </head>
-
 <body>
+
 <header class="nm-header">
-    <div class="nm-header-inner">
-        <div class="nm-brand">
-            <div class="nm-state">
-                <span class="nm-text">NM</span>
-            </div>
-            <span class="nm-year">26</span>
-        </div>
-
-        <nav class="nm-nav">
-            <span>HOME</span>
-            <span>PLANNER</span>
-            <span>RESOURCES</span>
-            <span>GUIDE</span>
-        </nav>
-
-        <div class="nm-login">
-            <span>LOGIN</span>
-        </div>
-    </div>
-
-    <div class="nm-stripe">
-        VACATION 2026
-    </div>
+    <img src="/NM26-QR-codes/assets/images/header_banner.png" class="nm-banner" alt="NM26 Header">
 </header>
+
+<div class="nm-home-nav-wrap">
+    <nav class="nm-home-nav">
+        <a href="index.html">HOME</a>
+        <a href="itinerary.html">ITINERARY</a>
+        <a href="lodging.html">LODGING</a>
+    </nav>
+</div>
 
 <main class="page-container">
     <section class="poster-hero">
         <p class="hero-kicker">Did You Know?</p>
-
-        <h1 class="hero-title">Obsidian</h1>
-
-        <p class="hero-subtitle">
-            Press the button and hear a random fact about obsidian.
-        </p>
-
-        <div id="speechBubble" class="speech-bubble" aria-live="polite">
-            Press the button and Dusty will share an obsidian fact.
-        </div>
+        <h1 class="hero-title">OBSIDIAN</h1>
 
         <div class="traveler-stage">
             <div class="traveler-glow" aria-hidden="true"></div>
-            <div id="dustyMount" class="dusty-mount"></div>
+            <div id="dustyCharacter"></div>
             <div class="traveler-shadow" aria-hidden="true"></div>
         </div>
 
         <div class="controls">
             <button id="didYouKnowBtn" class="did-you-know-btn" type="button">
-                PRESS TO KNOW
+                DUSTY KNOWS
             </button>
         </div>
     </section>
 </main>
 
-<script src="assets/js/dusty-character.js"></script>
 <script>
-const facts = [
-   "Obsidian forms when lava cools so fast that crystals don’t have time to grow. That means you’re looking at natural volcanic glass, frozen mid-eruption.",
-    "Obsidian fractures with a “conchoidal” (shell-shaped) break, creating razor-sharp edges. Modern surgeons have tested obsidian scalpels —some edges are sharper than steel on a microscopic level.",
-    "Valles Caldera obsidian was once a prehistoric super-commodity. Artifacts made from this exact volcanic glass have been found: across the Great Plains, in the Mississippi Valley, and as far as Canada.",
-    "Scientists can “fingerprint” obsidian chemically. A tiny sample can be traced back to: a specific eruption zone, on a specific lava dome, within the Jemez Mountains. That’s how archeologists map ancient trade networks",
-    "Indigenous knappers shaped obsidian into: arrowheads, spear points, ritual blades, mirrors, and even ceremonial ear spools. To them, it wasn’t just sharp—it was sacred black glass.",
-    "Valles Caldera has multiple obsidian-bearing domes. Cerro del Medio is the most famous source, erupting repeatedly and resurfacing obsidian deposits over 1.2 million years. Each eruption creates a new “layer” of black glass.",
-    "Obsidian is fragile under stress. Drop it, and it shatters like a windshield. That’s why ancient knappers carried wrapped bundles in hides.",
-    "Obsidian absorbs heat like crazy. Leave a piece in the sun—you’ll feel the difference instantly.",
-    "You’re not allowed to collect obsidian inside the National Preserve. Good news: rock shops in Santa Fe sell legal local pieces.",
-    "Some archaeologists think obsidian glints helped ancient travelers navigate. A shimmer on the hillside? Well, now. That’s a potential toolmaking site.",
-    "Obsidian edges can cut deep. Think “instant ER trip” sharp. Eyes up! Hands off! Don’t kick shards…"
-];
+class DustyCharacter {
+    constructor(options = {}) {
+        this.container = this.resolveElement(options.container);
+        this.button = this.resolveElement(options.button);
+        this.audioFiles = Array.isArray(options.audioFiles) ? options.audioFiles : [];
+        this.images = options.images || {};
+        this.placement = options.placement || {};
+        this.baseAlt = options.baseAlt || "Dusty";
+
+        this.currentAudio = null;
+        this.lastPlayedIndex = -1;
+
+        this.blinkTimer = null;
+        this.browTimer = null;
+        this.mouthTimer = null;
+        this.mouthFrame = null;
+
+        this.audioContext = null;
+        this.analyser = null;
+        this.sourceNode = null;
+        this.dataArray = null;
+
+        this.widget = null;
+        this.base = null;
+        this.eyes = null;
+        this.mouth = null;
+        this.hand = null;
+        this.brow1 = null;
+        this.brow2 = null;
+
+        this.isInitialized = false;
+        this.isDestroyed = false;
+
+        this.handleResize = this.positionParts.bind(this);
+        this.handleButtonClick = this.playRandomFact.bind(this);
+
+        this.motionQuery =
+            typeof window !== "undefined" && "matchMedia" in window
+                ? window.matchMedia("(prefers-reduced-motion: reduce)")
+                : null;
+
+        this.reduceMotion = this.motionQuery ? this.motionQuery.matches : false;
+
+        this.handleMotionChange = (event) => {
+            this.reduceMotion = event.matches;
+
+            if (this.reduceMotion) {
+                window.clearTimeout(this.blinkTimer);
+                window.clearTimeout(this.browTimer);
+                this.blinkTimer = null;
+                this.browTimer = null;
+
+                if (this.eyes) {
+                    this.eyes.style.opacity = "0";
+                }
+
+                if (this.mouth) {
+                    this.mouth.style.opacity = "1";
+                }
+            } else if (this.isInitialized && !this.isDestroyed) {
+                this.scheduleBlinkLoop();
+                this.scheduleBrowLoop();
+
+                if (this.currentAudio && !this.currentAudio.paused) {
+                    this.startTalking();
+                }
+            }
+        };
+    }
+
+    resolveElement(target) {
+        if (typeof target === "string") {
+            return document.querySelector(target);
+        }
+
+        return target instanceof Element ? target : null;
+    }
+
+    validate() {
+        if (!this.container) {
+            throw new Error("Dusty container not found.");
+        }
+
+        if (!this.button) {
+            throw new Error("Button not found.");
+        }
+
+        if (this.audioFiles.length === 0) {
+            throw new Error("No audio files configured.");
+        }
+
+        const requiredImages = ["base", "eyesClosed", "mouthClosed", "hand", "brow1", "brow2"];
+        for (const key of requiredImages) {
+            if (!this.images[key]) {
+                throw new Error(`Missing image path: ${key}`);
+            }
+        }
+
+        const requiredParts = ["hand", "brow1", "brow2"];
+        for (const key of requiredParts) {
+            if (!this.placement[key]) {
+                throw new Error(`Missing placement config: ${key}`);
+            }
+        }
+    }
+
+    buildMarkup() {
+        this.container.classList.add("dusty-mount");
+
+        this.container.innerHTML = `
+            <div class="dusty-widget">
+                <img class="dusty-base" data-part="base" src="${this.images.base}" alt="${this.escapeAttribute(this.baseAlt)}">
+                <img class="dusty-full dusty-eyes" data-part="eyes" src="${this.images.eyesClosed}" alt="" aria-hidden="true">
+                <img class="dusty-full dusty-mouth" data-part="mouth" src="${this.images.mouthClosed}" alt="" aria-hidden="true">
+                <img class="dusty-part dusty-hand" data-part="hand" src="${this.images.hand}" alt="" aria-hidden="true">
+                <img class="dusty-part dusty-brow-1" data-part="brow1" src="${this.images.brow1}" alt="" aria-hidden="true">
+                <img class="dusty-part dusty-brow-2" data-part="brow2" src="${this.images.brow2}" alt="" aria-hidden="true">
+            </div>
+        `;
+
+        this.widget = this.container.querySelector(".dusty-widget");
+        this.base = this.container.querySelector('[data-part="base"]');
+        this.eyes = this.container.querySelector('[data-part="eyes"]');
+        this.mouth = this.container.querySelector('[data-part="mouth"]');
+        this.hand = this.container.querySelector('[data-part="hand"]');
+        this.brow1 = this.container.querySelector('[data-part="brow1"]');
+        this.brow2 = this.container.querySelector('[data-part="brow2"]');
+    }
+
+    escapeAttribute(value) {
+        return String(value).replace(/"/g, "&quot;");
+    }
+
+    waitForImage(img) {
+        return new Promise((resolve, reject) => {
+            if (!img) {
+                reject(new Error("Image element is missing."));
+                return;
+            }
+
+            if (img.complete && img.naturalWidth > 0) {
+                resolve();
+                return;
+            }
+
+            img.addEventListener("load", () => resolve(), { once: true });
+            img.addEventListener("error", () => reject(new Error(`Failed to load ${img.src}`)), { once: true });
+        });
+    }
+
+    async preload() {
+        await Promise.all([
+            this.waitForImage(this.base),
+            this.waitForImage(this.eyes),
+            this.waitForImage(this.mouth),
+            this.waitForImage(this.hand),
+            this.waitForImage(this.brow1),
+            this.waitForImage(this.brow2)
+        ]);
+    }
+
+    placePart(element, part, baseWidth, baseHeight) {
+        if (!element || !part || !baseWidth || !baseHeight) {
+            return;
+        }
+
+        element.style.width = `${(part.width / baseWidth) * 100}%`;
+        element.style.left = `${(part.left / baseWidth) * 100}%`;
+        element.style.top = `${(part.top / baseHeight) * 100}%`;
+    }
+
+    positionParts() {
+        const baseWidth = this.base?.naturalWidth;
+        const baseHeight = this.base?.naturalHeight;
+
+        if (!baseWidth || !baseHeight) {
+            return;
+        }
+
+        this.placePart(this.hand, this.placement.hand, baseWidth, baseHeight);
+        this.placePart(this.brow1, this.placement.brow1, baseWidth, baseHeight);
+        this.placePart(this.brow2, this.placement.brow2, baseWidth, baseHeight);
+    }
+
+    delay(ms) {
+        return new Promise((resolve) => {
+            window.setTimeout(resolve, ms);
+        });
+    }
+
+    blinkOnce(duration = 120) {
+        if (this.reduceMotion || !this.eyes) {
+            return Promise.resolve();
+        }
+
+        this.eyes.style.opacity = "1";
+
+        return new Promise((resolve) => {
+            window.setTimeout(() => {
+                if (this.eyes) {
+                    this.eyes.style.opacity = "0";
+                }
+                resolve();
+            }, duration);
+        });
+    }
+
+    async blinkCluster() {
+        if (this.reduceMotion) {
+            return;
+        }
+
+        const roll = Math.random();
+
+        if (roll < 0.72) {
+            await this.blinkOnce(120);
+            return;
+        }
+
+        if (roll < 0.94) {
+            await this.blinkOnce(105);
+            await this.delay(90);
+            await this.blinkOnce(95);
+            return;
+        }
+
+        await this.blinkOnce(95);
+        await this.delay(80);
+        await this.blinkOnce(85);
+        await this.delay(70);
+        await this.blinkOnce(80);
+    }
+
+    scheduleBlinkLoop() {
+        if (this.reduceMotion) {
+            return;
+        }
+
+        window.clearTimeout(this.blinkTimer);
+
+        const queueBlink = () => {
+            const delay = 2200 + Math.random() * 3200;
+
+            this.blinkTimer = window.setTimeout(async () => {
+                if (this.isDestroyed || this.reduceMotion) {
+                    return;
+                }
+
+                await this.blinkCluster();
+                queueBlink();
+            }, delay);
+        };
+
+        queueBlink();
+    }
+
+    lowerBrows() {
+        if (this.reduceMotion || !this.brow1 || !this.brow2) {
+            return;
+        }
+
+        this.brow1.classList.remove("lower");
+        this.brow2.classList.remove("lower");
+
+        void this.brow1.offsetWidth;
+        void this.brow2.offsetWidth;
+
+        this.brow1.classList.add("lower");
+        this.brow2.classList.add("lower");
+    }
+
+    async browDropBurst() {
+        if (this.reduceMotion) {
+            return;
+        }
+
+        this.lowerBrows();
+
+        if (Math.random() > 0.72) {
+            await this.delay(180 + Math.random() * 120);
+            this.lowerBrows();
+        }
+    }
+
+    scheduleBrowLoop() {
+        if (this.reduceMotion) {
+            return;
+        }
+
+        window.clearTimeout(this.browTimer);
+
+        const queueDrop = () => {
+            const delay = 2400 + Math.random() * 3600;
+
+            this.browTimer = window.setTimeout(async () => {
+                if (this.isDestroyed || this.reduceMotion) {
+                    return;
+                }
+
+                const isSpeaking = Boolean(this.currentAudio && !this.currentAudio.paused);
+
+                if (!isSpeaking && Math.random() > 0.2) {
+                    await this.browDropBurst();
+                }
+
+                queueDrop();
+            }, delay);
+        };
+
+        queueDrop();
+    }
+
+    ensureAudioContext() {
+        if (!this.audioContext) {
+            const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+
+            if (!AudioContextClass) {
+                return false;
+            }
+
+            this.audioContext = new AudioContextClass();
+        }
+
+        return true;
+    }
+
+    async resumeAudioContext() {
+        if (!this.audioContext) {
+            return;
+        }
+
+        if (this.audioContext.state === "suspended") {
+            await this.audioContext.resume();
+        }
+    }
+
+    connectAudioAnalysis(audio) {
+        if (!this.ensureAudioContext()) {
+            return false;
+        }
+
+        this.cleanupAudioNodes();
+
+        try {
+            this.analyser = this.audioContext.createAnalyser();
+            this.analyser.fftSize = 256;
+            this.analyser.smoothingTimeConstant = 0.82;
+            this.dataArray = new Uint8Array(this.analyser.frequencyBinCount);
+            this.sourceNode = this.audioContext.createMediaElementSource(audio);
+            this.sourceNode.connect(this.analyser);
+            this.analyser.connect(this.audioContext.destination);
+            return true;
+        } catch {
+            this.cleanupAudioNodes();
+            return false;
+        }
+    }
+
+    cleanupAudioNodes() {
+        if (this.sourceNode) {
+            try {
+                this.sourceNode.disconnect();
+            } catch {}
+            this.sourceNode = null;
+        }
+
+        if (this.analyser) {
+            try {
+                this.analyser.disconnect();
+            } catch {}
+            this.analyser = null;
+        }
+
+        this.dataArray = null;
+    }
+
+    getAverageVolume() {
+        if (!this.analyser || !this.dataArray) {
+            return 0;
+        }
+
+        this.analyser.getByteFrequencyData(this.dataArray);
+
+        let total = 0;
+        for (let i = 0; i < this.dataArray.length; i += 1) {
+            total += this.dataArray[i];
+        }
+
+        return total / this.dataArray.length;
+    }
+
+    startFallbackMouth() {
+        if (this.reduceMotion || !this.mouth) {
+            return;
+        }
+
+        this.stopMouthSync();
+
+        this.mouthTimer = window.setInterval(() => {
+            this.mouth.style.opacity = this.mouth.style.opacity === "1" ? "0" : "1";
+        }, 220);
+    }
+
+    startAudioReactiveMouth() {
+        if (this.reduceMotion || !this.mouth) {
+            return;
+        }
+
+        this.stopMouthSync();
+
+        let smoothed = 0;
+        let chatterOpen = false;
+        let lastToggleTime = 0;
+
+        const tick = (now) => {
+            const isSpeaking = Boolean(this.currentAudio && !this.currentAudio.paused);
+
+            if (!isSpeaking || this.reduceMotion) {
+                this.mouth.style.opacity = "1";
+                this.mouthFrame = null;
+                return;
+            }
+
+            const volume = this.getAverageVolume();
+            smoothed = smoothed * 0.68 + volume * 0.32;
+            const talking = smoothed > 12;
+
+            if (!talking) {
+                this.mouth.style.opacity = "1";
+                this.mouthFrame = window.requestAnimationFrame(tick);
+                return;
+            }
+
+            let interval = 220;
+            if (smoothed > 30) {
+                interval = 110;
+            } else if (smoothed > 24) {
+                interval = 140;
+            } else if (smoothed > 18) {
+                interval = 170;
+            } else {
+                interval = 200;
+            }
+
+            if (now - lastToggleTime >= interval) {
+                chatterOpen = !chatterOpen;
+                lastToggleTime = now;
+            }
+
+            this.mouth.style.opacity = chatterOpen ? "0" : "1";
+            this.mouthFrame = window.requestAnimationFrame(tick);
+        };
+
+        this.mouthFrame = window.requestAnimationFrame(tick);
+    }
+
+    stopMouthSync() {
+        if (this.mouthTimer) {
+            window.clearInterval(this.mouthTimer);
+            this.mouthTimer = null;
+        }
+
+        if (this.mouthFrame) {
+            window.cancelAnimationFrame(this.mouthFrame);
+            this.mouthFrame = null;
+        }
+    }
+
+    startTalking() {
+        this.stopMouthSync();
+
+        if (this.widget) {
+            this.widget.classList.add("is-speaking");
+        }
+
+        if (this.mouth) {
+            this.mouth.style.opacity = "1";
+        }
+
+        if (this.reduceMotion) {
+            return;
+        }
+
+        if (this.analyser) {
+            this.startAudioReactiveMouth();
+            return;
+        }
+
+        this.startFallbackMouth();
+    }
+
+    stopTalking() {
+        this.stopMouthSync();
+
+        if (this.widget) {
+            this.widget.classList.remove("is-speaking");
+        }
+
+        if (this.mouth) {
+            this.mouth.style.opacity = "1";
+        }
+
+        if (this.button) {
+            this.button.disabled = false;
+        }
+    }
+
+    getRandomIndex() {
+        if (this.audioFiles.length === 1) {
+            return 0;
+        }
+
+        let nextIndex = this.lastPlayedIndex;
+        while (nextIndex === this.lastPlayedIndex) {
+            nextIndex = Math.floor(Math.random() * this.audioFiles.length);
+        }
+        return nextIndex;
+    }
+
+    stopCurrentAudio() {
+        const audio = this.currentAudio;
+        this.currentAudio = null;
+
+        if (!audio) {
+            this.cleanupAudioNodes();
+            this.stopTalking();
+            return;
+        }
+
+        audio.pause();
+        audio.currentTime = 0;
+        this.cleanupAudioNodes();
+        this.stopTalking();
+    }
+
+    async playRandomFact() {
+        if (this.isDestroyed) {
+            return;
+        }
+
+        this.stopCurrentAudio();
+
+        const index = this.getRandomIndex();
+        const file = this.audioFiles[index];
+        const audio = new Audio(file);
+
+        audio.preload = "auto";
+        this.currentAudio = audio;
+        this.lastPlayedIndex = index;
+        this.button.disabled = true;
+
+        const hasAnalysis = this.connectAudioAnalysis(audio);
+        await this.resumeAudioContext();
+
+        audio.addEventListener("play", () => {
+            if (this.currentAudio !== audio || this.isDestroyed) {
+                return;
+            }
+
+            this.startTalking();
+            this.lowerBrows();
+        });
+
+        audio.addEventListener("ended", () => {
+            if (this.currentAudio !== audio) {
+                return;
+            }
+
+            this.cleanupAudioNodes();
+            this.stopTalking();
+            this.currentAudio = null;
+        });
+
+        audio.addEventListener("pause", () => {
+            if (this.currentAudio !== audio) {
+                return;
+            }
+
+            this.stopTalking();
+        });
+
+        audio.addEventListener("error", () => {
+            if (this.currentAudio !== audio) {
+                return;
+            }
+
+            this.cleanupAudioNodes();
+            this.stopTalking();
+            this.currentAudio = null;
+        });
+
+        try {
+            await audio.play();
+        } catch {
+            if (this.currentAudio === audio) {
+                this.cleanupAudioNodes();
+                this.stopTalking();
+                this.currentAudio = null;
+            }
+            return;
+        }
+
+        if (!hasAnalysis && this.currentAudio === audio && !audio.paused && !this.reduceMotion) {
+            this.startFallbackMouth();
+        }
+    }
+
+    bindEvents() {
+        window.addEventListener("resize", this.handleResize);
+        this.button.addEventListener("click", this.handleButtonClick);
+
+        if (this.motionQuery) {
+            if ("addEventListener" in this.motionQuery) {
+                this.motionQuery.addEventListener("change", this.handleMotionChange);
+            } else if ("addListener" in this.motionQuery) {
+                this.motionQuery.addListener(this.handleMotionChange);
+            }
+        }
+    }
+
+    unbindEvents() {
+        window.removeEventListener("resize", this.handleResize);
+        this.button?.removeEventListener("click", this.handleButtonClick);
+
+        if (this.motionQuery) {
+            if ("removeEventListener" in this.motionQuery) {
+                this.motionQuery.removeEventListener("change", this.handleMotionChange);
+            } else if ("removeListener" in this.motionQuery) {
+                this.motionQuery.removeListener(this.handleMotionChange);
+            }
+        }
+    }
+
+    async init() {
+        if (this.isInitialized) {
+            return;
+        }
+
+        this.validate();
+        this.buildMarkup();
+        await this.preload();
+        this.positionParts();
+
+        if (this.mouth) {
+            this.mouth.style.opacity = "1";
+        }
+
+        if (this.eyes) {
+            this.eyes.style.opacity = "0";
+        }
+
+        this.widget.classList.add("is-ready");
+        this.bindEvents();
+
+        if (!this.reduceMotion) {
+            this.scheduleBlinkLoop();
+            this.scheduleBrowLoop();
+        }
+
+        this.isInitialized = true;
+        this.isDestroyed = false;
+    }
+
+    destroy() {
+        if (!this.isInitialized) {
+            return;
+        }
+
+        this.isDestroyed = true;
+        window.clearTimeout(this.blinkTimer);
+        window.clearTimeout(this.browTimer);
+        this.blinkTimer = null;
+        this.browTimer = null;
+
+        this.stopCurrentAudio();
+        this.stopMouthSync();
+        this.cleanupAudioNodes();
+        this.unbindEvents();
+
+        if (this.widget) {
+            this.widget.classList.remove("is-speaking", "is-ready");
+        }
+
+        if (this.eyes) {
+            this.eyes.style.opacity = "0";
+        }
+
+        if (this.mouth) {
+            this.mouth.style.opacity = "1";
+        }
+
+        this.isInitialized = false;
+    }
+}
 
 const audioFiles = Array.from(
     { length: 11 },
@@ -551,11 +1173,10 @@ const audioFiles = Array.from(
 );
 
 const dusty = new DustyCharacter({
-    container: "#dustyMount",
-    speechBubble: "#speechBubble",
+    container: "#dustyCharacter",
     button: "#didYouKnowBtn",
-    facts,
     audioFiles,
+    baseAlt: "Dusty the guide character",
     images: {
         base: "assets/images/dusty_base.png",
         eyesClosed: "assets/images/dusty_eyes_closed.png",
@@ -568,14 +1189,13 @@ const dusty = new DustyCharacter({
         hand: { width: 270, height: 285, top: 310, left: 270 },
         brow1: { width: 148, height: 84, top: 315, left: 730 },
         brow2: { width: 166, height: 99, top: 340, left: 905 }
-    },
-    idleMessage: "Press the button and Dusty will share another obsidian fact."
+    }
 });
 
 dusty.init().catch((error) => {
-    document.getElementById("speechBubble").textContent =
-        `Dusty could not load: ${error.message}`;
+    console.error(error);
 });
 </script>
+
 </body>
 </html>
