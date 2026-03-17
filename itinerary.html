@@ -3,84 +3,231 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NM26 Header</title>
+<title>NM26 Itinerary</title>
 
 <style>
 body{
 margin:0;
-background:black;
+background:
+linear-gradient(180deg, #f8f1d5 0%, #f2f2f2 42%, #ececec 100%);
 font-family:Arial, Helvetica, sans-serif;
+color:#222;
 }
 
-/* HEADER */
+/* HEADER IMAGE */
 
 .nm-header{
-position:relative;
 width:min(100%, 1900px);
-aspect-ratio:2400 / 600;
-margin:auto;
-overflow:hidden;
+margin:0 auto;
 }
-
-/* BAKED HEADER IMAGE */
 
 .nm-banner{
 width:100%;
-height:100%;
+height:auto;
 display:block;
-object-fit:cover;
 }
 
-/* HOME / PLAN / GUIDE OVERLAY */
+/* NAV BELOW HEADER */
+
+.nm-home-nav-wrap{
+width:min(100%, 1900px);
+margin:0 auto;
+background:#EE8537;
+border-top:5px solid #377654;
+}
 
 .nm-home-nav{
-position:absolute;
-left:17%;
-bottom:3%;
-transform:translateX(-50%);
 display:flex;
+justify-content:center;
 align-items:center;
-gap:50px;
-z-index:2;
+gap:40px;
+padding:14px 20px;
+flex-wrap:wrap;
 }
 
 .nm-home-nav a{
 text-decoration:none;
-font-size:clamp(16px, 1.6vw, 28px);
+font-size:clamp(14px, 2vw, 22px);
 font-weight:500;
 letter-spacing:1px;
-color:#EE8537;
+color:#682D2E;
 line-height:1;
 }
 
-/* OPTIONAL HOVER */
-
-.nm-home-nav a:hover{
-opacity:0.85;
+.nm-home-nav a:link,
+.nm-home-nav a:visited{
+color:#682D2E;
 }
 
-/* SMALLER SCREENS */
+.nm-home-nav a:hover,
+.nm-home-nav a:active{
+color:#377654;
+}
 
-@media (max-width: 900px){
+.nm-home-nav a.active:link,
+.nm-home-nav a.active:visited{
+color:#377654;
+font-weight:700;
+}
+
+/* PAGE */
+
+.page-shell{
+width:min(92%, 1200px);
+margin:28px auto 50px;
+}
+
+.page-hero{
+background:rgba(255,255,255,0.86);
+border:1px solid rgba(104,45,46,0.14);
+border-radius:22px;
+box-shadow:0 10px 30px rgba(0,0,0,0.08);
+padding:26px 22px;
+margin-bottom:28px;
+}
+
+.page-kicker{
+font-size:13px;
+font-weight:700;
+letter-spacing:1.8px;
+text-transform:uppercase;
+color:#377654;
+margin:0 0 8px;
+}
+
+.page-title{
+margin:0;
+font-size:clamp(30px, 4vw, 48px);
+line-height:1.05;
+color:#682D2E;
+}
+
+.page-subtitle{
+margin:12px 0 0;
+font-size:clamp(16px, 2vw, 20px);
+line-height:1.5;
+color:#4d4d4d;
+max-width:760px;
+}
+
+.day-grid{
+display:grid;
+gap:26px;
+}
+
+.day-card{
+background:#fff;
+border-radius:24px;
+overflow:hidden;
+box-shadow:0 12px 34px rgba(0,0,0,0.10);
+border:1px solid rgba(104,45,46,0.12);
+}
+
+.day-splash{
+width:100%;
+aspect-ratio: 16 / 7;
+object-fit:cover;
+display:block;
+background:#d8d8d8;
+}
+
+.day-content{
+padding:22px 20px 22px;
+}
+
+.day-label{
+display:inline-block;
+font-size:13px;
+font-weight:700;
+letter-spacing:1.4px;
+text-transform:uppercase;
+color:#377654;
+margin-bottom:10px;
+}
+
+.day-title{
+margin:0;
+font-size:clamp(24px, 3vw, 34px);
+line-height:1.15;
+color:#682D2E;
+}
+
+.day-theme{
+margin:10px 0 18px;
+font-size:clamp(16px, 2vw, 20px);
+font-weight:700;
+color:#EE8537;
+}
+
+.stop-list{
+margin:0;
+padding:0;
+list-style:none;
+display:grid;
+gap:10px;
+}
+
+.stop-list li{
+position:relative;
+padding-left:22px;
+font-size:clamp(15px, 1.5vw, 18px);
+line-height:1.5;
+color:#2f2f2f;
+}
+
+.stop-list li::before{
+content:"";
+position:absolute;
+left:0;
+top:0.62em;
+width:9px;
+height:9px;
+border-radius:50%;
+background:#377654;
+transform:translateY(-50%);
+}
+
+/* FOOTER */
+
+.page-footer{
+width:min(92%, 1200px);
+margin:0 auto 40px;
+text-align:center;
+font-size:14px;
+letter-spacing:0.8px;
+color:#6b6b6b;
+}
+
+/* MOBILE */
+
+@media (max-width: 600px){
 .nm-home-nav{
-gap:30px;
-bottom:8%;
+gap:22px;
+padding:12px 14px;
 }
 
 .nm-home-nav a{
-font-size:clamp(12px, 2.8vw, 18px);
+font-size:clamp(13px, 4vw, 18px);
 letter-spacing:0.5px;
 }
+
+.page-shell{
+width:min(94%, 1200px);
+margin:20px auto 36px;
 }
 
-@media (max-width: 520px){
-.nm-home-nav{
-gap:18px;
-bottom:6.5%;
+.page-hero{
+padding:22px 18px;
+margin-bottom:22px;
+border-radius:18px;
 }
 
-.nm-home-nav a{
-font-size:clamp(10px, 3.2vw, 14px);
+.day-content{
+padding:18px 16px 18px;
+}
+
+.day-card{
+border-radius:18px;
 }
 }
 </style>
@@ -89,16 +236,185 @@ font-size:clamp(10px, 3.2vw, 14px);
 <body>
 
 <header class="nm-header">
-
-<img src="assets/images/header_background.png" class="nm-banner" alt="NM26 Header">
-
-<nav class="nm-home-nav">
-<a href="#">stand</a>
-<a href="#">in</a>
-<a href="#">file</a>
-</nav>
-
+  <img src="/NM26-QR-codes/assets/images/header_banner.png" class="nm-banner" alt="NM26 Header">
 </header>
+
+<div class="nm-home-nav-wrap">
+  <nav class="nm-home-nav">
+    <a href="index.html">HOME</a>
+    <a href="itinerary.html" class="active">ITINERARY</a>
+    <a href="lodging.html">LODGING</a>
+  </nav>
+</div>
+
+<main class="page-shell">
+  <section class="page-hero">
+    <p class="page-kicker">NM26 Roadbook</p>
+    <h1 class="page-title">Itinerary</h1>
+    <p class="page-subtitle">Day-by-day route, stops, and highlights across the NM26 loop.</p>
+  </section>
+
+  <section class="day-grid">
+
+    <article class="day-card">
+      <img src="/NM26-QR-codes/assets/itinerary/day1.jpg" class="day-splash" alt="Day 1 splash image">
+      <div class="day-content">
+        <div class="day-label">Day 1</div>
+        <h2 class="day-title">Ponchatoula → Tucumcari</h2>
+        <p class="day-theme">Highway Hijinks</p>
+        <ul class="stop-list">
+          <li>Depart Ponchatoula (early AM)</li>
+          <li>Eiffel Tower, Paris, Texas – landmark, photo op</li>
+          <li>Lucy Park, Wichita Falls – picnic lunch</li>
+          <li>Big Texan Steak Ranch – Amarillo</li>
+          <li>Cadillac Ranch – Route 66 art cars</li>
+          <li>Arrive Tucumcari – Blue Swallow Motel, Route 66 neon</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="day-card">
+      <img src="/NM26-QR-codes/assets/itinerary/day2.jpg" class="day-splash" alt="Day 2 splash image">
+      <div class="day-content">
+        <div class="day-label">Day 2</div>
+        <h2 class="day-title">Tucumcari → Santa Fe</h2>
+        <p class="day-theme">Souvenir Surfing</p>
+        <ul class="stop-list">
+          <li>Morning in Tucumcari – Route 66 signs &amp; photos</li>
+          <li>Santa Rosa – Blue Hole swim &amp; stretch break</li>
+          <li>Drive Turquoise Trail toward Santa Fe</li>
+          <li>Check-in at Santa Fe lodging</li>
+          <li>Easy evening near Santa Fe Plaza – dinner &amp; early night</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="day-card">
+      <img src="/NM26-QR-codes/assets/itinerary/day3.jpg" class="day-splash" alt="Day 3 splash image">
+      <div class="day-content">
+        <div class="day-label">Day 3</div>
+        <h2 class="day-title">High Road to Taos</h2>
+        <p class="day-theme">Art, Adobe, Altitude</p>
+        <ul class="stop-list">
+          <li>Depart Santa Fe via High Road to Taos</li>
+          <li>El Santuario de Chimayó – holy dirt &amp; chapel</li>
+          <li>Truchas – artsy yards &amp; mountain views</li>
+          <li>Las Trampas – San José de Gracia church &amp; ghost signs</li>
+          <li>Peñasco – Sugar Nymphs Bistro (pies)</li>
+          <li>Arrive Taos – check-in</li>
+          <li>Rio Grande Gorge Bridge – walk &amp; photos</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="day-card">
+      <img src="/NM26-QR-codes/assets/itinerary/day4.jpg" class="day-splash" alt="Day 4 splash image">
+      <div class="day-content">
+        <div class="day-label">Day 4</div>
+        <h2 class="day-title">Enchanted Circle → Low Road back to Santa Fe</h2>
+        <p class="day-theme">Canyon Curios</p>
+        <ul class="stop-list">
+          <li>Depart Taos on Enchanted Circle</li>
+          <li>Red River – ski village, carvings, possible lift ride</li>
+          <li>Eagle Nest – lake views &amp; antique shops</li>
+          <li>Angel Fire – Vietnam Veterans Memorial stop</li>
+          <li>Loop back toward Taos, then Low Road to Santa Fe</li>
+          <li>Rio Grande views – Pilar &amp; roadside metal art</li>
+          <li>Arrive back in Santa Fe – evening in town</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="day-card">
+      <img src="/NM26-QR-codes/assets/itinerary/day5.jpg" class="day-splash" alt="Day 5 splash image">
+      <div class="day-content">
+        <div class="day-label">Day 5</div>
+        <h2 class="day-title">Santa Fe → Socorro</h2>
+        <p class="day-theme">Ladders &amp; Lava</p>
+        <ul class="stop-list">
+          <li>Depart Santa Fe</li>
+          <li>Bandelier National Monument – cliff dwellings &amp; canyon</li>
+          <li>Valles Caldera – volcanic valley views</li>
+          <li>Jemez area – red rock canyon drive</li>
+          <li>Optional short soak or stop near Jemez Springs</li>
+          <li>Arrive Socorro – check-in &amp; dinner</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="day-card">
+      <img src="/NM26-QR-codes/assets/itinerary/day6.jpg" class="day-splash" alt="Day 6 splash image">
+      <div class="day-content">
+        <div class="day-label">Day 6</div>
+        <h2 class="day-title">Socorro → Roswell</h2>
+        <p class="day-theme">History in Stone, Mystery in Space</p>
+        <ul class="stop-list">
+          <li>Depart Socorro</li>
+          <li>Valley of Fires – lava flow boardwalk</li>
+          <li>Three Rivers Petroglyph Site – hillside rock art</li>
+          <li>White Sands National Park – dunes &amp; sledding</li>
+          <li>Drive on to Roswell</li>
+          <li>Arrive Roswell – check-in &amp; evening UFO vibe</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="day-card">
+      <img src="/NM26-QR-codes/assets/itinerary/day7.jpg" class="day-splash" alt="Day 7 splash image">
+      <div class="day-content">
+        <div class="day-label">Day 7</div>
+        <h2 class="day-title">Roswell → Fort Stockton</h2>
+        <p class="day-theme">Underground &amp; Overhead</p>
+        <ul class="stop-list">
+          <li>Morning in Roswell – UFO Museum / Main Street as time allows</li>
+          <li>Drive Roswell → Carlsbad Caverns</li>
+          <li>Carlsbad Caverns – main cave tour</li>
+          <li>Sitting Bull Falls – afternoon swim &amp; picnic</li>
+          <li>Drive to Fort Stockton, Texas</li>
+          <li>Arrive Fort Stockton – check-in &amp; rest</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="day-card">
+      <img src="/NM26-QR-codes/assets/itinerary/day8.jpg" class="day-splash" alt="Day 8 splash image">
+      <div class="day-content">
+        <div class="day-label">Day 8</div>
+        <h2 class="day-title">Fort Stockton → San Antonio</h2>
+        <p class="day-theme">Ranches to Rivers</p>
+        <ul class="stop-list">
+          <li>Depart Fort Stockton</li>
+          <li>Drive through Texas Hill Country</li>
+          <li>Stonehenge II – roadside oddity &amp; photos</li>
+          <li>Arrive San Antonio – check-in</li>
+          <li>San Antonio River Walk – evening stroll &amp; dinner</li>
+          <li>Optional Alamo visit (evening views from outside)</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="day-card">
+      <img src="/NM26-QR-codes/assets/itinerary/day9.jpg" class="day-splash" alt="Day 9 splash image">
+      <div class="day-content">
+        <div class="day-label">Day 9</div>
+        <h2 class="day-title">San Antonio → Home</h2>
+        <p class="day-theme">Calling Baton Rouge</p>
+        <ul class="stop-list">
+          <li>Depart San Antonio</li>
+          <li>Lockhart – Black’s BBQ (primary) or Kreuz Market (backup)</li>
+          <li>Brenham – Blue Bell Creamery stop</li>
+          <li>Final fuel / snack stop as needed</li>
+          <li>Arrive Home – NM26 loop complete</li>
+        </ul>
+      </div>
+    </article>
+
+  </section>
+</main>
+
+<footer class="page-footer">
+  NM26 • From Petroglyphs to Phenomena
+</footer>
 
 </body>
 </html>
