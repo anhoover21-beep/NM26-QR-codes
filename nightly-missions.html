@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NM26 Mission Portal</title>
+<title>NM26 Night Missions</title>
 
 <style>
     body {
@@ -14,81 +14,49 @@
     }
 
     .nm-header {
-        background: #c5161d;
-        color: white;
+        width: min(100%, 1900px);
+        margin: 0 auto;
     }
 
-    .nm-header-inner {
-        max-width: 1300px;
+    .nm-banner {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    .nm-home-nav-wrap {
+        width: min(100%, 1900px);
         margin: 0 auto;
-        padding: 30px 40px;
+        background: #EE8537;
+        border-top: 5px solid #377654;
+    }
+
+    .nm-home-nav {
         display: flex;
+        justify-content: center;
         align-items: center;
-        justify-content: space-between;
-        gap: 20px;
+        gap: 40px;
+        padding: 14px 20px;
         flex-wrap: wrap;
     }
 
-    .nm-brand {
-        display: flex;
-        align-items: center;
-        gap: 20px;
-    }
-
-    .nm-state {
-        width: 110px;
-        height: 110px;
-        background: url("assets/images/new-mexico.png") no-repeat center;
-        background-size: contain;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .nm-text {
-        font-size: 40px;
-        font-weight: 900;
-        letter-spacing: 2px;
-        color: white;
-    }
-
-    .nm-year {
-        font-size: 72px;
-        font-weight: 900;
-        color: #ffd23f;
+    .nm-home-nav a {
+        text-decoration: none;
+        font-size: clamp(14px, 2vw, 22px);
+        font-weight: 500;
+        letter-spacing: 1px;
+        color: #682D2E;
         line-height: 1;
     }
 
-    .nm-nav {
-        display: flex;
-        gap: 36px;
-        flex-wrap: wrap;
-        justify-content: center;
+    .nm-home-nav a:link,
+    .nm-home-nav a:visited {
+        color: #682D2E;
     }
 
-    .nm-nav span {
-        color: white;
-        font-size: 22px;
-        letter-spacing: 2px;
-        font-weight: 600;
-    }
-
-    .nm-login span {
-        background: #ffd23f;
-        color: #c5161d;
-        padding: 12px 26px;
-        border-radius: 16px;
-        font-weight: 900;
-        font-size: 20px;
-        display: inline-block;
-    }
-
-    .nm-stripe {
-        background: #ffd23f;
-        padding: 10px 40px;
-        font-weight: 900;
-        color: #c5161d;
-        letter-spacing: 2px;
+    .nm-home-nav a:hover,
+    .nm-home-nav a:active {
+        color: #377654;
     }
 
     .main-content {
@@ -190,23 +158,6 @@
     }
 
     @media (max-width: 900px) {
-        .nm-header-inner {
-            padding: 24px 20px;
-            justify-content: center;
-        }
-
-        .nm-nav {
-            gap: 20px;
-        }
-
-        .nm-nav span {
-            font-size: 18px;
-        }
-
-        .nm-year {
-            font-size: 56px;
-        }
-
         .mission-card {
             padding: 28px 22px;
         }
@@ -232,36 +183,34 @@
             font-size: 20px;
         }
     }
+
+    @media (max-width: 600px) {
+        .nm-home-nav {
+            gap: 22px;
+            padding: 12px 14px;
+        }
+
+        .nm-home-nav a {
+            font-size: clamp(13px, 4vw, 18px);
+            letter-spacing: 0.5px;
+        }
+    }
 </style>
 </head>
 
 <body>
 
 <header class="nm-header">
-    <div class="nm-header-inner">
-        <div class="nm-brand">
-            <div class="nm-state">
-                <span class="nm-text">NM</span>
-            </div>
-            <span class="nm-year">26</span>
-        </div>
-
-        <nav class="nm-nav">
-            <span>HOME</span>
-            <span>PLANNER</span>
-            <span>RESOURCES</span>
-            <span>GUIDE</span>
-        </nav>
-
-        <div class="nm-login">
-            <span>LOGIN</span>
-        </div>
-    </div>
-
-    <div class="nm-stripe">
-        VACATION 2026
-    </div>
+    <img src="/NM26-QR-codes/assets/images/header_banner.png" class="nm-banner" alt="NM26 Header">
 </header>
+
+<div class="nm-home-nav-wrap">
+    <nav class="nm-home-nav">
+        <a href="index.html">HOME</a>
+        <a href="itinerary.html">ITINERARY</a>
+        <a href="lodging.html">LODGING</a>
+    </nav>
+</div>
 
 <div class="main-content">
     <div id="locked" class="section">
