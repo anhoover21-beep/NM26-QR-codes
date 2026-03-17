@@ -6,176 +6,83 @@
 <title>NM26 Header</title>
 
 <style>
-
 body{
 margin:0;
 background:black;
 font-family:Arial, Helvetica, sans-serif;
 }
 
-/* HEADER FRAME */
+/* HEADER */
 
 .nm-header{
 position:relative;
-background:#682D2E;
-border:4px solid #EE8537;
-padding:35px 35px 1px 35px; /* 👈 FIXED (bottom reduced) */
-max-width:1900px;
+width:min(100%, 1900px);
+aspect-ratio:2400 / 600;
 margin:auto;
 overflow:hidden;
 }
 
-/* DIAMOND PATTERN */
+/* BAKED HEADER IMAGE */
 
-.pattern{
-position:absolute;
-pointer-events:none;
-}
-
-.pattern-top{
-top:8px;
-left:8px;
-right:8px;
-display:flex;
-justify-content:space-between;
-}
-
-.pattern-left{
-left:8px;
-top:8px;
-bottom:8px;
-display:flex;
-flex-direction:column;
-justify-content:space-between;
-}
-
-.pattern-bottom{
-bottom:8px;
-left:350px;
-right:330px;
-display:flex;
-justify-content:space-between;
-}
-  
-.pattern-right{
-right:8px;
-top:8px;
-bottom:8px;
-display:flex;
-flex-direction:column;
-justify-content:space-between;
-}
-
-.diamond{
-width:18px;
-height:18px;
-background:#C83F07;
-transform:rotate(45deg);
-}
-
-/* INNER PANEL */
-
-.nm-panel{
-background:#EE8537;
-}
-
-/* TOP AREA */
-
-.nm-top{
-position:relative;
-display:flex;
-align-items:center;
-padding:30px 30px;
-}
-
-/* LOGO */
-
-.nm-logo{
-display:flex;
-align-items:center;
-gap:5px;
-}
-
-.nm-state-wrap{
-position:relative;
-width:90px;
-}
-
-.nm-state{
+.nm-banner{
 width:100%;
+height:100%;
+display:block;
+object-fit:cover;
 }
 
-.nm-state-text{
+/* HOME / PLAN / GUIDE OVERLAY */
+
+.nm-home-nav{
 position:absolute;
-top:50%;
 left:50%;
-transform:translate(-50%,-55%);
-font-size:60px;
-font-weight:900;
-color:white;
-}
-
-.nm-number{
-font-size:60px;
-font-weight:900;
-color:#682D2E;
-}
-
-/* TOP NAV */
-
-.nm-main a{
-text-decoration:none;
-font-size:85px;
-font-weight:900;
-color:#682D2E;
-}
-
-.nm-main{
-position:absolute;
-left:60%;
-transform:translateX(-60%);
+bottom:10%;
+transform:translateX(-50%);
 display:flex;
 align-items:center;
-gap:15px;
+gap:50px;
+z-index:2;
 }
 
-.divider{
-font-size:60px;
-color:#682D2E;
-}
-
-/* BOTTOM BAR */
-
-.nm-bottom{
-background:#682D2E;
-padding:5px 30px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-}
-
-/* LEFT NAV */
-
-.nm-left{
-display:flex;
-gap:40px;
-}
-
-.nm-left a{
+.nm-home-nav a{
 text-decoration:none;
-font-size:20px;
+font-size:clamp(16px, 1.6vw, 24px);
+font-weight:500;
+letter-spacing:1px;
 color:#EE8537;
+line-height:1;
 }
 
-/* RIGHT TEXT */
+/* OPTIONAL HOVER */
 
-.nm-right{
-font-size:22px;
-font-weight:900;
-color:#C83F07;
-margin-right:22px
+.nm-home-nav a:hover{
+opacity:0.85;
 }
 
+/* SMALLER SCREENS */
+
+@media (max-width: 900px){
+.nm-home-nav{
+gap:30px;
+bottom:8%;
+}
+
+.nm-home-nav a{
+font-size:clamp(12px, 2.8vw, 18px);
+letter-spacing:0.5px;
+}
+}
+
+@media (max-width: 520px){
+.nm-home-nav{
+gap:18px;
+bottom:6.5%;
+}
+
+.nm-home-nav a{
+font-size:clamp(10px, 3.2vw, 14px);
+}
+}
 </style>
 </head>
 
@@ -183,87 +90,13 @@ margin-right:22px
 
 <header class="nm-header">
 
-<!-- DIAMOND FRAME -->
+<img src="assets/images/header-background.png" class="nm-banner" alt="NM26 Header">
 
-<div class="pattern pattern-top">
-<div class="diamond"></div><div class="diamond"></div><div class="diamond"></div>
-<div class="diamond"></div><div class="diamond"></div><div class="diamond"></div>
-<div class="diamond"></div><div class="diamond"></div><div class="diamond"></div>
-<div class="diamond"></div><div class="diamond"></div><div class="diamond"></div>
-<div class="diamond"></div><div class="diamond"></div><div class="diamond"></div>
-<div class="diamond"></div><div class="diamond"></div><div class="diamond"></div>
-<div class="diamond"></div><div class="diamond"></div><div class="diamond"></div>
-<div class="diamond"></div><div class="diamond"></div>
-</div>
-
-<div class="pattern pattern-left">
-<div class="diamond"></div>
-<div class="diamond"></div>
-<div class="diamond"></div>
-<div class="diamond"></div>  
-</div>
-
-<div class="pattern pattern-bottom">
-<div class="diamond"></div>
-<div class="diamond"></div>
-<div class="diamond"></div>
-<div class="diamond"></div> 
-<div class="diamond"></div><div class="diamond"></div><div class="diamond"></div>
-<div class="diamond"></div><div class="diamond"></div><div class="diamond"></div>
-<div class="diamond"></div><div class="diamond"></div><div class="diamond"></div>
-<div class="diamond"></div><div class="diamond"></div>  
-</div>  
-  
-<div class="pattern pattern-right">
-<div class="diamond"></div>
-<div class="diamond"></div>
-<div class="diamond"></div>
-<div class="diamond"></div>
-</div>
-
-<!-- MAIN PANEL -->
-
-<div class="nm-panel">
-
-<div class="nm-top">
-
-<div class="nm-logo">
-
-<div class="nm-state-wrap">
-<img src="assets/images/new-mexico.png" class="nm-state">
-<span class="nm-state-text">NM</span>
-</div>
-
-<span class="nm-number">26</span>
-
-</div>
-
-<nav class="nm-main">
-<a href="#">HISTORY</a>
-<span class="divider">✣</span>
-<a href="#">MYSTERY</a>
-<span class="divider">✣</span>
-<a href="#">MIRACLES</a>
-</nav>
-
-</div>
-
-
-<div class="nm-bottom">
-
-<nav class="nm-left">
+<nav class="nm-home-nav">
 <a href="#">HOME</a>
 <a href="#">PLAN</a>
 <a href="#">GUIDE</a>
 </nav>
-
-<div class="nm-right">
-VACATION 2026
-</div>
-
-</div>
-
-</div>
 
 </header>
 
