@@ -13,79 +13,66 @@
         color: #222;
     }
 
-   /* HEADER */
+/* HEADER IMAGE */
 
 .nm-header{
-position:relative;
 width:min(100%, 1900px);
-aspect-ratio:2400 / 600;
-margin:auto;
-overflow:hidden;
+margin:0 auto;
 }
-
-/* BAKED HEADER IMAGE */
 
 .nm-banner{
 width:100%;
-height:100%;
+height:auto;
 display:block;
-object-fit:cover;
 }
 
-/* HOME / PLAN / GUIDE OVERLAY */
+/* NAV BELOW HEADER */
+
+.nm-home-nav-wrap{
+width:min(100%, 1900px);
+margin:0 auto;
+background:#C83F07;
+border-top:5px solid #377654;
+}
 
 .nm-home-nav{
-position:absolute;
-left:17%;
-bottom:3%;
-transform:translateX(-50%);
 display:flex;
+justify-content:center;
 align-items:center;
-gap:50px;
-z-index:2;
+gap:40px;
+padding:14px 20px;
+flex-wrap:wrap;
 }
 
 .nm-home-nav a{
 text-decoration:none;
-font-size:clamp(16px, 1.6vw, 28px);
+font-size:clamp(14px, 2vw, 22px);
 font-weight:500;
 letter-spacing:1px;
-color:#EE8537;
+color:#3682D2E;
 line-height:1;
 }
-
-/* OPTIONAL HOVER */
 
 .nm-home-nav a:hover{
 opacity:0.85;
 }
 
-/* SMALLER SCREENS */
+/* MOBILE */
 
-@media (max-width: 900px){
+@media (max-width: 600px){
 .nm-home-nav{
-gap:30px;
-bottom:8%;
+gap:22px;
+padding:12px 14px;
 }
 
 .nm-home-nav a{
-font-size:clamp(12px, 2.8vw, 18px);
+font-size:clamp(13px, 4vw, 18px);
 letter-spacing:0.5px;
-}
-}
-
-@media (max-width: 520px){
-.nm-home-nav{
-gap:18px;
-bottom:6.5%;
-}
-
-.nm-home-nav a{
-font-size:clamp(10px, 3.2vw, 14px);
 }
 }
 </style>
 </head>
+
 
 
 <body>
