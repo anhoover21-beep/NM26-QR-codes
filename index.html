@@ -14,7 +14,7 @@ font-family:Arial, Helvetica, sans-serif;
 color:#222;
 }
 
-/* HEADER IMAGE */
+/* HEADER */
 
 .nm-header{
 width:min(100%, 1900px);
@@ -23,11 +23,10 @@ margin:0 auto;
 
 .nm-banner{
 width:100%;
-height:auto;
 display:block;
 }
 
-/* NAV BELOW HEADER */
+/* NAV */
 
 .nm-home-nav-wrap{
 width:min(100%, 1900px);
@@ -51,21 +50,13 @@ font-size:clamp(14px, 2vw, 22px);
 font-weight:500;
 letter-spacing:1px;
 color:#682D2E;
-line-height:1;
 }
 
-.nm-home-nav a:link,
-.nm-home-nav a:visited{
-color:#682D2E;
-}
-
-.nm-home-nav a:hover,
-.nm-home-nav a:active{
+.nm-home-nav a:hover{
 color:#377654;
 }
 
-.nm-home-nav a.active:link,
-.nm-home-nav a.active:visited{
+.nm-home-nav a.active{
 color:#377654;
 font-weight:700;
 }
@@ -79,275 +70,123 @@ display:grid;
 gap:26px;
 }
 
-.hero-card{
-background:
-linear-gradient(135deg, rgba(255,255,255,0.94) 0%, rgba(255,248,235,0.92) 100%);
-border:1px solid rgba(104,45,46,0.14);
-border-radius:24px;
-box-shadow:0 12px 34px rgba(0,0,0,0.10);
-padding:28px 24px;
-}
+/* HERO */
 
-.hero-kicker{
-font-size:13px;
-font-weight:700;
-letter-spacing:1.8px;
-text-transform:uppercase;
-color:#377654;
-margin:0 0 8px;
+.hero-card{
+background:white;
+border-radius:24px;
+padding:28px 24px;
+box-shadow:0 10px 30px rgba(0,0,0,0.1);
 }
 
 .hero-title{
 margin:0;
-font-size:clamp(34px, 5vw, 58px);
-line-height:1.02;
+font-size:clamp(32px, 5vw, 52px);
 color:#682D2E;
-max-width:900px;
 }
 
-.hero-subtitle{
-margin:14px 0 0;
-font-size:clamp(17px, 2.2vw, 22px);
-line-height:1.55;
-color:#4b4b4b;
-max-width:860px;
+.hero-sub{
+margin-top:14px;
+font-size:clamp(16px, 2vw, 20px);
+color:#444;
 }
 
-.hero-buttons{
-display:flex;
-flex-wrap:wrap;
-gap:14px;
-margin-top:22px;
-}
-
-.hero-button{
-display:inline-flex;
-align-items:center;
-justify-content:center;
-padding:13px 18px;
-border-radius:999px;
-text-decoration:none;
-font-size:15px;
-font-weight:700;
-letter-spacing:0.6px;
-transition:transform 0.15s ease, box-shadow 0.15s ease;
-}
-
-.hero-button-primary{
-background:#377654;
-color:#fff;
-box-shadow:0 8px 18px rgba(55,118,84,0.22);
-}
-
-.hero-button-secondary{
-background:#EE8537;
-color:#682D2E;
-box-shadow:0 8px 18px rgba(238,133,55,0.22);
-}
-
-.hero-button:hover{
-transform:translateY(-1px);
-}
+/* GRID */
 
 .section-grid{
 display:grid;
-grid-template-columns:repeat(2, minmax(0, 1fr));
+grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
 gap:22px;
 }
 
+/* CARDS */
+
 .info-card{
 background:#fff;
-border-radius:24px;
-box-shadow:0 12px 34px rgba(0,0,0,0.10);
-border:1px solid rgba(104,45,46,0.12);
-padding:22px 20px;
-}
-
-.card-kicker{
-font-size:12px;
-font-weight:700;
-letter-spacing:1.2px;
-text-transform:uppercase;
-color:#377654;
-margin:0 0 8px;
+border-radius:22px;
+padding:22px;
+box-shadow:0 10px 30px rgba(0,0,0,0.1);
 }
 
 .card-title{
 margin:0;
-font-size:clamp(24px, 3vw, 34px);
-line-height:1.12;
+font-size:24px;
 color:#682D2E;
 }
 
 .card-copy{
-margin:12px 0 0;
-font-size:clamp(15px, 1.6vw, 18px);
-line-height:1.6;
+margin-top:10px;
 color:#444;
 }
 
 .card-link{
 display:inline-block;
-margin-top:18px;
+margin-top:16px;
 text-decoration:none;
-font-size:14px;
-font-weight:700;
-letter-spacing:0.8px;
-text-transform:uppercase;
+font-weight:bold;
 color:#377654;
 }
 
-.trip-card{
-background:#fff;
-border-radius:24px;
-box-shadow:0 12px 34px rgba(0,0,0,0.10);
-border:1px solid rgba(104,45,46,0.12);
-padding:22px 20px;
-}
+/* MISSION CARD */
 
-.trip-grid{
-display:grid;
-grid-template-columns:repeat(4, minmax(0, 1fr));
-gap:16px;
-margin-top:18px;
-}
-
-.trip-stat{
-background:rgba(248,241,213,0.8);
-border:1px solid rgba(104,45,46,0.10);
-border-radius:18px;
-padding:16px 14px;
-}
-
-.trip-label{
-display:block;
-font-size:12px;
-font-weight:700;
-letter-spacing:1.1px;
-text-transform:uppercase;
-color:#377654;
-margin-bottom:6px;
-}
-
-.trip-value{
-margin:0;
-font-size:clamp(16px, 1.7vw, 20px);
-line-height:1.4;
-color:#682D2E;
-font-weight:700;
-}
-
-.route-list{
-margin:18px 0 0;
-padding:0;
-list-style:none;
-display:grid;
-gap:10px;
-}
-
-.route-list li{
-position:relative;
-padding-left:22px;
-font-size:clamp(15px, 1.5vw, 18px);
-line-height:1.5;
-color:#333;
-}
-
-.route-list li::before{
-content:"";
-position:absolute;
-left:0;
-top:0.62em;
-width:9px;
-height:9px;
-border-radius:50%;
-background:#EE8537;
-transform:translateY(-50%);
-}
-
-.feature-card{
+.mission-card{
 background:
-linear-gradient(135deg, rgba(104,45,46,0.96) 0%, rgba(81,33,34,0.96) 100%);
-border-radius:24px;
-box-shadow:0 12px 34px rgba(0,0,0,0.14);
-padding:26px 22px;
-color:#fff6ea;
-}
-
-.feature-kicker{
-font-size:12px;
-font-weight:700;
-letter-spacing:1.4px;
-text-transform:uppercase;
-color:#f7be86;
-margin:0 0 10px;
-}
-
-.feature-title{
-margin:0;
-font-size:clamp(28px, 4vw, 42px);
-line-height:1.08;
+linear-gradient(135deg, #682D2E 0%, #377654 100%);
 color:#fff;
 }
 
-.feature-copy{
-margin:14px 0 0;
-font-size:clamp(16px, 1.8vw, 20px);
-line-height:1.65;
-max-width:820px;
-color:#fff1de;
+.mission-card .card-title{
+color:#fff;
+}
+
+.mission-card .card-copy{
+color:#f3e7d8;
+}
+
+.mission-warning{
+margin-top:12px;
+font-size:12px;
+letter-spacing:1px;
+text-transform:uppercase;
+color:#ffcc80;
+}
+
+.mission-link{
+color:#ffcc80;
 }
 
 /* FOOTER */
 
 .page-footer{
-width:min(92%, 1200px);
-margin:0 auto 40px;
 text-align:center;
-font-size:14px;
-letter-spacing:0.8px;
-color:#6b6b6b;
+font-size:13px;
+color:#777;
+margin-bottom:30px;
 }
 
-/* RESPONSIVE */
+/* HIDDEN LINK */
 
-@media (max-width: 900px){
-.section-grid{
-grid-template-columns:1fr;
+.ghost-link{
+display:block;
+text-align:center;
+font-size:10px;
+color:rgba(0,0,0,0.15);
+text-decoration:none;
+margin-top:10px;
 }
 
-.trip-grid{
-grid-template-columns:repeat(2, minmax(0, 1fr));
-}
+.ghost-link:hover{
+color:rgba(0,0,0,0.25);
 }
 
-@media (max-width: 600px){
+/* MOBILE */
+
+@media (max-width:600px){
 .nm-home-nav{
 gap:22px;
-padding:12px 14px;
 }
-
-.nm-home-nav a{
-font-size:clamp(13px, 4vw, 18px);
-letter-spacing:0.5px;
-}
-
 .page-shell{
-width:min(94%, 1200px);
-margin:20px auto 36px;
-gap:22px;
-}
-
-.hero-card,
-.info-card,
-.trip-card,
-.feature-card{
-border-radius:18px;
-padding:20px 16px;
-}
-
-.trip-grid{
-grid-template-columns:1fr;
+width:94%;
 }
 }
 </style>
@@ -356,7 +195,7 @@ grid-template-columns:1fr;
 <body>
 
 <header class="nm-header">
-  <img src="/NM26-QR-codes/assets/images/header_banner.png" class="nm-banner" alt="NM26 Header">
+  <img src="/NM26-QR-codes/assets/images/header_banner.png" class="nm-banner">
 </header>
 
 <div class="nm-home-nav-wrap">
@@ -370,79 +209,42 @@ grid-template-columns:1fr;
 <main class="page-shell">
 
   <section class="hero-card">
-    <p class="hero-kicker">NM26 Mission Portal</p>
-    <h1 class="hero-title">Welcome to the Road Trip Hub</h1>
-    <p class="hero-subtitle">
-      Nine days. Desert skies. Route 66 neon. Petroglyphs, lava fields, canyon roads, aliens,
-      oddities, and one long loop from Louisiana through New Mexico and back again.
+    <h1 class="hero-title">NM26 Mission Portal</h1>
+    <p class="hero-sub">
+      Nine days across Route 66, desert skies, canyon roads, roadside oddities,
+      and everything in between.
     </p>
-    <div class="hero-buttons">
-      <a href="itinerary.html" class="hero-button hero-button-primary">View Itinerary</a>
-      <a href="lodging.html" class="hero-button hero-button-secondary">View Lodging</a>
-    </div>
   </section>
 
   <section class="section-grid">
+
     <article class="info-card">
-      <p class="card-kicker">Day by Day</p>
       <h2 class="card-title">Itinerary</h2>
       <p class="card-copy">
-        Follow the full NM26 loop one day at a time, from Ponchatoula to Tucumcari, Santa Fe, Taos,
-        Socorro, Roswell, Fort Stockton, San Antonio, and back home again.
+        Follow the full NM26 loop one day at a time.
       </p>
-      <a href="itinerary.html" class="card-link">Open Itinerary</a>
+      <a href="itinerary.html" class="card-link">Open →</a>
     </article>
 
     <article class="info-card">
-      <p class="card-kicker">Where We Stay</p>
       <h2 class="card-title">Lodging</h2>
       <p class="card-copy">
-        See each overnight stop, room type, address, booking source, and check-in details,
-        from the Blue Swallow Motel to the Menger Hotel.
+        Every overnight stay, address, and check-in detail.
       </p>
-      <a href="lodging.html" class="card-link">Open Lodging</a>
+      <a href="lodging.html" class="card-link">Open →</a>
     </article>
-  </section>
 
-  <section class="trip-card">
-    <p class="card-kicker">Trip at a Glance</p>
-    <h2 class="card-title">The NM26 Loop</h2>
+    <article class="info-card mission-card">
+      <h2 class="card-title">Nightly Missions</h2>
+      <p class="card-copy">
+        Each night unlocks a new mission tied to the journey.
+      </p>
+      <div class="mission-warning">
+        Do not open before 6:00 PM
+      </div>
+      <a href="missions.html" class="card-link mission-link">Enter →</a>
+    </article>
 
-    <div class="trip-grid">
-      <div class="trip-stat">
-        <span class="trip-label">Trip Length</span>
-        <p class="trip-value">9 Days</p>
-      </div>
-      <div class="trip-stat">
-        <span class="trip-label">Start</span>
-        <p class="trip-value">Ponchatoula, LA</p>
-      </div>
-      <div class="trip-stat">
-        <span class="trip-label">Far West</span>
-        <p class="trip-value">New Mexico</p>
-      </div>
-      <div class="trip-stat">
-        <span class="trip-label">Finish</span>
-        <p class="trip-value">Home Again</p>
-      </div>
-    </div>
-
-    <ul class="route-list">
-      <li>Route 66 flavor in Tucumcari, Santa Rosa, and the Blue Swallow neon.</li>
-      <li>Historic and scenic New Mexico stops including Chimayó, Taos, Bandelier, Jemez, and Three Rivers.</li>
-      <li>Big landscape days with White Sands, Valley of Fires, canyon roads, and mountain views.</li>
-      <li>Roadside oddities and fun stops like Cadillac Ranch, Stonehenge II, Roswell, and the River Walk.</li>
-    </ul>
-  </section>
-
-  <section class="feature-card">
-    <p class="feature-kicker">Trip Theme</p>
-    <h2 class="feature-title">History Written in Stone — Mystery Written in the Stars</h2>
-    <p class="feature-copy">
-      NM26 blends the old and the strange: mission churches, mountain villages, cliff dwellings,
-      lava flows, petroglyph hillsides, alien lore, desert highways, and classic roadside Americana.
-      This portal is the home base for the route, the stays, and the story of the trip.
-    </p>
   </section>
 
 </main>
@@ -450,6 +252,9 @@ grid-template-columns:1fr;
 <footer class="page-footer">
   NM26 • From Petroglyphs to Phenomena
 </footer>
+
+<!-- almost invisible link -->
+<a href="links.html" class="ghost-link">.</a>
 
 </body>
 </html>
