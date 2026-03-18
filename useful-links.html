@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NM26 Links</title>
+
+<style>
+body{
+  margin:0;
+  font-family:Arial, Helvetica, sans-serif;
+  background:#f4f4f4;
+  color:#222;
+}
+
+/* ===== HEADER IMAGE ===== */
+
+.nm-header{
+  width:min(100%, 1900px);
+  margin:0 auto;
+}
+
+.nm-banner{
+  width:100%;
+  height:auto;
+  display:block;
+}
+
+/* ===== NAV ===== */
+
+.nm-home-nav-wrap{
+  width:min(100%, 1900px);
+  margin:0 auto;
+  background:#EE8537;
+  border-top:5px solid #377654;
+  border-bottom:8px solid #682D2E;
+}
+
+.nm-home-nav{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:40px;
+  padding:14px 20px;
+  flex-wrap:wrap;
+}
+
+.nm-home-nav a{
+  text-decoration:none;
+  color:white;
+  font-weight:bold;
+  font-size:clamp(14px,2vw,18px);
+}
+
+/* ===== PAGE CONTENT ===== */
+
+.container{
+  width:min(1100px, 92%);
+  margin:30px auto 50px;
+}
+
+h1{
+  text-align:center;
+  margin-bottom:25px;
+}
+
+/* ===== LINK CARDS ===== */
+
+.link-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(260px,1fr));
+  gap:20px;
+}
+
+.link-card{
+  background:white;
+  border-radius:10px;
+  padding:18px;
+  box-shadow:0 4px 10px rgba(0,0,0,0.08);
+  text-decoration:none;
+  color:#222;
+  transition:transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.link-card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 8px 18px rgba(0,0,0,0.12);
+}
+
+.link-title{
+  font-size:18px;
+  font-weight:bold;
+  margin-bottom:8px;
+}
+
+.link-desc{
+  font-size:14px;
+  color:#555;
+}
+
+/* ===== FOOTER ===== */
+
+.footer{
+  text-align:center;
+  font-size:12px;
+  color:#888;
+  margin:40px 0 20px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div class="nm-header">
+  <img src="assets/images/header_background.png" class="nm-banner">
+</div>
+
+<!-- NAV -->
+<div class="nm-home-nav-wrap">
+  <div class="nm-home-nav">
+    <a href="index.html">Home</a>
+    <a href="itinerary.html">Itinerary</a>
+    <a href="lodging.html">Lodging</a>
+    <a href="guide.html">Guide</a>
+  </div>
+</div>
+
+<!-- CONTENT -->
+<div class="container">
+  <h1>NM26 Resource Hub</h1>
+
+  <div class="link-grid">
+
+    <a href="https://www.newmexico.org" target="_blank" class="link-card">
+      <div class="link-title">New Mexico Tourism</div>
+      <div class="link-desc">Official state tourism site for planning, regions, and backup ideas.</div>
+    </a>
+
+    <a href="https://www.santafe.org" target="_blank" class="link-card">
+      <div class="link-title">Santa Fe Tourism</div>
+      <div class="link-desc">Restaurants, plaza events, shopping, and local highlights.</div>
+    </a>
+
+    <a href="https://taos.org" target="_blank" class="link-card">
+      <div class="link-title">Taos Tourism</div>
+      <div class="link-desc">Gorge Bridge, High Road stops, and outdoor activities.</div>
+    </a>
+
+    <a href="https://www.nps.gov/whsa" target="_blank" class="link-card">
+      <div class="link-title">White Sands National Park</div>
+      <div class="link-desc">Hours, conditions, and visitor information.</div>
+    </a>
+
+    <a href="https://www.nps.gov/band" target="_blank" class="link-card">
+      <div class="link-title">Bandelier National Monument</div>
+      <div class="link-desc">Trail info, ladders, and cliff dwellings access.</div>
+    </a>
+
+    <a href="https://www.nps.gov/cave" target="_blank" class="link-card">
+      <div class="link-title">Carlsbad Caverns</div>
+      <div class="link-desc">Reservations, bat flight schedule, and cave access.</div>
+    </a>
+
+    <a href="https://tinkertown.com" target="_blank" class="link-card">
+      <div class="link-title">Tinkertown Museum</div>
+      <div class="link-desc">Quirky roadside stop along the Turquoise Trail.</div>
+    </a>
+
+    <a href="https://www.roswellufomuseum.com" target="_blank" class="link-card">
+      <div class="link-title">Roswell UFO Museum</div>
+      <div class="link-desc">Aliens, exhibits, and Roswell history.</div>
+    </a>
+
+    <a href="https://www.santarosabluehole.com" target="_blank" class="link-card">
+      <div class="link-title">Santa Rosa Blue Hole</div>
+      <div class="link-desc">Swimming spot and travel break on Day 2.</div>
+    </a>
+
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  NM26 • From Petroglyphs to Phenomena
+</div>
+
+</body>
+</html>
