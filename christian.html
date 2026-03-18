@@ -75,21 +75,24 @@ body{
   text-align:center;
 }
 
-.page-container h2{
-  margin-top:60px;
-  font-size:32px;
-}
-
 .page-container p{
   font-size:20px;
   line-height:1.7;
   margin-bottom:24px;
 }
 
-.page-container ul{
+/* ===== PLW TABLE ===== */
+
+.plw-table{
+  margin:30px auto;
+  border-collapse:collapse;
+  text-align:center;
   font-size:20px;
-  line-height:1.7;
-  margin-bottom:24px;
+}
+
+.plw-table th,
+.plw-table td{
+  padding:10px 18px;
 }
 
 /* ===== RESPONSIVE ===== */
@@ -114,13 +117,17 @@ body{
     font-size:28px;
   }
 
-  .page-container h2{
-    font-size:24px;
+  .page-container p{
+    font-size:17px;
   }
 
-  .page-container p,
-  .page-container ul{
+  .plw-table{
     font-size:17px;
+  }
+
+  .plw-table th,
+  .plw-table td{
+    padding:8px 12px;
   }
 }
 </style>
@@ -140,13 +147,12 @@ body{
   </nav>
 </div>
 
-
 <main class="page-container">
 
 <h1>Hello, Christian.</h1>
 
 <p>
-Do You know what P/L/W means?
+Do you know what P/L/W means?<br>
 Elsie does.
 </p>
 
@@ -162,21 +168,7 @@ Elsie does.
   <tr><td>23</td><td>3</td><td>12</td></tr>
 </table>
 
-
 </main>
 
-.plw-table{
-  margin:30px auto;
-  border-collapse:collapse;
-  text-align:center;
-  font-size:20px;
-}
-
-.plw-table th,
-.plw-table td{
-  padding:10px 18px;
-}
-
-  
 </body>
 </html>
