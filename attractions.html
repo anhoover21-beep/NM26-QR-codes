@@ -1,0 +1,290 @@
+<!-- /attractions.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NM26 Attractions & Stops</title>
+
+<style>
+body{
+margin:0;
+background:
+linear-gradient(180deg, #f8f1d5 0%, #f2f2f2 42%, #ececec 100%);
+font-family:Arial, Helvetica, sans-serif;
+color:#222;
+}
+
+/* HEADER */
+
+.nm-header{
+width:min(100%, 1900px);
+margin:0 auto;
+}
+
+.nm-banner{
+width:100%;
+height:auto;
+display:block;
+}
+
+/* NAV */
+
+.nm-home-nav-wrap{
+width:min(100%, 1900px);
+margin:0 auto;
+background:#EE8537;
+border-top:5px solid #377654;
+}
+
+.nm-home-nav{
+display:flex;
+justify-content:center;
+align-items:center;
+gap:40px;
+padding:14px 20px;
+flex-wrap:wrap;
+}
+
+.nm-home-nav a{
+text-decoration:none;
+font-size:clamp(14px, 2vw, 22px);
+font-weight:500;
+letter-spacing:1px;
+color:#682D2E;
+line-height:1;
+}
+
+.nm-home-nav a:link,
+.nm-home-nav a:visited{
+color:#682D2E;
+}
+
+.nm-home-nav a:hover,
+.nm-home-nav a:active{
+color:#377654;
+}
+
+.nm-home-nav a.active:link,
+.nm-home-nav a.active:visited{
+color:#377654;
+font-weight:700;
+}
+
+/* PAGE */
+
+.page-shell{
+width:min(92%, 1200px);
+margin:28px auto 50px;
+}
+
+.page-hero{
+background:rgba(255,255,255,0.86);
+border:1px solid rgba(104,45,46,0.14);
+border-radius:22px;
+box-shadow:0 10px 30px rgba(0,0,0,0.08);
+padding:26px 22px;
+margin-bottom:28px;
+}
+
+.page-kicker{
+font-size:13px;
+font-weight:700;
+letter-spacing:1.8px;
+text-transform:uppercase;
+color:#377654;
+margin:0 0 8px;
+}
+
+.page-title{
+margin:0;
+font-size:clamp(30px, 4vw, 48px);
+line-height:1.05;
+color:#682D2E;
+}
+
+.page-subtitle{
+margin:12px 0 0;
+font-size:clamp(16px, 2vw, 20px);
+line-height:1.5;
+color:#4d4d4d;
+max-width:780px;
+}
+
+/* ATTRACTION CARDS */
+
+.stop-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
+gap:22px;
+}
+
+.stop-card{
+display:block;
+background:#fff;
+border-radius:22px;
+padding:22px;
+box-shadow:0 10px 30px rgba(0,0,0,0.10);
+border:1px solid rgba(104,45,46,0.10);
+text-decoration:none;
+color:#222;
+transition:transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.stop-card:hover{
+transform:translateY(-4px);
+box-shadow:0 16px 36px rgba(0,0,0,0.14);
+}
+
+.stop-tag{
+display:inline-block;
+margin-bottom:10px;
+padding:6px 10px;
+border-radius:999px;
+font-size:12px;
+font-weight:700;
+letter-spacing:1px;
+text-transform:uppercase;
+background:rgba(55,118,84,0.10);
+color:#377654;
+}
+
+.stop-title{
+margin:0 0 8px;
+font-size:22px;
+line-height:1.2;
+color:#682D2E;
+}
+
+.stop-desc{
+margin:0;
+font-size:15px;
+line-height:1.55;
+color:#4b4b4b;
+}
+
+.page-footer{
+width:min(92%, 1200px);
+margin:0 auto 40px;
+text-align:center;
+font-size:14px;
+letter-spacing:0.8px;
+color:#6b6b6b;
+}
+
+/* MOBILE */
+
+@media (max-width:600px){
+.nm-home-nav{
+gap:22px;
+padding:12px 14px;
+}
+
+.nm-home-nav a{
+font-size:clamp(13px, 4vw, 18px);
+letter-spacing:0.5px;
+}
+
+.page-shell{
+width:min(94%, 1200px);
+margin:20px auto 36px;
+}
+
+.page-hero{
+padding:22px 18px;
+margin-bottom:22px;
+border-radius:18px;
+}
+
+.stop-card{
+padding:18px;
+border-radius:18px;
+}
+}
+</style>
+</head>
+
+<body>
+
+<header class="nm-header">
+  <img src="/NM26-QR-codes/assets/images/header_banner.png" class="nm-banner" alt="NM26 Header">
+</header>
+
+<div class="nm-home-nav-wrap">
+  <nav class="nm-home-nav">
+    <a href="index.html">HOME</a>
+    <a href="itinerary.html">ITINERARY</a>
+    <a href="lodging.html">LODGING</a>
+    <a href="dining.html">DINING</a>
+    <a href="attractions.html" class="active">ATTRACTIONS</a>
+  </nav>
+</div>
+
+<main class="page-shell">
+  <section class="page-hero">
+    <p class="page-kicker">NM26 Field Guide</p>
+    <h1 class="page-title">Attractions &amp; Stops</h1>
+    <p class="page-subtitle">
+      Scenic stops, museums, landmarks, national park pages, and memorable detours along the NM26 route.
+    </p>
+  </section>
+
+  <section class="stop-grid">
+
+    <a href="https://www.nps.gov/band" target="_blank" rel="noopener noreferrer" class="stop-card">
+      <span class="stop-tag">History / Hike</span>
+      <h2 class="stop-title">Bandelier National Monument</h2>
+      <p class="stop-desc">Cliff dwellings, ladders, canyon trails, and one of the core ancient-history stops of the trip.</p>
+    </a>
+
+    <a href="https://www.nps.gov/whsa/" target="_blank" rel="noopener noreferrer" class="stop-card">
+      <span class="stop-tag">Landscape</span>
+      <h2 class="stop-title">White Sands National Park</h2>
+      <p class="stop-desc">White gypsum dunes, changing light, and one of the most visually distinctive stops on the route.</p>
+    </a>
+
+    <a href="https://www.nps.gov/cave/" target="_blank" rel="noopener noreferrer" class="stop-card">
+      <span class="stop-tag">Caverns</span>
+      <h2 class="stop-title">Carlsbad Caverns</h2>
+      <p class="stop-desc">Official park page for tickets, hours, bat flight info, and cavern planning. Timed entry is currently required.</p>
+    </a>
+
+    <a href="https://www.santarosabluehole.com/" target="_blank" rel="noopener noreferrer" class="stop-card">
+      <span class="stop-tag">Swim / Dive</span>
+      <h2 class="stop-title">Santa Rosa Blue Hole</h2>
+      <p class="stop-desc">Quick break or longer stop for the famous blue-water swimming and dive spot right off the route.</p>
+    </a>
+
+    <a href="https://tinkertown.com/" target="_blank" rel="noopener noreferrer" class="stop-card">
+      <span class="stop-tag">Roadside Weird</span>
+      <h2 class="stop-title">Tinkertown Museum</h2>
+      <p class="stop-desc">A quirky Turquoise Trail favorite packed with carved scenes, odd collections, and classic roadside energy.</p>
+    </a>
+
+    <a href="https://www.roswellufomuseum.com/" target="_blank" rel="noopener noreferrer" class="stop-card">
+      <span class="stop-tag">Roswell</span>
+      <h2 class="stop-title">International UFO Museum</h2>
+      <p class="stop-desc">The essential Roswell stop for exhibits, lore, and full-on alien atmosphere.</p>
+    </a>
+
+    <a href="https://bigtexan.com/" target="_blank" rel="noopener noreferrer" class="stop-card">
+      <span class="stop-tag">Texas Stop</span>
+      <h2 class="stop-title">The Big Texan Steak Ranch</h2>
+      <p class="stop-desc">Historic Route 66 icon in Amarillo with the famous steak challenge and maximum road-trip energy.</p>
+    </a>
+
+    <a href="https://www.bluebell.com/visit-blue-bell/" target="_blank" rel="noopener noreferrer" class="stop-card">
+      <span class="stop-tag">Texas Stop</span>
+      <h2 class="stop-title">Blue Bell Creameries</h2>
+      <p class="stop-desc">Brenham visitor stop with the parlor, country store, and Blue Bell experience.</p>
+    </a>
+
+  </section>
+</main>
+
+<footer class="page-footer">
+  NM26 Travel Plan • Attraction links subject to change
+</footer>
+
+</body>
+</html>
