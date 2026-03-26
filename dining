@@ -1,61 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NM26 Dining Plan</title>
+
 <style>
-  .food-section {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 2rem 1rem;
+  body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(to bottom, #1a1a1a, #2b2b2b);
     color: #f5f0e8;
   }
 
-  .food-header {
+  .container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 20px;
+  }
+
+  h1 {
     text-align: center;
-    margin-bottom: 2rem;
-  }
-
-  .food-header h2 {
-    font-size: 2rem;
-    margin-bottom: 0.35rem;
     color: #EE8537;
+    margin-bottom: 5px;
   }
 
-  .food-header p {
+  .subtitle {
+    text-align: center;
     color: #d9c7b2;
-    margin: 0;
+    margin-bottom: 30px;
   }
 
-  .food-grid {
+  .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
   }
 
-  .food-card {
-    background: rgba(104, 45, 46, 0.88);
-    border: 1px solid rgba(238, 133, 55, 0.35);
-    border-radius: 16px;
-    padding: 1rem;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  .card {
+    background: rgba(104, 45, 46, 0.9);
+    border: 1px solid rgba(238, 133, 55, 0.3);
+    border-radius: 14px;
+    padding: 14px;
+    box-shadow: 0 8px 18px rgba(0,0,0,0.3);
   }
 
-  .food-card h3 {
+  .card h3 {
     margin-top: 0;
-    margin-bottom: 0.5rem;
     color: #EE8537;
     font-size: 1.1rem;
   }
 
-  .food-card p {
-    margin: 0.35rem 0;
-    line-height: 1.45;
-  }
-
-  .food-card .theme {
+  .theme {
     color: #ffd8a8;
     font-style: italic;
+    margin-bottom: 8px;
   }
 
-  .food-card .note {
-    margin-top: 0.75rem;
+  .card p {
+    margin: 6px 0;
+    line-height: 1.4;
+  }
+
+  .note {
+    margin-top: 10px;
     color: #f1dfc8;
     font-size: 0.95rem;
   }
+
+  .links {
+    margin-top: 8px;
+  }
+
+  .links a {
+    display: inline-block;
+    margin-top: 4px;
+    margin-right: 6px;
+    padding: 4px 8px;
+    font-size: 0.8rem;
+    border-radius: 6px;
+    text-decoration: none;
+    background: #EE8537;
+    color: #1a1a1a;
+    font-weight: bold;
+  }
+
+  .links a:hover {
+    background: #ff9c4d;
+  }
+
 </style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <h1>🌄 NM26 DINING PLAN</h1>
+  <p class="subtitle">Nights 1–8 • Balanced • No Burnout • Road-Tested</p>
+
+  <div class="grid">
+
+    <!-- Night 1 -->
+    <div class="card">
+      <h3>🌙 Night 1 — Tucumcari</h3>
+      <div class="theme">🍔 Route 66 Kickoff</div>
+      <p><strong>Plan:</strong> Classic diner burger & fries</p>
+      <p><strong>Go-To:</strong> Del’s Restaurant</p>
+      <p><strong>Backup:</strong> Kix on 66</p>
+      <div class="note">👉 Set the tone. Easy. Nostalgic. No thinking.</div>
+    </div>
+
+    <!-- Night 2 -->
+    <div class="card">
+      <h3>🌙 Night 2 — Santa Fe</h3>
+      <div class="theme">🌶️ New Mexican Experience Night</div>
+      <p><strong>Plan:</strong> Go all-in on chile (Christmas style)</p>
+      <p><strong>Go-To:</strong> The Shed</p>
+      <p><strong>Backup:</strong> Tomasita’s</p>
+      <div class="note">👉 This is THE New Mexican meal of the trip.</div>
+    </div>
+
+    <!-- Night 3 -->
+    <div class="card">
+      <h3>🌙 Night 3 — Taos</h3>
+      <div class="theme">🍺 Mountain Chill Night</div>
+      <p><strong>Plan:</strong> Relaxed food, not heavy</p>
+      <p><strong>Go-To:</strong> Taos Mesa Brewing</p>
+      <p><strong>Alt:</strong> Orlando’s New Mexican Cafe</p>
+      <div class="note">👉 Kick back. Recharge.</div>
+    </div>
+
+    <!-- Night 4 -->
+    <div class="card">
+      <h3>🌙 Night 4 — Santa Fe (Return)</h3>
+      <div class="theme">🫓 Fry Bread / Something Different</div>
+      <p><strong>Plan:</strong> Indian taco / sopaipillas / lighter New Mexican</p>
+      <p><strong>Go-To:</strong> Tia Sophia’s</p>
+      <p><strong>Backup:</strong> Tune-Up Café</p>
+      <div class="note">👉 Different texture, lighter feel. Keeps things fresh.</div>
+    </div>
+
+    <!-- Night 5 -->
+    <div class="card">
+      <h3>🌙 Night 5 — Socorro</h3>
+      <div class="theme">🍔 Low-Key Reset Night</div>
+      <p><strong>Plan:</strong> Easy, no pressure</p>
+      <p><strong>Go-To:</strong> Socorro Springs Brewing Company</p>
+      <div class="note">👉 Eat. Chill. No agenda.</div>
+    </div>
+
+    <!-- Night 6 -->
+    <div class="card">
+      <h3>🌙 Night 6 — Roswell</h3>
+      <div class="theme">👽 Fun / Gimmick Night</div>
+      <p><strong>Plan:</strong> Experience stop (not serious dinner)</p>
+      <p><strong>Go-To:</strong> McDonald's UFO Roswell</p>
+      <p><strong>Optional:</strong> Farley’s Food Fun & Pub</p>
+      <div class="note">👉 Lean into the weird. Have fun with it.</div>
+    </div>
+
+    <!-- Night 7 -->
+    <div class="card">
+      <h3>🌙 Night 7 — Fort Stockton</h3>
+      <div class="theme">🛏️ Survival / Recovery Night</div>
+      <p><strong>Plan A:</strong> Drive-thru + hotel (Whataburger)</p>
+      <p><strong>Plan B:</strong> K-Bob’s Steakhouse (if energy allows)</p>
+      <div class="note">👉 No pressure. Match energy level.</div>
+    </div>
+
+    <!-- Night 8 -->
+    <div class="card">
+      <h3>🌙 Night 8 — San Antonio</h3>
+      <div class="theme">🌉 Celebration Night (River Walk)</div>
+      <p><strong>Plan:</strong> Walk first, choose restaurant by vibe</p>
+      <p><strong>Go-To:</strong> Casa Rio</p>
+      <p><strong>Upgrade:</strong> Boudro’s Texas Bistro</p>
+      <div class="note">👉 This is your “we made it” night.</div>
+    </div>
+
+  </div>
+
+</div>
+
+</body>
+</html>
