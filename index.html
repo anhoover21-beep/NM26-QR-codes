@@ -1,3 +1,4 @@
+<!-- /index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -70,13 +71,11 @@ display:grid;
 gap:26px;
 }
 
-/* HERO */
+/* HERO TEXT */
 
-.hero-card{
-background:white;
-border-radius:24px;
-padding:28px 24px;
-box-shadow:0 10px 30px rgba(0,0,0,0.1);
+.page-intro{
+text-align:center;
+padding:4px 8px 2px;
 }
 
 .hero-title{
@@ -89,6 +88,7 @@ color:#682D2E;
 margin-top:14px;
 font-size:clamp(16px, 2vw, 20px);
 color:#444;
+line-height:1.5;
 }
 
 /* GRID */
@@ -117,6 +117,7 @@ color:#682D2E;
 .card-copy{
 margin-top:10px;
 color:#444;
+line-height:1.5;
 }
 
 .card-link{
@@ -174,7 +175,7 @@ opacity:0.7;
 .footer-link:hover{
 color:#377654;
 opacity:1;
-}  
+}
 
 /* HIDDEN LINK */
 
@@ -207,7 +208,7 @@ width:94%;
 <body>
 
 <header class="nm-header">
-  <img src="/NM26-QR-codes/assets/images/header_banner.png" class="nm-banner">
+  <img src="/NM26-QR-codes/assets/images/header_banner.png" class="nm-banner" alt="NM26 Banner">
 </header>
 
 <div class="nm-home-nav-wrap">
@@ -221,16 +222,22 @@ width:94%;
 
 <main class="page-shell">
 
-  <section class="hero-card">
+  <section class="page-intro">
     <h1 class="hero-title">NM26 Vacation Portal</h1>
     <p class="hero-sub">
-      History written stone. Mystery in the stars. Miracles all around.<br>
-      Find useful links for information and trip planning here.
+      History written stone. Mystery in the stars. Miracles all around.
     </p>
-    <a href="useful-links.html" class="card-link">Open →</a>
   </section>
 
   <section class="section-grid">
+
+    <article class="info-card">
+      <h2 class="card-title">Useful Links</h2>
+      <p class="card-copy">
+        Quick access to trip planning tools, reference pages, and helpful information for the route.
+      </p>
+      <a href="useful-links.html" class="card-link">Open →</a>
+    </article>
 
     <article class="info-card">
       <h2 class="card-title">Itinerary</h2>
@@ -240,13 +247,13 @@ width:94%;
       <a href="itinerary.html" class="card-link">Open →</a>
     </article>
 
-     <article class="info-card">
+    <article class="info-card">
       <h2 class="card-title">Dining</h2>
       <p class="card-copy">
-        Dining options for each night's stay
+        Dining options for each night's stay.
       </p>
       <a href="dining.html" class="card-link">Open →</a>
-    </article>   
+    </article>
 
     <article class="info-card">
       <h2 class="card-title">Lodging</h2>
@@ -259,7 +266,7 @@ width:94%;
     <article class="info-card mission-card">
       <h2 class="card-title">Nightly Missions</h2>
       <p class="card-copy">
-        Each night unlocks a new mission after checking in to hotel.
+        Each night unlocks a new mission after checking in to the hotel.
       </p>
       <div class="mission-warning">
         Do not open before 6:00 PM
