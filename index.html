@@ -102,10 +102,19 @@ gap:22px;
 /* CARDS */
 
 .info-card{
+display:block;
 background:#fff;
 border-radius:22px;
 padding:22px;
 box-shadow:0 10px 30px rgba(0,0,0,0.1);
+text-decoration:none;
+color:#222;
+transition:transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.info-card:hover{
+transform:translateY(-4px);
+box-shadow:0 16px 36px rgba(0,0,0,0.14);
 }
 
 .card-title{
@@ -118,14 +127,6 @@ color:#682D2E;
 margin-top:10px;
 color:#444;
 line-height:1.5;
-}
-
-.card-link{
-display:inline-block;
-margin-top:16px;
-text-decoration:none;
-font-weight:bold;
-color:#377654;
 }
 
 /* MISSION CARD */
@@ -149,10 +150,6 @@ margin-top:12px;
 font-size:12px;
 letter-spacing:1px;
 text-transform:uppercase;
-color:#ffcc80;
-}
-
-.mission-link{
 color:#ffcc80;
 }
 
@@ -231,49 +228,42 @@ width:94%;
 
   <section class="section-grid">
 
-
-
-    <article class="info-card">
+    <a href="itinerary.html" class="info-card">
       <h2 class="card-title">Itinerary</h2>
       <p class="card-copy">
         Follow the full NM26 trip one day at a time.
       </p>
-      <a href="itinerary.html" class="card-link">Open →</a>
-    </article>
+    </a>
 
-    <article class="info-card">
+    <a href="lodging.html" class="info-card">
       <h2 class="card-title">Lodging</h2>
       <p class="card-copy">
         Every overnight stay, address, and check-in detail.
       </p>
-      <a href="lodging.html" class="card-link">Open →</a>
-    </article>
+    </a>
 
-    <article class="info-card">
+    <a href="dining.html" class="info-card">
       <h2 class="card-title">Dining</h2>
       <p class="card-copy">
         Dining options for each night's stay.
       </p>
-      <a href="dining.html" class="card-link">Open →</a>
-    </article>
+    </a>
 
-    <article class="info-card">
+    <a href="useful-links.html" class="info-card">
       <h2 class="card-title">Useful Links</h2>
       <p class="card-copy">
         Quick access to trip planning tools, reference pages, and helpful information for the route.
       </p>
-      <a href="useful-links.html" class="card-link">Open →</a>
-    </article>
+    </a>
 
-  <article class="info-card">
-    <h2 class="card-title">Attractions / Stops</h2>
-    <p class="card-copy">
-    Scenic stops, landmarks, parks, museums, and roadside attractions along the route.
-    </p>
-    <a href="attractions.html" class="card-link">Open →</a>
- </article>
+    <a href="attractions.html" class="info-card">
+      <h2 class="card-title">Attractions / Stops</h2>
+      <p class="card-copy">
+        Scenic stops, landmarks, parks, museums, and roadside attractions along the route.
+      </p>
+    </a>
 
-    <article class="info-card mission-card">
+    <a href="nightly-missions.html" class="info-card mission-card">
       <h2 class="card-title">Nightly Missions</h2>
       <p class="card-copy">
         Each night unlocks a new mission after checking in to the hotel.
@@ -281,8 +271,7 @@ width:94%;
       <div class="mission-warning">
         Do not open before 6:00 PM
       </div>
-      <a href="nightly-missions.html" class="card-link mission-link">Enter →</a>
-    </article>
+    </a>
 
   </section>
 
