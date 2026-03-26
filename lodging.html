@@ -1,3 +1,4 @@
+<!-- /lodging.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,7 +15,7 @@ font-family:Arial, Helvetica, sans-serif;
 color:#222;
 }
 
-/* HEADER IMAGE */
+/* HEADER */
 
 .nm-header{
 width:min(100%, 1900px);
@@ -27,7 +28,7 @@ height:auto;
 display:block;
 }
 
-/* NAV BELOW HEADER */
+/* NAV */
 
 .nm-home-nav-wrap{
 width:min(100%, 1900px);
@@ -75,40 +76,31 @@ font-weight:700;
 .page-shell{
 width:min(92%, 1200px);
 margin:28px auto 50px;
+display:grid;
+gap:26px;
 }
 
-.page-hero{
-background:rgba(255,255,255,0.86);
-border:1px solid rgba(104,45,46,0.14);
-border-radius:22px;
-box-shadow:0 10px 30px rgba(0,0,0,0.08);
-padding:26px 22px;
-margin-bottom:28px;
+/* HERO TEXT */
+
+.page-intro{
+text-align:center;
+padding:4px 8px 2px;
 }
 
-.page-kicker{
-font-size:13px;
-font-weight:700;
-letter-spacing:1.8px;
-text-transform:uppercase;
-color:#377654;
-margin:0 0 8px;
-}
-
-.page-title{
+.hero-title{
 margin:0;
-font-size:clamp(30px, 4vw, 48px);
-line-height:1.05;
+font-size:clamp(32px, 5vw, 52px);
 color:#682D2E;
 }
 
-.page-subtitle{
-margin:12px 0 0;
+.hero-sub{
+margin-top:14px;
 font-size:clamp(16px, 2vw, 20px);
+color:#444;
 line-height:1.5;
-color:#4d4d4d;
-max-width:760px;
 }
+
+/* LODGING GRID */
 
 .lodging-grid{
 display:grid;
@@ -263,13 +255,13 @@ color:#6b6b6b;
 
 /* MOBILE */
 
-@media (max-width: 700px){
+@media (max-width:700px){
 .info-grid{
 grid-template-columns:1fr;
 }
 }
 
-@media (max-width: 600px){
+@media (max-width:600px){
 .nm-home-nav{
 gap:22px;
 padding:12px 14px;
@@ -283,12 +275,6 @@ letter-spacing:0.5px;
 .page-shell{
 width:min(94%, 1200px);
 margin:20px auto 36px;
-}
-
-.page-hero{
-padding:22px 18px;
-margin-bottom:22px;
-border-radius:18px;
 }
 
 .lodging-card{
@@ -319,10 +305,12 @@ margin-bottom:14px;
 </div>
 
 <main class="page-shell">
-  <section class="page-hero">
-    <p class="page-kicker">NM26 Staybook</p>
-    <h1 class="page-title">Lodging</h1>
-    <p class="page-subtitle">Overnight stays, addresses, and check-in details for the NM26 loop.</p>
+
+  <section class="page-intro">
+    <h1 class="hero-title">NM26 Staybook Lodging</h1>
+    <p class="hero-sub">
+      Overnight stays, addresses, and check-in details for the NM26 loop.
+    </p>
   </section>
 
   <section class="lodging-grid">
@@ -598,8 +586,6 @@ margin-bottom:14px;
 
   </section>
 </main>
-
-
 
 </body>
 </html>
