@@ -1,118 +1,193 @@
+<!-- /useful-links.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Useful Links</title>
+<title>NM26 Trip Tools</title>
 
 <style>
 body{
-  margin:0;
-  font-family:Arial, Helvetica, sans-serif;
-  background:#f4f4f4;
-  color:#222;
+margin:0;
+background:
+linear-gradient(180deg, #f8f1d5 0%, #f2f2f2 42%, #ececec 100%);
+font-family:Arial, Helvetica, sans-serif;
+color:#222;
+}
 
-
-/* ===== LOCKED HEADER ===== */
+/* HEADER */
 
 .nm-header{
-  width:min(100%, 1900px);
-  margin:0 auto;
+width:min(100%, 1900px);
+margin:0 auto;
 }
 
 .nm-banner{
-  width:100%;
-  height:auto;
-  display:block;
+width:100%;
+height:auto;
+display:block;
 }
 
+/* NAV */
+
 .nm-home-nav-wrap{
-  width:min(100%, 1900px);
-  margin:0 auto;
-  background:#EE8537;
-  border-top:5px solid #377654;
+width:min(100%, 1900px);
+margin:0 auto;
+background:#EE8537;
+border-top:5px solid #377654;
 }
 
 .nm-home-nav{
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  gap:40px;
-  padding:14px 20px;
-  flex-wrap:wrap;
+display:flex;
+justify-content:center;
+align-items:center;
+gap:40px;
+padding:14px 20px;
+flex-wrap:wrap;
 }
 
 .nm-home-nav a{
-  text-decoration:none;
-  font-size:clamp(14px, 2vw, 22px);
-  font-weight:500;
-  letter-spacing:1px;
-  color:#682D2E;
-  line-height:1;
+text-decoration:none;
+font-size:clamp(14px, 2vw, 22px);
+font-weight:500;
+letter-spacing:1px;
+color:#682D2E;
+line-height:1;
 }
 
 .nm-home-nav a:link,
 .nm-home-nav a:visited{
-  color:#682D2E;
+color:#682D2E;
 }
 
 .nm-home-nav a:hover,
 .nm-home-nav a:active{
-  color:#377654;
+color:#377654;
 }
 
-/* ===== PAGE CONTENT ===== */
-
-.container{
-  width:min(1100px, 92%);
-  margin:30px auto 50px;
+.nm-home-nav a.active:link,
+.nm-home-nav a.active:visited{
+color:#377654;
+font-weight:700;
 }
 
-h1{
-  text-align:center;
-  margin-bottom:25px;
+/* PAGE */
+
+.page-shell{
+width:min(92%, 1200px);
+margin:28px auto 50px;
 }
 
-/* ===== LINK CARDS ===== */
+.page-hero{
+background:rgba(255,255,255,0.86);
+border:1px solid rgba(104,45,46,0.14);
+border-radius:22px;
+box-shadow:0 10px 30px rgba(0,0,0,0.08);
+padding:26px 22px;
+margin-bottom:28px;
+}
+
+.page-kicker{
+font-size:13px;
+font-weight:700;
+letter-spacing:1.8px;
+text-transform:uppercase;
+color:#377654;
+margin:0 0 8px;
+}
+
+.page-title{
+margin:0;
+font-size:clamp(30px, 4vw, 48px);
+line-height:1.05;
+color:#682D2E;
+}
+
+.page-subtitle{
+margin:12px 0 0;
+font-size:clamp(16px, 2vw, 20px);
+line-height:1.5;
+color:#4d4d4d;
+max-width:780px;
+}
+
+/* LINK CARDS */
 
 .link-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit, minmax(260px,1fr));
-  gap:20px;
+display:grid;
+grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
+gap:22px;
 }
 
 .link-card{
-  background:white;
-  border-radius:10px;
-  padding:18px;
-  box-shadow:0 4px 10px rgba(0,0,0,0.08);
-  text-decoration:none;
-  color:#222;
-  transition:transform 0.15s ease, box-shadow 0.15s ease;
+display:block;
+background:#fff;
+border-radius:22px;
+padding:22px;
+box-shadow:0 10px 30px rgba(0,0,0,0.10);
+border:1px solid rgba(104,45,46,0.10);
+text-decoration:none;
+color:#222;
+transition:transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 .link-card:hover{
-  transform:translateY(-4px);
-  box-shadow:0 8px 18px rgba(0,0,0,0.12);
+transform:translateY(-4px);
+box-shadow:0 16px 36px rgba(0,0,0,0.14);
 }
 
 .link-title{
-  font-size:18px;
-  font-weight:bold;
-  margin-bottom:8px;
+margin:0 0 8px;
+font-size:22px;
+line-height:1.2;
+color:#682D2E;
 }
 
 .link-desc{
-  font-size:14px;
-  color:#555;
+margin:0;
+font-size:15px;
+line-height:1.55;
+color:#4b4b4b;
 }
 
+.page-footer{
+width:min(92%, 1200px);
+margin:0 auto 40px;
+text-align:center;
+font-size:14px;
+letter-spacing:0.8px;
+color:#6b6b6b;
+}
 
-</style>
-</head>
+/* MOBILE */
 
-<body>
+@media (max-width:600px){
+.nm-home-nav{
+gap:22px;
+padding:12px 14px;
+}
 
+.nm-home-nav a{
+font-size:clamp(13px, 4vw, 18px);
+letter-spacing:0.5px;
+}
+
+.page-shell{
+width:min(94%, 1200px);
+margin:20px auto 36px;
+}
+
+.page-hero{
+padding:22px 18px;
+margin-bottom:22px;
+border-radius:18px;
+}
+
+.link-card{
+padding:18px;
+border-radius:18px;
+}
+}
 </style>
 </head>
 
@@ -131,77 +206,53 @@ h1{
   </nav>
 </div>
 
-</div>
+<main class="page-shell">
+  <section class="page-hero">
+    <p class="page-kicker">NM26 Toolkit</p>
+    <h1 class="page-title">Trip Tools</h1>
+    <p class="page-subtitle">
+      Planning links, tourism hubs, route inspiration, and general-purpose resources for the NM26 trip.
+    </p>
+  </section>
 
-<!-- CONTENT -->
-<div class="container">
-  <h1>NM26 Resource Hub</h1>
+  <section class="link-grid">
 
-  <div class="link-grid">
-
-    <a href="https://www.newmexico.org" target="_blank" class="link-card">
-      <div class="link-title">New Mexico Tourism</div>
-      <div class="link-desc">Official state tourism site for planning, regions, and backup ideas.</div>
+    <a href="https://www.newmexico.org" target="_blank" rel="noopener noreferrer" class="link-card">
+      <h2 class="link-title">New Mexico Tourism</h2>
+      <p class="link-desc">Official state tourism site for planning, regions, seasonal ideas, and backup options.</p>
     </a>
 
-    <a href="https://www.santafe.org" target="_blank" class="link-card">
-      <div class="link-title">Santa Fe Tourism</div>
-      <div class="link-desc">Restaurants, plaza events, shopping, and local highlights.</div>
+    <a href="https://www.santafe.org" target="_blank" rel="noopener noreferrer" class="link-card">
+      <h2 class="link-title">Santa Fe Tourism</h2>
+      <p class="link-desc">Local planning resource for restaurants, plaza events, shopping, and city highlights.</p>
     </a>
 
-    <a href="https://taos.org" target="_blank" class="link-card">
-      <div class="link-title">Taos Tourism</div>
-      <div class="link-desc">Gorge Bridge, High Road stops, and outdoor activities.</div>
+    <a href="https://taos.org" target="_blank" rel="noopener noreferrer" class="link-card">
+      <h2 class="link-title">Taos Tourism</h2>
+      <p class="link-desc">Visitor resource for Taos sights, outdoor activities, scenic drives, and local planning.</p>
     </a>
 
-    <a href="https://www.visitsanantonio.com/" target="_blank" class="link-card">
-      <div class="link-title">San Antonio Toursim</div>
-      <div class="link-desc">Restaurants, Riverwalk, shopping, and dining..</div>
+    <a href="https://www.visitsanantonio.com/" target="_blank" rel="noopener noreferrer" class="link-card">
+      <h2 class="link-title">San Antonio Tourism</h2>
+      <p class="link-desc">River Walk planning, dining ideas, events, shopping, and city visitor information.</p>
     </a>
 
-    <a href="https://www.nps.gov/band" target="_blank" class="link-card">
-      <div class="link-title">Bandelier National Monument</div>
-      <div class="link-desc">Trail info, ladders, and cliff dwellings access.</div>
+    <a href="https://www.roadsideamerica.com" target="_blank" rel="noopener noreferrer" class="link-card">
+      <h2 class="link-title">Roadside America</h2>
+      <p class="link-desc">Find quirky, offbeat roadside attractions and oddball detours along the route.</p>
     </a>
 
-    <a href="https://www.nps.gov/whsa" target="_blank" class="link-card">
-      <div class="link-title">White Sands National Park</div>
-      <div class="link-desc">Hours, conditions, and visitor information.</div>
+    <a href="https://www.wowfold.com" target="_blank" rel="noopener noreferrer" class="link-card">
+      <h2 class="link-title">Paper Airplane Tutorial</h2>
+      <p class="link-desc">A just-for-fun extra with instructions for folding several paper airplane designs.</p>
     </a>
 
-    <a href="https://www.nps.gov/cave" target="_blank" class="link-card">
-      <div class="link-title">Carlsbad Caverns</div>
-      <div class="link-desc">Reservations, bat flight schedule, and cave access.</div>
-    </a>
+  </section>
+</main>
 
-    <a href="https://www.santarosabluehole.com" target="_blank" class="link-card">
-      <div class="link-title">Santa Rosa Blue Hole</div>
-      <div class="link-desc">Swimming spot and travel break.</div>
-    </a>
-
-    <a href="https://tinkertown.com" target="_blank" class="link-card">
-      <div class="link-title">Tinkertown Museum</div>
-      <div class="link-desc">Quirky roadside stop along the Turquoise Trail.</div>
-    </a>
-
-    <a href="https://www.roswellufomuseum.com" target="_blank" class="link-card">
-      <div class="link-title">Roswell UFO Museum</div>
-      <div class="link-desc">Aliens, exhibits, and Roswell history.</div>
-    </a>
-
-   <a href="https://www.wowfold.com" target="_blank" class="link-card">
-      <div class="link-title">Paper Airplane Tutoral</div>
-      <div class="link-desc">How To Fold Several Airplane Designs</div>
-    </a>   
-
-   <a href="https://www.roadsideamerica.com" target="_blank" class="link-card">
-      <div class="link-title">Roadside America</div>
-      <div class="link-desc">Quirky, Offbeat Roadside Stops</div>
-    </a> 
-    
-  </div>
-</div>
-
+<footer class="page-footer">
+  NM26 Travel Plan • Links subject to change
+</footer>
 
 </body>
 </html>
