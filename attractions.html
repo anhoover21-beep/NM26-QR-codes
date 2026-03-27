@@ -76,39 +76,28 @@ font-weight:700;
 .page-shell{
 width:min(92%, 1200px);
 margin:28px auto 50px;
+display:grid;
+gap:26px;
 }
 
-.page-hero{
-background:rgba(255,255,255,0.86);
-border:1px solid rgba(104,45,46,0.14);
-border-radius:22px;
-box-shadow:0 10px 30px rgba(0,0,0,0.08);
-padding:26px 22px;
-margin-bottom:28px;
+/* HERO TEXT */
+
+.page-intro{
+text-align:center;
+padding:4px 8px 2px;
 }
 
-.page-kicker{
-font-size:13px;
-font-weight:700;
-letter-spacing:1.8px;
-text-transform:uppercase;
-color:#377654;
-margin:0 0 8px;
-}
-
-.page-title{
+.hero-title{
 margin:0;
-font-size:clamp(30px, 4vw, 48px);
-line-height:1.05;
+font-size:clamp(32px, 5vw, 52px);
 color:#682D2E;
 }
 
-.page-subtitle{
-margin:12px 0 0;
+.hero-sub{
+margin-top:14px;
 font-size:clamp(16px, 2vw, 20px);
+color:#444;
 line-height:1.5;
-color:#4d4d4d;
-max-width:780px;
 }
 
 /* ATTRACTION CARDS */
@@ -190,12 +179,6 @@ width:min(94%, 1200px);
 margin:20px auto 36px;
 }
 
-.page-hero{
-padding:22px 18px;
-margin-bottom:22px;
-border-radius:18px;
-}
-
 .stop-card{
 padding:18px;
 border-radius:18px;
@@ -221,10 +204,10 @@ border-radius:18px;
 </div>
 
 <main class="page-shell">
-  <section class="page-hero">
-    <p class="page-kicker">NM26 Field Guide</p>
-    <h1 class="page-title">Attractions &amp; Stops</h1>
-    <p class="page-subtitle">
+
+  <section class="page-intro">
+    <h1 class="hero-title">NM26 Field Guide Attractions &amp; Stops</h1>
+    <p class="hero-sub">
       Scenic stops, museums, landmarks, national park pages, and memorable detours along the NM26 route.
     </p>
   </section>
